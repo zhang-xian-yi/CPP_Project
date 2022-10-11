@@ -145,33 +145,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Render\RendererEngine.cpp" />
-    <ClCompile Include="Src\Engines\Buffers\IndexBuffer.cpp" />
-    <ClCompile Include="Src\Engines\DataLoadEngine.cpp" />
-    <ClCompile Include="Src\Envirment\Application.cpp" />
-    <ClCompile Include="Src\Shader\ShaderManageGLPrivate.cpp" />
-    <ClCompile Include="Src\Shader\ShaderManager.cpp" />
-    <ClCompile Include="Src\main.cpp" />
-    <ClCompile Include="Src\Engines\Buffers\VertexBuffer.cpp" />
-    <ClCompile Include="Src\Engines\DataSrc\VertexArray.cpp" />
-    <ClCompile Include="Src\Engines\Layout\VLayoutElement.cpp" />
+    <ClCompile Include="Src\MainApp\Render\RendererEngine.cpp" />
+    <ClCompile Include="Src\MainApp\Engines\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="Src\MainApp\Engines\DataLoadEngine.cpp" />
+    <ClCompile Include="Src\MainApp\Envirment\Application.cpp" />
+    <ClCompile Include="Src\MainApp\Shader\ShaderManageGLPrivate.cpp" />
+    <ClCompile Include="Src\MainApp\Shader\ShaderManager.cpp" />
+    <ClCompile Include="Src\MainApp\main.cpp" />
+    <ClCompile Include="Src\MainApp\Engines\Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Src\MainApp\Engines\DataSrc\VertexArray.cpp" />
+    <ClCompile Include="Src\MainApp\Engines\Layout\VLayoutElement.cpp" />
+    <ClCompile Include="Src\_00ThirdPartSrc\stb_image\stb_image.cpp" />
+    <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Render\RendererEngine.h" />
-    <ClInclude Include="Src\Engines\Buffers\IndexBuffer.h" />
-    <ClInclude Include="Src\Engines\DataLoadEngine.h" />
-    <ClInclude Include="Src\Error\ErrorMacroDefie.h" />
-    <ClInclude Include="Src\Envirment\Application.h" />
-    <ClInclude Include="Src\Shader\ShaderManageGLPrivate.h" />
-    <ClInclude Include="Src\Shader\ShaderManager.h" />
-    <ClInclude Include="Src\Engines\Buffers\VertexBuffer.h" />
-    <ClInclude Include="Src\Engines\DataSrc\VertexArray.h" />
-    <ClInclude Include="Src\Engines\Layout\VertexBufferLayout.h" />
-    <ClInclude Include="Src\Engines\Layout\VLayoutElement.h" />
+    <ClInclude Include="Src\MainApp\Render\RendererEngine.h" />
+    <ClInclude Include="Src\MainApp\Engines\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Src\MainApp\Engines\DataLoadEngine.h" />
+    <ClInclude Include="Src\MainApp\Error\ErrorMacroDefie.h" />
+    <ClInclude Include="Src\MainApp\Envirment\Application.h" />
+    <ClInclude Include="Src\MainApp\Shader\ShaderManageGLPrivate.h" />
+    <ClInclude Include="Src\MainApp\Shader\ShaderManager.h" />
+    <ClInclude Include="Src\MainApp\Engines\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Src\MainApp\Engines\DataSrc\VertexArray.h" />
+    <ClInclude Include="Src\MainApp\Engines\Layout\VertexBufferLayout.h" />
+    <ClInclude Include="Src\MainApp\Engines\Layout\VLayoutElement.h" />
+    <ClInclude Include="Src\_00ThirdPartSrc\stb_image\stb_image.h" />
+    <ClInclude Include="Src\MainApp\Render\TextureService.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\Shaders\Fragment.shader" />
     <None Include="Resource\Shaders\Vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="F:\BrowerDownload\ChromeDownload\sky.jpeg" />
+    <Image Include="Resource\Textures\sky.jpeg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,74 +15,94 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\main.cpp">
+    <ClCompile Include="Src\MainApp\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Shader\ShaderManager.cpp">
+    <ClCompile Include="Src\MainApp\Shader\ShaderManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Shader\ShaderManageGLPrivate.cpp">
+    <ClCompile Include="Src\MainApp\Shader\ShaderManageGLPrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Envirment\Application.cpp">
+    <ClCompile Include="Src\MainApp\Envirment\Application.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engines\DataLoadEngine.cpp">
+    <ClCompile Include="Src\MainApp\Engines\DataLoadEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engines\Buffers\VertexBuffer.cpp">
+    <ClCompile Include="Src\MainApp\Engines\Buffers\VertexBuffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engines\Buffers\IndexBuffer.cpp">
+    <ClCompile Include="Src\MainApp\Engines\Buffers\IndexBuffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engines\DataSrc\VertexArray.cpp">
+    <ClCompile Include="Src\MainApp\Engines\DataSrc\VertexArray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Engines\Layout\VLayoutElement.cpp">
+    <ClCompile Include="Src\MainApp\Engines\Layout\VLayoutElement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Render\RendererEngine.cpp">
+    <ClCompile Include="Src\MainApp\Render\RendererEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\_00ThirdPartSrc\stb_image\stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MainApp\Render\TextureService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Shader\ShaderManager.h">
+    <ClInclude Include="Src\MainApp\Shader\ShaderManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Shader\ShaderManageGLPrivate.h">
+    <ClInclude Include="Src\MainApp\Shader\ShaderManageGLPrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Envirment\Application.h">
+    <ClInclude Include="Src\MainApp\Envirment\Application.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Error\ErrorMacroDefie.h">
+    <ClInclude Include="Src\MainApp\Error\ErrorMacroDefie.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\DataLoadEngine.h">
+    <ClInclude Include="Src\MainApp\Engines\DataLoadEngine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\Buffers\VertexBuffer.h">
+    <ClInclude Include="Src\MainApp\Engines\Buffers\VertexBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\Buffers\IndexBuffer.h">
+    <ClInclude Include="Src\MainApp\Engines\Buffers\IndexBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\DataSrc\VertexArray.h">
+    <ClInclude Include="Src\MainApp\Engines\DataSrc\VertexArray.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\Layout\VertexBufferLayout.h">
+    <ClInclude Include="Src\MainApp\Engines\Layout\VertexBufferLayout.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Engines\Layout\VLayoutElement.h">
+    <ClInclude Include="Src\MainApp\Engines\Layout\VLayoutElement.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Render\RendererEngine.h">
+    <ClInclude Include="Src\MainApp\Render\RendererEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\_00ThirdPartSrc\stb_image\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MainApp\Render\TextureService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\Shaders\Fragment.shader" />
     <None Include="Resource\Shaders\Vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="F:\BrowerDownload\ChromeDownload\sky.jpeg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Resource\Textures\sky.jpeg">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>
