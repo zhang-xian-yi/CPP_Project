@@ -45,7 +45,7 @@
     <ClCompile Include="Src\MainApp\Render\RendererEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\_00ThirdPartSrc\stb_image\stb_image.cpp">
+    <ClCompile Include="Src\AThirdPartSrc\stb_image\stb_image.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp">
@@ -86,7 +86,7 @@
     <ClInclude Include="Src\MainApp\Render\RendererEngine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\_00ThirdPartSrc\stb_image\stb_image.h">
+    <ClInclude Include="Src\AThirdPartSrc\stb_image\stb_image.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\MainApp\Render\TextureService.h">

@@ -77,6 +77,7 @@ const DataSrcNS::VertexArray& EngineNS::DataLoadEngine::GetVArray() const
 void EngineNS::DataLoadEngine::InitDataEnvir()
 {
 	m_pVBufLayout->Push<float>(2);//每两个浮点数为一个顶点对象
+	m_pVBufLayout->Push<float>(2);//每两个浮点数为一个纹理坐标
 	//绑定缓冲区和布局定义
 	m_pVArray->BindVBuffAndVLayout(*m_pVertexBufferS, *m_pVBufLayout);
 }

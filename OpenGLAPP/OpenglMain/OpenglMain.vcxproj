@@ -155,7 +155,7 @@
     <ClCompile Include="Src\MainApp\Engines\Buffers\VertexBuffer.cpp" />
     <ClCompile Include="Src\MainApp\Engines\DataSrc\VertexArray.cpp" />
     <ClCompile Include="Src\MainApp\Engines\Layout\VLayoutElement.cpp" />
-    <ClCompile Include="Src\_00ThirdPartSrc\stb_image\stb_image.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\stb_image\stb_image.cpp" />
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +170,7 @@
     <ClInclude Include="Src\MainApp\Engines\DataSrc\VertexArray.h" />
     <ClInclude Include="Src\MainApp\Engines\Layout\VertexBufferLayout.h" />
     <ClInclude Include="Src\MainApp\Engines\Layout\VLayoutElement.h" />
-    <ClInclude Include="Src\_00ThirdPartSrc\stb_image\stb_image.h" />
+    <ClInclude Include="Src\AThirdPartSrc\stb_image\stb_image.h" />
     <ClInclude Include="Src\MainApp\Render\TextureService.h" />
   </ItemGroup>
   <ItemGroup>

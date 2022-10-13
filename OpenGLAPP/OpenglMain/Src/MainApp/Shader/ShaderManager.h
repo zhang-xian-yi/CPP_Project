@@ -11,6 +11,8 @@ namespace ShaderNS
 	public:
 		//初始化着色器
 		int initShader();
+		void SetUniform1f(const std::string& name, int value);
+		void SetUniform1f(const std::string& name, float value);
 		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
 		void Bind()const;
 		void UnBind()const;
@@ -22,7 +24,7 @@ namespace ShaderNS
 		int CreateShader(const std::string& vertexShaderStr, const std::string& fragmentShaderStr);
 		//解析GLSL语言的着色器文件
 		std::string ParseShaderFileRes(const std::string& filePath);
-		unsigned int GetuniformLocation(const std::string& name);
+		int GetuniformLocation(const std::string& name);
 	private:
 		ShaderNS::ShaderManageGLPrivate* _pShaderGLMag;
 		unsigned int m_tmpShaderID;//着色器的ID

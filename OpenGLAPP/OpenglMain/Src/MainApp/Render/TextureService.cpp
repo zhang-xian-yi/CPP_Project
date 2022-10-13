@@ -2,7 +2,7 @@
 //
 #include "RendererEngine.h"
 #include "GL/glew.h"
-#include "../../_00ThirdPartSrc/stb_image/stb_image.h"//文件加载工具
+#include "../../AThirdPartSrc/stb_image/stb_image.h"//文件加载工具
 
 RenderNS::TextureService::TextureService()
 	:m_rendererId(0), m_width(0), m_height(0), m_BPP(0),
@@ -42,8 +42,8 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	//之地给你嵌入模式-- 也就是图片如何环绕 
 	//GL_CLAMP 不扩展实际大小，选择平铺
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	//注意必须指定以上纹理的四个参数，否则纹理就是黑色
 
 	//GL_RGBA8 不是图片格式，是我们希望opengl用何种格式处理图片,并指定每个通道有多少位
@@ -55,7 +55,7 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	return 0;
 }
 
-void RenderNS::TextureService::Bind(unsigned int solt = 0)
+void RenderNS::TextureService::Bind(unsigned int solt)
 {
 	//激活指定的纹理卡槽， 一般需要查询GPU型号支持多少个卡槽
 	//通常激活纹理卡槽也意味着将要绑定纹理卡槽和缓冲区

@@ -92,6 +92,28 @@ int ShaderNS::ShaderManager::initShader()
 	return 0;
 }
 
+void ShaderNS::ShaderManager::SetUniform1f(const std::string& name, int value)
+{
+	int location = GetuniformLocation(name);
+	//断言--location 必须有效
+	if (location != -1)
+	{
+		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
+		glUniform1f(location,value);
+	}
+}
+
+void ShaderNS::ShaderManager::SetUniform1f(const std::string& name, float value)
+{
+	int location = GetuniformLocation(name);
+	//断言--location 必须有效
+	if (location != -1)
+	{
+		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
+		glUniform1f(location, value);
+	}
+}
+
 void ShaderNS::ShaderManager::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)
 {
 	int location = GetuniformLocation(name);
@@ -103,7 +125,7 @@ void ShaderNS::ShaderManager::SetUniform4f(const std::string& name, float v0, fl
 	}
 }
 
-unsigned int ShaderNS::ShaderManager::GetuniformLocation(const std::string& name)
+int ShaderNS::ShaderManager::GetuniformLocation(const std::string& name)
 {
 	int location =  glGetUniformLocation(m_tmpShaderID, name.c_str());
 	if (location == -1)
