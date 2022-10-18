@@ -3,6 +3,8 @@
 #include "Render/RendererEngine.h"
 #include "Render/TextureService.h"
 #include "Shader/ShaderManager.h"
+#include "../AThirdPartSrc/glm/glm.hpp"
+#include "../AThirdPartSrc/glm/gtc/matrix_transform.hpp"// 投影矩阵
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -23,6 +25,13 @@ int main(int argc, char* argv[])
         0,1,2,
         2,3,0,
     };
+
+    //建立一个投影矩阵
+    //从左右上下来看分别时-2，2-1.5，1.5  描述从左到右时 -2 + 2 四个单位宽度
+    //从上到下时 1.5+1.5 3各单位的高度的区域
+    //1.0f 描述远近值
+    glm::mat4 projx = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+
 
     //初始哈环境
     app.initEnvir();
