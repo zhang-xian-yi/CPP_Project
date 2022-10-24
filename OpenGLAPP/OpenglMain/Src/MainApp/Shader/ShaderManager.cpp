@@ -6,6 +6,7 @@
 #include <direct.h>
 #include "ShaderManageGLPrivate.h"//ShaderManageGLPrivate 引入
 #include "GL/glew.h"
+
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -112,6 +113,23 @@ void ShaderNS::ShaderManager::SetUniform1f(const std::string& name, float value)
 		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
 		glUniform1f(location, value);
 	}
+}
+
+/// <summary>
+/// 设置矩阵
+/// </summary>
+/// <param name="name"></param>
+/// <param name="proj"></param>
+void ShaderNS::ShaderManager::SetUniformMatrix4f(const std::string& name,const glm::mat4& matrix)
+{
+	// 用4个float 形成的matrix
+	//1 表示矩阵为1个
+	//GL_FALSE 矩阵为列主， 如果是行主需要转置，OpenGL希望得到列主的矩阵
+	// &matrix[0][0] 矩阵的内存地址也可以是矩阵第0行第0列的地址
+	glUniformMatrix4fv(GetuniformLocation(name),1,GL_FALSE,&matrix[0][0]);
+	//这里的矩阵设置可以是一次，但是如果是一次设置一直有效的化，就没必要想颜色的unifomr
+	//一样每次刷新都设置一次，这种限制图片纵横比的的矩阵只需要设置一次
+
 }
 
 void ShaderNS::ShaderManager::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)

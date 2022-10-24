@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+//声明第三方库 
+#include "../../AThirdPartSrc/glm/glm.hpp"
 namespace ShaderNS
 {
 	//前置声明
@@ -13,6 +15,7 @@ namespace ShaderNS
 		int initShader();
 		void SetUniform1f(const std::string& name, int value);
 		void SetUniform1f(const std::string& name, float value);
+		void SetUniformMatrix4f(const std::string& name,const glm::mat4& matrix);
 		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
 		void Bind()const;
 		void UnBind()const;

@@ -26,27 +26,28 @@ int main(int argc, char* argv[])
         2,3,0,
     };
 
+    //初始化环境
+    app.initEnvir();
+
     //建立一个投影矩阵
     //从左右上下来看分别时-2，2-1.5，1.5  描述从左到右时 -2 + 2 四个单位宽度
     //从上到下时 1.5+1.5 3各单位的高度的区域
-    //1.0f 描述远近值
-    glm::mat4 projx = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
-
-
-    //初始哈环境
-    app.initEnvir();
-
-    //加载纹理
-    RenderNS::TextureService textureService;
-    textureService.InitFileTexture("Resource/Textures/sky.jpeg");
-    textureService.Bind(0);//默认为0
-    
-
+    //ortho产生一个正交矩阵
+    glm::mat4 projx = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f);
+    //用这个矩阵乘以顶点矩阵
+   
     ShaderNS::ShaderManager ShaderMag;//着色器
     ShaderMag.initShader();
     //这里的0 和上面纹理插槽的0 时一个含义，描述着色器也需要统一变量赋值
     //u_Texture 为着色器的GLSL中的变量
+    ShaderMag.SetUniformMatrix4f("u_MVP", projx);
+
+        //加载纹理
+    RenderNS::TextureService textureService;
+    textureService.InitFileTexture("Resource/Textures/sky.jpeg");
+    textureService.Bind(0);//默认为0
     ShaderMag.SetUniform1f("u_Texture", 0);
+
     //定义一个数据装载引擎
     EngineNS::DataLoadEngine dataLoadEngine;
     dataLoadEngine.SetVertexData(positionArray, 4*4 * sizeof(float));

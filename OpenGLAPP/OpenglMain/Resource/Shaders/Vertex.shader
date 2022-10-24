@@ -8,9 +8,15 @@ layout(location = 1) in vec2 texcoord;//纹理坐标
 //将纹理坐标输出到片段着色器中
 out vec2 v_Texcoord;
 
+//定义全局统一变量，即顶点变换值矩阵/ 投影矩阵
+uniform mat4 u_MVP;
+
 void main()
 {
-    gl_Position = postion;
+    //投影矩阵 和顶点矩阵相乘，将顶点移动到指定的区域
+    //这里使用正交投影的方式不知道为什么纹理不显示，暂无法解决
+    //gl_Position = u_MVP * postion;
+    gl_Position =  postion;
     //赋值输出的纹理坐标采样
     v_Texcoord = texcoord;
 };

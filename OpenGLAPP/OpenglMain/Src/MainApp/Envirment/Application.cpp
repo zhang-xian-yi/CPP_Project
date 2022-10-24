@@ -105,8 +105,9 @@ int EnvirmentNS::Application::initOtherConfig()
     //设置交换前后缓冲区的时间间隔为1，每帧刷新一次
     glfwSwapInterval(1);
     //启用透明和混合渲染
-    //启用混合
-    glEnable(GL_BLEND);    
+    
+    //glDisable(GL_BLEND);//禁用混合
+    glEnable(GL_BLEND);//启用混合
     //选择纹理中alpha数值多个alpha的插值，也就是混合
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //设置混合等式 == GL_FUNC_ADD == 设置组合源与目标值相加为组合后的新值
