@@ -130,7 +130,7 @@ int EnvirmentNS::Application::runWindow()
         /* Render here */
         m_pRenderEngine->Clear();
         //通过反复刷新Red 值来使得正方形改变颜色
-        //设置着色器统一变量
+        //设置着色器统一变量 使用纹理后该变量不在着色器中使用
         m_pShaderMag->SetUniform4f("u_Color", currRedValue, 0.3f,0.8f,1.0f);
         //绘制
         m_pRenderEngine->RendererDraw(m_pDataLoadEngine,m_pShaderMag);

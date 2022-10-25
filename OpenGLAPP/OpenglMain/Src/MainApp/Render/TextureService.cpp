@@ -2,7 +2,7 @@
 //
 #include "RendererEngine.h"
 #include "GL/glew.h"
-#include "../../AThirdPartSrc/stb_image/stb_image.h"//文件加载工具
+#include "stb_image/stb_image.h"//已经包含AThirdPartSrc 在搜索库目录中
 
 RenderNS::TextureService::TextureService()
 	:m_rendererId(0), m_width(0), m_height(0), m_BPP(0),

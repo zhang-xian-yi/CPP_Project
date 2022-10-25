@@ -15,8 +15,8 @@ void main()
 {
     //投影矩阵 和顶点矩阵相乘，将顶点移动到指定的区域
     //这里使用正交投影的方式不知道为什么纹理不显示，暂无法解决
-    //gl_Position = u_MVP * postion;
-    gl_Position =  postion;
+    gl_Position = u_MVP * postion;
+    //gl_Position =  postion;
     //赋值输出的纹理坐标采样
     v_Texcoord = texcoord;
 };

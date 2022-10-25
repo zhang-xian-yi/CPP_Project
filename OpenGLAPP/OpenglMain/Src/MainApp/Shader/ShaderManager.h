@@ -2,7 +2,7 @@
 #include <string>
 
 //声明第三方库 
-#include "../../AThirdPartSrc/glm/glm.hpp"
+#include "glm/glm.hpp"
 namespace ShaderNS
 {
 	//前置声明
