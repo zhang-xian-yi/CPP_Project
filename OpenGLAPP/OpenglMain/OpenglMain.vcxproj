@@ -597,6 +597,7 @@
     <None Include="Src\AThirdPartSrc\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resource\Textures\flower.jpeg" />
     <Image Include="Resource\Textures\sky.jpeg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

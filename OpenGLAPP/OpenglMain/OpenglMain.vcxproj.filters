@@ -1358,5 +1358,8 @@
     <Image Include="Resource\Textures\sky.jpeg">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="Resource\Textures\flower.jpeg">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

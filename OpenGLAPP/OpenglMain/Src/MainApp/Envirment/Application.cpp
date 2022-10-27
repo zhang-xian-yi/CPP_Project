@@ -158,7 +158,7 @@ int EnvirmentNS::Application::stopWindows()
     m_pShaderMag = nullptr;
     m_pRenderEngine = nullptr;
     //在此之前对缓冲区进行释放
-    GLCallWarn(glfwTerminate());
+    glfwTerminate();
     return 0;
 }
 

@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     //定义一个APP
     EnvirmentNS::Application app;
     //顶点数据
-    float positionArray[] = {
+    float positionArray[] =  {
         -0.5f,-0.5f,0.0f,0.0f,//前两个数为顶点，后两个数为纹理坐标
         0.5f,-0.5f,1.0f,0.0f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
         0.5f,0.5f,1.0f,1.0f,
@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     };
 
     //索引缓冲区
-    unsigned int indices[6] = {
+    unsigned int indices[] =  {
         0,1,2,
         2,3,0,
     };
@@ -43,9 +43,10 @@ int main(int argc, char* argv[])
     //u_Texture 为着色器的GLSL中的变量
     ShaderMag.SetUniformMatrix4f("u_MVP", projx);
 
-        //加载纹理
+    //加载纹理
     RenderNS::TextureService textureService;
-    textureService.InitFileTexture("Resource/Textures/sky.jpeg");
+    //textureService.InitFileTexture("Resource/Textures/sky.jpeg");
+    textureService.InitFileTexture("Resource/Textures/flower.jpeg");
     textureService.Bind(0);//默认为0
     ShaderMag.SetUniform1f("u_Texture", 0);
 
@@ -60,6 +61,8 @@ int main(int argc, char* argv[])
     app.SetEngineRes(&dataLoadEngine,&ShaderMag,&RenderEngine);
     //启动窗口
     app.runWindow();
+
+    //在停止应用之前 删除顶点数组和索引缓冲区
     //停止窗口
     app.stopWindows();
     return 0;

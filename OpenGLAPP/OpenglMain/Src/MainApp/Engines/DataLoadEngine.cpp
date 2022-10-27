@@ -76,6 +76,8 @@ const DataSrcNS::VertexArray& EngineNS::DataLoadEngine::GetVArray() const
 
 void EngineNS::DataLoadEngine::InitDataEnvir()
 {
+	//此处顶点缓冲区布局的push  与顶点shader文件中的layout相关联
+	//且存在先后顺序关系
 	m_pVBufLayout->Push<float>(2);//每两个浮点数为一个顶点对象
 	m_pVBufLayout->Push<float>(2);//每两个浮点数为一个纹理坐标
 	//绑定缓冲区和布局定义
@@ -87,6 +89,6 @@ void EngineNS::DataLoadEngine::InitDataEnvir()
 /// </summary>
 void EngineNS::DataLoadEngine::ReleaseSrc()
 {
-	m_pVertexBufferS->ReleaseBuffer();
 	m_pIndexBufferS->ReleaseBuffer();
+	m_pVertexBufferS->ReleaseBuffer();
 }
