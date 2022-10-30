@@ -32,7 +32,7 @@ namespace EnvirmentNS
 		~Application();
 
 		//初始化允许环境
-		int initEnvir();
+		int initEnvir(int width, int height);
 		//开始允许
 		int runWindow();
 		//关闭窗口
@@ -42,7 +42,7 @@ namespace EnvirmentNS
 		void SetEngineRes(EngineNS::DataLoadEngine* pDLEngine,ShaderNS::ShaderManager* pShader,RenderNS::RendererEngine* pRender);
 	private:
 		//初始化窗口
-		int initWindows();
+		int initWindows(int width, int height);
 		//初始化上下文
 		int initContext();
 		//初始化其他的所有配置信息

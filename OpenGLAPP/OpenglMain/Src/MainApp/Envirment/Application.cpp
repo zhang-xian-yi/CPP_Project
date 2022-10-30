@@ -44,9 +44,9 @@ EnvirmentNS::Application::~Application()
 /// 初始化环境
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::Application::initEnvir()
+int EnvirmentNS::Application::initEnvir(int width,int height)
 {
-    initWindows();
+    initWindows(width,height);
     initContext();
     initOtherConfig();
     return 0;
@@ -56,7 +56,7 @@ int EnvirmentNS::Application::initEnvir()
 /// 初始化窗口
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::Application::initWindows()
+int EnvirmentNS::Application::initWindows(int width, int height)
 {
     /* Initialize the library */
     if (!glfwInit())
@@ -65,7 +65,7 @@ int EnvirmentNS::Application::initWindows()
     }
 
     /* Create a windowed mode window and its OpenGL context */
-    _pWindow = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    _pWindow = glfwCreateWindow(width,height, "Hello World", NULL, NULL);
     //初始化发生错误
     if (_pWindow == nullptr)
     {
