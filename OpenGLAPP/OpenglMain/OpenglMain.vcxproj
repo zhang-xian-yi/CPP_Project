@@ -145,7 +145,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MainApp\Envirment\OpenGLUIService.cpp" />
+    <ClCompile Include="Src\MainApp\Envirment\ImGuiService.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\glm\detail\glm.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_demo.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_draw.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_tables.cpp" />
+    <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_widgets.cpp" />
     <ClCompile Include="Src\MainApp\Render\RendererEngine.cpp" />
     <ClCompile Include="Src\MainApp\Engines\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="Src\MainApp\Engines\DataLoadEngine.cpp" />
@@ -160,6 +169,8 @@
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MainApp\Envirment\OpenGLUIService.h" />
+    <ClInclude Include="Src\MainApp\Envirment\ImGuiService.h" />
     <ClInclude Include="Src\AThirdPartSrc\glm\common.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\detail\compute_common.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\detail\compute_vector_relational.hpp" />
@@ -442,6 +453,15 @@
     <ClInclude Include="Src\AThirdPartSrc\glm\vec3.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\vec4.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\vector_relational.hpp" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imconfig.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imgui.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imgui_impl_glfw.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imgui_internal.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_rectpack.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_textedit.h" />
+    <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_truetype.h" />
     <ClInclude Include="Src\MainApp\Render\RendererEngine.h" />
     <ClInclude Include="Src\MainApp\Engines\Buffers\IndexBuffer.h" />
     <ClInclude Include="Src\MainApp\Engines\DataLoadEngine.h" />
