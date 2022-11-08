@@ -1,6 +1,12 @@
 #include "Application.h"
 #include "ImGuiService.h"
 #include "OpenGLUIService.h"
+#include "../Engines/DataLoadEngine.h"
+#include "../Render/RendererEngine.h"
+#include "../Render/TextureService.h"
+#include "../Shader/ShaderManager.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -32,14 +38,8 @@ int EnvirmentNS::Application::runWindow()
 {
     int endFlag = 0;
     //结束标记  但endFlag 为0 是表示正常情况，其他值为异常或则退出
-    while (!endFlag)
-    {
-        //重新赋值
-        endFlag &= m_pIMGUIWinS->runWindow();
-        endFlag &= m_pOpenGLWinS->runWindow();
-    }
-    //跳出循环 表示APP结束
-    endFlag = 0;
+    endFlag &= m_pOpenGLWinS->runWindow();
+    endFlag &= m_pIMGUIWinS->runWindow();
     //返回就欸书标记
     return endFlag;
 }
@@ -58,26 +58,18 @@ int EnvirmentNS::Application::stopWindows()
 /// 初始化环境
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::Application::initEnvir(int width,int height)
+int EnvirmentNS::Application::InitAPPEnvir(int width,int height)
 {
-    initWindows(width,height);
-    initContext();
-    initOtherConfig();
+    initChildWindows(width,height);
+
     return 0;
 }
 
-int EnvirmentNS::Application::initWindows(int width, int height)
+int EnvirmentNS::Application::initChildWindows(int width, int height)
 {
-    return 0;
-}
-
-int EnvirmentNS::Application::initContext()
-{
-    return 0;
-}
-
-int EnvirmentNS::Application::initOtherConfig()
-{
+    //初始化环境
+    this->m_pOpenGLWinS->initEnvir(width, height);
+    this->m_pIMGUIWinS->initEnvir(width, height);
     return 0;
 }
 

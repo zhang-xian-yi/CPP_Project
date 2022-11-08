@@ -8,22 +8,31 @@
 #include "../Engines/DataLoadEngine.h"
 #include "../Shader/ShaderManager.h"
 #include "../Render/RendererEngine.h"
+#include "../Render/TextureService.h"
 #include "../Error/ErrorMacroDefie.h"//错误处理的宏
+
 /// <summary>
 /// 构造函数
 /// </summary>
 EnvirmentNS::OpenGLUIService::OpenGLUIService()
 {
     _pWindow = nullptr;
+    //没有对OpenGL 环境进行初始化之前， 不可以对gl行数进程操作
     m_pDataLoadEngine = nullptr;
     m_pShaderMag = nullptr;
     m_pRenderEngine = nullptr;
+    m_pTextureService = nullptr;
 }
 /// <summary>
 /// 析构函数
 /// </summary>
 EnvirmentNS::OpenGLUIService::~OpenGLUIService()
 {
+    if (m_pTextureService != nullptr)
+    {
+        delete m_pTextureService;
+        m_pTextureService = nullptr;
+    }
     if (m_pRenderEngine != nullptr)
     {
         delete m_pRenderEngine;
@@ -79,6 +88,15 @@ int EnvirmentNS::OpenGLUIService::initWindows(int width, int height)
         return -1;
     }
 
+    /* Make the window's context current */
+    glfwMakeContextCurrent(_pWindow);
+
+    //必须获取opengl的上下文
+    if (glewInit() != GLEW_OK)
+    {
+        std::cout << "error" << std::endl;
+        return -1;
+    }
     //初始哈u窗口正常
     return 0;
 }
@@ -89,15 +107,39 @@ int EnvirmentNS::OpenGLUIService::initWindows(int width, int height)
 /// <returns></returns>
 int EnvirmentNS::OpenGLUIService::initContext()
 {
-    /* Make the window's context current */
-    glfwMakeContextCurrent(_pWindow);
+    //初始化环境
+    m_pDataLoadEngine = new EngineNS::DataLoadEngine();
+    m_pShaderMag = new ShaderNS::ShaderManager();
+    m_pRenderEngine = new RenderNS::RendererEngine();
+    m_pTextureService = new RenderNS::TextureService();
 
-    //必须获取opengl的上下文
-    if (glewInit() != GLEW_OK)
-    {
-        std::cout << "error" << std::endl;
-        return -1;
-    }
+    m_pShaderMag->initShader();
+    m_pShaderMag->Bind();//必须先使用gluserprogram 才可以绑定uniform变量否则该变量不会存在
+
+    //加载纹理
+    //textureService.InitFileTexture("Resource/Textures/sky.jpeg");
+    m_pTextureService->InitFileTexture("Resource/Textures/flower.jpeg");
+    m_pTextureService->Bind(0);//默认为0
+    m_pShaderMag->SetUniform1f("u_Texture", 0);
+
+    //顶点数据
+    float positionArray[] = {
+        -100.0f,-100.0f,0.0f,0.0f,//前两个数为顶点，后两个数为纹理坐标
+        100.0f,-100.0f,1.0f,0.0f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
+        100.0f,100.0f,1.0f,1.0f,
+        -100.0f,100.0f,0.0f,1.0f
+    };
+
+    //索引缓冲区
+    unsigned int indices[] = {
+        0,1,2,
+        2,3,0,
+    };
+
+    m_pDataLoadEngine->SetVertexData(positionArray, 4 * 4 * sizeof(float));
+    m_pDataLoadEngine->SetIndexData(indices, 6);
+    //初始化数据环境
+    m_pDataLoadEngine->InitDataEnvir();
     //正确路径
     std::cout << glGetString(GL_VERSION) << std::endl;
     return 0;
@@ -176,15 +218,4 @@ int EnvirmentNS::OpenGLUIService::stopWindows()
     //在此之前对缓冲区进行释放
     glfwTerminate();
     return 0;
-}
-
-/// <summary>
-/// 设置数据引擎
-/// </summary>
-/// <param name="pEngine"></param>
-void EnvirmentNS::OpenGLUIService::SetEngineRes(EngineNS::DataLoadEngine* pDLEngine, ShaderNS::ShaderManager* pShader, RenderNS::RendererEngine* pRender)
-{
-    this->m_pDataLoadEngine = pDLEngine;
-    this->m_pRenderEngine = pRender;
-    this->m_pShaderMag = pShader;
 }

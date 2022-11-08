@@ -14,7 +14,7 @@ void main()
 	//计算出纹理的像素点
 	vec4 texColor = texture(u_Texture,v_Texcoord);
 	//描述像素的颜色
-	color = u_Color;
+	//color = u_Color;
 	//设置图形画出的每一个像素的每个片段的色彩都是 u_Color
-	color = texColor;
+	color = u_Color * texColor;
 };

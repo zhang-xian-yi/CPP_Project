@@ -50,7 +50,7 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	//GL_RGBA 描述图片格式，就是提供的文件格式
 	//GL_UNSIGNED_BYTE 描述数据的类型
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_localBuf);;
-	glBindTexture(GL_TEXTURE_2D, 0);//解绑纹理缓冲功能区
+	//glBindTexture(GL_TEXTURE_2D, 0);//解绑纹理缓冲功能区
 	
 	return 0;
 }

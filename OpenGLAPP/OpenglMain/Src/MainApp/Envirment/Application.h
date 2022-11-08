@@ -19,7 +19,7 @@ namespace EnvirmentNS
 		~Application();
 
 		//初始化允许环境
-		int initEnvir(int width, int height);
+		int InitAPPEnvir(int width, int height);
 		//开始允许
 		int runWindow();
 		//关闭窗口
@@ -27,11 +27,7 @@ namespace EnvirmentNS
 
 	private:
 		//初始化窗口
-		int initWindows(int width, int height);
-		//初始化上下文
-		int initContext();
-		//初始化其他的所有配置信息
-		int initOtherConfig();
+		int initChildWindows(int width, int height);
 	private:
 		//数据加载引擎
 		EnvirmentNS::OpenGLUIService* m_pOpenGLWinS;//数据加载

@@ -37,9 +37,6 @@ namespace EnvirmentNS
 		int runWindow();
 		//关闭窗口
 		int stopWindows();
-
-		//设置数据加载引擎
-		void SetEngineRes(EngineNS::DataLoadEngine* pDLEngine, ShaderNS::ShaderManager* pShader, RenderNS::RendererEngine* pRender);
 	private:
 		//初始化窗口
 		int initWindows(int width, int height);
@@ -54,7 +51,7 @@ namespace EnvirmentNS
 		EngineNS::DataLoadEngine* m_pDataLoadEngine;//数据加载
 		ShaderNS::ShaderManager* m_pShaderMag;		//着色器
 		RenderNS::RendererEngine* m_pRenderEngine; //渲染器
-		RenderNS::TextureService* m_pTextureService;
+		RenderNS::TextureService* m_pTextureService;//纹理
 	};
 }
 
