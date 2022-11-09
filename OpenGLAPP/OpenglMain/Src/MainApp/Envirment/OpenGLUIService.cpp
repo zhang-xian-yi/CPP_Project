@@ -16,7 +16,6 @@
 /// </summary>
 EnvirmentNS::OpenGLUIService::OpenGLUIService()
 {
-    _pWindow = nullptr;
     //没有对OpenGL 环境进行初始化之前， 不可以对gl行数进程操作
     m_pDataLoadEngine = nullptr;
     m_pShaderMag = nullptr;
@@ -28,26 +27,7 @@ EnvirmentNS::OpenGLUIService::OpenGLUIService()
 /// </summary>
 EnvirmentNS::OpenGLUIService::~OpenGLUIService()
 {
-    if (m_pTextureService != nullptr)
-    {
-        delete m_pTextureService;
-        m_pTextureService = nullptr;
-    }
-    if (m_pRenderEngine != nullptr)
-    {
-        delete m_pRenderEngine;
-        m_pRenderEngine = nullptr;
-    }
-    if (m_pShaderMag != nullptr)
-    {
-        delete m_pShaderMag;
-        m_pShaderMag = nullptr;
-    }
-    if (m_pDataLoadEngine != nullptr)
-    {
-        delete m_pDataLoadEngine;
-        m_pDataLoadEngine = nullptr;
-    }
+    EndOpenGLUIService();
 }
 
 #pragma region  初始化方法
@@ -55,49 +35,9 @@ EnvirmentNS::OpenGLUIService::~OpenGLUIService()
 /// 初始化环境
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::OpenGLUIService::initEnvir(int width, int height)
+int EnvirmentNS::OpenGLUIService::initEnvir(GLFWwindow* glwindow)
 {
-    initWindows(width, height);
     initContext();
-    initOtherConfig();
-    return 0;
-}
-
-/// <summary>
-/// 初始化窗口
-/// </summary>
-/// <returns></returns>
-int EnvirmentNS::OpenGLUIService::initWindows(int width, int height)
-{
-    /* Initialize the library */
-    if (!glfwInit())
-    {
-        return -1;
-    }
-
-    // GL 3.0 + GLSL 130
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-
-    /* Create a windowed mode window and its OpenGL context */
-    _pWindow = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
-    //初始化发生错误
-    if (_pWindow == nullptr)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(_pWindow);
-
-    //必须获取opengl的上下文
-    if (glewInit() != GLEW_OK)
-    {
-        std::cout << "error" << std::endl;
-        return -1;
-    }
-    //初始哈u窗口正常
     return 0;
 }
 
@@ -145,33 +85,17 @@ int EnvirmentNS::OpenGLUIService::initContext()
     return 0;
 }
 
-/// <summary>
-/// 初始化其他配置项目
-/// </summary>
-/// <returns></returns>
-int EnvirmentNS::OpenGLUIService::initOtherConfig()
-{
-    //设置交换前后缓冲区的时间间隔为1，每帧刷新一次
-    glfwSwapInterval(1);
-    //启用透明和混合渲染    
-    //glDisable(GL_BLEND);//禁用混合
-    glEnable(GL_BLEND);//启用混合
-    //选择纹理中alpha数值多个alpha的插值，也就是混合
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    //设置混合等式 == GL_FUNC_ADD == 设置组合源与目标值相加为组合后的新值
-    glBlendEquation(GL_FUNC_ADD);
-    return 0;
-}
 #pragma endregion 初始化方法
 
 /// <summary>
 /// 开始执行
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::OpenGLUIService::runWindow()
+int EnvirmentNS::OpenGLUIService::FlushFrame()
 {
-    float currRedValue = 0.2f;
-    float redStep = 0.05f;
+    static float currRedValue = 0.2f;//当前的颜色
+    static float redStep = 0.05f;//每次红色的步长
+
     /* Loop until the user closes the window */
         /* Render here */
     m_pRenderEngine->Clear();
@@ -195,27 +119,41 @@ int EnvirmentNS::OpenGLUIService::runWindow()
     m_pRenderEngine->RendererDraw(m_pDataLoadEngine, m_pShaderMag);
 
     //超出边界的时候步长取反，使得颜色从0到1来回顺序变动
+    
     if (currRedValue > 1.0f || currRedValue < 0.0f)
     {
         redStep = -redStep;
     }
     currRedValue += redStep;
-    /* Swap front and back buffers */
-    glfwSwapBuffers(_pWindow);
-    /* Poll for and process events */
-    glfwPollEvents();
+    
     //结束
-    return glfwWindowShouldClose(_pWindow);
+    return 0;
 }
 
-int EnvirmentNS::OpenGLUIService::stopWindows()
+int EnvirmentNS::OpenGLUIService::EndOpenGLUIService()
 {
-    m_pDataLoadEngine->ReleaseSrc();
+    if (m_pDataLoadEngine != nullptr)
+    {
+        m_pDataLoadEngine->ReleaseSrc();
+        delete m_pDataLoadEngine;
+        m_pDataLoadEngine = nullptr;
+    }
     //此处因为时栈区对象且为外部赋值，所以此处赋值为空
-    m_pDataLoadEngine = nullptr;
-    m_pShaderMag = nullptr;
-    m_pRenderEngine = nullptr;
+    if (m_pTextureService != nullptr)
+    {
+        delete m_pTextureService;
+        m_pTextureService = nullptr;
+    }
+    if (m_pRenderEngine != nullptr)
+    {
+        delete m_pRenderEngine;
+        m_pRenderEngine = nullptr;
+    }
+    if (m_pShaderMag != nullptr)
+    {
+        delete m_pShaderMag;
+        m_pShaderMag = nullptr;
+    }
     //在此之前对缓冲区进行释放
-    glfwTerminate();
     return 0;
 }

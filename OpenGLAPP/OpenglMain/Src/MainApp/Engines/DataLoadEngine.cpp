@@ -89,6 +89,12 @@ void EngineNS::DataLoadEngine::InitDataEnvir()
 /// </summary>
 void EngineNS::DataLoadEngine::ReleaseSrc()
 {
-	m_pIndexBufferS->ReleaseBuffer();
-	m_pVertexBufferS->ReleaseBuffer();
+	if (m_pIndexBufferS != nullptr)
+	{
+		m_pIndexBufferS->ReleaseBuffer();
+	}
+	if (m_pVertexBufferS != nullptr)
+	{
+		m_pVertexBufferS->ReleaseBuffer();
+	}
 }

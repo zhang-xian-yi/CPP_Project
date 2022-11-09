@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MainApp\Envirment\GLWindowService.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\OpenGLUIService.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\ImGuiService.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\glm\detail\glm.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MainApp\Envirment\GLWindowService.h" />
     <ClInclude Include="Src\MainApp\Envirment\OpenGLUIService.h" />
     <ClInclude Include="Src\MainApp\Envirment\ImGuiService.h" />
     <ClInclude Include="Src\AThirdPartSrc\glm\common.hpp" />

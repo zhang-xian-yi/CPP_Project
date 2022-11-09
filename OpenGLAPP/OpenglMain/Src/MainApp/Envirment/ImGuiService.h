@@ -12,21 +12,17 @@ namespace EnvirmentNS
 		~ImGuiService();
 
 		//初始化允许环境
-		int initEnvir(int width, int height);
+		int initEnvir(GLFWwindow* window);
 		//开始允许
-		int runWindow();
+		int FlushFrame();
 		//关闭窗口
-		int stopWindows();
+		int EndIMGUIService();
 	private:
-		//初始化窗口
-		int initWindows(GLFWwindow* window);
 		//初始化上下文
-		int initContext();
-		//初始化其他的所有配置信息
-		int initOtherConfig();
+		int initContext(GLFWwindow* window);
 	private:
-		//GL 的窗口句柄
-		GLFWwindow* _pWindow;
+		//窗口句柄
+		GLFWwindow* m_pWindow = nullptr;
 	};
 }
 
