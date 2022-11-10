@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenglMain\Src\AThirdPartSrc;$(SolutionDir)OpenglMain\Dependencies\GLFW\include;$(SolutionDir)OpenglMain\Dependencies\glew-2.1.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenglMain\Src\MainApp;$(SolutionDir)OpenglMain\Src\AThirdPartSrc;$(SolutionDir)OpenglMain\Dependencies\GLFW\include;$(SolutionDir)OpenglMain\Dependencies\glew-2.1.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenglMain\Src\AThirdPartSrc;$(SolutionDir)OpenglMain\Dependencies\GLFW\include;$(SolutionDir)OpenglMain\Dependencies\glew-2.1.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenglMain\Src\MainApp;$(SolutionDir)OpenglMain\Src\AThirdPartSrc;$(SolutionDir)OpenglMain\Dependencies\GLFW\include;$(SolutionDir)OpenglMain\Dependencies\glew-2.1.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MainApp\Entity\RenderMatrixObj.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\GLWindowService.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\OpenGLUIService.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\ImGuiService.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MainApp\Entity\RenderMatrixObj.h" />
     <ClInclude Include="Src\MainApp\Envirment\GLWindowService.h" />
     <ClInclude Include="Src\MainApp\Envirment\OpenGLUIService.h" />
     <ClInclude Include="Src\MainApp\Envirment\ImGuiService.h" />

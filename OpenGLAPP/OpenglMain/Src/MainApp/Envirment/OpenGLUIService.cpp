@@ -5,11 +5,12 @@
 #include <direct.h>//目录操作
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"// 投影矩阵
-#include "../Engines/DataLoadEngine.h"
-#include "../Shader/ShaderManager.h"
-#include "../Render/RendererEngine.h"
-#include "../Render/TextureService.h"
-#include "../Error/ErrorMacroDefie.h"//错误处理的宏
+#include "Engines/DataLoadEngine.h"
+#include "Shader/ShaderManager.h"
+#include "Render/RendererEngine.h"
+#include "Render/TextureService.h"
+#include "Error/ErrorMacroDefie.h"//错误处理的宏
+#include "Entity/RenderMatrixObj.h"//渲染对象处理
 
 /// <summary>
 /// 构造函数
@@ -91,7 +92,7 @@ int EnvirmentNS::OpenGLUIService::initContext()
 /// 开始执行
 /// </summary>
 /// <returns></returns>
-int EnvirmentNS::OpenGLUIService::FlushFrame()
+int EnvirmentNS::OpenGLUIService::FlushFrame(EntityNS::RenderObj& renderObj)
 {
     static float currRedValue = 0.2f;//当前的颜色
     static float redStep = 0.05f;//每次红色的步长
@@ -103,11 +104,12 @@ int EnvirmentNS::OpenGLUIService::FlushFrame()
     //建立一个投影矩阵,ortho产生一个正交矩阵
     //从左右上下来看分别时-2，2-1.5，1.5  描述从左到右时 -2 + 2 四个单位宽度
     //从上到下时 1.5+1.5 3各单位的高度的区域
-    glm::mat4 projx = glm::ortho(-360.0f, 360.0f, -240.0f, 240.0f, -1.0f, 1.0f);
+    glm::mat4 projx = renderObj.GetMatrixPara()->projectMatrix;
     //模拟视图矩阵：相机左移 意味者对象右移
-    glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.0f, 0.0f));
+    glm::mat4 view = renderObj.GetMatrixPara()->viewMatrix;
     //模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(150, 50, 0));
+    //此处反复计算模型矩阵的值
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), renderObj.GetMatrixPara()->modelVec3);
 
     //通过反复刷新Red 值来使得正方形改变颜色
     //设置着色器统一变量 使用纹理后该变量不在着色器中使用

@@ -16,5 +16,5 @@ void main()
 	//描述像素的颜色
 	color = u_Color;
 	//设置图形画出的每一个像素的每个片段的色彩都是 u_Color
-	color = texColor;
+	color =   texColor ;
 };

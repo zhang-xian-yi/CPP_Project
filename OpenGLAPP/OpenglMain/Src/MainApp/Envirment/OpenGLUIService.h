@@ -19,6 +19,10 @@ namespace RenderNS
 	class TextureService;//纹理
 }
 
+namespace EntityNS
+{
+	class RenderObj;//渲染对象参数
+}
 
 namespace EnvirmentNS
 {
@@ -34,7 +38,7 @@ namespace EnvirmentNS
 		//初始化允许环境
 		int initEnvir(GLFWwindow* glwindow);
 		//开始允许
-		int FlushFrame();
+		int FlushFrame(EntityNS::RenderObj& renderObj);
 		//结束此业务的服务
 		int EndOpenGLUIService();
 

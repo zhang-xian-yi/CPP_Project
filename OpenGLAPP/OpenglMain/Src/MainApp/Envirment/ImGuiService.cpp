@@ -5,7 +5,9 @@
 #include "imGui/imgui.h"
 #include "imGui/imgui_impl_glfw.h"
 #include "imGui/imgui_impl_opengl3.h"
+#include "Entity/RenderMatrixObj.h"//渲染对象处理
 #include <stdio.h>
+
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <GLES2/gl2.h>
 #endif
@@ -34,16 +36,8 @@ int EnvirmentNS::ImGuiService::initEnvir(GLFWwindow* window)
 	return 0;
 }
 
-int EnvirmentNS::ImGuiService::FlushFrame()
+int EnvirmentNS::ImGuiService::FlushFrame(EntityNS::RenderObj& renderObj)
 {
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    // Poll and handle events (inputs, window resize, etc.) 
-    // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
-    // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
-    // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or clear/overwrite your copy of the keyboard data.
-    // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
-    glfwPollEvents();
-
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -51,14 +45,16 @@ int EnvirmentNS::ImGuiService::FlushFrame()
 
     // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
     {
-        static float f = 0.0f;
-        static int counter = 0;
+        EntityNS::RenderMatrixPara* pMPara = renderObj.GetMatrixPara();
 
-        ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-        ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-        ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-        ImGui::End();
+        //ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+        //将模型矩阵的x坐标 与滑动Slider 绑定起来 注意这里的3
+        //描述三个滑动条分别控制XYZ三个值
+        ImGui::SliderFloat3("translate", &(pMPara->modelVec3.x), 0.0f, 720.0f);
+        ImGui::Text("--------------------------------------------------------");
+        //这里职能控制一个值 但是滑动的事件会与其他滑动事件一起响应
+        ImGui::SliderFloat("translate", &(pMPara->modelVec3.x), 0.0f, 720.0f);
+        //ImGui::End();
     }
     // Rendering
     ImGui::Render();

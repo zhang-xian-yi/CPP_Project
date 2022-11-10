@@ -1,9 +1,11 @@
 #include "Application.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "ImGuiService.h"
 #include "OpenGLUIService.h"
 #include "GLWindowService.h"
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "Entity/RenderMatrixObj.h"//渲染对象
+
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -41,11 +43,16 @@ int EnvirmentNS::Application::RunAPP()
 {
     int endFlag = 0;
 
+    EntityNS::RenderMatrixPara RMatrixPara;
+    EntityNS::RenderObj renderObj;
+    //设置矩阵参数
+    renderObj.SetMatrixPara(&RMatrixPara);
+
     while (!endFlag)
     {
-        //结束标记  但endFlag 为0 是表示正常情况，其他值为异常或则退出
-        m_pOpenGLUIS->FlushFrame();
-        m_pIMGUIS->FlushFrame();
+        //结束标记  但endFlag 为0 是表示正常情况，其他值为异常或则退出                
+        m_pOpenGLUIS->FlushFrame(renderObj);
+        m_pIMGUIS->FlushFrame(renderObj);
         endFlag = m_pWinS->FlushWindow();//刷新窗口
     }
 
