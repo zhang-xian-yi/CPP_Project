@@ -65,10 +65,10 @@ int EnvirmentNS::OpenGLUIService::initContext()
 
     //顶点数据
     float positionArray[] = {
-        -100.0f,-100.0f,0.0f,0.0f,//前两个数为顶点，后两个数为纹理坐标
-        100.0f,-100.0f,1.0f,0.0f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
-        100.0f,100.0f,1.0f,1.0f,
-        -100.0f,100.0f,0.0f,1.0f
+        -50.0f,-50.0f,0.0f,0.0f,//前两个数为顶点，后两个数为纹理坐标
+        50.0f,-50.0f,1.0f,0.0f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
+        50.0f,50.0f,1.0f,1.0f,
+        -50.0f,50.0f,0.0f,1.0f
     };
 
     //索引缓冲区
@@ -104,21 +104,29 @@ int EnvirmentNS::OpenGLUIService::FlushFrame(EntityNS::RenderObj& renderObj)
     //建立一个投影矩阵,ortho产生一个正交矩阵
     //从左右上下来看分别时-2，2-1.5，1.5  描述从左到右时 -2 + 2 四个单位宽度
     //从上到下时 1.5+1.5 3各单位的高度的区域
-    glm::mat4 projx = renderObj.GetMatrixPara()->projectMatrix;
+    glm::mat4 projx = renderObj.GetProjectMatrix();
     //模拟视图矩阵：相机左移 意味者对象右移
-    glm::mat4 view = renderObj.GetMatrixPara()->viewMatrix;
-    //模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
-    //此处反复计算模型矩阵的值
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), renderObj.GetMatrixPara()->modelVec3);
+    glm::mat4 view = renderObj.GetViewMatrix();
+    
 
     //通过反复刷新Red 值来使得正方形改变颜色
     //设置着色器统一变量 使用纹理后该变量不在着色器中使用
     m_pShaderMag->SetUniform4f("u_Color", currRedValue, 0.3f, 0.8f, 1.0f);
-    //这里的0 和上面纹理插槽的0 时一个含义，描述着色器也需要统一变量赋值
-    //u_Texture 为着色器的GLSL中的变量
-    m_pShaderMag->SetUniformMatrix4f("u_MVP", projx * view * model);
-    //绘制
-    m_pRenderEngine->RendererDraw(m_pDataLoadEngine, m_pShaderMag);
+
+
+    {
+        //模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), *renderObj.GetModelAMatrix());
+        m_pShaderMag->SetUniformMatrix4f("u_MVP", projx * view * model);        
+        m_pRenderEngine->RendererDraw(m_pDataLoadEngine, m_pShaderMag);//绘制
+    }
+
+    {
+        //模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), *renderObj.GetModelBMatrix());
+        m_pShaderMag->SetUniformMatrix4f("u_MVP", projx * view * model);
+        m_pRenderEngine->RendererDraw(m_pDataLoadEngine, m_pShaderMag);//绘制
+    }
 
     //超出边界的时候步长取反，使得颜色从0到1来回顺序变动
     

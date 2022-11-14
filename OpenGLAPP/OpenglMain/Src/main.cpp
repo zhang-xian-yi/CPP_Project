@@ -1,6 +1,6 @@
 #include "Envirment/Application.h"
 
-int testAPP(int argc, char* argv[])
+int MainAPP(int argc, char* argv[])
 {
     EnvirmentNS::Application app;
 
@@ -12,10 +12,16 @@ int testAPP(int argc, char* argv[])
     return 0;
 }
 
+int TestAPP(int argc, char* argv[])
+{
+
+    return 0;
+}
+
 
 int main(int argc, char* argv[])
 {
      
-    return testAPP(argc,argv);
+    return MainAPP(argc,argv);
 }
 

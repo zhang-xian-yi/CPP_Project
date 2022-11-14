@@ -1,8 +1,9 @@
 #include "GLWindowService.h"
 #include <iostream>
+#include <direct.h>//目录操作
+#include "Error/ErrorMacroDefie.h"//错误检查
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <direct.h>//目录操作
 
 EnvirmentNS::GLWindowService::GLWindowService()
     :_pWindow(nullptr)

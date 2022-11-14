@@ -11,7 +11,7 @@ uniform sampler2D u_Texture;
 
 void main()
 {
-	//计算出纹理的像素点
+	//计算出纹理的像素点,即对纹理进行采样
 	vec4 texColor = texture(u_Texture,v_Texcoord);
 	//描述像素的颜色
 	color = u_Color;

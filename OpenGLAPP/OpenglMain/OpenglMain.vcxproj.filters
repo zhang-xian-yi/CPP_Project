@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\MainApp\main.cpp">
+    <ClCompile Include="Src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\MainApp\Shader\ShaderManager.cpp">
@@ -85,6 +85,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\MainApp\Entity\RenderMatrixObj.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MainApp\Error\ErrorMacroDefie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1011,6 +1017,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\MainApp\Entity\RenderMatrixObj.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

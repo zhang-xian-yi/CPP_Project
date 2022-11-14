@@ -3,6 +3,7 @@
 #include "Buffers/VertexBuffer.h"
 #include "Layout/VertexBufferLayout.h"
 #include "DataSrc/VertexArray.h"
+#include "Error/ErrorMacroDefie.h"//错误检查
 /// <summary>
 /// 构造函数
 /// </summary>

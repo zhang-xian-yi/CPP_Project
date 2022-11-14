@@ -5,7 +5,7 @@
 #include "OpenGLUIService.h"
 #include "GLWindowService.h"
 #include "Entity/RenderMatrixObj.h"//渲染对象
-
+#include "Error/ErrorMacroDefie.h"//错误检查
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -44,9 +44,8 @@ int EnvirmentNS::Application::RunAPP()
     int endFlag = 0;
 
     EntityNS::RenderMatrixPara RMatrixPara;
-    EntityNS::RenderObj renderObj;
-    //设置矩阵参数
-    renderObj.SetMatrixPara(&RMatrixPara);
+    //初始化渲染参数
+    EntityNS::RenderObj renderObj(&RMatrixPara);
 
     while (!endFlag)
     {

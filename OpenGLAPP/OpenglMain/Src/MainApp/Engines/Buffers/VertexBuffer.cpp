@@ -1,6 +1,6 @@
 #include "VertexBuffer.h"
 #include "GL/glew.h"
-
+#include "Error/ErrorMacroDefie.h"//错误检查
 BuffersNS::VertexBuffer::VertexBuffer()
 {
 }
@@ -19,10 +19,10 @@ void BuffersNS::VertexBuffer::SetVertexData(const void* pArray, unsigned int siz
 {  
     //第一个参数是要生成的缓冲对象的数量，第二个是要输入用来存储缓冲对象名称的数组
     //生成一个缓冲区对象
-    glGenBuffers(1, &m_RenderID);
+    GLCallWarn(glGenBuffers(1, &m_RenderID));
     //绑定一个缓冲区对象，此缓冲区中的数据会自动进入缓冲区对象中
     //这里的0 表示取消绑定实际值应该为_tmpVertexID
-    glBindBuffer(GL_ARRAY_BUFFER, m_RenderID);
+    GLCallWarn(glBindBuffer(GL_ARRAY_BUFFER, m_RenderID));
     //当前绑定到target的缓冲区对象创建一个新的数据存储
     /*
     target:指定目标缓冲区对象。 符号常量必须为GL_ARRAY_BUFFER或GL_ELEMENT_ARRAY_BUFFER。
@@ -33,7 +33,7 @@ void BuffersNS::VertexBuffer::SetVertexData(const void* pArray, unsigned int siz
     GL_STATIC_DRAW:数据存储内容将被修改一次并多次使用
     GL_DYNAMIC_DRAW:数据存储内容将被重复修改并多次使用。
     */
-    glBufferData(GL_ARRAY_BUFFER, size, pArray, GL_STATIC_DRAW);
+    GLCallWarn(glBufferData(GL_ARRAY_BUFFER, size, pArray, GL_STATIC_DRAW));
 }
 
 void BuffersNS::VertexBuffer::Bind()const
@@ -47,7 +47,7 @@ void BuffersNS::VertexBuffer::UnBind()const
 {
     //绑定一个缓冲区对象，此缓冲区中的数据会自动进入缓冲区对象中
     //这里的0 表示取消绑定实际值应该为_tmpVertexID
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    GLCallWarn(glBindBuffer(GL_ARRAY_BUFFER, 0));
 }
 
 /// <summary>

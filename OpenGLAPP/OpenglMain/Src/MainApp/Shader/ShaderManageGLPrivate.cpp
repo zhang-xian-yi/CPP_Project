@@ -1,6 +1,7 @@
 #include "ShaderManageGLPrivate.h"
 #include <iostream>
 #include "GL/glew.h"
+#include "Error/ErrorMacroDefie.h"
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -24,29 +25,29 @@ unsigned int ShaderNS::ShaderManageGLPrivate::ComplieShaderGL(unsigned int type,
 	count:指定字符串和长度数组中的元素数。
 	string:指定指向包含要加载到着色器的源代码的字符串的指针数组。
 	length:指定字符串长度的数组。*/
-	glShaderSource(id, 1, &src, nullptr);
+	GLCallWarn(glShaderSource(id, 1, &src, nullptr));
 	//glCompileShader编译已存储在shader指定的着色器对象中的源代码字符串
 	//GL_TRUE OR GL_FALSE
-	glCompileShader(id);
+	GLCallWarn(glCompileShader(id));
 
 	//TODO error handing
 	int result;
 	//从着色器中获取一个参数，此处作用时检测着色器是否编译成功，GL_TRUE OR GL_FALSE
-	glGetShaderiv(id,GL_COMPILE_STATUS,&result);
+	GLCallWarn(glGetShaderiv(id,GL_COMPILE_STATUS,&result));
 	//结果错误
 	if (!result)
 	{
 		int logLength;
-		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &logLength);
+		GLCallWarn(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &logLength));
 		//从栈区上灵活分配内存，且超出作用域后自动释放
 		char* message = (char*)alloca(logLength * sizeof(char));
 		//将错误信息刷入缓存区
-		glGetShaderInfoLog(id, logLength, &logLength, message);
+		GLCallWarn(glGetShaderInfoLog(id, logLength, &logLength, message));
 		//输出着色器数据
 		std::cout << "编译" << (type == GL_VERTEX_SHADER ? "顶点" : "片段") << "着色器失败" << std::endl;
 		std::cout <<"Message: " << message << std::endl;
 		
-		glDeleteShader(id);//删除着色器
+		GLCallWarn(glDeleteShader(id));//删除着色器
 		//返回值时 unsign int 所以不能返回-1  
 		return 0;
 	}

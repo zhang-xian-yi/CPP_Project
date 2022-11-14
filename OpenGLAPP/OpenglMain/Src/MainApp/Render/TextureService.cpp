@@ -1,5 +1,6 @@
 #include "TextureService.h"
-//
+
+#include "Error/ErrorMacroDefie.h"//错误检查
 #include "RendererEngine.h"
 #include "GL/glew.h"
 #include "stb_image/stb_image.h"//已经包含AThirdPartSrc 在搜索库目录中
@@ -32,8 +33,8 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	//4 描述了RGBA 4个通道
 	m_localBuf = stbi_load(path.c_str(), &m_width, &m_height, &m_BPP, 4);
 	//创建一个纹理缓冲区并绑定
-	glGenTextures(1, &m_rendererId);
-	glBindTexture(GL_TEXTURE_2D, m_rendererId);
+	GLCallWarn(glGenTextures(1, &m_rendererId));
+	GLCallWarn(glBindTexture(GL_TEXTURE_2D, m_rendererId));
 
 	//GL_TEXTURE_MIN_FILTER 缩小过滤器，保存纹理，比实际图片的纹理小
 	// GL_TEXTURE_MAG_FILTER 方法过滤器，纹理比实际图片更大，区域
@@ -49,7 +50,7 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	//GL_RGBA8 不是图片格式，是我们希望opengl用何种格式处理图片,并指定每个通道有多少位
 	//GL_RGBA 描述图片格式，就是提供的文件格式
 	//GL_UNSIGNED_BYTE 描述数据的类型
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_localBuf);;
+	GLCallWarn(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_localBuf));
 	//glBindTexture(GL_TEXTURE_2D, 0);//解绑纹理缓冲功能区
 	
 	return 0;
@@ -59,11 +60,11 @@ void RenderNS::TextureService::Bind(unsigned int solt)
 {
 	//激活指定的纹理卡槽， 一般需要查询GPU型号支持多少个卡槽
 	//通常激活纹理卡槽也意味着将要绑定纹理卡槽和缓冲区
-	glActiveTexture(GL_TEXTURE0 + solt);
-	glBindTexture(GL_TEXTURE_2D, m_rendererId);//解绑纹理缓冲功能区
+	GLCallWarn(glActiveTexture(GL_TEXTURE0 + solt));
+	GLCallWarn(glBindTexture(GL_TEXTURE_2D, m_rendererId));//解绑纹理缓冲功能区
 }
 
 void RenderNS::TextureService::UnBind()
 {
-	glBindTexture(GL_TEXTURE_2D, 0);//解绑纹理缓冲功能区
+	GLCallWarn(glBindTexture(GL_TEXTURE_2D, 0));//解绑纹理缓冲功能区
 }

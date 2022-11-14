@@ -6,7 +6,7 @@
 #include <direct.h>
 #include "ShaderManageGLPrivate.h"//ShaderManageGLPrivate 引入
 #include "GL/glew.h"
-
+#include "Error/ErrorMacroDefie.h"
 /// <summary>
 /// 构造函数
 /// </summary>
@@ -24,7 +24,7 @@ ShaderNS::ShaderManager::~ShaderManager()
 {
 	UnBind();
 	//删除着色器
-	glDeleteProgram(m_tmpShaderID);
+	GLCallWarn(glDeleteProgram(m_tmpShaderID));
 
 	if (_pShaderGLMag != nullptr)
 	{
@@ -131,7 +131,7 @@ void ShaderNS::ShaderManager::SetUniformMatrix4f(const std::string& name,const g
 		//1 表示矩阵为1个
 		//GL_FALSE 矩阵为列主， 如果是行主需要转置，OpenGL希望得到列主的矩阵
 		// &matrix[0][0] 矩阵的内存地址也可以是矩阵第0行第0列的地址
-		glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]);
+		GLCallWarn(glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]));
 
 	}
 }
@@ -143,7 +143,7 @@ void ShaderNS::ShaderManager::SetUniform4f(const std::string& name, float v0, fl
 	if (location != -1)
 	{
 		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
-		glUniform4f(location, v0, v1, v2, v3);
+		GLCallWarn(glUniform4f(location, v0, v1, v2, v3));
 	}
 }
 
@@ -160,10 +160,10 @@ int ShaderNS::ShaderManager::GetuniformLocation(const std::string& name)
 void ShaderNS::ShaderManager::Bind() const
 {
 	//使用此着色器
-	glUseProgram(m_tmpShaderID);
+	GLCallWarn(glUseProgram(m_tmpShaderID));
 }
 
 void ShaderNS::ShaderManager::UnBind() const
 {
-	glUseProgram(0);//取消着色器的绑定
+	GLCallWarn(glUseProgram(0));//取消着色器的绑定
 }

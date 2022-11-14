@@ -1,10 +1,11 @@
 #include "RendererEngine.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../Engines/Buffers/IndexBuffer.h"
-#include "../Engines/DataSrc/VertexArray.h"
-#include "../Engines/DataLoadEngine.h"
-#include "../Shader/ShaderManager.h"
+#include "Engines/Buffers/IndexBuffer.h"
+#include "Engines/DataSrc/VertexArray.h"
+#include "Engines/DataLoadEngine.h"
+#include "Shader/ShaderManager.h"
+#include "Error/ErrorMacroDefie.h"
 RenderNS::RendererEngine::RendererEngine()
 {
 }
@@ -15,7 +16,7 @@ RenderNS::RendererEngine::~RendererEngine()
 
 void RenderNS::RendererEngine::Clear()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	GLCallWarn(glClear(GL_COLOR_BUFFER_BIT));
 }
 
 /// <summary>
@@ -41,5 +42,5 @@ void RenderNS::RendererEngine::RendererDraw(const DataSrcNS::VertexArray& vArray
 	//画一个索引了顶点数组的三角形 这里是故意错误从而引发GLCallWarn宏定义的效果
 	//GLCallWarn(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));
 	//正确示例
-    glDrawElements(GL_TRIANGLES, iBuf.GetCount(), GL_UNSIGNED_INT, nullptr);
+	GLCallWarn(glDrawElements(GL_TRIANGLES, iBuf.GetCount(), GL_UNSIGNED_INT, nullptr));
 }

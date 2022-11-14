@@ -157,18 +157,20 @@
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_tables.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\MainApp\Error\ErrorMacroDefie.cpp" />
     <ClCompile Include="Src\MainApp\Render\RendererEngine.cpp" />
     <ClCompile Include="Src\MainApp\Engines\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="Src\MainApp\Engines\DataLoadEngine.cpp" />
     <ClCompile Include="Src\MainApp\Envirment\Application.cpp" />
     <ClCompile Include="Src\MainApp\Shader\ShaderManageGLPrivate.cpp" />
     <ClCompile Include="Src\MainApp\Shader\ShaderManager.cpp" />
-    <ClCompile Include="Src\MainApp\main.cpp" />
+    <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\MainApp\Engines\Buffers\VertexBuffer.cpp" />
     <ClCompile Include="Src\MainApp\Engines\DataSrc\VertexArray.cpp" />
     <ClCompile Include="Src\MainApp\Engines\Layout\VLayoutElement.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\stb_image\stb_image.cpp" />
     <ClCompile Include="Src\MainApp\Render\TextureService.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\MainApp\Entity\RenderMatrixObj.h" />
@@ -479,6 +481,7 @@
     <ClInclude Include="Src\MainApp\Engines\Layout\VLayoutElement.h" />
     <ClInclude Include="Src\AThirdPartSrc\stb_image\stb_image.h" />
     <ClInclude Include="Src\MainApp\Render\TextureService.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestBase.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\Shaders\Fragment.shader" />

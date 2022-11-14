@@ -1,9 +1,5 @@
 #include "VLayoutElement.h"
-//注意debugbreak() 是一个调试中断的函数
-//该宏定义意味着一旦出现x为false 则启动调试中断
-//只在MSVC中存在， 不出现在CLang或者GCC中
-#define MacroDefAssert(x) if(!(x)) __debugbreak();//可能引发重定义问题,此定义一再error中被定义
-//定义openggl中的部分常量
+#include "Error/ErrorMacroDefie.h"//错误检查
 #define GL_UNSIGNED_INT 0x1405
 #define GL_FLOAT 0x1406
 #define GL_UNSIGNED_BYTE 0x1401

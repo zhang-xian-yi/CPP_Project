@@ -1,7 +1,8 @@
 #pragma once
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"// 投影矩阵
-
+#include <map>
+#include <string>
 namespace EntityNS
 {
 	//渲染的矩阵参数
@@ -14,7 +15,8 @@ namespace EntityNS
 		//模拟视图矩阵：相机左移 意味者对象右移
 		glm::mat4 viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 		//模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
-		glm::vec3 modelVec3 = glm::vec3(0, 0, 0);
+		glm::vec3 modelAVec3 = glm::vec3(0.0f, 0.0f, 0.0f);
+		glm::vec3 modelBVec3 = glm::vec3(100.0f, 100.0f, 0.0f);
 	};
 
 
@@ -22,11 +24,14 @@ namespace EntityNS
 	class RenderObj
 	{
 	public:
-		RenderObj();
+		RenderObj(RenderMatrixPara* para);
 		~RenderObj();
 
-		RenderMatrixPara* GetMatrixPara()const;
-		void SetMatrixPara(RenderMatrixPara* para);
+		glm::mat4 GetProjectMatrix()const;
+		glm::mat4 GetViewMatrix()const;
+
+		glm::vec3* GetModelAMatrix()const;
+		glm::vec3* GetModelBMatrix()const;
 	private:
 		RenderMatrixPara* m_pRMPara;// 渲染的对象所需要的矩阵参数
 	}; 
