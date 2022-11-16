@@ -164,6 +164,7 @@
     <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_textedit.h" />
     <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_truetype.h" />
     <ClInclude Include="Src\TestApp\TestBase.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestUIMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\TestApp\Envirment\FrameworkService.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_tables.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_widgets.cpp" />
     <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestUIMenu.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

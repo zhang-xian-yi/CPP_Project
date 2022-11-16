@@ -1,10 +1,12 @@
 #include "Application.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "imGui/imgui.h"
 #include "GLWindowService.h"
 #include "FrameworkService.h"
 #include "Error/ErrorMacroDefie.h"//错误检查
 #include "TestRes/TestImGUIBGColor.h"
+#include "TestRes/TestUIMenu.h"
 namespace EnvirmentNS
 {
     /// <summary>
@@ -39,21 +41,47 @@ namespace EnvirmentNS
     {
         int endFlag = 0;
 
-        TestResNS::TestImGUIBGColor colorTest;
+        TestNS::TestBase* pCurrTest = nullptr;      
+        //构造菜单
+        TestResNS::TestUIMenu* pMenu = new TestResNS::TestUIMenu(pCurrTest);
+        pCurrTest = pMenu;//设置
 
+        pMenu->RegisterTest<TestResNS::TestImGUIBGColor>("TestColor");
         while (!endFlag)
         {
-            //结束标记  但endFlag 为0 是表示正常情况，其他值为异常或则退出                
-            colorTest.onUpdate(0.0f);
-            colorTest.onRender();
-
+            m_pWinS->DefaultWindowBackground();//刷新背景
             //测试样例的刷新渲染在框架上下文之间
             m_pFrameTestS->FlushFrameStart();
-            colorTest.onImGUIRender();
+            //如果当前测试样例不为空
+            if (pCurrTest)
+            {
+                pCurrTest->onUpdate(0.0f);
+                pCurrTest->onRender();
+                ImGui::Begin("Begin");
+                //进入单独测试环境 且按钮被点击即返回true
+                if (pCurrTest != pMenu && ImGui::Button("<-- 后退"))
+                {
+                    delete pCurrTest;
+                    pCurrTest = pMenu;//恢复原
+                }
+                pCurrTest->onImGUIRender();
+                ImGui::End();
+            }
             m_pFrameTestS->FlushFrameEnd();
-
             endFlag = m_pWinS->FlushWindow();//刷新窗口
         }
+
+        //TODO
+        //思考使用状态机方式来确定测试用例的创建和销毁
+        //先删除当前测试用例，地址值未变
+        delete pCurrTest;
+        //删除多余的堆
+        if (pCurrTest != pMenu)
+        {
+            delete pMenu;
+        }
+        
+        
 
         //返回就欸书标记
         return endFlag;

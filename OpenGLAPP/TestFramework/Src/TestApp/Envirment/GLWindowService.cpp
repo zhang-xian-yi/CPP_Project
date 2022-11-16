@@ -20,21 +20,30 @@ namespace EnvirmentNS
     int GLWindowService::FlushWindow()
     {
         /* Swap front and back buffers */
-        glfwSwapBuffers(_pWindow);
+        GLCallWarn(glfwSwapBuffers(_pWindow));
         /* Poll for and process events */
         // Poll and handle events (inputs, window resize, etc.) 
         // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
         // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
         // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or clear/overwrite your copy of the keyboard data.
         // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
-        glfwPollEvents();
+        GLCallWarn(glfwPollEvents());
 
         //返回窗口的状态
         return glfwWindowShouldClose(_pWindow);
     }
 
+    void GLWindowService::DefaultWindowBackground()
+    {
+        GLCallWarn(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+        GLCallWarn(glClear(GL_COLOR_BUFFER_BIT));
+    }
+
     int GLWindowService::StopWindows()
     {
+        //注意停止窗口 不能添加GLCallWarn 
+        //中断窗口后，会失去GL的上下文，失去上下文GetError 方法就会返回失败
+        //然后在就会一直死循环在消除错误的循环中，最终报错
         glfwTerminate();
         return 0;
     }

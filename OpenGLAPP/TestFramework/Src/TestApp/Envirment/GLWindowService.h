@@ -18,6 +18,8 @@ namespace EnvirmentNS
 		int initWinEnvir(int width, int height);
 		//刷新窗口交换区域
 		int FlushWindow();
+		//设置默认的窗口背景
+		void DefaultWindowBackground();
 		//关闭窗口
 		int StopWindows();
 		//返回窗口句柄

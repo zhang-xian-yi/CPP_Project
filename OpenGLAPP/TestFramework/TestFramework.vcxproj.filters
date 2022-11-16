@@ -64,6 +64,9 @@
     <ClInclude Include="Src\TestApp\Envirment\FrameworkService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestUIMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -103,6 +106,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\Envirment\FrameworkService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestUIMenu.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
