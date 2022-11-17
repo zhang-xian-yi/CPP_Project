@@ -7,6 +7,7 @@
 #include "Error/ErrorMacroDefie.h"//´íÎó¼ì²é
 #include "TestRes/TestImGUIBGColor.h"
 #include "TestRes/TestUIMenu.h"
+#include "TestRes/TestRectangle.h"
 namespace EnvirmentNS
 {
     /// <summary>
@@ -47,6 +48,7 @@ namespace EnvirmentNS
         pCurrTest = pMenu;//ÉèÖÃ
 
         pMenu->RegisterTest<TestResNS::TestImGUIBGColor>("TestColor");
+        pMenu->RegisterTest<TestResNS::TestRectangle>("TestRectangle");
         while (!endFlag)
         {
             m_pWinS->DefaultWindowBackground();//Ë¢ÐÂ±³¾°

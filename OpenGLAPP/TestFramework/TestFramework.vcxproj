@@ -149,10 +149,19 @@
     <None Include="Resource\Shaders\Vertex.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\TestApp\Engines\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Src\TestApp\Engines\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Src\TestApp\Engines\DataLoadEngine.h" />
+    <ClInclude Include="Src\TestApp\Engines\DataSrc\VertexArray.h" />
+    <ClInclude Include="Src\TestApp\Engines\Layout\VertexBufferLayout.h" />
+    <ClInclude Include="Src\TestApp\Engines\Layout\VLayoutElement.h" />
     <ClInclude Include="Src\TestApp\Envirment\FrameworkService.h" />
     <ClInclude Include="Src\TestApp\Envirment\Application.h" />
     <ClInclude Include="Src\TestApp\Envirment\GLWindowService.h" />
     <ClInclude Include="Src\TestApp\Error\ErrorMacroDefie.h" />
+    <ClInclude Include="Src\TestApp\Render\RendererEngine.h" />
+    <ClInclude Include="Src\TestApp\Shader\ShaderManageGLPrivate.h" />
+    <ClInclude Include="Src\TestApp\Shader\ShaderManager.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestImGUIBGColor.h" />
     <ClInclude Include="Src\AThirdPartSrc\imGui\imconfig.h" />
     <ClInclude Include="Src\AThirdPartSrc\imGui\imgui.h" />
@@ -165,12 +174,21 @@
     <ClInclude Include="Src\AThirdPartSrc\imGui\imstb_truetype.h" />
     <ClInclude Include="Src\TestApp\TestBase.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestUIMenu.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestRectangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\TestApp\Engines\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\DataLoadEngine.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\DataSrc\VertexArray.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\Layout\VLayoutElement.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\FrameworkService.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\Application.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\GLWindowService.cpp" />
     <ClCompile Include="Src\TestApp\Error\ErrorMacroDefie.cpp" />
+    <ClCompile Include="Src\TestApp\Render\RendererEngine.cpp" />
+    <ClCompile Include="Src\TestApp\Shader\ShaderManageGLPrivate.cpp" />
+    <ClCompile Include="Src\TestApp\Shader\ShaderManager.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestImGUIBGColor.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_demo.cpp" />
@@ -181,6 +199,7 @@
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui_widgets.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestUIMenu.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestRectangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

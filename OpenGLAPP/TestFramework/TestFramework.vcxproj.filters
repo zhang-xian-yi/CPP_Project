@@ -67,6 +67,36 @@
     <ClInclude Include="Src\TestApp\TestRes\TestUIMenu.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestRectangle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Shader\ShaderManageGLPrivate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Shader\ShaderManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\Buffers\IndexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\Buffers\VertexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\DataSrc\VertexArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\Layout\VertexBufferLayout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\Layout\VLayoutElement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\DataLoadEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Render\RendererEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -109,6 +139,33 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\TestRes\TestUIMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestRectangle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Shader\ShaderManageGLPrivate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Shader\ShaderManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\Buffers\IndexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\Buffers\VertexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\DataSrc\VertexArray.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\Layout\VLayoutElement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\DataLoadEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Render\RendererEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
