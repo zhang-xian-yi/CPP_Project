@@ -8,6 +8,7 @@
 #include "TestRes/TestImGUIBGColor.h"
 #include "TestRes/TestUIMenu.h"
 #include "TestRes/TestRectangle.h"
+#include "TestRes/TestTexture2D.h"//纹理测试
 namespace EnvirmentNS
 {
     /// <summary>
@@ -49,6 +50,7 @@ namespace EnvirmentNS
 
         pMenu->RegisterTest<TestResNS::TestImGUIBGColor>("TestColor");
         pMenu->RegisterTest<TestResNS::TestRectangle>("TestRectangle");
+        pMenu->RegisterTest<TestResNS::TestTexture2D>("TestSimple2D");
         while (!endFlag)
         {
             m_pWinS->DefaultWindowBackground();//刷新背景
@@ -61,7 +63,7 @@ namespace EnvirmentNS
                 pCurrTest->onRender();
                 ImGui::Begin("Begin");
                 //进入单独测试环境 且按钮被点击即返回true
-                if (pCurrTest != pMenu && ImGui::Button("<-- 后退"))
+                if (pCurrTest != pMenu && ImGui::Button("<-- Back"))
                 {
                     delete pCurrTest;
                     pCurrTest = pMenu;//恢复原
@@ -82,9 +84,7 @@ namespace EnvirmentNS
         {
             delete pMenu;
         }
-        
-        
-
+              
         //返回就欸书标记
         return endFlag;
     }

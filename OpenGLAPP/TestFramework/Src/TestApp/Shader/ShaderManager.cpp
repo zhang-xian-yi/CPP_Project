@@ -80,12 +80,12 @@ std::string ShaderNS::ShaderManager::ParseShaderFileRes(const std::string& fileP
 }
 
 
-int ShaderNS::ShaderManager::initShader()
+int ShaderNS::ShaderManager::initShader(std::string VTmpShader, std::string FTmpShader)
 {
 	//这里的路径会因为工程相对路径进行偏移 direct.g 中获取解决方案下类库的路径
 	std::string proPath = _getcwd(nullptr, 1);
-	std::string VShaderStr = this->ParseShaderFileRes(proPath + "/Resource/Shaders/Vertex.shader");
-	std::string FShaderStr = this->ParseShaderFileRes(proPath + "/Resource/Shaders/Fragment.shader");
+	std::string VShaderStr = this->ParseShaderFileRes(proPath + VTmpShader);
+	std::string FShaderStr = this->ParseShaderFileRes(proPath + FTmpShader);
 	//创建一个着色器
 	unsigned int shader = this->CreateShader(VShaderStr, FShaderStr);
 	//复制类变量
@@ -112,6 +112,27 @@ void ShaderNS::ShaderManager::SetUniform1f(const std::string& name, float value)
 	{
 		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
 		glUniform1f(location, value);
+	}
+}
+
+/// <summary>
+/// 设置矩阵
+/// </summary>
+/// <param name="name"></param>
+/// <param name="proj"></param>
+void ShaderNS::ShaderManager::SetUniformMatrix4f(const std::string& name, const glm::mat4& matrix)
+{
+	//这里的矩阵设置可以是一次，但是如果是一次设置一直有效的化，就没必要想颜色的unifomr
+	//一样每次刷新都设置一次，这种限制图片纵横比的的矩阵只需要设置一次
+	int location = GetuniformLocation(name);
+	if (location != -1)
+	{
+		// 用4个float 形成的matrix
+		//1 表示矩阵为1个
+		//GL_FALSE 矩阵为列主， 如果是行主需要转置，OpenGL希望得到列主的矩阵
+		// &matrix[0][0] 矩阵的内存地址也可以是矩阵第0行第0列的地址
+		GLCallWarn(glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]));
+
 	}
 }
 

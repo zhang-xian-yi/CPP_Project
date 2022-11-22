@@ -6,9 +6,10 @@ namespace TestResNS
 {
 	TestRectangle::TestRectangle()
 	{
+		m_pRenderE = new RenderNS::RendererEngine();
 		m_pShaderMng = new ShaderNS::ShaderManager();
 		//初始化着色器并绑定
-		m_pShaderMng->initShader();
+		m_pShaderMng->initShader("/Resource/Shaders/Vertex.shader", "/Resource/Shaders/Fragment.shader");
 		m_pShaderMng->Bind();
 
 		//顶点数据
@@ -33,6 +34,12 @@ namespace TestResNS
 	}
 	TestRectangle::~TestRectangle()
 	{
+		if (m_pRenderE == nullptr)
+		{
+			delete m_pRenderE;
+			m_pRenderE = nullptr;
+		}
+
 		if (m_pDataLoad == nullptr)
 		{
 			delete m_pDataLoad;
