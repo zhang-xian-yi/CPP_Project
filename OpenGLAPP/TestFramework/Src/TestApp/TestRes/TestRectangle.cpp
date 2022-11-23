@@ -26,11 +26,11 @@ namespace TestResNS
 			2,3,0,
 		};
 
-		m_pDataLoad = new EngineNS::DataLoadEngine();
-		m_pDataLoad->SetVertexData(positionArray, 2 * 4 * sizeof(float));
-		m_pDataLoad->SetIndexData(indices, 6);
+		m_pRectDLE = new EngineNS::RectangleDataLoadEngine();
+		m_pRectDLE->SetVertexData(positionArray, 2 * 4 * sizeof(float));
+		m_pRectDLE->SetIndexData(indices, 6);
 		//初始化数据环境
-		m_pDataLoad->InitDataEnvir();
+		m_pRectDLE->InitRectangleBKColorEnvir();
 	}
 	TestRectangle::~TestRectangle()
 	{
@@ -40,10 +40,10 @@ namespace TestResNS
 			m_pRenderE = nullptr;
 		}
 
-		if (m_pDataLoad == nullptr)
+		if (m_pRectDLE == nullptr)
 		{
-			delete m_pDataLoad;
-			m_pDataLoad = nullptr;
+			delete m_pRectDLE;
+			m_pRectDLE = nullptr;
 		}
 
 		if (m_pShaderMng == nullptr)
@@ -70,7 +70,7 @@ namespace TestResNS
 		//设置着色器统一变量 使用纹理后该变量不在着色器中使用
 		m_pShaderMng->SetUniform4f("u_Color", currRedValue, 0.3f, 0.8f, 1.0f);
 		//渲染对象
-		m_pRenderE->RendererDraw(m_pDataLoad, m_pShaderMng);
+		m_pRenderE->RendererDraw(m_pRectDLE->GetDataLoadEnginePointer(), m_pShaderMng);
 		//超出边界的时候步长取反，使得颜色从0到1来回顺序变动
 		if (currRedValue > 1.0f || currRedValue < 0.0f)
 		{

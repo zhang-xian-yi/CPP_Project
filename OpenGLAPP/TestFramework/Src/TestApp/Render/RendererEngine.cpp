@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "Engines/Buffers/IndexBuffer.h"
 #include "Engines/DataSrc/VertexArray.h"
-#include "Engines/DataLoadEngine.h"
+#include "Engines/DataLoadEnginePrivate.h"
 #include "Shader/ShaderManager.h"
 #include "Error/ErrorMacroDefie.h"
 RenderNS::RendererEngine::RendererEngine()
@@ -24,10 +24,11 @@ void RenderNS::RendererEngine::Clear()
 /// </summary>
 /// <param name="m_pDataloadEngine"></param>
 /// <param name="shader"></param>
-void RenderNS::RendererEngine::RendererDraw(const EngineNS::DataLoadEngine* m_pDataloadEngine, const ShaderNS::ShaderManager* shader)
+void RenderNS::RendererEngine::RendererDraw(const EngineNS::DataLoadEnginePrivate* m_pDataloadEngine, const ShaderNS::ShaderManager* shader)
 {
-	const DataSrcNS::VertexArray& VArray = m_pDataloadEngine->GetVArray();
-	const BuffersNS::IndexBuffer& IBuf = m_pDataloadEngine->GetIndexBuffer();
+	//通过常量指针，换取常引用
+	const DataSrcNS::VertexArray& VArray = *( m_pDataloadEngine->GetVertexArrayPointer());
+	const BuffersNS::IndexBuffer& IBuf = *( m_pDataloadEngine->GetIndexBufferPointer() );
 	//绘制
 	RendererDraw(VArray, IBuf, *shader);
 }

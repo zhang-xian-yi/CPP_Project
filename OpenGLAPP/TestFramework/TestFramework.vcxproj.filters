@@ -501,7 +501,7 @@
     <ClInclude Include="Src\TestApp\Engines\Layout\VLayoutElement.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\TestApp\Engines\DataLoadEngine.h">
+    <ClInclude Include="Src\TestApp\Engines\DataLoadEnginePrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\TestApp\Render\RendererEngine.h">
@@ -1362,6 +1362,12 @@
     <ClInclude Include="Src\AThirdPartSrc\glm\vector_relational.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\TextureDataLoadEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TestApp\Engines\RectangleDataLoadEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -1427,7 +1433,7 @@
     <ClCompile Include="Src\TestApp\Engines\Layout\VLayoutElement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\TestApp\Engines\DataLoadEngine.cpp">
+    <ClCompile Include="Src\TestApp\Engines\DataLoadEnginePrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\Render\RendererEngine.cpp">
@@ -1443,6 +1449,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\AThirdPartSrc\glm\detail\glm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\TextureDataLoadEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "DataLoadEngine.h"
+#include "DataLoadEnginePrivate.h"
 #include "Buffers/IndexBuffer.h"
 #include "Buffers/VertexBuffer.h"
 #include "Layout/VertexBufferLayout.h"
@@ -7,7 +7,7 @@
 /// <summary>
 /// 构造函数
 /// </summary>
-EngineNS::DataLoadEngine::DataLoadEngine()
+EngineNS::DataLoadEnginePrivate::DataLoadEnginePrivate()
 {
 	m_pIndexBufferS = new BuffersNS::IndexBuffer();
 	m_pVertexBufferS = new BuffersNS::VertexBuffer();
@@ -18,7 +18,7 @@ EngineNS::DataLoadEngine::DataLoadEngine()
 /// <summary>
 /// 析构函数
 /// </summary>
-EngineNS::DataLoadEngine::~DataLoadEngine()
+EngineNS::DataLoadEnginePrivate::~DataLoadEnginePrivate()
 {
 	if (nullptr != m_pIndexBufferS)
 	{
@@ -47,47 +47,51 @@ EngineNS::DataLoadEngine::~DataLoadEngine()
 /// </summary>
 /// <param name="pArray"></param>
 /// <param name="count"></param>
-void EngineNS::DataLoadEngine::SetIndexData(const unsigned int* pArray, unsigned int count)
+void EngineNS::DataLoadEnginePrivate::SetIndexData(const unsigned int* pArray, unsigned int count)
 {
 	m_pIndexBufferS->SetIndexData(pArray, count);
 }
 
-const BuffersNS::IndexBuffer& EngineNS::DataLoadEngine::GetIndexBuffer() const
-{
-	// TODO: 在此处插入 return 语句
-	return *(this->m_pIndexBufferS);
-}
 
 /// <summary>
 /// 设置顶点缓冲功能区
 /// </summary>
 /// <param name="pArray"></param>
 /// <param name="size"></param>
-void EngineNS::DataLoadEngine::SetVertexData(const void* pArray, unsigned int size)
+void EngineNS::DataLoadEnginePrivate::SetVertexData(const void* pArray, unsigned int size)
 {
 	m_pVertexBufferS->SetVertexData(pArray, size);
 }
 
-const DataSrcNS::VertexArray& EngineNS::DataLoadEngine::GetVArray() const
+/// <summary>
+/// 返回顶点缓冲区布局的指针定义
+/// </summary>
+/// <returns></returns>
+LayoutNS::VertexBufferLayout* EngineNS::DataLoadEnginePrivate::GetVBufLayoutPointer() const
 {
-	// TODO: 在此处插入 return 语句
-	return *(this->m_pVArray);
+	return this->m_pVBufLayout;
+}
+//获取顶点数组的指针
+const DataSrcNS::VertexArray* EngineNS::DataLoadEnginePrivate::GetVertexArrayPointer() const
+{
+	return m_pVArray;
+}
+//获取索引缓冲区的指针
+const BuffersNS::IndexBuffer* EngineNS::DataLoadEnginePrivate::GetIndexBufferPointer() const
+{
+	return m_pIndexBufferS;
 }
 
-
-void EngineNS::DataLoadEngine::InitDataEnvir()
+void EngineNS::DataLoadEnginePrivate::BindVBuffAndVLayout()
 {
-	//此处顶点缓冲区布局的push  与顶点shader文件中的layout相关联
-	//且存在先后顺序关系
-	m_pVBufLayout->Push<float>(2);//每两个浮点数为一个顶点对象
-	//绑定缓冲区和布局定义
+	//建立顶点缓冲区和顶点布局的关系
 	m_pVArray->BindVBuffAndVLayout(*m_pVertexBufferS, *m_pVBufLayout);
 }
 
 /// <summary>
 /// 手动清楚资源
 /// </summary>
-void EngineNS::DataLoadEngine::ReleaseSrc()
+void EngineNS::DataLoadEnginePrivate::ReleaseSrc()
 {
 	if (m_pIndexBufferS != nullptr)
 	{

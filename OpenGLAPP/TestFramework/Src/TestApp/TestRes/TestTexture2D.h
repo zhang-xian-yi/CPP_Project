@@ -4,7 +4,7 @@
 #include "TestBase.h"
 
 #include "Shader/ShaderManager.h"
-#include "Engines/DataLoadEngine.h"
+#include "Engines/TextureDataLoadEngine.h"
 #include "Render/RendererEngine.h"
 #include "Render/TextureService.h"
 namespace TestResNS
@@ -28,8 +28,8 @@ namespace TestResNS
 	private:
 		//着色器
 		ShaderNS::ShaderManager* m_pShaderMng;
-		//数据加载引擎
-		EngineNS::DataLoadEngine* m_pDataLoad;
+		//纹理的数据加载引擎
+		EngineNS::TextureDataLoadEngine* m_pTextureDLE;
 		//渲染引擎
 		RenderNS::RendererEngine* m_pRenderE;
 		//纹理的加载和操作

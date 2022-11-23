@@ -10,7 +10,7 @@ namespace TestResNS
          m_ModelBVec3(glm::vec3(100.0f, 100.0f, 0.0f))
 	{
         //初始化环境
-        m_pDataLoad = new EngineNS::DataLoadEngine();
+        m_pTextureDLE = new EngineNS::TextureDataLoadEngine();
         m_pShaderMng = new ShaderNS::ShaderManager();
         m_pRenderE = new RenderNS::RendererEngine();
         m_pTextureS = new RenderNS::TextureService();
@@ -37,19 +37,18 @@ namespace TestResNS
             2,3,0,
         };
 
-        m_pDataLoad->SetVertexData(positionArray, 4 * 4 * sizeof(float));
-        m_pDataLoad->SetIndexData(indices, 6);
-        //初始化数据环境
-        m_pDataLoad->InitDataEnvir();
+        m_pTextureDLE->SetVertexData(positionArray, 4 * 4 * sizeof(float));
+        m_pTextureDLE->SetIndexData(indices, 6);
+        //初始化纹理环境
+        m_pTextureDLE->InitTextureEnvir();
 
 	}
 	TestTexture2D::~TestTexture2D()
 	{
-        if (m_pDataLoad != nullptr)
+        if (m_pTextureDLE != nullptr)
         {
-            m_pDataLoad->ReleaseSrc();
-            delete m_pDataLoad;
-            m_pDataLoad = nullptr;
+            delete m_pTextureDLE;
+            m_pTextureDLE = nullptr;
         }
         if (m_pShaderMng != nullptr)
         {
@@ -88,14 +87,12 @@ namespace TestResNS
 	{
         /* Loop until the user closes the window */
         m_pRenderE->Clear();
-
-        m_pTextureS->Bind(0);//默认为0
         {
             //模型矩阵，xyz 三轴，x轴正向200，Y轴正向100单位，Z轴上不同
             glm::mat4 model = glm::translate(glm::mat4(1.0f), m_ModelAVec3);
             m_pShaderMng->Bind();
             m_pShaderMng->SetUniformMatrix4f("u_MVP", projectMatrix * viewMatrix * model);
-            m_pRenderE->RendererDraw(m_pDataLoad, m_pShaderMng);//绘制
+            m_pRenderE->RendererDraw(m_pTextureDLE->GetDataLoadEnginePointer(), m_pShaderMng);//绘制
         }
 
         {
@@ -103,7 +100,7 @@ namespace TestResNS
             glm::mat4 model = glm::translate(glm::mat4(1.0f), m_ModelBVec3);
             m_pShaderMng->Bind();
             m_pShaderMng->SetUniformMatrix4f("u_MVP", projectMatrix * viewMatrix * model);
-            m_pRenderE->RendererDraw(m_pDataLoad, m_pShaderMng);//绘制
+            m_pRenderE->RendererDraw(m_pTextureDLE->GetDataLoadEnginePointer(), m_pShaderMng);//绘制
         }
 
 	}

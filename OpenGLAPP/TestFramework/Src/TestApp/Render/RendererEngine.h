@@ -17,7 +17,7 @@ namespace ShaderNS
 
 namespace EngineNS
 {
-	class DataLoadEngine;//数据加载引擎
+	class DataLoadEnginePrivate;//数据加载引擎
 }
 
 namespace RenderNS
@@ -33,7 +33,7 @@ namespace RenderNS
 		//清楚
 		void Clear();
 		//根据顶点数组，索引缓冲区，着色器进行渲染工作
-		void RendererDraw(const EngineNS::DataLoadEngine* m_pDataloadEngine,const ShaderNS::ShaderManager* shader);
+		void RendererDraw(const EngineNS::DataLoadEnginePrivate* m_pDataloadEngine,const ShaderNS::ShaderManager* shader);
 		void RendererDraw(const DataSrcNS::VertexArray& vArray, const BuffersNS::IndexBuffer& iBuf, const ShaderNS::ShaderManager& shader);
 	private:
 

@@ -287,6 +287,7 @@
     <None Include="Src\AThirdPartSrc\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\TestApp\Engines\RectangleDataLoadEngine.h" />
     <ClInclude Include="Src\AThirdPartSrc\glm\common.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\detail\compute_common.hpp" />
     <ClInclude Include="Src\AThirdPartSrc\glm\detail\compute_vector_relational.hpp" />
@@ -572,10 +573,11 @@
     <ClInclude Include="Src\AThirdPartSrc\stb_image\stb_image.h" />
     <ClInclude Include="Src\TestApp\Engines\Buffers\IndexBuffer.h" />
     <ClInclude Include="Src\TestApp\Engines\Buffers\VertexBuffer.h" />
-    <ClInclude Include="Src\TestApp\Engines\DataLoadEngine.h" />
+    <ClInclude Include="Src\TestApp\Engines\DataLoadEnginePrivate.h" />
     <ClInclude Include="Src\TestApp\Engines\DataSrc\VertexArray.h" />
     <ClInclude Include="Src\TestApp\Engines\Layout\VertexBufferLayout.h" />
     <ClInclude Include="Src\TestApp\Engines\Layout\VLayoutElement.h" />
+    <ClInclude Include="Src\TestApp\Engines\TextureDataLoadEngine.h" />
     <ClInclude Include="Src\TestApp\Envirment\FrameworkService.h" />
     <ClInclude Include="Src\TestApp\Envirment\Application.h" />
     <ClInclude Include="Src\TestApp\Envirment\GLWindowService.h" />
@@ -600,13 +602,15 @@
     <ClInclude Include="Src\TestApp\TestRes\TestTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\glm\detail\glm.cpp" />
     <ClCompile Include="Src\AThirdPartSrc\stb_image\stb_image.cpp" />
     <ClCompile Include="Src\TestApp\Engines\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="Src\TestApp\Engines\Buffers\VertexBuffer.cpp" />
-    <ClCompile Include="Src\TestApp\Engines\DataLoadEngine.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\DataLoadEnginePrivate.cpp" />
     <ClCompile Include="Src\TestApp\Engines\DataSrc\VertexArray.cpp" />
     <ClCompile Include="Src\TestApp\Engines\Layout\VLayoutElement.cpp" />
+    <ClCompile Include="Src\TestApp\Engines\TextureDataLoadEngine.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\FrameworkService.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\Application.cpp" />
     <ClCompile Include="Src\TestApp\Envirment\GLWindowService.cpp" />

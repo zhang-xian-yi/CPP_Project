@@ -1,7 +1,7 @@
 #pragma once
 #include "TestBase.h"
 #include "Shader/ShaderManager.h"
-#include "Engines/DataLoadEngine.h"
+#include "Engines/RectangleDataLoadEngine.h"
 #include "Render/RendererEngine.h"
 namespace TestResNS
 {
@@ -21,7 +21,7 @@ namespace TestResNS
 		//着色器
 		ShaderNS::ShaderManager* m_pShaderMng;
 		//数据加载引擎
-		EngineNS::DataLoadEngine* m_pDataLoad;
+		EngineNS::RectangleDataLoadEngine* m_pRectDLE;
 		//渲染引擎
 		RenderNS::RendererEngine* m_pRenderE;
 	};
