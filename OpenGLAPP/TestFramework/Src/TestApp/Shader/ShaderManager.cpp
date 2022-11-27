@@ -84,10 +84,10 @@ int ShaderNS::ShaderManager::initShader(std::string VTmpShader, std::string FTmp
 {
 	//这里的路径会因为工程相对路径进行偏移 direct.g 中获取解决方案下类库的路径
 	std::string proPath = _getcwd(nullptr, 1);
-	std::string VShaderStr = this->ParseShaderFileRes(proPath + VTmpShader);
-	std::string FShaderStr = this->ParseShaderFileRes(proPath + FTmpShader);
+	m_VShaderPath = this->ParseShaderFileRes(proPath + VTmpShader);
+	m_FShaderPath = this->ParseShaderFileRes(proPath + FTmpShader);
 	//创建一个着色器
-	unsigned int shader = this->CreateShader(VShaderStr, FShaderStr);
+	unsigned int shader = this->CreateShader(m_VShaderPath, m_FShaderPath);
 	//复制类变量
 	m_tmpShaderID = shader;
 	return 0;
@@ -149,8 +149,20 @@ void ShaderNS::ShaderManager::SetUniform4f(const std::string& name, float v0, fl
 
 int ShaderNS::ShaderManager::GetuniformLocation(const std::string& name)
 {
+	//存在相对于的着色器变量
+	if (m_uniformLocationCacheMap.find(name) != m_uniformLocationCacheMap.end())
+	{
+		//返回找到的uniform 值
+		return m_uniformLocationCacheMap[name];
+	}
+	//未找到指定的unifrom 值 通过轮询opengl函数获取
 	int location =  glGetUniformLocation(m_tmpShaderID, name.c_str());
-	if (location == -1)
+	if (location != -1)
+	{
+		//添加指定的name 的uniform 的location
+		m_uniformLocationCacheMap[name] = location;
+	}
+	else
 	{
 		std::cout << "warning uniform" << name << "not exist" << std::endl;
 	}

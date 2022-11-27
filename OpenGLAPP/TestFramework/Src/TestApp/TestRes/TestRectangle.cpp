@@ -14,10 +14,10 @@ namespace TestResNS
 
 		//顶点数据
 		float positionArray[] = {
-			-100.0f,-100.0f,//前两个数为顶点，后两个数为纹理坐标
-			100.0f,-100.0f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
-			100.0f,100.0f,
-			-100.0f,100.0f
+			-0.5f,-0.5f,//两个数为一个顶点，0.5f 表示在0~1的范围内占据一半
+			0.5f,-0.5f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
+			0.5f,0.5f,
+			-0.5f,0.5f
 		};
 
 		//索引缓冲区
@@ -28,7 +28,7 @@ namespace TestResNS
 
 		m_pRectDLE = new EngineNS::RectangleDataLoadEngine();
 		m_pRectDLE->SetVertexData(positionArray, 2 * 4 * sizeof(float));
-		m_pRectDLE->SetIndexData(indices, 6);
+		m_pRectDLE->SetIndexData(indices, 9);
 		//初始化数据环境
 		m_pRectDLE->InitRectangleBKColorEnvir();
 	}

@@ -2,6 +2,7 @@
 #include <string>
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"// 投影矩阵
+#include <unordered_map>//非排序的hash 表
 //声明第三方库 
 namespace ShaderNS
 {
@@ -31,6 +32,10 @@ namespace ShaderNS
 	private:
 		ShaderNS::ShaderManageGLPrivate* _pShaderGLMag;
 		unsigned int m_tmpShaderID;//着色器的ID
+		std::string m_VShaderPath;//顶点着色器文件
+		std::string m_FShaderPath;//片段着色器文件
+		//记录着色器中的uniform 的位置
+		std::unordered_map<std::string,int> m_uniformLocationCacheMap;
 	};
 
 }
