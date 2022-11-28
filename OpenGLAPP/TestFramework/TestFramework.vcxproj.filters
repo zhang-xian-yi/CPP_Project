@@ -1368,6 +1368,9 @@
     <ClInclude Include="Src\TestApp\Engines\RectangleDataLoadEngine.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -1455,6 +1458,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -600,6 +600,7 @@
     <ClInclude Include="Src\TestApp\TestRes\TestUIMenu.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestRectangle.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestTexture2D.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp" />
@@ -631,6 +632,7 @@
     <ClCompile Include="Src\TestApp\TestRes\TestUIMenu.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestRectangle.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestTexture2D.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\TexturesRes\flower.jpeg" />

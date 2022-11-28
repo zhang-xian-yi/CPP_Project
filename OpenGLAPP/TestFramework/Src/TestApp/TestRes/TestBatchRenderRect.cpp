@@ -1,11 +1,13 @@
-#include "TestRectangle.h"
+#include "TestBatchRenderRect.h"
 #include "Error/ErrorMacroDefie.h"
 #include "imGui/imgui.h"
+#include "Engines/DataLoadEnginePrivate.h"
 
 namespace TestResNS
 {
-	TestRectangle::TestRectangle()
+	TestBatchRenderRect::TestBatchRenderRect()
 	{
+
 		m_pRenderE = new RenderNS::RendererEngine();
 		m_pShaderMng = new ShaderNS::ShaderManager();
 		//初始化着色器并绑定
@@ -14,25 +16,34 @@ namespace TestResNS
 
 		//顶点数据
 		float positionArray[] = {
-			-0.5f,-0.5f,//两个数为一个顶点，0.5f 表示在0~1的范围内占据一半
-			0.5f,-0.5f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
-			0.5f,0.5f,
-			-0.5f,0.5f
+			-0.75f,-0.5f,//两个数为一个顶点，0.5f 表示在0~1的范围内占据一半
+			-0.25f,-0.5f,//0.0f 0.0f 纹理坐标表示左下角，1.0f,1.0f 表示右上角
+			-0.25f,0.5f,
+			-0.75f,0.5f,
+
+			 0.25f,-0.5f, //新增顶点 将需要产生变化的图形通过运算转化指定的顶点数据
+			 0.75f,-0.5f,//通过对顶点数据的解析形成变化的效果
+			 0.75f,0.5f,
+			 0.25f,0.5f
 		};
 
 		//索引缓冲区
 		unsigned int indices[] = {
 			0,1,2,
 			2,3,0,
+
+			4,5,6,//新增索引
+			6,7,4,//描述顶点的索引
 		};
 
 		m_pRectDLE = new EngineNS::RectangleDataLoadEngine();
-		m_pRectDLE->SetVertexData(positionArray, 2 * 4 * sizeof(float));
-		m_pRectDLE->SetIndexData(indices, 6);
+		m_pRectDLE->SetVertexData(positionArray, 2 * 8 * sizeof(float));
+		m_pRectDLE->SetIndexData(indices, 12);
 		//初始化数据环境
 		m_pRectDLE->InitRectangleBKColorEnvir();
+
 	}
-	TestRectangle::~TestRectangle()
+	TestBatchRenderRect::~TestBatchRenderRect()
 	{
 		if (m_pRenderE == nullptr)
 		{
@@ -52,13 +63,10 @@ namespace TestResNS
 			m_pShaderMng = nullptr;
 		}
 	}
-
-
-	void TestRectangle::onUpdate(float deltatime)
+	void TestBatchRenderRect::onUpdate(float deltatime)
 	{
 	}
-	
-	void TestRectangle::onRender()
+	void TestBatchRenderRect::onRender()
 	{
 		//渲染颜色
 		static float currRedValue = 0.2f;//当前的颜色
@@ -70,6 +78,8 @@ namespace TestResNS
 		//设置着色器统一变量 使用纹理后该变量不在着色器中使用
 		m_pShaderMng->SetUniform4f("u_Color", currRedValue, 0.3f, 0.8f, 1.0f);
 		//渲染对象
+
+		//通过常量指针，换取常引用
 		m_pRenderE->RendererDraw(m_pRectDLE->GetDataLoadEnginePointer(), m_pShaderMng);
 		//超出边界的时候步长取反，使得颜色从0到1来回顺序变动
 		if (currRedValue > 1.0f || currRedValue < 0.0f)
@@ -77,11 +87,9 @@ namespace TestResNS
 			redStep = -redStep;
 		}
 		currRedValue += redStep;
-	}
-	
-	//渲染IMGUI
-	void TestRectangle::onImGUIRender()
-	{
 
+	}
+	void TestBatchRenderRect::onImGUIRender()
+	{
 	}
 }
