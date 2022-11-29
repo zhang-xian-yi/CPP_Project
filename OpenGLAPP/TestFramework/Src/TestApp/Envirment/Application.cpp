@@ -10,6 +10,7 @@
 #include "TestRes/TestRectangle.h"
 #include "TestRes/TestTexture2D.h"//ÎÆÀí²âÊÔ
 #include "TestRes/TestBatchRenderRect.h"
+#include "TestRes/TestBatchRenderRect2.h"
 namespace EnvirmentNS
 {
     /// <summary>
@@ -52,7 +53,8 @@ namespace EnvirmentNS
         pMenu->RegisterTest<TestResNS::TestImGUIBGColor>("TestColor");
         pMenu->RegisterTest<TestResNS::TestRectangle>("TestRectangle");
         pMenu->RegisterTest<TestResNS::TestTexture2D>("TestSimple2D");
-        pMenu->RegisterTest<TestResNS::TestBatchRenderRect>("TestBatchRenderRect");
+        pMenu->RegisterTest<TestResNS::TestBatchRenderRect>("BatchRenderRect");
+        pMenu->RegisterTest<TestResNS::TestBatchRenderRect2>("BatchRenderRect2");
         while (!endFlag)
         {
             m_pWinS->DefaultWindowBackground();//Ë¢ĞÂ±³¾°

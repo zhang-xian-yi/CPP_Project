@@ -44,15 +44,6 @@ void EngineNS::RectangleDataLoadEngine::SetVertexData(const void* pArray, unsign
 }
 
 
-void EngineNS::RectangleDataLoadEngine::InitRectangleBKColorEnvir()
-{
-	//此处顶点缓冲区布局的push  与顶点shader文件中的layout相关联
-	LayoutNS::VertexBufferLayout* pVBufLayout = m_pDLEPrivate->GetVBufLayoutPointer();
-	//且存在先后顺序关系
-	pVBufLayout->Push<float>(2);//每两个浮点数为一个顶点对象
-	//建立顶点缓冲区和顶点布局定义的关系
-	m_pDLEPrivate->BindVBuffAndVLayout();
-}
 
 EngineNS::DataLoadEnginePrivate* EngineNS::RectangleDataLoadEngine::GetDataLoadEnginePointer() const
 {

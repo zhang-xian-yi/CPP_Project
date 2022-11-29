@@ -1,6 +1,7 @@
 #version 330 core 
 
 //此处布局描述的是顶点数组中，被layout push<float> 的两个坐标点
+//与 布局管理中的 glEnableVertexAttribArray 的序号相关联
 layout(location = 0) in vec4 postion;//顶点坐标
 
 void main()

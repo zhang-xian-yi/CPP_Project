@@ -15,7 +15,7 @@ namespace TestResNS
         m_pRenderE = new RenderNS::RendererEngine();
         m_pTextureS = new RenderNS::TextureService();
 
-        m_pShaderMng->initShader("/Resource/TextureShaders/TVertex.shader", "/Resource/TextureShaders/TFragment.shader");
+        m_pShaderMng->initShader("/Resource/Shaders/TextureL/TVertex.shader", "/Resource/Shaders/TextureL/TFragment.shader");
         m_pShaderMng->Bind();//必须先使用gluserprogram 才可以绑定uniform变量否则该变量不会存在
 
         //加载纹理

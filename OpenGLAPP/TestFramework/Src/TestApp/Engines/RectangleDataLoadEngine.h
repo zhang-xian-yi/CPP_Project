@@ -23,8 +23,6 @@ namespace EngineNS
 		//注意因为存在改变顶点空间的可能，所以传入的顶点数据空间内存不受此类管理
 		//传入顶点数据
 		void SetVertexData(const void* pArray, unsigned int size);
-		//初始化数据环境
-		void InitRectangleBKColorEnvir();
 		//数据数据加载引擎的指针
 		EngineNS::DataLoadEnginePrivate* GetDataLoadEnginePointer()const;
 	private:

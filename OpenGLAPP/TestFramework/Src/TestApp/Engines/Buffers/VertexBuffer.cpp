@@ -40,7 +40,7 @@ void BuffersNS::VertexBuffer::Bind()const
 {
     //绑定一个缓冲区对象，此缓冲区中的数据会自动进入缓冲区对象中
     //这里的0 表示取消绑定实际值应该为_tmpVertexID
-    glBindBuffer(GL_ARRAY_BUFFER, m_RenderID);
+    GLCallWarn(glBindBuffer(GL_ARRAY_BUFFER, m_RenderID));
 }
 
 void BuffersNS::VertexBuffer::UnBind()const

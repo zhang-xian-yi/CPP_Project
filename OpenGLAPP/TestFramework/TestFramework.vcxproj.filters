@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Shaders\Fragment.shader" />
-    <None Include="Resource\Shaders\Vertex.shader" />
-    <None Include="Resource\TextureShaders\TFragment.shader" />
-    <None Include="Resource\TextureShaders\TVertex.shader" />
+    <None Include="Resource\Shaders\DefaultL\Fragment.shader" />
+    <None Include="Resource\Shaders\DefaultL\Vertex.shader" />
+    <None Include="Resource\Shaders\TextureL\TFragment.shader" />
+    <None Include="Resource\Shaders\TextureL\TVertex.shader" />
     <None Include="Src\AThirdPartSrc\glm\detail\func_common.inl">
       <Filter>头文件</Filter>
     </None>
@@ -427,6 +427,8 @@
     <None Include="Src\AThirdPartSrc\glm\gtx\wrap.inl">
       <Filter>头文件</Filter>
     </None>
+    <None Include="Resource\Shaders\BatchL\Fragment.shader" />
+    <None Include="Resource\Shaders\BatchL\Vertex.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AThirdPartSrc\imGui\imconfig.h">
@@ -1371,6 +1373,9 @@
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -1461,6 +1466,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

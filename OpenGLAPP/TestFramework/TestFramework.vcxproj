@@ -145,10 +145,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Resource\Shaders\Fragment.shader" />
-    <None Include="Resource\Shaders\Vertex.shader" />
-    <None Include="Resource\TextureShaders\TFragment.shader" />
-    <None Include="Resource\TextureShaders\TVertex.shader" />
+    <None Include="Resource\Shaders\BatchL\Fragment.shader" />
+    <None Include="Resource\Shaders\BatchL\Vertex.shader" />
+    <None Include="Resource\Shaders\DefaultL\Fragment.shader" />
+    <None Include="Resource\Shaders\DefaultL\Vertex.shader" />
+    <None Include="Resource\Shaders\TextureL\TFragment.shader" />
+    <None Include="Resource\Shaders\TextureL\TVertex.shader" />
     <None Include="Src\AThirdPartSrc\glm\detail\func_common.inl" />
     <None Include="Src\AThirdPartSrc\glm\detail\func_common_simd.inl" />
     <None Include="Src\AThirdPartSrc\glm\detail\func_exponential.inl" />
@@ -601,6 +603,7 @@
     <ClInclude Include="Src\TestApp\TestRes\TestRectangle.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestTexture2D.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp" />
@@ -633,6 +636,7 @@
     <ClCompile Include="Src\TestApp\TestRes\TestRectangle.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestTexture2D.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\TexturesRes\flower.jpeg" />
