@@ -24,7 +24,7 @@ RenderNS::TextureService::~TextureService()
 
 }
 
-int RenderNS::TextureService::InitFileTexture(const std::string& path)
+int RenderNS::TextureService::LoadFileTexture(const std::string& path)
 {
 	//图像是认定左上角位坐标0,0点，opengl希望左下角是坐标0，0点
 	//为了关联双方，将图片颠倒读取
@@ -53,7 +53,7 @@ int RenderNS::TextureService::InitFileTexture(const std::string& path)
 	GLCallWarn(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_localBuf));
 	//glBindTexture(GL_TEXTURE_2D, 0);//解绑纹理缓冲功能区
 	
-	return 0;
+	return m_rendererId;
 }
 
 void RenderNS::TextureService::Bind(unsigned int solt)

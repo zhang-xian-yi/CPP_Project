@@ -16,6 +16,7 @@ namespace ShaderNS
 		int initShader(std::string VShaderStr, std::string FShaderStr);
 		void SetUniform1f(const std::string& name, int value);
 		void SetUniform1f(const std::string& name, float value);
+		void SetUniform1iv(const std::string& name, int* iarr,int len);
 		void SetUniformMatrix4f(const std::string& name, const glm::mat4& matrix);
 		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
 		void Bind()const;

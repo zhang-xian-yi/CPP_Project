@@ -429,6 +429,8 @@
     </None>
     <None Include="Resource\Shaders\BatchL\Fragment.shader" />
     <None Include="Resource\Shaders\BatchL\Vertex.shader" />
+    <None Include="Resource\Shaders\BatchL\BatchVS3.shader" />
+    <None Include="Resource\Shaders\BatchL\BatchFS3.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AThirdPartSrc\imGui\imconfig.h">
@@ -1376,6 +1378,9 @@
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -1469,6 +1474,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -115,6 +115,17 @@ void ShaderNS::ShaderManager::SetUniform1f(const std::string& name, float value)
 	}
 }
 
+void ShaderNS::ShaderManager::SetUniform1iv(const std::string& name, int* iarr, int len)
+{
+	int location = GetuniformLocation(name);
+	//断言--location 必须有效
+	if (location != -1)
+	{
+		//4f 4个浮点数 也对应vec4,得到实际位置后，向实际颜色发送RGBA数据
+		glUniform1iv(location,len, iarr);
+	}
+}
+
 /// <summary>
 /// 设置矩阵
 /// </summary>

@@ -19,7 +19,7 @@ namespace TestResNS
         m_pShaderMng->Bind();//必须先使用gluserprogram 才可以绑定uniform变量否则该变量不会存在
 
         //加载纹理
-        m_pTextureS->InitFileTexture("Resource/TexturesRes/flower.jpeg");
+        m_pTextureS->LoadFileTexture("Resource/TexturesRes/flower.jpeg");
         m_pTextureS->Bind(0);//默认为0
         m_pShaderMng->SetUniform1f("u_Texture", 0);
 

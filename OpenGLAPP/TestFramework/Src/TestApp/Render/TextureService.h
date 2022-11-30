@@ -13,7 +13,7 @@ namespace RenderNS
 		~TextureService();
 
 		//对文件进行纹理设置
-		int InitFileTexture(const std::string& path);
+		int LoadFileTexture(const std::string& path);
 		
 		int GetWidth()const { return m_width; }
 		int GetHeight() const { return m_height; }
