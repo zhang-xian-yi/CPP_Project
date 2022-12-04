@@ -12,6 +12,7 @@
 #include "TestRes/TestBatchRenderRect.h"
 #include "TestRes/TestBatchRenderRect2.h"
 #include "TestRes/TestBatchRenderRect3.h"
+#include "TestRes/TestBatchDynamicVAORect4.h"
 namespace EnvirmentNS
 {
     /// <summary>
@@ -57,6 +58,7 @@ namespace EnvirmentNS
         pMenu->RegisterTest<TestResNS::TestBatchRenderRect>("BatchRenderRect");
         pMenu->RegisterTest<TestResNS::TestBatchRenderRect2>("BatchRenderRect2");
         pMenu->RegisterTest<TestResNS::TestBatchRenderRect3>("BatchRenderRect3");
+        pMenu->RegisterTest<TestResNS::TestBatchDynamicVAORect4>("BatchVAO4");
         while (!endFlag)
         {
             m_pWinS->DefaultWindowBackground();//Ë¢ÐÂ±³¾°

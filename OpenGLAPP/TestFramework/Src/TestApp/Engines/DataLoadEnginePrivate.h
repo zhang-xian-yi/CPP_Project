@@ -35,9 +35,11 @@ namespace EngineNS
 		//返回布局顶点缓冲区
 		LayoutNS::VertexBufferLayout* GetVBufLayoutPointer()const;
 		//获取顶点数组的指针
-		const DataSrcNS::VertexArray* GetVertexArrayPointer()const;
+		DataSrcNS::VertexArray* GetVertexArrayPointer()const;
 		//获取索引缓冲区的指针
-		const BuffersNS::IndexBuffer* GetIndexBufferPointer()const;
+		BuffersNS::IndexBuffer* GetIndexBufferPointer()const;
+		//获取索引缓冲区的指针
+		BuffersNS::VertexBuffer* GetVertexBufferPointer()const;
 		//绑定顶点缓冲区和顶点布局的关系
 		void BindVBuffAndVLayout();
 		//释放资源

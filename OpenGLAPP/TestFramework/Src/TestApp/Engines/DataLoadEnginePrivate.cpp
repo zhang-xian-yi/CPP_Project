@@ -60,7 +60,7 @@ void EngineNS::DataLoadEnginePrivate::SetIndexData(const unsigned int* pArray, u
 /// <param name="size"></param>
 void EngineNS::DataLoadEnginePrivate::SetVertexData(const void* pArray, unsigned int size)
 {
-	m_pVertexBufferS->SetVertexData(pArray, size);
+	m_pVertexBufferS->SetStaticVertexData(pArray, size);
 }
 
 /// <summary>
@@ -72,14 +72,19 @@ LayoutNS::VertexBufferLayout* EngineNS::DataLoadEnginePrivate::GetVBufLayoutPoin
 	return this->m_pVBufLayout;
 }
 //获取顶点数组的指针
-const DataSrcNS::VertexArray* EngineNS::DataLoadEnginePrivate::GetVertexArrayPointer() const
+DataSrcNS::VertexArray* EngineNS::DataLoadEnginePrivate::GetVertexArrayPointer() const
 {
 	return m_pVArray;
 }
 //获取索引缓冲区的指针
-const BuffersNS::IndexBuffer* EngineNS::DataLoadEnginePrivate::GetIndexBufferPointer() const
+BuffersNS::IndexBuffer* EngineNS::DataLoadEnginePrivate::GetIndexBufferPointer() const
 {
 	return m_pIndexBufferS;
+}
+
+BuffersNS::VertexBuffer* EngineNS::DataLoadEnginePrivate::GetVertexBufferPointer() const
+{
+	return m_pVertexBufferS;
 }
 
 void EngineNS::DataLoadEnginePrivate::BindVBuffAndVLayout()

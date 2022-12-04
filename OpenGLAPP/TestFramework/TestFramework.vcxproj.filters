@@ -1381,6 +1381,9 @@
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect3.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchDynamicVAORect4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AThirdPartSrc\imGui\imgui.cpp">
@@ -1477,6 +1480,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchDynamicVAORect4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

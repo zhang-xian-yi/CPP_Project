@@ -607,6 +607,7 @@
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect2.h" />
     <ClInclude Include="Src\TestApp\TestRes\TestBatchRenderRect3.h" />
+    <ClInclude Include="Src\TestApp\TestRes\TestBatchDynamicVAORect4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\TestApp\Engines\RectangleDataLoadEngine.cpp" />
@@ -641,6 +642,7 @@
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect2.cpp" />
     <ClCompile Include="Src\TestApp\TestRes\TestBatchRenderRect3.cpp" />
+    <ClCompile Include="Src\TestApp\TestRes\TestBatchDynamicVAORect4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\TexturesRes\flower.jpeg" />

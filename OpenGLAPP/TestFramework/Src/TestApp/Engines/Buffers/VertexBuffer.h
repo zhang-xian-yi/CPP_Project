@@ -11,7 +11,8 @@ namespace BuffersNS
 		VertexBuffer();
 		~VertexBuffer();
 		//注意因为存在改变顶点空间的可能，所以传入的顶点数据空间内存不受此类管理
-		void SetVertexData(const void* pArray,unsigned int size);
+		void SetStaticVertexData(const void* pArray,unsigned int size);
+		void SetDynamicVertexData(const void* pArray, unsigned int size);
 		void Bind()const;
 		void UnBind()const;
 		void ReleaseBuffer();//释放缓冲区
