@@ -4,7 +4,7 @@ int TestAPP(int argc, char* argv[])
 {
     EnvirmentNS::Application app;
 
-    app.InitAPPEnvir(720, 480);
+    app.InitAPPEnvir(1080, 720);
 
     app.RunAPP();
 

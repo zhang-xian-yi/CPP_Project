@@ -40,40 +40,53 @@ namespace BatchDynamicVAONS
 		float TexID;//纹理槽号
 	};
 
-	static std::array<TVertex, 4> CreateQuadrangle(float x, float y, float texID)
+	/// <summary>
+	/// 创建指定大小的数据区域
+	/// </summary>
+	/// <param name="target"></param>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <param name="texID"></param>
+	/// <returns></returns>
+	static TVertex* CreateQuadrangle(TVertex* target,float x, float y, float texID)
 	{
-		size_t Vsize = 1.0f;//顶点之间的距离
+		float Vsize = 1.0f;//顶点之间的距离
 
-		TVertex tv0;
-		tv0.position = {x,y};
-		tv0.Color = { 0.1f,0.6f,0.96f,1.0f };
-		tv0.TexCoord = {0.0f,0.0f};
-		tv0.TexID = texID;
+		target->position = {x,y};
+		target->Color = { 0.1f,0.6f,0.96f,1.0f };
+		target->TexCoord = {0.0f,0.0f};
+		target->TexID = texID;
+		target++;//指针自增 先后偏移 sizeof(TVertex)大小的字节数 为新对象起始地址
 
-		TVertex tv1;
-		tv1.position = { x + Vsize,y };
-		tv1.Color = { 0.1f,0.6f,0.96f,1.0f };
-		tv1.TexCoord = { 1.0f,0.0f };
-		tv1.TexID = texID;
+		target->position = { x + Vsize,y };
+		target->Color = { 0.1f,0.6f,0.96f,1.0f };
+		target->TexCoord = { 1.0f,0.0f };
+		target->TexID = texID;
+		target++;//指针自增 先后偏移 sizeof(TVertex)大小的字节数 为新对象起始地址
 
-		TVertex tv2;
-		tv2.position = { x +Vsize,y + Vsize };
-		tv2.Color = { 0.1f,0.6f,0.96f,1.0f };
-		tv2.TexCoord = { 1.0f,1.0f };
-		tv2.TexID = texID;
+		target->position = { x +Vsize,y + Vsize };
+		target->Color = { 0.1f,0.6f,0.96f,1.0f };
+		target->TexCoord = { 1.0f,1.0f };
+		target->TexID = texID;
+		target++;//指针自增 先后偏移 sizeof(TVertex)大小的字节数 为新对象起始地址
 
-		TVertex tv3;
-		tv3.position = { x,y+Vsize };
-		tv3.Color = { 0.1f,0.6f,0.96f,1.0f };
-		tv3.TexCoord = { 0.0f,1.0f };
-		tv3.TexID = texID;
-		return { tv0 ,tv1 ,tv2 ,tv3 };
+		target->position = { x,y+Vsize };
+		target->Color = { 0.1f,0.6f,0.96f,1.0f };
+		target->TexCoord = { 0.0f,1.0f };
+		target->TexID = texID;
+		target++;//指针自增 先后偏移 sizeof(TVertex)大小的字节数 为新对象起始地址
+
+		return target;
 	}
 
 }
 
 namespace TestResNS
 {
+	static const size_t SMaxQuadCount = 25; // 屏幕中最大四边形个数
+	static const  size_t SMaxVertexCount = SMaxQuadCount * 4;//最大顶点个数
+	static const size_t SMaxIndexCount = SMaxQuadCount * 6;//最大索引个数
+
 
 	TestBatchDynamicVAORect4::TestBatchDynamicVAORect4()
 	{
@@ -95,17 +108,34 @@ namespace TestResNS
 		auto pDataLoadE = m_pRectDLE->GetDataLoadEnginePointer();
 		auto pVBufS = pDataLoadE->GetVertexBufferPointer();
 		//建立一个100 个顶点的缓冲区
-		pVBufS->SetDynamicVertexData(nullptr, sizeof(BatchDynamicVAONS::TVertex) * 100);
+		pVBufS->SetDynamicVertexData(nullptr, sizeof(BatchDynamicVAONS::TVertex) * SMaxVertexCount);
+		/*
 		//索引缓冲区
 		unsigned int indices[] = {
-			0,1,2,
-			2,3,0,
-
-			4,5,6,//新增索引
-			6,7,4,//描述顶点的索引
+			0,1,2,2,3,0,			
+			//新增索引
+			4,5,6,6,7,4,//描述顶点的索引			
 		};
+		*/
+		//
+		unsigned int indices[SMaxIndexCount];
+		//设置索引缓冲的数据模式
+		unsigned int offset = 0;//一个四边形偏移一次
+		for (unsigned int i = 0; i < SMaxIndexCount; i+=6)
+		{
+			indices[i] = 0 + offset;
+			indices[i + 1] = 1 + offset;
+			indices[i + 2] = 2 + offset;
 
-		m_pRectDLE->SetIndexData(indices, 12);
+			indices[i + 3] = 2 + offset;
+			indices[i + 4] = 3 + offset;
+			indices[i + 5] = 0 + offset;
+
+			offset += 4;//每次四边形六个索引点，便递增一次
+		}
+
+
+		m_pRectDLE->SetIndexData(indices, SMaxIndexCount);
 		//初始化数据环境
 		//此处顶点缓冲区布局的push  与顶点shader文件中的layout相关联
 		LayoutNS::VertexBufferLayout* pVBufLayout = m_pRectDLE->GetDataLoadEnginePointer()->GetVBufLayoutPointer();
@@ -151,16 +181,30 @@ namespace TestResNS
 		glBindTextureUnit(0, m_ATexSolt);//花
 		glBindTextureUnit(1, m_BTexSolt);//星空
 
-		auto q0 = BatchDynamicVAONS::CreateQuadrangle(m_QAPosFArr[0], m_QAPosFArr[1], 0.0f);
-		auto q1 = BatchDynamicVAONS::CreateQuadrangle(m_QBPosFArr[0], m_QBPosFArr[1], 1.0f);
-		//定义八个顶点的数组
-		BatchDynamicVAONS::TVertex TVertexs[8];
 
-		memcpy(TVertexs, q0.data(), q0.size() * sizeof(BatchDynamicVAONS::TVertex));
-		memcpy(TVertexs + q0.size(), q1.data(), q1.size() * sizeof(BatchDynamicVAONS::TVertex));
+		std::array<BatchDynamicVAONS::TVertex, 100> verterxArr;//定义顶点数
+		BatchDynamicVAONS::TVertex* buffer = verterxArr.data();//获取数组起始指针
+		for (int y = 0; y <= 3; y++)
+		{
+			for (int x = 0; x <= 3; x++)
+			{
+				if ((x + y) % 2 == 0)
+				{
+					buffer = BatchDynamicVAONS::CreateQuadrangle(buffer, x + m_QAPosFArr[0], y + m_QAPosFArr[1], (x + y) % 2);
+				}
+				else
+				{
+					buffer = BatchDynamicVAONS::CreateQuadrangle(buffer, x + m_QBPosFArr[0], y + m_QBPosFArr[1], (x + y) % 2);
+				}
+			}
+		}
+		//创建两个可以被控制的图案
+		buffer = BatchDynamicVAONS::CreateQuadrangle(buffer,m_QAPosFArr[0], m_QAPosFArr[1], 0.0f);
+
+		buffer = BatchDynamicVAONS::CreateQuadrangle(buffer,m_QBPosFArr[0], m_QBPosFArr[1], 1.0f);
+
 		//此方法可以改变顶点缓冲区的数据， 也可以用glmapbuffer
-		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(TVertexs), TVertexs);
-	
+		glBufferSubData(GL_ARRAY_BUFFER, 0, verterxArr.size() * sizeof(BatchDynamicVAONS::TVertex), verterxArr.data());
 	}
 	void TestBatchDynamicVAORect4::onRender()
 	{

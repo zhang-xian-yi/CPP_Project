@@ -40,9 +40,9 @@ namespace TestResNS
 		//加载的纹理槽号
 		int m_ATexSolt, m_BTexSolt;
 		//图片A的
-		float m_QAPosFArr[2] = { -1.1f,-0.5f };
+		float m_QAPosFArr[2] = { -1.3f,-0.9f };
 		//图片A的
-		float m_QBPosFArr[2] = { -0.1f,-0.5f };
+		float m_QBPosFArr[2] = { -0.9f,-2.6f };
 	};
 
 }
