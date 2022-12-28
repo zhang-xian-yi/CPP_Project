@@ -47,9 +47,13 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -86,6 +90,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\AZGameEngine\AZGameEngine.vcxproj">

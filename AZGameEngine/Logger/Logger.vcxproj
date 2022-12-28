@@ -13,8 +13,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1dba3436-de62-444b-8873-e3b7c31b4094}</ProjectGuid>
-    <RootNamespace>AZGameEngine</RootNamespace>
+    <ProjectGuid>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</ProjectGuid>
+    <RootNamespace>Logger</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,15 +45,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -61,7 +61,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -70,10 +69,6 @@
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
     </PostBuildEvent>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -95,10 +90,20 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\TestDLL.h" />
+    <ClInclude Include="Src\Common\MBean\LogSettingPara.h" />
+    <ClInclude Include="Src\Common\LoggerGlobal.h" />
+    <ClInclude Include="Src\MControl\LoggerControl.h" />
+    <ClInclude Include="Src\MControl\LModuleControl.h" />
+    <ClInclude Include="Src\ILogger.h" />
+    <ClInclude Include="Src\LoggerFactory.h" />
+    <ClInclude Include="Src\ILModule.h" />
+    <ClInclude Include="Src\Common\MStatus\LMStatus.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\TestDLL.cpp" />
+    <ClCompile Include="Src\Common\LoggerGlobal.cpp" />
+    <ClCompile Include="Src\MControl\LoggerControl.cpp" />
+    <ClCompile Include="Src\MControl\LModuleControl.cpp" />
+    <ClCompile Include="Src\LoggerFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
