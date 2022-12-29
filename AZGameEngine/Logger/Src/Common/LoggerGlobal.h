@@ -7,21 +7,20 @@ namespace Log4CppNS
 	class LoggerGlobal
 	{
 	public:
-		static LoggerGlobal* GetInstance()
+		static LoggerGlobal* GetInstancePointer()
 		{
 			static LoggerGlobal instance;
 			return &instance;
 		}
 
-	public:
-		void DestoryInstance();
+	public:	
 		void SetLogSetting(const LogSettingPara& setting);
 		LogSettingPara& GetLogSetting();
 	private:
 		LoggerGlobal();
 		~LoggerGlobal();
-		LoggerGlobal(LoggerGlobal& instance);
-		LoggerGlobal& operator=(const LoggerGlobal& instance);
+		LoggerGlobal(LoggerGlobal& instance) = delete;
+		LoggerGlobal& operator=(const LoggerGlobal& instance) =delete;
 	private:
 		LogSettingPara m_logSetting;//日志设置参数
 	};

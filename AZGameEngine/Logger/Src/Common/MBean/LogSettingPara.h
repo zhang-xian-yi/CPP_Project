@@ -1,7 +1,7 @@
 #pragma once
 namespace Log4CppNS
 {
-	//设置日志的等级
+	//日志的等级
 	enum class ELogLevel :unsigned char
 	{
 		E_DebugLevel,//调试
@@ -11,11 +11,19 @@ namespace Log4CppNS
 		E_FaultLevel,//崩溃
 	};
 
+	//日志的等级
+	enum class ELogTarget :unsigned char
+	{
+		E_Console,//控制台
+		E_LogFile,//日志文件
+	};
+
 
 	//日志设置参数
 	struct LogSettingPara
 	{
-
+		ELogLevel logLevel;//日志等级
+		ELogTarget logTarget;//日志目标
 	}; 
 }
 

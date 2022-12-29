@@ -1,4 +1,5 @@
 #pragma once
+#include "Common/MarcoDefine.h"
 
 namespace Log4CppNS
 {
@@ -10,15 +11,16 @@ namespace Log4CppNS
 
 
 	//日志模块的模块
-	class ILModule
+	class LogerAPI ILModule
 	{
 	public:
 		//初始化日志模块
 		virtual LMStatus InitModule(LogSettingPara& para) = 0;
+		//更新日志配置模块
+		virtual LMStatus UpdateSetting(LogSettingPara& para) = 0;
 		//停止日志模块
 		virtual LMStatus StopModule() = 0;
-	private:
-		bool m_bIsUse;//模块是否可用
-		bool m_bIsInit;//模块是否初始化
+		//获取模块状态
+		virtual bool IsUse() = 0;
 	};
 }
