@@ -1,12 +1,17 @@
 #pragma once
-#include "ILogger.h"
+#include "Interface/IMdlService.h"
+#include "Interface/ISysRequest.h"
+#include "Interface/ISysResponse.h"
 namespace Log4CppNS
 {
 	//日志打印控制工具
-	class LoggerControl:public ILogger
+	class LoggerControl:public CommonNS::IMdlService
 	{
 	public:
-		void LogMessage(LogMsgPara para) override;
+		LoggerControl();
+		~LoggerControl();
+	public:
+		virtual CommonNS::ISysResponse* DoService(const CommonNS::ISysRequest& para) override;
 	};
 }
 

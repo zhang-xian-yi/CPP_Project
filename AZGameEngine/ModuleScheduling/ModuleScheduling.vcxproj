@@ -13,8 +13,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</ProjectGuid>
-    <RootNamespace>Logger</RootNamespace>
+    <ProjectGuid>{f07af014-5fed-47f8-822c-ac340020921e}</ProjectGuid>
+    <RootNamespace>ModuleScheduling</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,27 +45,28 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LOGGER_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MDL_SCHEDULING_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>ModuleScheduling.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
@@ -77,39 +78,38 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LOGGER_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MDL_SCHEDULING_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>ModuleScheduling.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\ExportBean.h" />
-    <ClInclude Include="Src\Common\MarcoDefine.h" />
-    <ClInclude Include="Src\Common\LoggerGlobal.h" />
-    <ClInclude Include="Src\MControl\LoggerControl.h" />
-    <ClInclude Include="Src\MControl\LModuleControl.h" />
-    <ClInclude Include="Src\LoggerFactory.h" />
+    <ClCompile Include="Src\MControl\MdlOperatControl.cpp" />
+    <ClCompile Include="Src\MControl\MdlScheduleControl.cpp" />
+    <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\ExportBean.cpp" />
-    <ClCompile Include="Src\Common\LoggerGlobal.cpp" />
-    <ClCompile Include="Src\MControl\LoggerControl.cpp" />
-    <ClCompile Include="Src\MControl\LModuleControl.cpp" />
-    <ClCompile Include="Src\LoggerFactory.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.vcxproj">
-      <Project>{10b7dca7-daac-4e16-b60f-ea2899830e7d}</Project>
+    <ProjectReference Include="..\Logger\Logger.vcxproj">
+      <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ModuleScheduling.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\MControl\MdlOperatControl.h" />
+    <ClInclude Include="Src\MControl\MdlScheduleControl.h" />
+    <ClInclude Include="Src\ExportMarcoDefine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

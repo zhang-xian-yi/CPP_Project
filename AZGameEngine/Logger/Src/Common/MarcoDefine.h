@@ -12,6 +12,14 @@
 
 #endif // LOGGER_EXPORT
 
+#ifdef STATIC_LIBRARY   //导出静态库
 
+#define LogerAPIST 
+
+#else                   //导出动态库
+
+#define LogerAPIST extern "C" int
+
+#endif // LOGGER_EXPORT
 
 

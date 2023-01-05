@@ -1,43 +1,45 @@
 #include "LModuleControl.h"
-#include "Common/MStatus/LMStatus.h"
-#include "Common/MBean/LogSettingPara.h"
-#include "Common/LoggerGlobal.h"
+#include <Common/LoggerGlobal.h>//本模块内 loggerglobal
+#include "Entity/DefSysResponse.h"
+#include "Entity/DefSysRequest.h"
 namespace Log4CppNS
 {
-    LMStatus LModuleControl::InitModule(LogSettingPara& para)
+    LModuleControl::LModuleControl()
     {
-        LoggerGlobal* plogGlo =  Log4CppNS::LoggerGlobal::GetInstancePointer();
-        plogGlo->SetLogSetting(para);
-        m_bIsInit = true;
+
+    }
+    LModuleControl::~LModuleControl()
+    {
+    }
+    CommonNS::ISysResponse* LModuleControl::ConstructModule(const CommonNS::ISysRequest& para)
+    {
+        LoggerGlobal* plogGlo = Log4CppNS::LoggerGlobal::GetInstancePointer();
+        //plogGlo->SetLogSetting(para);
         m_bIsUse = true;
-        return LMStatus::E_ModuleInit_Succ;
+        // TODO: 在此处插入 return 语句
+        return new CommonNS::DefSysResponse();
     }
-
-    LMStatus LModuleControl::UpdateSetting(LogSettingPara& para)
+    CommonNS::ISysResponse* LModuleControl::RegisterModule(const CommonNS::ISysRequest& para)
     {
-        //重新初始化module
-        return InitModule(para);
+        // TODO: 在此处插入 return 语句
+        return new CommonNS::DefSysResponse();
     }
-
-    LMStatus LModuleControl::StopModule()
+    CommonNS::ISysResponse* LModuleControl::DestoryModule(const CommonNS::ISysRequest& para)
     {
-        m_bIsInit = false;
         m_bIsUse = false;
-        return LMStatus::E_ModuleNotUse;
+        // TODO: 在此处插入 return 语句
+        return new CommonNS::DefSysResponse();
     }
-    /// <summary>
-    /// 获取模块是否可用
-    /// </summary>
-    /// <returns></returns>
-    bool LModuleControl::IsUse()
+    CommonNS::ISysResponse* LModuleControl::UnRegisterModule(const CommonNS::ISysRequest& para)
     {
-        if (m_bIsInit && m_bIsUse)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        m_bIsUse = false;
+        // TODO: 在此处插入 return 语句
+        return new CommonNS::DefSysResponse();
+    }
+
+    //返回模块是否可用
+    bool LModuleControl::IsUse() const
+    {
+        return m_bIsUse;
     }
 }

@@ -13,8 +13,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</ProjectGuid>
-    <RootNamespace>Logger</RootNamespace>
+    <ProjectGuid>{10b7dca7-daac-4e16-b60f-ea2899830e7d}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,23 +45,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Src\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LOGGER_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>COMMON_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,9 +76,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LOGGER_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>COMMON_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -92,24 +90,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\ExportBean.h" />
-    <ClInclude Include="Src\Common\MarcoDefine.h" />
-    <ClInclude Include="Src\Common\LoggerGlobal.h" />
-    <ClInclude Include="Src\MControl\LoggerControl.h" />
-    <ClInclude Include="Src\MControl\LModuleControl.h" />
-    <ClInclude Include="Src\LoggerFactory.h" />
+    <ClInclude Include="Src\Entity\DefSysRequest.h" />
+    <ClInclude Include="Src\Entity\DefSysResponse.h" />
+    <ClInclude Include="Src\Common\ExportMarcoDefine.h" />
+    <ClInclude Include="Src\Interface\IMdlOperat.h" />
+    <ClInclude Include="Src\Interface\IMdlService.h" />
+    <ClInclude Include="Src\Interface\ISysRequest.h" />
+    <ClInclude Include="Src\Interface\ISysResponse.h" />
+    <ClInclude Include="Src\MStatus\AZMStatus.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\ExportBean.cpp" />
-    <ClCompile Include="Src\Common\LoggerGlobal.cpp" />
-    <ClCompile Include="Src\MControl\LoggerControl.cpp" />
-    <ClCompile Include="Src\MControl\LModuleControl.cpp" />
-    <ClCompile Include="Src\LoggerFactory.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.vcxproj">
-      <Project>{10b7dca7-daac-4e16-b60f-ea2899830e7d}</Project>
-    </ProjectReference>
+    <ClCompile Include="Src\Entity\DefSysRequest.cpp" />
+    <ClCompile Include="Src\Entity\DefSysResponse.cpp" />
+    <ClCompile Include="Src\MStatus\AZMStatus.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

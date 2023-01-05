@@ -1,11 +1,12 @@
 #include "LoggerFactory.h"
-#include "ILModule.h"
-#include "ILogger.h"
+#include "Interface/IMdlOperat.h"
+#include "Interface/IMdlService.h"
 #include "MControl/LModuleControl.h"
 #include "MControl/LoggerControl.h"
 namespace Log4CppNS
 {
 	LoggerFactory::LoggerFactory()
+		:m_pLog(nullptr),m_pModule(nullptr)
 	{
 	}
 	LoggerFactory::~LoggerFactory()
@@ -24,16 +25,16 @@ namespace Log4CppNS
 		}
 	}
 
-	ILogger* LoggerFactory::GetLoggerInstance()
+	CommonNS::IMdlService* LoggerFactory::GetLoggerInstance()
 	{
 		if (m_pLog == nullptr)
 		{
-			//初始化日志
+			//初始化日志 
 			m_pLog = new Log4CppNS::LoggerControl();
 		}
 		return m_pLog;
 	}
-	ILModule* LoggerFactory::GetModuleInstance()
+	CommonNS::IMdlOperat* LoggerFactory::GetModuleInstance()
 	{
 		if (m_pModule == nullptr)
 		{

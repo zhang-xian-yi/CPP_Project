@@ -1,12 +1,15 @@
 #pragma once
 #include "Common/MarcoDefine.h"
 
-namespace Log4CppNS
+namespace CommonNS
 {
 	//前置声明
-	class ILModule;
-	class ILogger;
+	class IMdlOperat;
+	class IMdlService;
+}
 
+namespace Log4CppNS
+{
 	//日志模块的工厂
 	class LogerAPI LoggerFactory
 	{
@@ -20,11 +23,11 @@ namespace Log4CppNS
 		LoggerFactory();
 		~LoggerFactory();
 
-		ILogger* GetLoggerInstance();
-		ILModule* GetModuleInstance();
+		CommonNS::IMdlService* GetLoggerInstance();
+		CommonNS::IMdlOperat* GetModuleInstance();
 	private:
-		ILogger* m_pLog;
-		ILModule* m_pModule;
+		CommonNS::IMdlService* m_pLog;
+		CommonNS::IMdlOperat* m_pModule;
 	};
 }
 

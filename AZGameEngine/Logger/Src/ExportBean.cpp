@@ -1,7 +1,7 @@
-#pragma once
+#include "ExportBean.h"
+
 namespace Log4CppNS
 {
-	//日志的等级
 	enum class ELogLevel :unsigned char
 	{
 		E_DebugLevel,//调试
@@ -18,13 +18,4 @@ namespace Log4CppNS
 		E_LogFile,//日志文件
 	};
 
-
-	//日志设置参数
-	struct LogSettingPara
-	{
-		ELogLevel logLevel;//日志等级
-		ELogTarget logTarget;//日志目标
-	}; 
 }
-
-

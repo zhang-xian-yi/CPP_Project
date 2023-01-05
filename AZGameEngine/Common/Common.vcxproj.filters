@@ -15,39 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\LoggerFactory.h">
+    <ClInclude Include="Src\MStatus\AZMStatus.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MControl\LModuleControl.h">
+    <ClInclude Include="Src\Common\ExportMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MControl\LoggerControl.h">
+    <ClInclude Include="Src\Interface\IMdlOperat.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Common\LoggerGlobal.h">
+    <ClInclude Include="Src\Interface\IMdlService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Common\MarcoDefine.h">
+    <ClInclude Include="Src\Interface\ISysRequest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ExportBean.h">
+    <ClInclude Include="Src\Interface\ISysResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Entity\DefSysRequest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Entity\DefSysResponse.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\LoggerFactory.cpp">
+    <ClCompile Include="Src\MStatus\AZMStatus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\MControl\LModuleControl.cpp">
+    <ClCompile Include="Src\Entity\DefSysRequest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\MControl\LoggerControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Common\LoggerGlobal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\ExportBean.cpp">
+    <ClCompile Include="Src\Entity\DefSysResponse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

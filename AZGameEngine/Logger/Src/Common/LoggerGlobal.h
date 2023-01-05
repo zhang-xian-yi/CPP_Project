@@ -1,5 +1,5 @@
 #pragma once
-#include "MBean/LogSettingPara.h"
+#include "ExportBean.h"
 
 namespace Log4CppNS
 {
@@ -15,14 +15,14 @@ namespace Log4CppNS
 
 	public:	
 		void SetLogSetting(const LogSettingPara& setting);
-		LogSettingPara& GetLogSetting();
+		const LogSettingPara* GetLogSetting()const;
 	private:
 		LoggerGlobal();
 		~LoggerGlobal();
 		LoggerGlobal(LoggerGlobal& instance) = delete;
 		LoggerGlobal& operator=(const LoggerGlobal& instance) =delete;
 	private:
-		LogSettingPara m_logSetting;//日志设置参数
+		LogSettingPara* m_pLogSetting;//日志设置参数
 	};
 }
 

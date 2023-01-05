@@ -15,40 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\LoggerFactory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\MControl\LModuleControl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\MControl\LoggerControl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Common\LoggerGlobal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Common\MarcoDefine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\ExportBean.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="Src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MControl\MdlScheduleControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MControl\MdlOperatControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\LoggerFactory.cpp">
+    <None Include="ModuleScheduling.def">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\MControl\LModuleControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\MControl\LoggerControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Common\LoggerGlobal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\ExportBean.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\ExportMarcoDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MControl\MdlScheduleControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MControl\MdlOperatControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
