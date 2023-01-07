@@ -1,5 +1,11 @@
 #pragma once
-class OpenGLUIFactory
+
+namespace OpenGLUINS
 {
-};
+	class OpenGLUIFactory
+	{
+	};
+}
+
+
 

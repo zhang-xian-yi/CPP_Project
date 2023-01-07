@@ -18,26 +18,27 @@
     <ClCompile Include="Src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\MControl\MdlScheduleControl.cpp">
+    <ClCompile Include="Src\MSMControl\MdlScheduleControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\MControl\MdlOperatControl.cpp">
+    <ClCompile Include="Src\MSMControl\MdlOperatControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MSLogicService\ServiceContainerSingle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ModuleScheduling.def">
-      <Filter>源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Src\ExportMarcoDefine.h">
+    <ClInclude Include="Src\MSCommon\MSExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MControl\MdlScheduleControl.h">
+    <ClInclude Include="Src\MSMControl\MdlScheduleControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MControl\MdlOperatControl.h">
+    <ClInclude Include="Src\MSMControl\MdlOperatControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MSLogicService\ServiceContainerSingle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

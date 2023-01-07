@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\IUIModule.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Common\MarcoDefine.h">
+    <ClInclude Include="Src\OGCommon\OGMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\OpenGLUIFactory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Common\MStatus\LMStatus.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

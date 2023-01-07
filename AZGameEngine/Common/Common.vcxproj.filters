@@ -15,39 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\MStatus\AZMStatus.h">
+    <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Common\ExportMarcoDefine.h">
+    <ClInclude Include="Src\CMNCommon\CMNExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Interface\IMdlOperat.h">
+    <ClInclude Include="Src\CMNInterface\IMdlOperat.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Interface\IMdlService.h">
+    <ClInclude Include="Src\CMNInterface\IMdlService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Interface\ISysRequest.h">
+    <ClInclude Include="Src\CMNInterface\ISysRequest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Interface\ISysResponse.h">
+    <ClInclude Include="Src\CMNInterface\ISysResponse.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Entity\DefSysRequest.h">
+    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Entity\DefSysResponse.h">
+    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\MStatus\AZMStatus.cpp">
+    <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Entity\DefSysRequest.cpp">
+    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Entity\DefSysResponse.cpp">
+    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
