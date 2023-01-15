@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <CMNCommon/CMNExpMarcoDefine.h> //导出宏
+#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
 namespace CommonNS
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 //定义所有功能模块的业务逻辑执行入口
-#include <CMNCommon/CMNExpMarcoDefine.h> //导出宏
+#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
 #include <CMNInterface/ISysResponse.h>
 namespace CommonNS

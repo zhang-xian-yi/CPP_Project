@@ -4,7 +4,7 @@
 namespace CommonNS
 {
     //私有逻辑 实现具体业务逻辑
-    class DefSysResponsePrivate :public ISysResponse
+    class DefSysResponsePrivate
     {
     public:
         DefSysResponsePrivate();
@@ -16,7 +16,7 @@ namespace CommonNS
         void SetIsSuccess(const bool falg);
         void SetMessage(const std::string& message);
         //合法检查
-        virtual bool IsValid() const override;
+        virtual bool IsValid() const;
     private:
         bool m_isSucc;
         //定义为指针是避免编译时报4251警告，此处使用std::string 类型而非指针就需要导出对应的string模板类
@@ -27,7 +27,7 @@ namespace CommonNS
 
 
     DefSysResponsePrivate::DefSysResponsePrivate()
-        :m_pMessage(new std::string())
+        :m_pMessage(new std::string()),m_isSucc(false)
     {
 
     }

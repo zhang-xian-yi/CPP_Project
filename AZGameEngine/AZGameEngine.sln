@@ -15,6 +15,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModuleScheduling", "ModuleScheduling\ModuleScheduling.vcxproj", "{F07AF014-5FED-47F8-822C-AC340020921E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssistMdlGroup", "AssistMdlGroup", "{4A9C47A2-8BC7-4AC0-A52A-7CD726E887CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuntionMdlGroup", "FuntionMdlGroup", "{E67DD75B-91D9-46D5-BEA8-A76A020140AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UIMdlGroup", "UIMdlGroup", "{475CEE64-D0F4-4AF7-807C-25DFBE0E39C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonMdlGroup", "CommonMdlGroup", "{CA99147D-5176-4D1F-8FF3-55A064E05FD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -48,6 +56,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DBA3436-DE62-444B-8873-E3B7C31B4094} = {E67DD75B-91D9-46D5-BEA8-A76A020140AE}
+		{F4E5D4F0-A143-40C2-A58F-A8A70E70CCFE} = {E67DD75B-91D9-46D5-BEA8-A76A020140AE}
+		{E32515FD-8385-4546-95B7-77E5723F7F7D} = {475CEE64-D0F4-4AF7-807C-25DFBE0E39C6}
+		{10B7DCA7-DAAC-4E16-B60F-EA2899830E7D} = {CA99147D-5176-4D1F-8FF3-55A064E05FD5}
+		{F07AF014-5FED-47F8-822C-AC340020921E} = {4A9C47A2-8BC7-4AC0-A52A-7CD726E887CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {549C4EB7-81C5-49D4-87C2-C1FC6C03A643}

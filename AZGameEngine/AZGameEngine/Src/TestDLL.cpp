@@ -5,6 +5,6 @@ namespace AZGameEngineNS
 {
 	void printinfo()
 	{
-		printf("Welcome to AZGanem Engine");
+		printf("Welcome to AZGanem Engine\n");
 	}
 }

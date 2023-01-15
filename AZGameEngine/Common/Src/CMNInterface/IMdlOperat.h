@@ -1,6 +1,6 @@
 #pragma once
 // 定义所有功能模块必须实现的模块启动和停止接口
-#include <CMNCommon/CMNExpMarcoDefine.h> //导出宏
+#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
 #include <CMNInterface/ISysResponse.h>
 

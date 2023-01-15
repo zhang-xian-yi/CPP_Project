@@ -1,5 +1,5 @@
 #pragma once
-#include <CMNCommon/CMNExpMarcoDefine.h> //导出宏
+#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
 namespace CommonNS
 {
