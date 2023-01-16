@@ -15,10 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h">
+    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNEntity\Test\TimerTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h">
+    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNEntity\Test\TimerTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h">
@@ -33,37 +56,14 @@
     <ClInclude Include="Src\CMNInterface\ISysResponse.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h">
+    <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\CMNEntity\Test\TimerTest.h">
+    <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNEntity\Test\TimerTest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

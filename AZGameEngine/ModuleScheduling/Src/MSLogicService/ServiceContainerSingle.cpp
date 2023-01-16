@@ -5,7 +5,7 @@
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/IMdlService.h"
 
-using namespace CommonNS;
+using namespace MdlCommonNS;
 
 namespace MdlScheduleNS
 {

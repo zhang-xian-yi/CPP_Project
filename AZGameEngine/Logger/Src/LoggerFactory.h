@@ -1,7 +1,7 @@
 #pragma once
 #include "LCommon/LExpMarcoDefine.h"
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//Ç°ÖÃÉùÃ÷
 	class IMdlOperat;
@@ -23,11 +23,11 @@ namespace Log4CppNS
 		LoggerFactory();
 		~LoggerFactory();
 
-		CommonNS::IMdlService* GetLoggerInstance();
-		CommonNS::IMdlOperat* GetModuleInstance();
+		MdlCommonNS::IMdlService* GetLoggerInstance();
+		MdlCommonNS::IMdlOperat* GetModuleInstance();
 	private:
-		CommonNS::IMdlService* m_pLog;
-		CommonNS::IMdlOperat* m_pModule;
+		MdlCommonNS::IMdlService* m_pLog;
+		MdlCommonNS::IMdlOperat* m_pModule;
 	};
 }
 

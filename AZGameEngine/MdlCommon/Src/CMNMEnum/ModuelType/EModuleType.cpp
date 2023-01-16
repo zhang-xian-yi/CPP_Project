@@ -1,7 +1,7 @@
 #include "EModuleType.h"
 #include <map>
 #include <memory>
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//描述模块枚举所对应的结构信息
 	struct SMdlValue

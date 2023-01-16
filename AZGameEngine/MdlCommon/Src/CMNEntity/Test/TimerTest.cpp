@@ -1,7 +1,7 @@
 #include "TimerTest.h"
 #include <iostream>
 #include <memory>
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//¹¹Ôìº¯Êý
 	TimerTest::TimerTest()

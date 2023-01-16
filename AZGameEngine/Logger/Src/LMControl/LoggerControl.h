@@ -5,13 +5,13 @@
 namespace Log4CppNS
 {
 	//日志打印控制工具
-	class LoggerControl:public CommonNS::IMdlService
+	class LoggerControl:public MdlCommonNS::IMdlService
 	{
 	public:
 		LoggerControl();
 		~LoggerControl();
 	public:
-		virtual CommonNS::ISysResponse* DoService(const CommonNS::ISysRequest* para) override;
+		virtual MdlCommonNS::ISysResponse* DoService(const MdlCommonNS::ISysRequest* para) override;
 	};
 }
 

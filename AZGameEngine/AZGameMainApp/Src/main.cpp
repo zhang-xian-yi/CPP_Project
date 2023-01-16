@@ -26,7 +26,7 @@ void doWork()
 int main(int argc, char* argv[])
 {
 	{
-		CommonNS::TimerTest test;
+		MdlCommonNS::TimerTest test;
 		//第三方库引用
 		AZGameEngineNS::printinfo();
 		printf("\nXXXXX\n");

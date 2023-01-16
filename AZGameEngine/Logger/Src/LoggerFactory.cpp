@@ -25,7 +25,7 @@ namespace Log4CppNS
 		}
 	}
 
-	CommonNS::IMdlService* LoggerFactory::GetLoggerInstance()
+	MdlCommonNS::IMdlService* LoggerFactory::GetLoggerInstance()
 	{
 		if (m_pLog == nullptr)
 		{
@@ -34,7 +34,7 @@ namespace Log4CppNS
 		}
 		return m_pLog;
 	}
-	CommonNS::IMdlOperat* LoggerFactory::GetModuleInstance()
+	MdlCommonNS::IMdlOperat* LoggerFactory::GetModuleInstance()
 	{
 		if (m_pModule == nullptr)
 		{

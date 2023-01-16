@@ -4,10 +4,10 @@
 #include <CMNInterface/ISysRequest.h>
 #include <CMNInterface/ISysResponse.h>
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//日志模块的模块
-	class CommonDLLAPI IMdlOperat
+	class MdlCommonDLLAPI IMdlOperat
 	{
 	public:
 		virtual ~IMdlOperat() = 0;

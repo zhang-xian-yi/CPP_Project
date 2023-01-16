@@ -1,6 +1,6 @@
 #include "DefSysRequest.h"
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	DefSysRequest::DefSysRequest()
 	{

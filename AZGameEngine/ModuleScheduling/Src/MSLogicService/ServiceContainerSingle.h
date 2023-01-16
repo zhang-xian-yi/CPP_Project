@@ -1,6 +1,6 @@
 #pragma once
 #include <MSCommon/MSExpMarcoDefine.h>
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//前置声明 模块的启停和业务逻辑
 	class IMdlOperat;
@@ -27,14 +27,14 @@ namespace MdlScheduleNS
 		ServiceContainerSingle();
 		~ServiceContainerSingle();
 		//注册模块操作接口
-		void RegisterModuleInterface(CommonNS::EModuleType mdlType, CommonNS::IMdlOperat* imdlOperat, CommonNS::IMdlService* imdlService);
+		void RegisterModuleInterface(MdlCommonNS::EModuleType mdlType, MdlCommonNS::IMdlOperat* imdlOperat, MdlCommonNS::IMdlService* imdlService);
 		//注销模块操作接口
-		void UnRegisterModuleInterface(CommonNS::EModuleType mdlType);
+		void UnRegisterModuleInterface(MdlCommonNS::EModuleType mdlType);
 		//摧毁容器
 		void DestoryContaineer();
 		//获取模块操作接口
-		CommonNS::IMdlOperat* GetModuleOperatInterface(CommonNS::EModuleType mdlType);
-		CommonNS::IMdlService* GetModuleServiceInterface(CommonNS::EModuleType mdlType);
+		MdlCommonNS::IMdlOperat* GetModuleOperatInterface(MdlCommonNS::EModuleType mdlType);
+		MdlCommonNS::IMdlService* GetModuleServiceInterface(MdlCommonNS::EModuleType mdlType);
 	private:
 		ServiceContainerSinglePrivate* m_pService;
 	};

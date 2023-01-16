@@ -1,7 +1,7 @@
 #include "DefSysResponse.h"
 #include <memory>
 
-namespace CommonNS
+namespace MdlCommonNS
 {
     //私有逻辑 实现具体业务逻辑
     class DefSysResponsePrivate
@@ -66,7 +66,7 @@ namespace CommonNS
 
 
 
-namespace CommonNS
+namespace MdlCommonNS
 {
     DefSysResponse::DefSysResponse()
         :m_pService(new DefSysResponsePrivate())

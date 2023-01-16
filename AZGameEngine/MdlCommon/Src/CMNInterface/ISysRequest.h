@@ -1,10 +1,10 @@
 #pragma once
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//系统级别请求
-	class CommonDLLAPI ISysRequest
+	class MdlCommonDLLAPI ISysRequest
 	{
 	public:
 		virtual ~ISysRequest() = 0;

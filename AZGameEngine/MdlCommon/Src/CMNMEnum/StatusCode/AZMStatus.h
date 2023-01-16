@@ -2,7 +2,7 @@
 #include <string>
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//注意 枚举类 允许前置声明
 	//描述模块状态和返回信息的数据
@@ -17,7 +17,7 @@ namespace CommonNS
 		E_ModuleNotUse,//模块不可用
 	};
 
-	CommonDLLAPI std::string GetStatusDesc(AZMStatus status);
-	CommonDLLAPI std::string GetStatusHelp(AZMStatus status);
+	MdlCommonDLLAPI std::string GetStatusDesc(AZMStatus status);
+	MdlCommonDLLAPI std::string GetStatusHelp(AZMStatus status);
 }
 

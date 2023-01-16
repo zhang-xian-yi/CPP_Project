@@ -1,9 +1,9 @@
 #pragma once
 #include <CMNMacro/CMNExpMarcoDefine.h> //µ¼³öºê
 #include <CMNInterface/ISysRequest.h>
-namespace CommonNS
+namespace MdlCommonNS
 {
-	class CommonDLLAPI DefSysRequest:public ISysRequest
+	class MdlCommonDLLAPI DefSysRequest:public ISysRequest
 	{
 	public:
 		DefSysRequest();

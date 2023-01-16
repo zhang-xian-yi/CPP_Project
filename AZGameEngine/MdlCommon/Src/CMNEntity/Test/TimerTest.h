@@ -4,10 +4,10 @@
 #include <CMNMacro/CMNExpMarcoDefine.h>
 #include<chrono>//时间相关
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//用于创建某个作用域的具体执行时间
-	class CommonDLLAPI TimerTest
+	class MdlCommonDLLAPI TimerTest
 	{
 	public:
 		TimerTest();

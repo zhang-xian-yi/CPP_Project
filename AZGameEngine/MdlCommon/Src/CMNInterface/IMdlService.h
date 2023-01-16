@@ -4,10 +4,10 @@
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
 #include <CMNInterface/ISysResponse.h>
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//模块业务逻辑接口
-	class CommonDLLAPI IMdlService
+	class MdlCommonDLLAPI IMdlService
 	{
 	public:
 		virtual ~IMdlService() = 0;

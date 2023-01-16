@@ -2,7 +2,7 @@
 #include <string>
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//枚举模块类型
 	enum class EModuleType :unsigned char
@@ -10,7 +10,7 @@ namespace CommonNS
 	};
 
 	//模块枚举值的扩展方法
-	class CommonDLLAPI EnumModuleTypeExtend
+	class MdlCommonDLLAPI EnumModuleTypeExtend
 	{
 	public:
 		//获取模块名字(中文)

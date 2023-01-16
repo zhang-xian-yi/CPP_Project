@@ -1,6 +1,6 @@
 #include "AZMStatus.h"
 #include <map>
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//描述每个枚举的详细信息
 	struct SEnumDetailNode

@@ -3,13 +3,13 @@
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysResponse.h>
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//前置声明 在cpp中实现- 封装一层防止导出类中使用std模板类编译出现的4251警告
 	class DefSysResponsePrivate;
 
 	//接口实现类
-	class CommonDLLAPI DefSysResponse :public ISysResponse
+	class MdlCommonDLLAPI DefSysResponse :public ISysResponse
 	{
 	public:
 		DefSysResponse();

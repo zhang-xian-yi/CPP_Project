@@ -2,10 +2,10 @@
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
 
-namespace CommonNS
+namespace MdlCommonNS
 {
 	//系统级别响应
-	class CommonDLLAPI ISysResponse
+	class MdlCommonDLLAPI ISysResponse
 	{
 	public:
 		virtual ~ISysResponse() = 0;

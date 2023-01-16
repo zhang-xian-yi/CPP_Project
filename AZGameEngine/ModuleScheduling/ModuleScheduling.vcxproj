@@ -61,7 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MDL_SCHEDULING_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,7 +81,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MDL_SCHEDULING_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Common\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)Logger\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +104,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
       <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
+      <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
