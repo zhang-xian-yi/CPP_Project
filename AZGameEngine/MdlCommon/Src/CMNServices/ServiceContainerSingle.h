@@ -1,5 +1,10 @@
 #pragma once
-#include <MSCommon/MSExpMarcoDefine.h>
+#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
+/*
+约定，所有针对模块的业务调度均由业务逻辑的容器单例执行
+*/
+
+
 namespace MdlCommonNS
 {
 	//前置声明 模块的启停和业务逻辑
@@ -9,13 +14,13 @@ namespace MdlCommonNS
 	enum class EModuleType :unsigned char;
 }
 
-namespace MdlScheduleNS
+namespace MdlCommonNS
 {
 	//业务逻辑实现类
 	class ServiceContainerSinglePrivate;
 
 	//保存项目生命周期中的全局服务实例
-	class MdlScheduleDLLAPI ServiceContainerSingle
+	class MdlCommonDLLAPI ServiceContainerSingle
 	{
 	public:
 		static ServiceContainerSingle& GetContainer()

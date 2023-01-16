@@ -16,7 +16,7 @@ namespace Log4CppNS
     {
     }
 
-    ISysResponse* LModuleControl::ConstructModule(const ISysRequest* para)
+    ISysResponse* LModuleControl::ConstructModule(const ISysRequest* para )
     {
         LoggerGlobal* plogGlo = Log4CppNS::LoggerGlobal::GetInstancePointer();
         //plogGlo->SetLogSetting(para);
@@ -24,23 +24,14 @@ namespace Log4CppNS
         // TODO: 在此处插入 return 语句
         return new DefSysResponse();
     }
-    ISysResponse* LModuleControl::RegisterModule(const ISysRequest* para)
-    {
-        // TODO: 在此处插入 return 语句
-        return new DefSysResponse();
-    }
+
     ISysResponse* LModuleControl::DestoryModule(const ISysRequest* para)
     {
         m_bIsUse = false;
         // TODO: 在此处插入 return 语句
         return new DefSysResponse();
     }
-    ISysResponse* LModuleControl::UnRegisterModule(const ISysRequest* para)
-    {
-        m_bIsUse = false;
-        // TODO: 在此处插入 return 语句
-        return new DefSysResponse();
-    }
+
 
     //返回模块是否可用
     bool LModuleControl::IsUse() const

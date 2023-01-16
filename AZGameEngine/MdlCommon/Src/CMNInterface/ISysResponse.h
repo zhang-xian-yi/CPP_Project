@@ -1,6 +1,11 @@
 #pragma once
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 
+/*
+约定，系统响应的内存管理由发起方申请，接收方销毁
+
+
+*/
 
 namespace MdlCommonNS
 {

@@ -156,10 +156,12 @@
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp" />
     <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp" />
+    <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h" />
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h" />
+    <ClInclude Include="Src\CMNInterface\IMdlFactory.h" />
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h" />
     <ClInclude Include="Src\CMNInterface\IMdlService.h" />
     <ClInclude Include="Src\CMNInterface\ISysRequest.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h" />
     <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h" />
     <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h" />
+    <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

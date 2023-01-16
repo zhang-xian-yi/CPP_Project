@@ -96,10 +96,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\MSLogicService\ServiceContainerSingle.cpp" />
+    <ClCompile Include="Src\MSLogicService\MdlScheduleControlPrivate.cpp" />
+    <ClCompile Include="Src\MdlSchedlueFactory.cpp" />
     <ClCompile Include="Src\MSMControl\MdlOperatControl.cpp" />
     <ClCompile Include="Src\MSMControl\MdlScheduleControl.cpp" />
-    <ClCompile Include="Src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
@@ -110,7 +110,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\MSLogicService\ServiceContainerSingle.h" />
+    <ClInclude Include="Src\MSLogicService\MdlScheduleControlPrivate.h" />
+    <ClInclude Include="Src\MdlScheduleFactory.h" />
     <ClInclude Include="Src\MSMControl\MdlOperatControl.h" />
     <ClInclude Include="Src\MSMControl\MdlScheduleControl.h" />
     <ClInclude Include="Src\MSCommon\MSExpMarcoDefine.h" />

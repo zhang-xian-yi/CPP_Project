@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Src\MSMControl\MdlScheduleControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\MSMControl\MdlOperatControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\MSLogicService\ServiceContainerSingle.cpp">
+    <ClCompile Include="Src\MdlSchedlueFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MSLogicService\MdlScheduleControlPrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,10 @@
     <ClInclude Include="Src\MSMControl\MdlOperatControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MSLogicService\ServiceContainerSingle.h">
+    <ClInclude Include="Src\MdlScheduleFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MSLogicService\MdlScheduleControlPrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

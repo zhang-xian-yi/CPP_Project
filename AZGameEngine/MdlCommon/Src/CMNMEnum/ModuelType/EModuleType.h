@@ -7,6 +7,8 @@ namespace MdlCommonNS
 	//枚举模块类型
 	enum class EModuleType :unsigned char
 	{
+		E_Logger_Type,
+		E_MdlSchedule_Type,
 	};
 
 	//模块枚举值的扩展方法

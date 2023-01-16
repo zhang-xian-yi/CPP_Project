@@ -6,8 +6,8 @@ namespace AZGameEngineNS
 }
 
 
-bool isFinish = false;
 
+bool isFinish = false;
 void doWork()
 {
 	using namespace std::literals::chrono_literals;
@@ -22,21 +22,6 @@ void doWork()
 	std::cout << "end" << std::endl;
 }
 
-#include "TimerTest/TimerTest.h"
-int main(int argc, char* argv[])
-{
-	{
-		TestCommonNS::TimerTest test;
-		//第三方库引用
-		AZGameEngineNS::printinfo();
-		printf("\nXXXXX\n");
-	}
-
-	std::cin.get();
-	return 0;
-}
-
-
 void testThread()
 {
 	//线程测试
@@ -49,3 +34,22 @@ void testThread()
 	td.join();//等待线程结束
 
 }
+
+#include "TimerTest/TimerTest.h"
+void TimerTestFunc()
+{
+	TestCommonNS::TimerTest test;
+	//第三方库引用
+	AZGameEngineNS::printinfo();
+	printf("\nXXXXX\n");
+}
+
+
+int main(int argc, char* argv[])
+{
+	TimerTestFunc();
+
+	std::cin.get();
+	return 0;
+}
+

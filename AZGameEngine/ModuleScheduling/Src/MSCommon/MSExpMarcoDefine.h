@@ -12,14 +12,4 @@
 
 #endif // LOGGER_EXPORT
 
-#ifdef MDL_SCHEDULING_EXPORT_STATICLIB   //导出静态库
-
-#define MdlScheduleLibAPI //extern "C" int
-
-#else                   //导出动态库
-
-#define MdlScheduleLibAPI 
-
-#endif // MDL_SCHEDULING_EXPORT_STATICLIB
-
 

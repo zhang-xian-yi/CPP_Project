@@ -5,9 +5,8 @@
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/IMdlService.h"
 
-using namespace MdlCommonNS;
 
-namespace MdlScheduleNS
+namespace MdlCommonNS
 {
 	//服务容器的单例业务逻辑具体实现
 	//但凡导出类中使用模板类且不可导出时，采用装饰模式避免4251警告
@@ -115,7 +114,7 @@ namespace MdlScheduleNS
 
 }
 
-namespace MdlScheduleNS
+namespace MdlCommonNS
 {
 	/// <summary>
 	/// 构造函数

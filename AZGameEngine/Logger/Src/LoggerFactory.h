@@ -1,6 +1,6 @@
 #pragma once
 #include "LCommon/LExpMarcoDefine.h"
-
+#include "CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
 	//前置声明
@@ -11,7 +11,7 @@ namespace MdlCommonNS
 namespace Log4CppNS
 {
 	//日志模块的工厂
-	class LogerAPI LoggerFactory
+	class LogerAPI LoggerFactory :public MdlCommonNS::IMdlFactory
 	{
 	public:
 		static LoggerFactory& GetFactory()
@@ -23,10 +23,10 @@ namespace Log4CppNS
 		LoggerFactory();
 		~LoggerFactory();
 
-		MdlCommonNS::IMdlService* GetLoggerInstance();
-		MdlCommonNS::IMdlOperat* GetModuleInstance();
+		virtual MdlCommonNS::IMdlService* GetServiceInstance() override;
+		virtual MdlCommonNS::IMdlOperat* GetModuleInstance() override;
 	private:
-		MdlCommonNS::IMdlService* m_pLog;
+		MdlCommonNS::IMdlService* m_pService;
 		MdlCommonNS::IMdlOperat* m_pModule;
 	};
 }

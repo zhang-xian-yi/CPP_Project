@@ -30,6 +30,9 @@
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
@@ -57,6 +60,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNInterface\IMdlFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

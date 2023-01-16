@@ -6,16 +6,16 @@
 namespace Log4CppNS
 {
 	LoggerFactory::LoggerFactory()
-		:m_pLog(nullptr),m_pModule(nullptr)
+		:m_pService(nullptr),m_pModule(nullptr)
 	{
 	}
 	LoggerFactory::~LoggerFactory()
 	{
-		if (m_pLog != nullptr)
+		if (m_pService != nullptr)
 		{
 			//销毁日志
-			delete m_pLog;
-			m_pLog = nullptr;
+			delete m_pService;
+			m_pService = nullptr;
 		}
 		if (m_pModule != nullptr)
 		{
@@ -25,14 +25,14 @@ namespace Log4CppNS
 		}
 	}
 
-	MdlCommonNS::IMdlService* LoggerFactory::GetLoggerInstance()
+	MdlCommonNS::IMdlService* LoggerFactory::GetServiceInstance()
 	{
-		if (m_pLog == nullptr)
+		if (m_pService == nullptr)
 		{
 			//初始化日志 
-			m_pLog = new Log4CppNS::LoggerControl();
+			m_pService = new Log4CppNS::LoggerControl();
 		}
-		return m_pLog;
+		return m_pService;
 	}
 	MdlCommonNS::IMdlOperat* LoggerFactory::GetModuleInstance()
 	{
