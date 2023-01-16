@@ -62,7 +62,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AssemblerOutput>AssemblyCode</AssemblerOutput>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +102,9 @@
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TestCommon\TestCommon.vcxproj">
+      <Project>{1cd4771f-c128-4830-9fa8-5c7ca6e6e7b7}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

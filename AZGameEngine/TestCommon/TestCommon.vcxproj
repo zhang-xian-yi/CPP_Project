@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</ProjectGuid>
-    <RootNamespace>MdlCommon</RootNamespace>
+    <ProjectGuid>{1cd4771f-c128-4830-9fa8-5c7ca6e6e7b7}</ProjectGuid>
+    <RootNamespace>TestCommon</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -120,7 +120,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>COMMON_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TEST_COMMON_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -137,7 +137,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>COMMON_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TEST_COMMON_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -151,22 +151,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp" />
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp" />
-    <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp" />
-    <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
-    <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp" />
+    <ClCompile Include="Src\TimerTest\TimerTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h" />
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h" />
-    <ClInclude Include="Src\CMNInterface\IMdlOperat.h" />
-    <ClInclude Include="Src\CMNInterface\IMdlService.h" />
-    <ClInclude Include="Src\CMNInterface\ISysRequest.h" />
-    <ClInclude Include="Src\CMNInterface\ISysResponse.h" />
-    <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h" />
-    <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h" />
-    <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h" />
+    <ClInclude Include="Src\Macro\CMNExpMarcoDefine.h" />
+    <ClInclude Include="Src\TimerTest\TimerTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

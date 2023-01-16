@@ -21,9 +21,6 @@
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\CMNEntity\Test\TimerTest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -39,9 +36,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNEntity\Test\TimerTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h">

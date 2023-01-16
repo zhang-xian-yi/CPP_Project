@@ -22,11 +22,11 @@ void doWork()
 	std::cout << "end" << std::endl;
 }
 
-#include "CMNEntity/Test/TimerTest.h"
+#include "TimerTest/TimerTest.h"
 int main(int argc, char* argv[])
 {
 	{
-		MdlCommonNS::TimerTest test;
+		TestCommonNS::TimerTest test;
 		//第三方库引用
 		AZGameEngineNS::printinfo();
 		printf("\nXXXXX\n");
