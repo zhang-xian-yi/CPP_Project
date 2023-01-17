@@ -6,6 +6,7 @@ namespace MdlCommonNS
 	/*
 	约定  Any对象必须在堆上申请内存，且申请之后被设置进入请求，内存移交请求管理
 	*/
+	class Any;
 
 	class MdlCommonDLLAPI DefSysRequest:public ISysRequest
 	{

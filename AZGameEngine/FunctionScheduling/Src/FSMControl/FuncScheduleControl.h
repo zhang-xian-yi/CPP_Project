@@ -2,25 +2,25 @@
 #include "CMNInterface/IMdlService.h"
 #include "CMNInterface/ISysRequest.h"
 #include "CMNInterface/ISysResponse.h"
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	//前置声明
-	class MdlScheduleControlPrivate;
+	class FuncScheduleCtlPrivate;
 
 	/// <summary>
 	/// 处理模块调度的逻辑
 	/// </summary>
-	class MdlScheduleControl:public MdlCommonNS::IMdlService
+	class FuncScheduleControl:public MdlCommonNS::IMdlService
 	{
 	public:
-		MdlScheduleControl();
-		~MdlScheduleControl();
+		FuncScheduleControl();
+		~FuncScheduleControl();
 	public:
 		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
 	private:
 
 	private:
-		MdlScheduleControlPrivate* m_pService;//具体实现的业务类指针
+		FuncScheduleCtlPrivate* m_pService;//具体实现的业务类指针
 	};
 }
 

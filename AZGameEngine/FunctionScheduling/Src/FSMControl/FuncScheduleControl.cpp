@@ -1,20 +1,20 @@
-#include "MdlScheduleControl.h"
-#include <MSLogicService/MdlScheduleControlPrivate.h>
+#include "FuncScheduleControl.h"
+#include <FSLogicService/FuncScheduleCtlPrivate.h>
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"
 #include "CMNEntity/DefaultReqRep/DefSysRequest.h"
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 构造函数
 	/// </summary>
-	MdlScheduleControl::MdlScheduleControl()
-		:m_pService(new MdlScheduleControlPrivate())
+	FuncScheduleControl::FuncScheduleControl()
+		:m_pService(new FuncScheduleCtlPrivate())
 	{
 	}
 	/// <summary>
 	/// 析构函数
 	/// </summary>
-	MdlScheduleControl::~MdlScheduleControl()
+	FuncScheduleControl::~FuncScheduleControl()
 	{
 		if (m_pService != nullptr)
 		{
@@ -27,7 +27,7 @@ namespace MdlScheduleNS
 	/// </summary>
 	/// <param name="para"></param>
 	/// <returns></returns>
-	std::unique_ptr<MdlCommonNS::ISysResponse> MdlScheduleControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> FuncScheduleControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 

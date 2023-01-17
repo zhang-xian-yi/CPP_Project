@@ -1,25 +1,25 @@
-#include "MdlScheduleControlPrivate.h"
+#include "FuncScheduleCtlPrivate.h"
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/IMdlFactory.h"
 #include "CMNInterface/IMdlService.h"
 #include "CMNServices/ServiceContainerSingle.h"//业务容器
 #include "CMNMEnum/ModuelType/EModuleType.h"//模块类型
 #include "LoggerFactory.h"//日志工厂类
-#include "MdlScheduleFactory.h"//模块调度工厂类
+#include "FuncScheduleFactory.h"//模块调度工厂类
 #include "OpenGLUIFactory.h"//OPenglUI的工厂类
 #include "GameEngineFactory.h"//游戏引擎工厂类
 using namespace MdlCommonNS;
 
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 初始化/注册 所有的功能模块
 	/// </summary>
-	void MdlScheduleControlPrivate::InitAndRegisterAllService()
+	void FuncScheduleCtlPrivate::InitAndRegisterAllService()
 	{
 		IMdlFactory* pFactory = nullptr;
 		//初始化/注册模块调度实例
-		pFactory = MdlScheduleNS::MdlScheduleFactory::GetFactory();
+		pFactory = FuncScheduleNS::FuncScheduleFactory::GetFactory();
 		InitAndRegisterService(EModuleType::E_FuncSchedule_Type, pFactory);
 		//初始化/注册日志实例
 		pFactory = Log4CppNS::LoggerFactory::GetFactory();
@@ -39,7 +39,7 @@ namespace MdlScheduleNS
 	/// </summary>
 	/// <param name="type">模块类型</param>
 	/// <param name="factory">对应模块的开发工厂指针</param>
-	void MdlScheduleControlPrivate::InitAndRegisterService(EModuleType type,IMdlFactory* factory)
+	void FuncScheduleCtlPrivate::InitAndRegisterService(EModuleType type,IMdlFactory* factory)
 	{
 		//注意此处构建的是new 对象， 需要添加智能指针进行管理
 		MdlCommonNS::IMdlOperat* pMdl = factory->CreateModuleInstance();

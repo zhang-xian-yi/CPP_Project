@@ -16,7 +16,7 @@ namespace OpenGLUINS
 	class OpenGLUIAPI OpenGLUIFactory :public MdlCommonNS::IMdlFactory
 	{
 	public:
-		static OpenGLUIFactory* GetFactory()
+		static IMdlFactory* GetFactory()
 		{
 			static OpenGLUIFactory instance;
 			return &instance;

@@ -7,12 +7,12 @@ namespace MdlCommonNS
 	class IMdlFactory;
 }
 //
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 模块调度的控制器实现私有逻辑
 	/// </summary>
-	class MdlScheduleControlPrivate
+	class FuncScheduleCtlPrivate
 	{
 	public:
 		//注册所有笑话你ImdlService接口的功能模块

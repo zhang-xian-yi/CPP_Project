@@ -155,11 +155,14 @@
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp" />
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp" />
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp" />
+    <ClCompile Include="Src\CMNMEnum\Command\ECommand.cpp" />
+    <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp" />
     <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp" />
     <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\CMNEntity\InformationBean.h" />
     <ClInclude Include="Src\CMNEntity\Any.h" />
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h" />
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h" />
@@ -169,6 +172,9 @@
     <ClInclude Include="Src\CMNInterface\ISysRequest.h" />
     <ClInclude Include="Src\CMNInterface\ISysResponse.h" />
     <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h" />
+    <ClInclude Include="Src\CMNMEnum\Command\ECommand.h" />
+    <ClInclude Include="Src\CMNMEnum\EnumValueBean.h" />
+    <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h" />
     <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h" />
     <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h" />
     <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h" />

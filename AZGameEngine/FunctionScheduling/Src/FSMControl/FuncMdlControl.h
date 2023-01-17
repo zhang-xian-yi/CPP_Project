@@ -3,16 +3,16 @@
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/ISysRequest.h"
 #include "CMNInterface/ISysResponse.h"
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 执行模块业务调度的服务
 	/// </summary>
-	class MdlOperatControl:public MdlCommonNS::IMdlOperat
+	class FuncMdlControl:public MdlCommonNS::IMdlOperat
 	{
 	public:
-		MdlOperatControl();
-		~MdlOperatControl();
+		FuncMdlControl();
+		~FuncMdlControl();
 	public:
 		//构造模块
 		virtual std::unique_ptr<MdlCommonNS::ISysResponse> ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;

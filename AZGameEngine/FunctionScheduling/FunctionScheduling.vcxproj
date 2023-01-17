@@ -92,17 +92,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\MdlScheduleFactory.h" />
-    <ClInclude Include="Src\MSCommon\MSExpMarcoDefine.h" />
-    <ClInclude Include="Src\MSLogicService\MdlScheduleControlPrivate.h" />
-    <ClInclude Include="Src\MSMControl\MdlOperatControl.h" />
-    <ClInclude Include="Src\MSMControl\MdlScheduleControl.h" />
+    <ClInclude Include="Src\FuncScheduleFactory.h" />
+    <ClInclude Include="Src\FSCommon\MSExpMarcoDefine.h" />
+    <ClInclude Include="Src\FSLogicService\FuncScheduleCtlPrivate.h" />
+    <ClInclude Include="Src\FSMControl\FuncMdlControl.h" />
+    <ClInclude Include="Src\FSMControl\FuncScheduleControl.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\MdlSchedlueFactory.cpp" />
-    <ClCompile Include="Src\MSLogicService\MdlScheduleControlPrivate.cpp" />
-    <ClCompile Include="Src\MSMControl\MdlOperatControl.cpp" />
-    <ClCompile Include="Src\MSMControl\MdlScheduleControl.cpp" />
+    <ClCompile Include="Src\FuncScheduleFactory.cpp" />
+    <ClCompile Include="Src\FSLogicService\FuncScheduleCtlPrivate.cpp" />
+    <ClCompile Include="Src\FSMControl\FuncMdlControl.cpp" />
+    <ClCompile Include="Src\FSMControl\FuncScheduleControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AZGameEngine\AZGameEngine.vcxproj">

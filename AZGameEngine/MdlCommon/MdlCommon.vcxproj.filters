@@ -36,6 +36,12 @@
     <ClCompile Include="Src\CMNEntity\Any.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNMEnum\Command\ECommand.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
@@ -72,6 +78,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNEntity\Any.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNEntity\InformationBean.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNMEnum\Command\ECommand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNMEnum\EnumValueBean.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

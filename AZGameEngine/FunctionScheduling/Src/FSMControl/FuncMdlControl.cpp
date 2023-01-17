@@ -1,13 +1,13 @@
-#include "MdlOperatControl.h"
+#include "FuncMdlControl.h"
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"
 #include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 构造函数
 	/// </summary>
-	MdlOperatControl::MdlOperatControl()
+	FuncMdlControl::FuncMdlControl()
 		:m_bIsUse(false)
 	{
 
@@ -15,12 +15,12 @@ namespace MdlScheduleNS
 	/// <summary>
 	/// 析构函数
 	/// </summary>
-	MdlOperatControl::~MdlOperatControl()
+	FuncMdlControl::~FuncMdlControl()
 	{
 
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> MdlOperatControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> FuncMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
@@ -29,7 +29,7 @@ namespace MdlScheduleNS
 		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> MdlOperatControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> FuncMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
@@ -37,7 +37,7 @@ namespace MdlScheduleNS
 	}
 
 	//返回结果
-	bool MdlOperatControl::IsUse() const
+	bool FuncMdlControl::IsUse() const
 	{
 		return m_bIsUse;
 	}

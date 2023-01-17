@@ -1,6 +1,5 @@
 #pragma once
-#include <MSCommon/MSExpMarcoDefine.h>
-#include <MSCommon/MSExpMarcoDefine.h>
+#include <FSCommon/MSExpMarcoDefine.h>
 #include "CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
@@ -9,17 +8,17 @@ namespace MdlCommonNS
 	class IMdlService;
 }
 
-namespace MdlScheduleNS
+namespace FuncScheduleNS
 {
 	/// <summary>
 	/// 功能调度模块的工厂
 	/// </summary>
-	class MdlScheduleDLLAPI MdlScheduleFactory:public MdlCommonNS::IMdlFactory
+	class MdlScheduleDLLAPI FuncScheduleFactory:public MdlCommonNS::IMdlFactory
 	{
 	public:
 		static MdlCommonNS::IMdlFactory* GetFactory()
 		{
-			static MdlScheduleFactory instance;
+			static FuncScheduleFactory instance;
 			return &instance;
 		}
 	public:
@@ -27,10 +26,10 @@ namespace MdlScheduleNS
 		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
 	private:
 		//禁止反复定义工厂，禁止delelte 工厂对象
-		MdlScheduleFactory();
-		~MdlScheduleFactory();
-		MdlScheduleFactory(MdlScheduleFactory& instance) = delete;
-		MdlScheduleFactory& operator=(const MdlScheduleFactory& instance) = delete;
+		FuncScheduleFactory();
+		~FuncScheduleFactory();
+		FuncScheduleFactory(FuncScheduleFactory& instance) = delete;
+		FuncScheduleFactory& operator=(const FuncScheduleFactory& instance) = delete;
 	};
 }
 

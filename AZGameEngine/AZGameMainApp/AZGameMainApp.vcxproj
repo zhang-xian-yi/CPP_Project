@@ -108,11 +108,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\MAGame\MainApplication.h" />
+    <ClInclude Include="Src\MAMControl\MainApplication.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\main.cpp" />
-    <ClCompile Include="Src\MAGame\MainApplication.cpp" />
+    <ClCompile Include="Src\MAMControl\MainApplication.cpp" />
     <ClCompile Include="Src\test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

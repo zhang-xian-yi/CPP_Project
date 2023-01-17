@@ -13,16 +13,24 @@ namespace MdlCommonNS
 		E_OpengGLUI_Type
 	};
 
+	//前置声明
+	class EMdlTypeExtendPrivate;
+
 	//模块枚举值的扩展方法
 	class MdlCommonDLLAPI EnumModuleTypeExtend
 	{
 	public:
-		//获取模块名字(中文)
-		std::string GetMdlCNName(EModuleType mdl)const;
+		EnumModuleTypeExtend();
+		~EnumModuleTypeExtend();
+	public:
+		//获取模块描述(中文)
+		std::string GetMdlCnDesc(EModuleType mdl)const;
 		//获取模块名字(英文)
-		std::string GetMdlENName(EModuleType mdl)const;
+		std::string GetMdlEnName(EModuleType mdl)const;
 		//获取模块编码
 		std::string GetMdlCode(EModuleType mdl)const;
+	private:
+		EMdlTypeExtendPrivate* m_pService;
 	};
 }
 
