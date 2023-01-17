@@ -15,12 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\TestDLL.h">
+    <ClInclude Include="Src\GameEngineFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GECommon\ExpMarcoDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GEMControl\GameEngineMdlControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GEMControl\GameEngineServiceControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\TestDLL.cpp">
+    <ClCompile Include="Src\GameEngineFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GEMControl\GameEngineMdlControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GEMControl\GameEngineServiceControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

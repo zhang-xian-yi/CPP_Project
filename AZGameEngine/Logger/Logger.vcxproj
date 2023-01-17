@@ -92,7 +92,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\ExportBean.h" />
+    <ClInclude Include="Src\LLogicService\OutputConsoleService.h" />
+    <ClInclude Include="Src\LCommon\ExportBean.h" />
     <ClInclude Include="Src\LCommon\LExpMarcoDefine.h" />
     <ClInclude Include="Src\LCommon\LoggerGlobal.h" />
     <ClInclude Include="Src\LMControl\LoggerControl.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="Src\LoggerFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\LLogicService\OutputConsoleService.cpp" />
     <ClCompile Include="Src\LCommon\LoggerGlobal.cpp" />
     <ClCompile Include="Src\LMControl\LoggerControl.cpp" />
     <ClCompile Include="Src\LMControl\LModuleControl.cpp" />

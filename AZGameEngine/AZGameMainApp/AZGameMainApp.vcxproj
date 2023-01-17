@@ -62,7 +62,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AssemblerOutput>AssemblyCode</AssemblerOutput>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;$(SolutionDir)FunctionScheduling\Src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)TestCommon\Src;$(SolutionDir)FunctionScheduling\Src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,8 +97,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AZGameEngine\AZGameEngine.vcxproj">
-      <Project>{1dba3436-de62-444b-8873-e3b7c31b4094}</Project>
+    <ProjectReference Include="..\FunctionScheduling\FunctionScheduling.vcxproj">
+      <Project>{04bc39e6-f429-4f22-9ec8-85f7628507b9}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>

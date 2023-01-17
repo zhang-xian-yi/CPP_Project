@@ -9,6 +9,7 @@ namespace Log4CppNS
 		:m_pService(nullptr),m_pModule(nullptr)
 	{
 	}
+
 	LoggerFactory::~LoggerFactory()
 	{
 		if (m_pService != nullptr)

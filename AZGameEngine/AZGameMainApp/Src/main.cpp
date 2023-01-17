@@ -1,12 +1,5 @@
 #include <iostream>
 #include <thread>
-namespace AZGameEngineNS
-{
-	__declspec(dllimport) void printinfo();
-}
-
-
-
 bool isFinish = false;
 void doWork()
 {
@@ -39,16 +32,19 @@ void testThread()
 void TimerTestFunc()
 {
 	TestCommonNS::TimerTest test;
-	//第三方库引用
-	AZGameEngineNS::printinfo();
-	printf("\nXXXXX\n");
+	std::cout << "Welcome to zhangxianyi AZGame Engine Project" << std::endl;
+	std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << std::endl;
 }
 
+#include "MdlScheduleFactory.h"
 
 int main(int argc, char* argv[])
 {
-	TimerTestFunc();
+	auto factory = MdlScheduleNS::MdlScheduleFactory::GetFactory();
+	factory->GetModuleInstance();
 
+	
+	std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << std::endl;
 	std::cin.get();
 	return 0;
 }

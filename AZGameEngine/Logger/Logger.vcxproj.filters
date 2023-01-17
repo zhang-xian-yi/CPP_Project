@@ -30,7 +30,10 @@
     <ClInclude Include="Src\LCommon\LExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ExportBean.h">
+    <ClInclude Include="Src\LCommon\ExportBean.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LLogicService\OutputConsoleService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -45,6 +48,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\LCommon\LoggerGlobal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LLogicService\OutputConsoleService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

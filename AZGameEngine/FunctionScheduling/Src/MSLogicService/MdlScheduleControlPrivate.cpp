@@ -17,11 +17,11 @@ namespace MdlScheduleNS
 	{
 		IMdlFactory* pFactory = nullptr;
 		//初始化/注册模块调度实例
-		pFactory = &(MdlScheduleNS::MdlScheduleFactory::GetFactory());
+		pFactory = MdlScheduleNS::MdlScheduleFactory::GetFactory();
 		InitAndRegisterService(EModuleType::E_MdlSchedule_Type, pFactory);
 
 		//初始化/注册日志实例
-		pFactory = &(Log4CppNS::LoggerFactory::GetFactory());
+		pFactory = Log4CppNS::LoggerFactory::GetFactory();
 		InitAndRegisterService(EModuleType::E_Logger_Type, pFactory);
 
 

@@ -11,7 +11,7 @@ namespace Log4CppNS
 		LoggerControl();
 		~LoggerControl();
 	public:
-		virtual MdlCommonNS::ISysResponse* DoService(const MdlCommonNS::ISysRequest* para) override;
+		virtual MdlCommonNS::ISysResponse* DoService(const MdlCommonNS::ISysRequest* para) override;	
 	};
 }
 

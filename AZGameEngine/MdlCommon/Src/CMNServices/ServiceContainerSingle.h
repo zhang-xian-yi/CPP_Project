@@ -29,8 +29,6 @@ namespace MdlCommonNS
 			return instance;
 		}
 	public:
-		ServiceContainerSingle();
-		~ServiceContainerSingle();
 		//注册模块操作接口
 		void RegisterModuleInterface(MdlCommonNS::EModuleType mdlType, MdlCommonNS::IMdlOperat* imdlOperat, MdlCommonNS::IMdlService* imdlService);
 		//注销模块操作接口
@@ -40,6 +38,12 @@ namespace MdlCommonNS
 		//获取模块操作接口
 		MdlCommonNS::IMdlOperat* GetModuleOperatInterface(MdlCommonNS::EModuleType mdlType);
 		MdlCommonNS::IMdlService* GetModuleServiceInterface(MdlCommonNS::EModuleType mdlType);
+	private:
+		//禁止反复定义单例，禁止delelte 单例对象
+		ServiceContainerSingle();
+		~ServiceContainerSingle();
+		ServiceContainerSingle(ServiceContainerSingle& instance) = delete;
+		ServiceContainerSingle& operator=(const ServiceContainerSingle& instance) = delete;
 	private:
 		ServiceContainerSinglePrivate* m_pService;
 	};
