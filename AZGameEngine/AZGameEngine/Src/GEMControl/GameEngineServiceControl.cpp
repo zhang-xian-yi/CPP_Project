@@ -1,4 +1,6 @@
 #include "GameEngineServiceControl.h"
+#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
+#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
 namespace AZGameEngineNS
 {
@@ -10,9 +12,12 @@ namespace AZGameEngineNS
 	{
 	}
 
-	MdlCommonNS::ISysResponse* AZGameEngineNS::GameEngineServiceControl::DoService(const MdlCommonNS::ISysRequest* para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> GameEngineServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
-		return nullptr;
+		auto pResult = new MdlCommonNS::DefSysResponse();
+
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
+
 }
 

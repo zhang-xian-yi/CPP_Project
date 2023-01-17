@@ -1,4 +1,6 @@
 #include "GameEngineMdlControl.h"
+#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
+#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
 namespace AZGameEngineNS
 {
@@ -10,14 +12,21 @@ namespace AZGameEngineNS
 	{
 	}
 
-	MdlCommonNS::ISysResponse* GameEngineMdlControl::ConstructModule(const MdlCommonNS::ISysRequest* para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> GameEngineMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
-		return nullptr;
+		auto pResult = new MdlCommonNS::DefSysResponse();
+
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
-	MdlCommonNS::ISysResponse* GameEngineMdlControl::DestoryModule(const MdlCommonNS::ISysRequest* para)
+
+	std::unique_ptr<MdlCommonNS::ISysResponse> GameEngineMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
-		return nullptr;
+		auto pResult = new MdlCommonNS::DefSysResponse();
+
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
+
+
 
 	/// <summary>
 	/// 返回游戏引擎模块的状态

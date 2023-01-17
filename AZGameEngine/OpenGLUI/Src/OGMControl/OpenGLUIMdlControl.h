@@ -2,15 +2,13 @@
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/ISysRequest.h"
 #include "CMNInterface/ISysResponse.h"
-
-namespace AZGameEngineNS
+namespace OpenGLUINS
 {
-	//游戏引擎的模块控制器
-	class GameEngineMdlControl :public MdlCommonNS::IMdlOperat
+	class OpenGLUIMdlControl :public MdlCommonNS::IMdlOperat
 	{
 	public:
-		GameEngineMdlControl();
-		~GameEngineMdlControl();
+		OpenGLUIMdlControl();
+		~OpenGLUIMdlControl();
 	public:
 		//构造模块
 		virtual std::unique_ptr<MdlCommonNS::ISysResponse> ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
@@ -21,6 +19,6 @@ namespace AZGameEngineNS
 	private:
 		bool m_bIsUse;//模块是否可用
 	};
-}
 
+}
 

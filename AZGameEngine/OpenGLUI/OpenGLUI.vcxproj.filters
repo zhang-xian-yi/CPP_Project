@@ -15,15 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\OGCommon\OGMarcoDefine.h">
+    <ClInclude Include="Src\OGCommon\OGExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\OpenGLUIFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\OGMControl\OpenGLUIMdlControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\OGMControl\OpenGLUIServiceControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\OpenGLUIFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\OGMControl\OpenGLUIMdlControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\OGMControl\OpenGLUIServiceControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

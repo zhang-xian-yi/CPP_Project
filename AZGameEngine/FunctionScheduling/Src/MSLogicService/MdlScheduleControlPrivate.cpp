@@ -35,8 +35,9 @@ namespace MdlScheduleNS
 	/// <param name="factory">对应模块的开发工厂指针</param>
 	void MdlScheduleControlPrivate::InitAndRegisterService(EModuleType type,IMdlFactory* factory)
 	{
-		MdlCommonNS::IMdlOperat* pMdl = factory->GetModuleInstance();
-		MdlCommonNS::IMdlService* pService = factory->GetServiceInstance();
+		//注意此处构建的是new 对象， 需要添加智能指针进行管理
+		MdlCommonNS::IMdlOperat* pMdl = factory->CreateModuleInstance();
+		MdlCommonNS::IMdlService* pService = factory->CreateServiceInstance();
 		//初始化模块
 		pMdl->ConstructModule();
 		//注册模块

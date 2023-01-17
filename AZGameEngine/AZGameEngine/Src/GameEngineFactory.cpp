@@ -1,7 +1,6 @@
 #include "GameEngineFactory.h"
-#include "CMNInterface/IMdlOperat.h"
-#include "CMNInterface/IMdlService.h"
-
+#include <GEMControl/GameEngineMdlControl.h>
+#include <GEMControl/GameEngineServiceControl.h>
 namespace AZGameEngineNS
 {
 	GameEngineFactory::GameEngineFactory()
@@ -10,12 +9,22 @@ namespace AZGameEngineNS
 	GameEngineFactory::~GameEngineFactory()
 	{
 	}
-	MdlCommonNS::IMdlService* GameEngineFactory::GetServiceInstance()
+
+	/// <summary>
+	/// 创建一个新的业务控制实例
+	/// </summary>
+	/// <returns></returns>
+	MdlCommonNS::IMdlService* GameEngineFactory::CreateServiceInstance()
 	{
-		return nullptr;
+		return new GameEngineServiceControl();
 	}
-	MdlCommonNS::IMdlOperat* GameEngineFactory::GetModuleInstance()
+
+	/// <summary>
+	/// 创建一个新的模块控制实例
+	/// </summary>
+	/// <returns></returns>
+	MdlCommonNS::IMdlOperat* GameEngineFactory::CreateModuleInstance()
 	{
-		return nullptr;
+		return new GameEngineMdlControl();
 	}
 }

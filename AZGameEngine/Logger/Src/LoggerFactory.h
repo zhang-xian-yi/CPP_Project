@@ -20,19 +20,14 @@ namespace Log4CppNS
 			return &instance;
 		}
 	public:
-		virtual MdlCommonNS::IMdlService* GetServiceInstance() override;
-		virtual MdlCommonNS::IMdlOperat* GetModuleInstance() override;
-	private:
-
+		MdlCommonNS::IMdlService* CreateServiceInstance() override;
+		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
 	private:
 		//禁止反复定义工厂，禁止delelte 工厂对象
 		LoggerFactory();
 		~LoggerFactory();
 		LoggerFactory(LoggerFactory& instance) = delete;
 		LoggerFactory& operator=(const LoggerFactory& instance) = delete;
-	private:
-		MdlCommonNS::IMdlService* m_pService;
-		MdlCommonNS::IMdlOperat* m_pModule;
 	};
 }
 

@@ -16,22 +16,27 @@ namespace Log4CppNS
     {
     }
 
-    ISysResponse* LModuleControl::ConstructModule(const ISysRequest* para )
+    std::unique_ptr<MdlCommonNS::ISysResponse> LModuleControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
     {
         LoggerGlobal* plogGlo = Log4CppNS::LoggerGlobal::GetInstancePointer();
         //plogGlo->SetLogSetting(para);
         m_bIsUse = true;
         // TODO: 在此处插入 return 语句
-        return new DefSysResponse();
+        auto pResult = new MdlCommonNS::DefSysResponse();
+
+
+
+        return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
     }
 
-    ISysResponse* LModuleControl::DestoryModule(const ISysRequest* para)
+    std::unique_ptr<MdlCommonNS::ISysResponse> LModuleControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
     {
         m_bIsUse = false;
         // TODO: 在此处插入 return 语句
-        return new DefSysResponse();
-    }
+        auto pResult = new MdlCommonNS::DefSysResponse();
 
+        return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+    }
 
     //返回模块是否可用
     bool LModuleControl::IsUse() const

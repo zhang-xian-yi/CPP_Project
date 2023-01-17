@@ -1,5 +1,6 @@
 #pragma once
 // 定义所有功能模块必须实现的模块启动和停止接口
+#include <memory>
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
 #include <CMNInterface/ISysResponse.h>
@@ -13,9 +14,9 @@ namespace MdlCommonNS
 		virtual ~IMdlOperat() = 0;
 	public:
 		//构造模块
-		virtual ISysResponse* ConstructModule(const ISysRequest* para = nullptr) = 0;
+		virtual std::unique_ptr<ISysResponse> ConstructModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//销毁模块
-		virtual ISysResponse* DestoryModule(const ISysRequest* para = nullptr) = 0;
+		virtual std::unique_ptr<ISysResponse> DestoryModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//获取模块状态
 		virtual bool IsUse() const = 0;
 	};

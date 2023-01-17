@@ -16,7 +16,7 @@ namespace MdlScheduleNS
 		MdlScheduleControl();
 		~MdlScheduleControl();
 	public:
-		MdlCommonNS::ISysResponse* DoService(const MdlCommonNS::ISysRequest* para);
+		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
 	private:
 
 	private:

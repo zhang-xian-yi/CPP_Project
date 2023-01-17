@@ -41,7 +41,7 @@ void TimerTestFunc()
 int main(int argc, char* argv[])
 {
 	auto factory = MdlScheduleNS::MdlScheduleFactory::GetFactory();
-	factory->GetModuleInstance();
+	factory->CreateModuleInstance();
 
 	
 	std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << std::endl;

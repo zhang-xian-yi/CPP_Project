@@ -14,11 +14,15 @@ namespace Log4CppNS
 	{
 	}
 	//日志消息打印
-	ISysResponse* LoggerControl::DoService(const ISysRequest* para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> LoggerControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		bool ret = para->IsValid();
 
+		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return new DefSysResponse();
+
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
+	
+
 }

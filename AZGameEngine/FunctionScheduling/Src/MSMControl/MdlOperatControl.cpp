@@ -1,9 +1,9 @@
 #include "MdlOperatControl.h"
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"
 #include "CMNEntity/DefaultReqRep/DefSysRequest.h"
+
 namespace MdlScheduleNS
 {
-
 	/// <summary>
 	/// 构造函数
 	/// </summary>
@@ -20,21 +20,19 @@ namespace MdlScheduleNS
 
 	}
 
-	MdlCommonNS::ISysResponse* MdlOperatControl::ConstructModule(const MdlCommonNS::ISysRequest* para)
-	{
-		auto pResult = new MdlCommonNS::DefSysResponse();
-		
-
-		return pResult;
-	}
-	MdlCommonNS::ISysResponse* MdlOperatControl::DestoryModule(const MdlCommonNS::ISysRequest* para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> MdlOperatControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
-
-		return pResult;
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
 
+	std::unique_ptr<MdlCommonNS::ISysResponse> MdlOperatControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	{
+		auto pResult = new MdlCommonNS::DefSysResponse();
+
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+	}
 
 	//返回结果
 	bool MdlOperatControl::IsUse() const

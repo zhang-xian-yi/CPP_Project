@@ -12,7 +12,8 @@ namespace MdlCommonNS
 		virtual ~IMdlFactory() = 0;
 	public:
 		//这里Get 方法的实现必须存在构造子类实例的语句，不能为const，所以工厂指针也不能是const
-		virtual MdlCommonNS::IMdlService* GetServiceInstance() = 0;
-		virtual MdlCommonNS::IMdlOperat*  GetModuleInstance() = 0;
+		//这里不适用智能指针，因为模块和控制均是unique_ptr 进行管理
+		virtual MdlCommonNS::IMdlService* CreateServiceInstance() = 0;
+		virtual MdlCommonNS::IMdlOperat*  CreateModuleInstance() = 0;
 	};
 }

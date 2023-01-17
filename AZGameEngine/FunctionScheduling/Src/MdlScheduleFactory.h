@@ -17,23 +17,20 @@ namespace MdlScheduleNS
 	class MdlScheduleDLLAPI MdlScheduleFactory:public MdlCommonNS::IMdlFactory
 	{
 	public:
-		static MdlScheduleFactory* GetFactory()
+		static MdlCommonNS::IMdlFactory* GetFactory()
 		{
 			static MdlScheduleFactory instance;
 			return &instance;
 		}
 	public:
-		MdlCommonNS::IMdlService* GetServiceInstance() override;
-		MdlCommonNS::IMdlOperat* GetModuleInstance() override;
+		MdlCommonNS::IMdlService* CreateServiceInstance() override;
+		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
 	private:
 		//禁止反复定义工厂，禁止delelte 工厂对象
 		MdlScheduleFactory();
 		~MdlScheduleFactory();
 		MdlScheduleFactory(MdlScheduleFactory& instance) = delete;
 		MdlScheduleFactory& operator=(const MdlScheduleFactory& instance) = delete;
-	private:
-		MdlCommonNS::IMdlService* m_pService;//模块调度的业务类指针
-		MdlCommonNS::IMdlOperat* m_pModule;//模块初始化以及启停
 	};
 }
 

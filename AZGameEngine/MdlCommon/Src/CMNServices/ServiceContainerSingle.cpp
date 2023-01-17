@@ -58,10 +58,21 @@ namespace MdlCommonNS
 		//必须全部不为空才能向其中插入数据
 		if (m_pMdlOperatMap != nullptr && m_pMdlServiceMap != nullptr)
 		{
+			//智能指针进行管理
+			std::unique_ptr<IMdlOperat> pMdlControl(imdlOperat);
+			std::unique_ptr<IMdlService> pServiceControl(imdlService);
+
+			//添加进入map  暂时添加普通指针，等待之后尝试
 			m_pMdlOperatMap->insert(std::make_pair(mdlType, imdlOperat));
 			m_pMdlServiceMap->insert(std::make_pair(mdlType, imdlService));
 		}
 	}
+
+	/// <summary>
+	/// 取消注册 同时因为智能指针的关系，也会自动释放对应内存
+	/// 所以再次注册便需要重新创建模块控制器
+	/// </summary>
+	/// <param name="mdlType"></param>
 	void ServiceContainerSinglePrivate::UnRegisterModuleInterface(EModuleType mdlType)
 	{
 		auto findOperat = m_pMdlOperatMap->find(mdlType);

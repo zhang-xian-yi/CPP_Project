@@ -61,6 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OPENGL_UI_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -78,6 +79,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -90,11 +92,20 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\OGMControl\OpenGLUIServiceControl.h" />
+    <ClInclude Include="Src\OGMControl\OpenGLUIMdlControl.h" />
     <ClInclude Include="Src\OpenGLUIFactory.h" />
-    <ClInclude Include="Src\OGCommon\OGMarcoDefine.h" />
+    <ClInclude Include="Src\OGCommon\OGExpMarcoDefine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\OGMControl\OpenGLUIServiceControl.cpp" />
+    <ClCompile Include="Src\OGMControl\OpenGLUIMdlControl.cpp" />
     <ClCompile Include="Src\OpenGLUIFactory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
+      <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

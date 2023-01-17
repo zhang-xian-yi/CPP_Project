@@ -10,7 +10,6 @@ namespace MdlScheduleNS
 	/// 构造函数
 	/// </summary>
 	MdlScheduleFactory::MdlScheduleFactory()
-		:m_pService(nullptr), m_pModule(nullptr)
 	{
 	}
 	/// <summary>
@@ -18,36 +17,24 @@ namespace MdlScheduleNS
 	/// </summary>
 	MdlScheduleFactory::~MdlScheduleFactory()
 	{
-		if (m_pService != nullptr)
-		{
-			//销毁日志
-			delete m_pService;
-			m_pService = nullptr;
-		}
-		if (m_pModule != nullptr)
-		{
-			//销毁日志
-			delete m_pModule;
-			m_pModule = nullptr;
-		}
+
 	}
 
-	MdlCommonNS::IMdlService* MdlScheduleFactory::GetServiceInstance()
+	/// <summary>
+	/// 创建一个新的业务控制实例
+	/// </summary>
+	/// <returns></returns>
+	MdlCommonNS::IMdlService* MdlScheduleFactory::CreateServiceInstance()
 	{
-		if (m_pService == nullptr)
-		{
-			//初始化日志 
-			m_pService = new MdlScheduleNS::MdlScheduleControl();
-		}
-		return m_pService;
+		return new MdlScheduleNS::MdlScheduleControl();
 	}
-	MdlCommonNS::IMdlOperat* MdlScheduleFactory::GetModuleInstance()
+
+	/// <summary>
+	/// 创建一个新的模块控制实例
+	/// </summary>
+	/// <returns></returns>
+	MdlCommonNS::IMdlOperat* MdlScheduleFactory::CreateModuleInstance()
 	{
-		if (m_pModule == nullptr)
-		{
-			//初始化日志 
-			m_pModule = new MdlScheduleNS::MdlOperatControl();
-		}
-		return m_pModule;
+		return new MdlScheduleNS::MdlOperatControl();
 	}
 }
