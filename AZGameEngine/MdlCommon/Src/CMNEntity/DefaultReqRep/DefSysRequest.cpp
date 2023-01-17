@@ -3,15 +3,37 @@
 namespace MdlCommonNS
 {
 	DefSysRequest::DefSysRequest()
+		:m_pData(nullptr)
 	{
 	}
 
+	//
 	DefSysRequest::~DefSysRequest()
 	{
+		if (m_pData)
+		{
+			delete m_pData;
+			m_pData = nullptr;
+		}
+	}
+	/// <summary>
+	/// 设置对应类型的数据
+	/// </summary>
+	/// <param name="data"></param>
+	void DefSysRequest::SetData(Any& data)
+	{
+		//赋值,存在拷贝data对象数据，对于性能存在部分影响
+		//*m_pData = data;
+		//取地址，直接控制对象内存，并在请求销毁时，释放
+		m_pData = &data;
 	}
 
-	bool DefSysRequest::IsValid() const
+	/// <summary>
+	/// 获取指定的数据
+	/// </summary>
+	/// <returns></returns>
+	Any& DefSysRequest::GetData() const
 	{
-		return true;
+		return *m_pData;
 	}
 }

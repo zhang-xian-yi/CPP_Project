@@ -8,7 +8,9 @@ namespace MdlCommonNS
 	enum class EModuleType :unsigned char
 	{
 		E_Logger_Type,
-		E_MdlSchedule_Type,
+		E_FuncSchedule_Type,
+		E_GameEngine_Type,
+		E_OpengGLUI_Type
 	};
 
 	//模块枚举值的扩展方法

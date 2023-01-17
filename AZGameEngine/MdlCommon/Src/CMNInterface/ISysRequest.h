@@ -1,6 +1,6 @@
 #pragma once
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
-
+#include <CMNEntity/Any.h>
 /*
 约定，系统请求的内存管理由发起方申请，接收方销毁
 约定，所有进行通讯的系统请求，均由智能指针管理
@@ -15,7 +15,7 @@ namespace MdlCommonNS
 	public:
 		virtual ~ISysRequest() = 0;
 	public:
-		//约定所有的系统请求数据必须实现此方法
-		virtual bool IsValid()const = 0;
+		//约定获取任意类型数据的方法
+		virtual Any& GetData()const = 0;
 	};
 }

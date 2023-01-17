@@ -10,7 +10,7 @@ namespace MdlCommonNS
 
 namespace AZGameEngineNS
 {
-	class GameEngineFactory :public MdlCommonNS::IMdlFactory
+	class GameEngineDLLAPI GameEngineFactory :public MdlCommonNS::IMdlFactory
 	{
 	public:
 		static MdlCommonNS::IMdlFactory* GetFactory()

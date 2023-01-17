@@ -6,6 +6,8 @@
 #include "CMNMEnum/ModuelType/EModuleType.h"//模块类型
 #include "LoggerFactory.h"//日志工厂类
 #include "MdlScheduleFactory.h"//模块调度工厂类
+#include "OpenGLUIFactory.h"//OPenglUI的工厂类
+#include "GameEngineFactory.h"//游戏引擎工厂类
 using namespace MdlCommonNS;
 
 namespace MdlScheduleNS
@@ -18,12 +20,16 @@ namespace MdlScheduleNS
 		IMdlFactory* pFactory = nullptr;
 		//初始化/注册模块调度实例
 		pFactory = MdlScheduleNS::MdlScheduleFactory::GetFactory();
-		InitAndRegisterService(EModuleType::E_MdlSchedule_Type, pFactory);
-
+		InitAndRegisterService(EModuleType::E_FuncSchedule_Type, pFactory);
 		//初始化/注册日志实例
 		pFactory = Log4CppNS::LoggerFactory::GetFactory();
 		InitAndRegisterService(EModuleType::E_Logger_Type, pFactory);
-
+		//初始化/注册游戏引擎实例
+		pFactory = AZGameEngineNS::GameEngineFactory::GetFactory();
+		InitAndRegisterService(EModuleType::E_GameEngine_Type, pFactory);
+		//初始化/注册OpenglUI实例
+		pFactory = OpenGLUINS::OpenGLUIFactory::GetFactory();
+		InitAndRegisterService(EModuleType::E_OpengGLUI_Type, pFactory);
 
 		
 	}

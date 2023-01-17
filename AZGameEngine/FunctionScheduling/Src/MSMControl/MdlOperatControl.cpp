@@ -24,6 +24,8 @@ namespace MdlScheduleNS
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
+
+
 		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
 
