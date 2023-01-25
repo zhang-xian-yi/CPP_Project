@@ -33,9 +33,6 @@
     <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\CMNEntity\Any.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNEntity\Any.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNEntity\InformationBean.h">

@@ -122,6 +122,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>COMMON_EXPORT_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +141,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>COMMON_EXPORT_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +155,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\CMNEntity\Any.cpp" />
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp" />
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp" />
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp" />
@@ -163,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNEntity\InformationBean.h" />
-    <ClInclude Include="Src\CMNEntity\Any.h" />
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h" />
     <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h" />
     <ClInclude Include="Src\CMNInterface\IMdlFactory.h" />

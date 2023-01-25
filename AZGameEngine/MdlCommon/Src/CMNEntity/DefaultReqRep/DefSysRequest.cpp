@@ -20,7 +20,7 @@ namespace MdlCommonNS
 	/// 设置对应类型的数据
 	/// </summary>
 	/// <param name="data"></param>
-	void DefSysRequest::SetData(Any& data)
+	void DefSysRequest::SetData(std::any& data)
 	{
 		//赋值,存在拷贝data对象数据，对于性能存在部分影响
 		//*m_pData = data;
@@ -32,7 +32,7 @@ namespace MdlCommonNS
 	/// 获取指定的数据
 	/// </summary>
 	/// <returns></returns>
-	Any& DefSysRequest::GetData() const
+	std::any& DefSysRequest::GetData() const
 	{
 		return *m_pData;
 	}

@@ -4,7 +4,6 @@
 
 #include "CMNEntity/DefaultReqRep/DefSysRequest.h"//默认请求
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"//默认响应
-#include "CMNEntity/Any.h"//任意类型的描述类
 #include "CMNMEnum/Command/ECommand.h"//执行命令的参数
 namespace AZGameMainApp
 {
@@ -34,13 +33,15 @@ namespace AZGameMainApp
 		auto pServiceScheduleCtl = factory->CreateServiceInstance();
 		//构造参数
 		auto pRequest = new MdlCommonNS::DefSysRequest();
-		MdlCommonNS::Any cmd = MdlCommonNS::ECommand::E_InitAllFunction;
+		std::any cmd = MdlCommonNS::ECommand::E_InitAllFunction;
 		pRequest->SetData(cmd);
 		//执行E_InitAllFunction 命令
 		auto mdlServiceRep = pServiceScheduleCtl->DoService(std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest));
-		MdlCommonNS::Any& repInfo = mdlServiceRep->GetData();
+		std::any& repInfo = mdlServiceRep->GetData();
 		//返回初始化的响应并强制转换为bool 类型，确保初始化正常
-		return repInfo.AnyRefCast<bool>();
+		auto flag = std::any_cast<bool>(repInfo);
+		//必须确定flag的值之后才能返回
+		return flag;
 		//return true;
 	}
 }

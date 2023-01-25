@@ -12,11 +12,11 @@ namespace MdlCommonNS
 		~DefSysResponse();
 	public:
 		//设置指定数据，并且该类直接控制any对象的内存
-		void SetData(Any& data);
+		void SetData(std::any& data);
 		//获取指定数据，从接口处继承
-		virtual Any& GetData()const override;
+		virtual std::any& GetData()const override;
 	private:
-		Any* m_pData;
+		std::any* m_pData;
 	};
 }
 
