@@ -16,7 +16,7 @@ namespace OpenGLUINS
 /// </summary>
 /// <param name="para"></param>
 /// <returns></returns>
-	std::unique_ptr<MdlCommonNS::ISysResponse> OpenGLUIServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> OpenGLUIServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 

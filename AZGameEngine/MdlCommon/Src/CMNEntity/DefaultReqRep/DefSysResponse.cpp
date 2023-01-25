@@ -8,6 +8,11 @@ namespace MdlCommonNS
     {
 
     }
+    DefSysResponse::DefSysResponse(std::any& data)
+        :m_pData(&data)
+    {
+    }
+
     DefSysResponse::~DefSysResponse()
     {
         if (m_pData)

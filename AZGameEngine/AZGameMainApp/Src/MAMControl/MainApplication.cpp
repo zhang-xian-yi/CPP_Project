@@ -9,6 +9,7 @@ namespace AZGameMainApp
 {
 	MainApplication::MainApplication()
 	{
+		
 	}
 	MainApplication::~MainApplication()
 	{
@@ -33,13 +34,13 @@ namespace AZGameMainApp
 		auto pServiceScheduleCtl = factory->CreateServiceInstance();
 		//构造参数
 		auto pRequest = new MdlCommonNS::DefSysRequest();
-		std::any cmd = MdlCommonNS::ECommand::E_InitAllFunction;
+		std::any cmd = std::make_any<MdlCommonNS::ECommand>(MdlCommonNS::ECommand::E_InitAllFunction);
 		pRequest->SetData(cmd);
 		//执行E_InitAllFunction 命令
 		auto mdlServiceRep = pServiceScheduleCtl->DoService(std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest));
 		std::any& repInfo = mdlServiceRep->GetData();
 		//返回初始化的响应并强制转换为bool 类型，确保初始化正常
-		auto flag = std::any_cast<bool>(repInfo);
+		bool& flag = std::any_cast<bool&>(repInfo);
 		//必须确定flag的值之后才能返回
 		return flag;
 		//return true;

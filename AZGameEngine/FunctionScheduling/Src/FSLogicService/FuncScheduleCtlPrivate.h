@@ -1,12 +1,15 @@
 #pragma once
-
+#include <map>
+#include <memory>
+#include "IService.h"//ICmdService,IFuncService 引入
+#include "CMNInterface/ISysRequest.h"
+#include "CMNInterface/ISysResponse.h"
 namespace MdlCommonNS
 {
 	//前置声明
-	enum class EModuleType:unsigned char;
-	class IMdlFactory;
+	enum class ECommand :unsigned char;
+	enum class EModuleType :unsigned char;
 }
-//
 namespace FuncScheduleNS
 {
 	/// <summary>
@@ -15,12 +18,17 @@ namespace FuncScheduleNS
 	class FuncScheduleCtlPrivate
 	{
 	public:
-		//注册所有笑话你ImdlService接口的功能模块
-		void InitAndRegisterAllService();
+		FuncScheduleCtlPrivate();
+		~FuncScheduleCtlPrivate();
+		//选择业务的分支
+		std::unique_ptr<MdlCommonNS::ISysResponse> SwitchCmdService(MdlCommonNS::ECommand cmd);
+		//选择业务的分支
+		std::unique_ptr<MdlCommonNS::ISysResponse> SwitchFuncService(MdlCommonNS::EModuleType mdlTpye,const std::unique_ptr<MdlCommonNS::ISysRequest>& para);
 	private:
-		//根据工厂对象创建与注册指定实例
-		void InitAndRegisterService(MdlCommonNS::EModuleType type,MdlCommonNS::IMdlFactory* factory);
-
+		//保存系统命令和实现业务逻辑的映射表
+		std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>* m_pCmdServiceMap;
+		//保存用户命令和实现业务逻辑的映射表
+		std::map<MdlCommonNS::EModuleType, std::unique_ptr<IFuncService>>* m_pFuncServiceMap;
 	};
 }
 

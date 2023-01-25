@@ -1,53 +1,93 @@
 #include "FuncScheduleCtlPrivate.h"
-#include "CMNInterface/IMdlOperat.h"
-#include "CMNInterface/IMdlFactory.h"
-#include "CMNInterface/IMdlService.h"
+#include <memory> //unique_ptr
+#include <string>//字符串
+#include <tuple>//元组
+#include "CMNEntity/DefaultReqRep/DefSysRequest.h"//默认请求和响应
+#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
 #include "CMNServices/ServiceContainerSingle.h"//业务容器
-#include "CMNMEnum/ModuelType/EModuleType.h"//模块类型
-#include "LoggerFactory.h"//日志工厂类
-#include "FuncScheduleFactory.h"//模块调度工厂类
-#include "OpenGLUIFactory.h"//OPenglUI的工厂类
-#include "GameEngineFactory.h"//游戏引擎工厂类
 using namespace MdlCommonNS;
 
 namespace FuncScheduleNS
 {
 	/// <summary>
-	/// 初始化/注册 所有的功能模块
+	/// 构造函数
 	/// </summary>
-	void FuncScheduleCtlPrivate::InitAndRegisterAllService()
+	FuncScheduleCtlPrivate::FuncScheduleCtlPrivate()
+		:m_pCmdServiceMap(new std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>()),
+		 m_pFuncServiceMap(new std::map<MdlCommonNS::EModuleType, std::unique_ptr<IFuncService>>())
 	{
-		IMdlFactory* pFactory = nullptr;
-		//初始化/注册模块调度实例
-		pFactory = FuncScheduleNS::FuncScheduleFactory::GetFactory();
-		InitAndRegisterService(EModuleType::E_FuncSchedule_Type, pFactory);
-		//初始化/注册日志实例
-		pFactory = Log4CppNS::LoggerFactory::GetFactory();
-		InitAndRegisterService(EModuleType::E_Logger_Type, pFactory);
-		//初始化/注册游戏引擎实例
-		pFactory = AZGameEngineNS::GameEngineFactory::GetFactory();
-		InitAndRegisterService(EModuleType::E_GameEngine_Type, pFactory);
-		//初始化/注册OpenglUI实例
-		pFactory = OpenGLUINS::OpenGLUIFactory::GetFactory();
-		InitAndRegisterService(EModuleType::E_OpengGLUI_Type, pFactory);
 
-		
+	}
+	/// <summary>
+	/// 析构函数
+	/// </summary>
+	FuncScheduleCtlPrivate::~FuncScheduleCtlPrivate()
+	{
+		if (m_pCmdServiceMap)
+		{
+			m_pCmdServiceMap->clear();
+			delete m_pCmdServiceMap;
+		}
+		if (m_pFuncServiceMap)
+		{
+			m_pFuncServiceMap->clear();
+			delete m_pFuncServiceMap;
+		}
+	}
+	/// <summary>
+	/// 命令业务逻辑
+	/// </summary>
+	/// <param name="cmd"></param>
+	/// <returns></returns>
+	std::unique_ptr<MdlCommonNS::ISysResponse> FuncScheduleCtlPrivate::SwitchCmdService(MdlCommonNS::ECommand cmd)
+	{
+		auto find = m_pCmdServiceMap->find(cmd);
+		//构造返回参数
+		std::any data ;
+		if (find != m_pCmdServiceMap->end())
+		{
+			//执行指定的业务逻辑
+			find->second->DoService();
+			//构造返回参数
+			data = std::tuple<bool, std::string>(true, "");
+		}
+		else
+		{
+			//构造返回参数 没有找到对应的命令程序
+			data = std::tuple<bool,std::string>(false,"");
+		}
+		//构造返回参数
+		auto pResult = new MdlCommonNS::DefSysResponse(data);
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
 
 	/// <summary>
-	/// 将指定类型的工厂指针创建的模块控制对象和业务逻辑控制对象注册进入服务容器
+	/// 功能调度业务逻辑
 	/// </summary>
-	/// <param name="type">模块类型</param>
-	/// <param name="factory">对应模块的开发工厂指针</param>
-	void FuncScheduleCtlPrivate::InitAndRegisterService(EModuleType type,IMdlFactory* factory)
+	/// <param name="mdlTpye"></param>
+	/// <param name="para"></param>
+	/// <returns></returns>
+	std::unique_ptr<MdlCommonNS::ISysResponse> FuncScheduleCtlPrivate::SwitchFuncService(MdlCommonNS::EModuleType mdlTpye, const std::unique_ptr<MdlCommonNS::ISysRequest>& para)
 	{
-		//注意此处构建的是new 对象， 需要添加智能指针进行管理
-		MdlCommonNS::IMdlOperat* pMdl = factory->CreateModuleInstance();
-		MdlCommonNS::IMdlService* pService = factory->CreateServiceInstance();
-		//初始化模块
-		pMdl->ConstructModule();
-		//注册模块
-		ServiceContainerSingle::GetContainer().RegisterModuleInterface(type, pMdl, pService);
+		auto find = m_pFuncServiceMap->find(mdlTpye);
+		//构造返回参数
+		std::any data;
+		if (find != m_pFuncServiceMap->end())
+		{
+			//执行指定的业务逻辑
+			find->second->DoService(para);
+			//构造返回参数
+			data = std::tuple<bool, std::string>(true, "");
+		}
+		else
+		{
+			//构造返回参数
+			data = std::tuple<bool, std::string>(false, "");
+		}
+		//构造返回参数
+		auto pResult = new MdlCommonNS::DefSysResponse(data);
+		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
 	}
+
 }
 

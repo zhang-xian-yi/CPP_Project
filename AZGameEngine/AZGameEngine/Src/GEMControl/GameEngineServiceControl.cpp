@@ -12,7 +12,7 @@ namespace AZGameEngineNS
 	{
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> GameEngineServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	std::unique_ptr<MdlCommonNS::ISysResponse> GameEngineServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 

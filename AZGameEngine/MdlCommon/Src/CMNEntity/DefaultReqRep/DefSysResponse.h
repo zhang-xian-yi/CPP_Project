@@ -9,6 +9,7 @@ namespace MdlCommonNS
 	{
 	public:
 		DefSysResponse();
+		DefSysResponse(std::any& data);
 		~DefSysResponse();
 	public:
 		//设置指定数据，并且该类直接控制any对象的内存

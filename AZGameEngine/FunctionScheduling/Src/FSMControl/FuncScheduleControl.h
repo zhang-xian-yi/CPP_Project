@@ -16,10 +16,7 @@ namespace FuncScheduleNS
 		FuncScheduleControl();
 		~FuncScheduleControl();
 	public:
-		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
-	private:
-		//选择业务的分支
-		std::unique_ptr<MdlCommonNS::ISysResponse> SwitchService(const std::unique_ptr<MdlCommonNS::ISysRequest> para );
+		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
 	private:
 		FuncScheduleCtlPrivate* m_pService;//具体实现的业务类指针
 	};

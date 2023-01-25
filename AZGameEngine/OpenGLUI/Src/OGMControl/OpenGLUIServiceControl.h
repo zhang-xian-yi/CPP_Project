@@ -11,7 +11,7 @@ namespace OpenGLUINS
 		OpenGLUIServiceControl();
 		~OpenGLUIServiceControl();
 	public:
-		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
+		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
 	};
 
 }

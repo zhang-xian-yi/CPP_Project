@@ -96,6 +96,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\FSLogicService\Services\InitAndRegisterAllService.h" />
+    <ClInclude Include="Src\FSLogicService\IService.h" />
     <ClInclude Include="Src\FuncScheduleFactory.h" />
     <ClInclude Include="Src\FSCommon\MSExpMarcoDefine.h" />
     <ClInclude Include="Src\FSLogicService\FuncScheduleCtlPrivate.h" />
@@ -103,6 +105,7 @@
     <ClInclude Include="Src\FSMControl\FuncScheduleControl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\FSLogicService\Services\InitAndRegisterAllService.cpp" />
     <ClCompile Include="Src\FuncScheduleFactory.cpp" />
     <ClCompile Include="Src\FSLogicService\FuncScheduleCtlPrivate.cpp" />
     <ClCompile Include="Src\FSMControl\FuncMdlControl.cpp" />
