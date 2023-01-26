@@ -93,6 +93,13 @@ namespace MdlCommonNS
 		{
 			//此处摧毁模块似乎是第二次摧毁
 			item.second->DestoryModule(nullptr);
+			//销毁
+			delete item.second;
+		}
+		for (auto& item : (*m_pMdlServiceMap))
+		{
+			//销毁
+			delete item.second;
 		}
 		//容器中保存的是智能指针，被清理时会自动删除对应空间
 		m_pMdlOperatMap->clear();
