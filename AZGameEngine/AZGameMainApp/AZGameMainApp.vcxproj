@@ -71,11 +71,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll </Command>
+      <Message>拷贝所需要的第三方库</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -97,8 +97,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>拷贝所需要的第三方库</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\FunctionScheduling\FunctionScheduling.vcxproj">

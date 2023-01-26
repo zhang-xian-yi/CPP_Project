@@ -1,6 +1,7 @@
 #include "ServiceContainerSingle.h"
 #include <map>
 #include <memory>
+#include "semaphore.h"//信号量
 #include "CMNMEnum/ModuelType/EModuleType.h"
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/IMdlService.h"
@@ -25,16 +26,16 @@ namespace MdlCommonNS
 		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(EModuleType mdlType);
 		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(EModuleType mdlType);
 	private:
-		std::map<EModuleType, std::unique_ptr<IMdlOperat>>* m_pMdlOperatMap;
-		std::map<EModuleType, std::unique_ptr<IMdlService>>* m_pMdlServiceMap;
+		std::map<EModuleType, IMdlOperat*>* m_pMdlOperatMap;
+		std::map<EModuleType, IMdlService*>* m_pMdlServiceMap;
 	};
 
 	/// <summary>
 	/// 构造函数
 	/// </summary>
 	ServiceContainerSinglePrivate::ServiceContainerSinglePrivate()
-		:m_pMdlOperatMap(new std::map<EModuleType, std::unique_ptr<IMdlOperat>>()),
-		 m_pMdlServiceMap(new std::map<EModuleType, std::unique_ptr<IMdlService>>())
+		:m_pMdlOperatMap(new std::map<EModuleType, IMdlOperat*>()),
+		 m_pMdlServiceMap(new std::map<EModuleType, IMdlService*>())
 	{
 	}
 	//析构函数
@@ -57,11 +58,7 @@ namespace MdlCommonNS
 		//必须全部不为空才能向其中插入数据
 		if (m_pMdlOperatMap != nullptr && m_pMdlServiceMap != nullptr)
 		{
-			//智能指针进行管理
-			std::unique_ptr<IMdlOperat> pMdlControl(imdlOperat);
-			std::unique_ptr<IMdlService> pServiceControl(imdlService);
-
-			//添加进入map  暂时添加普通指针，等待之后尝试
+			//添加进入map 
 			m_pMdlOperatMap->insert(std::make_pair(mdlType, imdlOperat));
 			m_pMdlServiceMap->insert(std::make_pair(mdlType, imdlService));
 		}
@@ -108,7 +105,7 @@ namespace MdlCommonNS
 		//存在该类型指针
 		if (findp != m_pMdlOperatMap->end())
 		{
-			return findp->second.get();//返回智能指针保存的实际指针
+			return findp->second;//返回智能指针保存的实际指针
 		}
 		return std::nullopt;//返回空
 	}
@@ -118,7 +115,7 @@ namespace MdlCommonNS
 		//存在该类型指针
 		if (findp != m_pMdlServiceMap->end())
 		{
-			return findp->second.get();//返回智能指针保存的实际指针
+			return findp->second;//返回智能指针保存的实际指针
 		}
 		return std::nullopt;//返回空
 	}
@@ -127,12 +124,16 @@ namespace MdlCommonNS
 
 namespace MdlCommonNS
 {
+	//多个线程同时注册业务时的线程同步信号量
+	static sem_t _RegisteSemSig;
+
 	/// <summary>
 	/// 构造函数
 	/// </summary>
 	ServiceContainerSingle::ServiceContainerSingle()
 		:m_pService(new ServiceContainerSinglePrivate())
 	{
+		sem_init(&_RegisteSemSig,0,1);//初始值1 表示最多允许1一个线程使用
 	}
 	//析构函数
 	ServiceContainerSingle::~ServiceContainerSingle()
@@ -145,8 +146,12 @@ namespace MdlCommonNS
 	}
 	void ServiceContainerSingle::RegisterModuleInterface(EModuleType mdlType, IMdlOperat* imdlOperat, IMdlService* imdlService)
 	{
+		//信号量 -1 进入此函数的其余线程等待
+		sem_wait(&_RegisteSemSig);
 		//必须全部不为空才能向其中插入数据
 		m_pService->RegisterModuleInterface(mdlType, imdlOperat, imdlService);
+		//信号量+1 唤醒等待的线程
+		sem_post(&_RegisteSemSig);
 	}
 	void ServiceContainerSingle::UnRegisterModuleInterface(EModuleType mdlType)
 	{
