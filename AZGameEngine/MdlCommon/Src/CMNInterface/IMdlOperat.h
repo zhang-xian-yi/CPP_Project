@@ -14,9 +14,9 @@ namespace MdlCommonNS
 		virtual ~IMdlOperat() = 0;
 	public:
 		//构造模块
-		virtual std::unique_ptr<ISysResponse> ConstructModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
+		virtual ISysResponse* ConstructModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//销毁模块
-		virtual std::unique_ptr<ISysResponse> DestoryModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
+		virtual ISysResponse* DestoryModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//获取模块状态
 		virtual bool IsUse() const = 0;
 	};

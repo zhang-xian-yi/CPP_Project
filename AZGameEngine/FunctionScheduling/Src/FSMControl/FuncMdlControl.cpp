@@ -20,20 +20,20 @@ namespace FuncScheduleNS
 
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> FuncMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	MdlCommonNS::ISysResponse* FuncMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
 
 
-		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+		return pResult;
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> FuncMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	MdlCommonNS::ISysResponse* FuncMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+		return pResult;
 	}
 
 	//·µ»Ø½á¹û

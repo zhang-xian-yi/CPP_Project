@@ -18,7 +18,7 @@
     <ClInclude Include="Src\FSCommon\MSExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\FSLogicService\FuncScheduleCtlPrivate.h">
+    <ClInclude Include="Src\FSLogicService\CmdScheduleCtlPrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\FSMControl\FuncMdlControl.h">
@@ -36,9 +36,12 @@
     <ClInclude Include="Src\FSLogicService\Services\InitAndRegisterAllService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\FSLogicService\FuncScheduleCtlPrivate.cpp">
+    <ClCompile Include="Src\FSLogicService\CmdScheduleCtlPrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\FSMControl\FuncMdlControl.cpp">
@@ -51,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\FSLogicService\Services\InitAndRegisterAllService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\FSLogicService\IService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

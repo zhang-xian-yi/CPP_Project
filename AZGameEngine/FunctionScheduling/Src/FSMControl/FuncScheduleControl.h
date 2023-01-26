@@ -5,7 +5,7 @@
 namespace FuncScheduleNS
 {
 	//前置声明
-	class FuncScheduleCtlPrivate;
+	class CmdScheduleCtlPrivate;
 
 	/// <summary>
 	/// 处理模块调度的逻辑
@@ -16,9 +16,9 @@ namespace FuncScheduleNS
 		FuncScheduleControl();
 		~FuncScheduleControl();
 	public:
-		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
+		virtual MdlCommonNS::ISysResponse* DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
 	private:
-		FuncScheduleCtlPrivate* m_pService;//具体实现的业务类指针
+		CmdScheduleCtlPrivate* m_pCmdCtl;//具体实现的业务类指针
 	};
 }
 

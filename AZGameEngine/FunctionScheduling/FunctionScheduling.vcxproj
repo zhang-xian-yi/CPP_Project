@@ -100,16 +100,19 @@
     <ClInclude Include="Src\FSLogicService\IService.h" />
     <ClInclude Include="Src\FuncScheduleFactory.h" />
     <ClInclude Include="Src\FSCommon\MSExpMarcoDefine.h" />
-    <ClInclude Include="Src\FSLogicService\FuncScheduleCtlPrivate.h" />
+    <ClInclude Include="Src\FSLogicService\CmdScheduleCtlPrivate.h" />
     <ClInclude Include="Src\FSMControl\FuncMdlControl.h" />
     <ClInclude Include="Src\FSMControl\FuncScheduleControl.h" />
+    <ClInclude Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\FSLogicService\IService.cpp" />
     <ClCompile Include="Src\FSLogicService\Services\InitAndRegisterAllService.cpp" />
     <ClCompile Include="Src\FuncScheduleFactory.cpp" />
-    <ClCompile Include="Src\FSLogicService\FuncScheduleCtlPrivate.cpp" />
+    <ClCompile Include="Src\FSLogicService\CmdScheduleCtlPrivate.cpp" />
     <ClCompile Include="Src\FSMControl\FuncMdlControl.cpp" />
     <ClCompile Include="Src\FSMControl\FuncScheduleControl.cpp" />
+    <ClCompile Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AZGameEngine\AZGameEngine.vcxproj">

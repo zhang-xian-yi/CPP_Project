@@ -16,10 +16,10 @@ namespace AZGameMainApp
 		}
 	public:
 		void InitRunEnvirment();
-
+		void StopRunEnvirment();
 	private:
-		bool& InitAllFunction();//初始化所有的功能模块并注册
-
+		bool InitAllFunction();//初始化所有的功能模块并注册
+		bool StopAllFunction();//停止所有的功能模块并取消注册
 	private:
 		//禁止反复定义工厂，禁止delelte 工厂对象
 		MainApplication();

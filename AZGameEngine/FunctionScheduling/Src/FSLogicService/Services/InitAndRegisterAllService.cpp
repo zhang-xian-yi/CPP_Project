@@ -69,12 +69,16 @@ namespace FuncScheduleNS
 		catch (std::exception exp)
 		{
 			auto iLogS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
-			//构造参数
-			auto pRequest = new MdlCommonNS::DefSysRequest();
-			std::any data = std::make_any<std::exception>(exp);
-			pRequest->SetData(data);
-			//打印日志
-			iLogS->DoService(std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest));
+			if (iLogS.has_value())
+			{
+				//构造参数
+				auto pRequest = new MdlCommonNS::DefSysRequest();
+				std::any data = std::make_any<std::exception>(exp);
+				pRequest->SetData(data);
+				//打印日志
+				iLogS.value()->DoService(std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest));
+			}
+			//无论日志是否打印，均需要返回false
 			return false;//初始化异常
 		}
 	}

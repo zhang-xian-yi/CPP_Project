@@ -11,18 +11,18 @@ namespace OpenGLUINS
 	{
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> OpenGLUIMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	MdlCommonNS::ISysResponse* OpenGLUIMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+		return pResult;
 	}
 
-	std::unique_ptr<MdlCommonNS::ISysResponse> OpenGLUIMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	MdlCommonNS::ISysResponse* OpenGLUIMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
 		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return std::unique_ptr<MdlCommonNS::ISysResponse>(pResult);
+		return pResult;
 	}
 
 	//»ñÈ¡Ä£¿é×´Ì¬

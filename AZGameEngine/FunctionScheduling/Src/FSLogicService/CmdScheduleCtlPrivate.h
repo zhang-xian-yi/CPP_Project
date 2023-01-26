@@ -4,6 +4,11 @@
 #include "IService.h"//ICmdService,IFuncService 引入
 #include "CMNInterface/ISysRequest.h"
 #include "CMNInterface/ISysResponse.h"
+/*
+注意 功能模块的调度通过全局容器存储的模式处理
+     系统命令通过集中-分散的模式进行处理
+*/
+
 namespace MdlCommonNS
 {
 	//前置声明
@@ -15,20 +20,20 @@ namespace FuncScheduleNS
 	/// <summary>
 	/// 模块调度的控制器实现私有逻辑
 	/// </summary>
-	class FuncScheduleCtlPrivate
+	class CmdScheduleCtlPrivate
 	{
 	public:
-		FuncScheduleCtlPrivate();
-		~FuncScheduleCtlPrivate();
+		CmdScheduleCtlPrivate();
+		~CmdScheduleCtlPrivate();
 		//选择业务的分支
-		std::unique_ptr<MdlCommonNS::ISysResponse> SwitchCmdService(MdlCommonNS::ECommand cmd);
+		MdlCommonNS::ISysResponse* SwitchCmdService(MdlCommonNS::ECommand cmd);
 		//选择业务的分支
-		std::unique_ptr<MdlCommonNS::ISysResponse> SwitchFuncService(MdlCommonNS::EModuleType mdlTpye,const std::unique_ptr<MdlCommonNS::ISysRequest>& para);
+		MdlCommonNS::ISysResponse* SwitchFuncService(MdlCommonNS::EModuleType mdlTpye,const std::unique_ptr<MdlCommonNS::ISysRequest>& para);
+	private:
+		void InitData();
 	private:
 		//保存系统命令和实现业务逻辑的映射表
 		std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>* m_pCmdServiceMap;
-		//保存用户命令和实现业务逻辑的映射表
-		std::map<MdlCommonNS::EModuleType, std::unique_ptr<IFuncService>>* m_pFuncServiceMap;
 	};
 }
 

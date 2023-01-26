@@ -7,13 +7,19 @@ namespace MdlCommonNS
 	{
 	}
 
+	DefSysRequest::DefSysRequest(std::any& data)
+		: m_pData(&data)
+	{
+	}
+
+
 	//
 	DefSysRequest::~DefSysRequest()
 	{
-		if (m_pData)
+		if (m_pData && m_pData->has_value())
 		{
-			delete m_pData;
-			m_pData = nullptr;
+			//delete m_pData;
+			m_pData = nullptr;//∑¿÷π∂‡¥Œ Õ∑≈
 		}
 	}
 	/// <summary>

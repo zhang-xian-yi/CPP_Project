@@ -1,0 +1,93 @@
+#include "CmdScheduleCtlPrivate.h"
+#include <memory> //unique_ptr
+#include <string>//字符串
+#include <tuple>//元组
+#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
+#include "CMNServices/ServiceContainerSingle.h"//业务容器
+#include "CMNInterface/IMdlService.h"
+#include "CMNMEnum/Command/ECommand.h"
+#include "CMNMEnum/ModuelType/EModuleType.h"
+#include "Services/InitAndRegisterAllService.h"//初始化所有的业务
+#include "Services/StopAndUnRegisterAllService.h"//停止所有的业务
+namespace FuncScheduleNS
+{
+	using namespace MdlCommonNS;
+	/// <summary>
+	/// 构造函数
+	/// </summary>
+	CmdScheduleCtlPrivate::CmdScheduleCtlPrivate()
+		:m_pCmdServiceMap(new std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>())
+	{
+		InitData();
+	}
+	/// <summary>
+	/// 析构函数
+	/// </summary>
+	CmdScheduleCtlPrivate::~CmdScheduleCtlPrivate()
+	{
+		if (m_pCmdServiceMap)
+		{
+			m_pCmdServiceMap->clear();
+			delete m_pCmdServiceMap;
+		}
+	}
+	/// <summary>
+	/// 命令业务逻辑
+	/// </summary>
+	/// <param name="cmd"></param>
+	/// <returns></returns>
+	MdlCommonNS::ISysResponse* CmdScheduleCtlPrivate::SwitchCmdService(MdlCommonNS::ECommand cmd)
+	{
+		auto find = m_pCmdServiceMap->find(cmd);
+		//构造返回参数
+		std::any data ;
+		if (find != m_pCmdServiceMap->end())
+		{
+			//执行指定的业务逻辑
+			find->second->DoService();
+			//构造返回参数
+			data = std::tuple<bool, std::string>(true, "");
+		}
+		else
+		{
+			//构造返回参数 没有找到对应的命令程序
+			data = std::tuple<bool,std::string>(false,"");
+		}
+		//构造返回参数
+		return new MdlCommonNS::DefSysResponse(data);
+	}
+
+	/// <summary>
+	/// 功能调度业务逻辑
+	/// </summary>
+	/// <param name="mdlTpye"></param>
+	/// <param name="para"></param>
+	/// <returns></returns>
+	MdlCommonNS::ISysResponse* CmdScheduleCtlPrivate::SwitchFuncService(MdlCommonNS::EModuleType mdlTpye, const std::unique_ptr<MdlCommonNS::ISysRequest>& para)
+	{
+		auto findS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(mdlTpye);
+		if (findS.has_value())
+		{
+			//执行指定的业务逻辑
+			return findS.value()->DoService(para);
+		}
+		else
+		{
+			//构造返回参数
+			std::any data = std::tuple<bool, std::string>(false, "");
+			//构造返回参数
+			return new MdlCommonNS::DefSysResponse(data);
+		}
+	}
+
+	/// <summary>
+	/// 初始化容器中数据
+	/// </summary>
+	void CmdScheduleCtlPrivate::InitData()
+	{
+		m_pCmdServiceMap->insert(std::make_pair(ECommand::E_InitAllFunction, new InitAndRegisterAllService()));
+		m_pCmdServiceMap->insert(std::make_pair(ECommand::E_DestoryAllFunction, new StopAndUnRegisterAllService()));
+	}
+
+}
+

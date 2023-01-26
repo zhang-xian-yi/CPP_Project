@@ -1,4 +1,6 @@
 #pragma once
+#include <memory>
+#include <optional>
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 /*
 约定，所有针对模块的业务调度均由业务逻辑的容器单例执行
@@ -36,8 +38,8 @@ namespace MdlCommonNS
 		//摧毁容器
 		void DestoryContaineer();
 		//获取模块操作接口
-		MdlCommonNS::IMdlOperat* GetModuleOperatInterface(MdlCommonNS::EModuleType mdlType);
-		MdlCommonNS::IMdlService* GetModuleServiceInterface(MdlCommonNS::EModuleType mdlType);
+		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(MdlCommonNS::EModuleType mdlType);
+		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(MdlCommonNS::EModuleType mdlType);
 	private:
 		//禁止反复定义单例，禁止delelte 单例对象
 		ServiceContainerSingle();

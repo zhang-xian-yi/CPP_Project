@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 
 
 
+	app.StopRunEnvirment();//สอทลืสิด
 	std::cin.get();
 	return 0;
 }

@@ -22,8 +22,8 @@ namespace MdlCommonNS
 		//摧毁容器
 		void DestoryContaineer();
 		//获取模块操作接口
-		IMdlOperat* GetModuleOperatInterface(EModuleType mdlType);
-		IMdlService* GetModuleServiceInterface(EModuleType mdlType);
+		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(EModuleType mdlType);
+		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(EModuleType mdlType);
 	private:
 		std::map<EModuleType, std::unique_ptr<IMdlOperat>>* m_pMdlOperatMap;
 		std::map<EModuleType, std::unique_ptr<IMdlService>>* m_pMdlServiceMap;
@@ -42,7 +42,6 @@ namespace MdlCommonNS
 	{
 		if (m_pMdlOperatMap != nullptr)
 		{
-
 			delete m_pMdlOperatMap;
 			m_pMdlOperatMap = nullptr;
 		}
@@ -95,6 +94,7 @@ namespace MdlCommonNS
 		//循环停止模块运行并删除模块启停指针,清空容器
 		for (auto& item : (*m_pMdlOperatMap))
 		{
+			//此处摧毁模块似乎是第二次摧毁
 			item.second->DestoryModule(nullptr);
 		}
 		//容器中保存的是智能指针，被清理时会自动删除对应空间
@@ -102,7 +102,7 @@ namespace MdlCommonNS
 		m_pMdlServiceMap->clear();
 	}
 
-	IMdlOperat* ServiceContainerSinglePrivate::GetModuleOperatInterface(EModuleType mdlType)
+	std::optional<MdlCommonNS::IMdlOperat*> ServiceContainerSinglePrivate::GetModuleOperatInterface(EModuleType mdlType)
 	{
 		auto findp = m_pMdlOperatMap->find(mdlType);
 		//存在该类型指针
@@ -110,9 +110,9 @@ namespace MdlCommonNS
 		{
 			return findp->second.get();//返回智能指针保存的实际指针
 		}
-		return nullptr;
+		return std::nullopt;//返回空
 	}
-	IMdlService* ServiceContainerSinglePrivate::GetModuleServiceInterface(EModuleType mdlType)
+	std::optional<MdlCommonNS::IMdlService*> ServiceContainerSinglePrivate::GetModuleServiceInterface(EModuleType mdlType)
 	{
 		auto findp = m_pMdlServiceMap->find(mdlType);
 		//存在该类型指针
@@ -120,7 +120,7 @@ namespace MdlCommonNS
 		{
 			return findp->second.get();//返回智能指针保存的实际指针
 		}
-		return nullptr;
+		return std::nullopt;//返回空
 	}
 
 }
@@ -158,11 +158,11 @@ namespace MdlCommonNS
 		m_pService->DestoryContaineer();
 	}
 
-	IMdlOperat* ServiceContainerSingle::GetModuleOperatInterface(EModuleType mdlType)
+	std::optional<MdlCommonNS::IMdlOperat*> ServiceContainerSingle::GetModuleOperatInterface(EModuleType mdlType)
 	{
 		return m_pService->GetModuleOperatInterface(mdlType);
 	}
-	IMdlService* ServiceContainerSingle::GetModuleServiceInterface(EModuleType mdlType)
+	std::optional<MdlCommonNS::IMdlService*> ServiceContainerSingle::GetModuleServiceInterface(EModuleType mdlType)
 	{
 		return m_pService->GetModuleServiceInterface(mdlType);
 	}
