@@ -3,7 +3,7 @@
 #include <string>//字符串
 #include <tuple>//元组
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNServices/ServiceContainerSingle.h"//业务容器
+#include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "CMNInterface/IMdlService.h"
 #include "CMNMEnum/Command/ECommand.h"
 #include "CMNMEnum/ModuelType/EModuleType.h"
@@ -16,7 +16,7 @@ namespace FuncScheduleNS
 	/// 构造函数
 	/// </summary>
 	CmdScheduleCtlPrivate::CmdScheduleCtlPrivate()
-		:m_pCmdServiceMap(new std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>())
+		:m_pCmdServiceMap(new std::unordered_map<MdlCommonNS::ECommand, ICmdService*>())
 	{
 		InitData();
 	}
@@ -27,6 +27,11 @@ namespace FuncScheduleNS
 	{
 		if (m_pCmdServiceMap)
 		{
+			//结构化绑定 并遍历命令map 注意C17标准才支持结构化绑定
+			for (auto&[cmd,inter] : *m_pCmdServiceMap)
+			{
+				delete inter;//删除创建的实例
+			}
 			m_pCmdServiceMap->clear();
 			delete m_pCmdServiceMap;
 		}

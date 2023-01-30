@@ -30,7 +30,7 @@
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp">
+    <ClCompile Include="Src\CMNServices\Container\ServiceContainerSingle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp">
@@ -71,7 +71,7 @@
     <ClInclude Include="Src\CMNInterface\IMdlFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h">
+    <ClInclude Include="Src\CMNServices\Container\ServiceContainerSingle.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNEntity\InformationBean.h">
@@ -86,5 +86,8 @@
     <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
   </ItemGroup>
 </Project>

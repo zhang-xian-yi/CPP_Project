@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include "IService.h"//ICmdService,IFuncService 引入
 #include "CMNInterface/ISysRequest.h"
@@ -33,7 +34,7 @@ namespace FuncScheduleNS
 		void InitData();
 	private:
 		//保存系统命令和实现业务逻辑的映射表
-		std::map<MdlCommonNS::ECommand, std::unique_ptr<ICmdService>>* m_pCmdServiceMap;
+		std::unordered_map<MdlCommonNS::ECommand, ICmdService*>* m_pCmdServiceMap;
 	};
 }
 

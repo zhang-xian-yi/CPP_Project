@@ -1,7 +1,7 @@
 #include "MainApplication.h"
 #include <memory>//内存
 #include "FuncScheduleFactory.h"//模块调度工厂
-#include "CMNServices/ServiceContainerSingle.h"
+#include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "CMNMEnum/ModuelType/EModuleType.h"
 #include "CMNEntity/DefaultReqRep/DefSysRequest.h"//默认请求
 #include "CMNEntity/DefaultReqRep/DefSysResponse.h"//默认响应

@@ -170,7 +170,7 @@
     <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp" />
     <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp" />
-    <ClCompile Include="Src\CMNServices\ServiceContainerSingle.cpp" />
+    <ClCompile Include="Src\CMNServices\Container\ServiceContainerSingle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNEntity\InformationBean.h" />
@@ -187,7 +187,10 @@
     <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h" />
     <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h" />
     <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h" />
-    <ClInclude Include="Src\CMNServices\ServiceContainerSingle.h" />
+    <ClInclude Include="Src\CMNServices\Container\ServiceContainerSingle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

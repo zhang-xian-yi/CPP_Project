@@ -74,8 +74,10 @@
       <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll </Command>
-      <Message>拷贝所需要的第三方库</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -100,10 +102,12 @@
       <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll </Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PreBuildEvent>
-      <Message>拷贝所需要的第三方库</Message>
+      <Message>
+      </Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -124,6 +128,9 @@
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\MAMControl\MainApplication.cpp" />
     <ClCompile Include="Src\test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

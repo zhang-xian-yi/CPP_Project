@@ -22,6 +22,7 @@ namespace OpenGLUINS
 			return &instance;
 		}
 	public:
+			
 		MdlCommonNS::IMdlService* CreateServiceInstance() override;
 		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
 	private:

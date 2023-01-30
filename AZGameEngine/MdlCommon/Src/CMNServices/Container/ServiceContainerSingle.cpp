@@ -1,5 +1,15 @@
+/********************************************************************************************
+文件名			    :	ServiceContainerSingle.cpp
+文件路径			:   G:\ProjectSrcDIr\Vs2019ProjectSrcDIr\CPP_Project\AZGameEngine\MdlCommon\Src\CMNServices\Container
+文件描述			:	引擎中所有需要使用的服务实例存储/获取的容器
+修改记录			:
+---------------------------------------------------------------------------------------------
+Author			Version			Date		
+张贤忆			1.0				2023/01/30    
+********************************************************************************************/
 #include "ServiceContainerSingle.h"
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include "semaphore.h"//信号量
 #include "CMNMEnum/ModuelType/EModuleType.h"
@@ -26,16 +36,16 @@ namespace MdlCommonNS
 		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(EModuleType mdlType);
 		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(EModuleType mdlType);
 	private:
-		std::map<EModuleType, IMdlOperat*>* m_pMdlOperatMap;
-		std::map<EModuleType, IMdlService*>* m_pMdlServiceMap;
+		std::unordered_map<EModuleType, IMdlOperat*>* m_pMdlOperatMap;
+		std::unordered_map<EModuleType, IMdlService*>* m_pMdlServiceMap;
 	};
 
 	/// <summary>
 	/// 构造函数
 	/// </summary>
 	ServiceContainerSinglePrivate::ServiceContainerSinglePrivate()
-		:m_pMdlOperatMap(new std::map<EModuleType, IMdlOperat*>()),
-		 m_pMdlServiceMap(new std::map<EModuleType, IMdlService*>())
+		:m_pMdlOperatMap(new std::unordered_map<EModuleType, IMdlOperat*>()),
+		 m_pMdlServiceMap(new std::unordered_map<EModuleType, IMdlService*>())
 	{
 	}
 	//析构函数
