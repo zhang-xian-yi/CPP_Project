@@ -2,6 +2,7 @@
 #include <memory>//内存
 #include "FuncScheduleFactory.h"//模块调度工厂
 #include "IFuncSchedule.h"
+#include "Logger/Src/ILogger.h"
 #include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "CMNMEnum/ModuelType/EModuleType.h"
 #include "CMNMEnum/Command/ECommand.h"//执行命令的参数
@@ -39,8 +40,10 @@ namespace AZGameMainApp
 		auto factory = FuncScheduleNS::FuncScheduleFactory::GetFactory();
 		auto pMdlScheduleCtl = factory->CreateModuleInstance();
 		//初始化所有的功能模块-默认参数为空
-		auto mdlInitRep = pMdlScheduleCtl->ConstructModule();
+		bool mdlInitRep = pMdlScheduleCtl->ConstructModule();
 		auto pServiceScheduleCtl = factory->CreateServiceInstance();
+		//注册模块
+		MdlCommonNS::ServiceContainerSingle::GetContainer().RegisterModuleInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type, pMdlScheduleCtl, pServiceScheduleCtl);
 
 		auto pService = pServiceScheduleCtl->ConvertType<FuncScheduleNS::IFuncSchedule*>();
 		std::any mdlServiceRep = pService->ExecuteCmd(MdlCommonNS::ECommand::E_InitAllFunction);

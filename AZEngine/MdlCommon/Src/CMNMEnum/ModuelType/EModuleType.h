@@ -20,8 +20,17 @@ namespace MdlCommonNS
 	class MdlCommonDLLAPI EnumModuleTypeExtend
 	{
 	public:
+		static EnumModuleTypeExtend* GetInstance()
+		{
+			static EnumModuleTypeExtend instance;
+			return &instance;
+		}
+	private:
+		//禁止反复定义工厂，禁止delelte 工厂对象
 		EnumModuleTypeExtend();
 		~EnumModuleTypeExtend();
+		EnumModuleTypeExtend(EnumModuleTypeExtend& instance) = delete;
+		EnumModuleTypeExtend& operator=(const EnumModuleTypeExtend& instance) = delete;
 	public:
 		//获取模块描述(中文)
 		std::string GetMdlCnDesc(EModuleType mdl)const;

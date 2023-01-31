@@ -1,5 +1,5 @@
 #include "FuncMdlControl.h"
-
+#include "CMNServices/Container/ServiceContainerSingle.h"//ÒµÎñÈÝÆ÷
 namespace FuncScheduleNS
 {
 	/// <summary>

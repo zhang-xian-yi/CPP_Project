@@ -1,10 +1,10 @@
 #include "EMdlTypeExtendPrivate.h"
-
+#include "CMNMEnum/EnumValueBean.h"
 namespace MdlCommonNS
 {
 	//构造函数
 	EMdlTypeExtendPrivate::EMdlTypeExtendPrivate()
-		:m_pMdlEnumValueMap(new std::map<EModuleType, std::unique_ptr<EnumValueBean>>())
+		:m_pMdlEnumValueMap(new std::map<EModuleType, EnumValueBean*>())
 	{
 		initValueMap();
 	}
@@ -16,6 +16,10 @@ namespace MdlCommonNS
 	{
 		if (m_pMdlEnumValueMap != nullptr)
 		{
+			for (auto&[key1,val2]:*m_pMdlEnumValueMap)
+			{
+				delete val2;
+			}
 			m_pMdlEnumValueMap->clear();
 			delete m_pMdlEnumValueMap;
 		}
@@ -33,19 +37,10 @@ namespace MdlCommonNS
 		if (findItem != m_pMdlEnumValueMap->end())
 		{
 			//找到并返回
-			return (*findItem).second.get();
+			return (*findItem).second;
 		}
 		//没找到
 		return nullptr;
-	}
-
-	/// <summary>
-	/// 初始化数据域
-	/// </summary>
-	void EMdlTypeExtendPrivate::initValueMap()
-	{
-
-
 	}
 
 	std::string EMdlTypeExtendPrivate::GetMdlCnDesc(EModuleType mdl)const
@@ -82,5 +77,18 @@ namespace MdlCommonNS
 			return pointer->Code;
 		}
 		return std::string("");
+	}
+
+	/// <summary>
+	/// 初始化数据域
+	/// </summary>
+	void EMdlTypeExtendPrivate::initValueMap()
+	{
+		//		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_Logger_Type, new EnumValueBean("", "", "")));
+
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_FuncSchedule_Type, new EnumValueBean("FS001", "FSMdl", "功能调度模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_GameEngine_Type, new EnumValueBean("GE002", "GEMdl", "游戏引擎模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_Logger_Type, new EnumValueBean("L003", "LMdl", "日志模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_OpengGLUI_Type, new EnumValueBean("OG004", "OGMdl", "Opengl窗口模块")));
 	}
 }

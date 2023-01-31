@@ -1,10 +1,11 @@
 #pragma once
 #include <map>
 #include <memory>
-#include "CMNMEnum/EnumValueBean.h"
 #include "EModuleType.h"
 namespace MdlCommonNS
 {
+	//前置声明
+	class EnumValueBean;
 
 	//模块枚举值的扩展方法
 	class EMdlTypeExtendPrivate
@@ -29,6 +30,6 @@ namespace MdlCommonNS
 		//问题1 在不借助构造函数的情况下如何针对此map进行初始化，原设计为声明全局空类变量
 		//利用全局空类的构造函数对本变量进行初始化，这违背命名空间中定义函数的设计
 		//那样还不如将这些函数全部封装为类,再将类注册为服务进入系统全局环境中。
-		std::map<EModuleType, std::unique_ptr<EnumValueBean>>* m_pMdlEnumValueMap;
+		std::map<EModuleType, EnumValueBean*>* m_pMdlEnumValueMap;
 	};
 }
