@@ -1,5 +1,5 @@
 #pragma once
-
+#include "spdlog/spdlog.h"
 
 namespace LoggerNS
 {
@@ -8,6 +8,10 @@ namespace LoggerNS
 	/// </summary>
 	class LoggerManager
 	{
+	public:
+		LoggerManager();
+		~LoggerManager();
+	public:
 
 
 	};

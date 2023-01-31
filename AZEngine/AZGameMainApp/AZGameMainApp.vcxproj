@@ -71,7 +71,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -99,7 +99,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\pthreadVC2.dll</Command>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>

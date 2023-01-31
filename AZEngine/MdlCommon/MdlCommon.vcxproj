@@ -135,8 +135,12 @@
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\pthreads</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
+      <Message>拷贝第三方库</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -159,8 +163,12 @@
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\pthreads</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(TargetFileName)</Command>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
+      <Message>拷贝第三方库</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp" />

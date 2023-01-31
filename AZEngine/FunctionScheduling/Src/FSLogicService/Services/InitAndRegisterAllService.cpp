@@ -23,7 +23,7 @@ namespace FuncScheduleNS
 		pFactory = FuncScheduleNS::FuncScheduleFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_FuncSchedule_Type, pFactory);
 		//初始化/注册日志实例
-		pFactory = Log4CppNS::LoggerFactory::GetFactory();
+		pFactory = LoggerNS::LoggerFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_Logger_Type, pFactory);
 		//初始化/注册游戏引擎实例
 		pFactory = AZGameEngineNS::GameEngineFactory::GetFactory();
