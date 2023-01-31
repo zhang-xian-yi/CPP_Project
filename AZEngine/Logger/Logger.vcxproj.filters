@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\LoggerFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LMControl\LModuleControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LMControl\LoggerControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LCommon\LExpMarcoDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LCommon\LogBean.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LLogicService\LoggerManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\cfg\argv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\cfg\env.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\cfg\helpers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\cfg\helpers-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\backtracer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\backtracer-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\circular_q.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\console_globals.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\file_helper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\file_helper-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\fmt_helper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\log_msg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\log_msg_buffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\log_msg_buffer-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\log_msg-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\mpmc_blocking_q.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\null_mutex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\os.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\os-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\periodic_worker.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\periodic_worker-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\registry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\registry-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\synchronous_factory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\tcp_client.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\tcp_client-windows.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\thread_pool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\thread_pool-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\udp_client.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\udp_client-windows.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\details\windows_include.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\args.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\chrono.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\color.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\compile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\core.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\format.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\format-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\locale.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\os.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\ostream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\printf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\ranges.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\std.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bundled\xchar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\bin_to_hex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\chrono.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\compile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\fmt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\ostr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\ranges.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\std.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fmt\xchar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\android_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\ansicolor_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\ansicolor_sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\base_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\base_sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\basic_file_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\basic_file_sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\callback_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\daily_file_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\dist_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\dup_filter_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\hourly_file_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\mongo_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\msvc_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\null_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\ostream_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\qt_sinks.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\ringbuffer_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\rotating_file_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\rotating_file_sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\stdout_color_sinks.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\stdout_color_sinks-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\stdout_sinks.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\stdout_sinks-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\syslog_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\systemd_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\tcp_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\udp_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\win_eventlog_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\wincolor_sink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\sinks\wincolor_sink-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\async.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\async_logger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\async_logger-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\common-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\formatter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\fwd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\logger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\logger-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\pattern_formatter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\pattern_formatter-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\spdlog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\spdlog-inl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\stopwatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\tweakme.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\spdlog\include\version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\LoggerFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LMControl\LModuleControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LMControl\LoggerControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LLogicService\LoggerManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="DependentLib\spdlog\lib\spdlogd.lib" />
+  </ItemGroup>
+</Project>
