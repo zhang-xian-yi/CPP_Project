@@ -12,18 +12,18 @@ namespace AZGameEngineNS
 	{
 	}
 
-	MdlCommonNS::ISysResponse* GameEngineMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool GameEngineMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
-		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return pResult;
+
+		return true;
 	}
 
-	MdlCommonNS::ISysResponse* GameEngineMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool GameEngineMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
 	{
-		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return pResult;
+
+		return true;
 	}
 
 

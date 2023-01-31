@@ -61,7 +61,8 @@ namespace FuncScheduleNS
 			MdlCommonNS::IMdlOperat* pMdl = factory->CreateModuleInstance();
 			MdlCommonNS::IMdlService* pService = factory->CreateServiceInstance();
 			//初始化模块
-			pMdl->ConstructModule();
+			auto rep = pMdl->ConstructModule();
+		
 			//注册模块
 			ServiceContainerSingle::GetContainer().RegisterModuleInterface(type, pMdl, pService);
 			return true;

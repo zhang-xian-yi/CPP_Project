@@ -15,24 +15,22 @@ namespace LoggerNS
     {
     }
 
-    MdlCommonNS::ISysResponse* LModuleControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+    bool LModuleControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
     {
         m_bIsUse = true;
         // TODO: 在此处插入 return 语句
-        auto pResult = new MdlCommonNS::DefSysResponse();
 
 
-
-        return pResult;
+		return true;
     }
 
-    MdlCommonNS::ISysResponse* LModuleControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+    bool LModuleControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
     {
         m_bIsUse = false;
         // TODO: 在此处插入 return 语句
-        auto pResult = new MdlCommonNS::DefSysResponse();
 
-        return pResult;
+
+		return true;
     }
 
     //返回模块是否可用

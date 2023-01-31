@@ -3,7 +3,6 @@
 #include <memory>
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/ISysRequest.h>
-#include <CMNInterface/ISysResponse.h>
 
 namespace MdlCommonNS
 {
@@ -14,9 +13,9 @@ namespace MdlCommonNS
 		virtual ~IMdlOperat() = 0;
 	public:
 		//构造模块
-		virtual ISysResponse* ConstructModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
+		virtual bool ConstructModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//销毁模块
-		virtual ISysResponse* DestoryModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
+		virtual bool DestoryModule(const std::unique_ptr<ISysRequest> para = nullptr) = 0;
 		//获取模块状态
 		virtual bool IsUse() const = 0;
 	};
