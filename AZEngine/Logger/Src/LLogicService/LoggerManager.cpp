@@ -50,7 +50,7 @@ namespace LoggerNS
 			//允许日志文件存在七个
 			m_pOptLog = spdlog::rotating_logger_mt(logName, logFile, max_file_size, 7);
 			m_pOptLog->set_level(level);
-			m_pOptLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v");
+			m_pOptLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
 		}
 		catch (std::exception e)
 		{
@@ -71,7 +71,7 @@ namespace LoggerNS
 			//允许日志文件存在七个
 			m_pRunLog = spdlog::rotating_logger_mt(logName, logFile, max_file_size, 7);
 			m_pRunLog->set_level(level);
-			m_pRunLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v");
+			m_pRunLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
 		}
 		catch (std::exception e)
 		{
@@ -91,7 +91,7 @@ namespace LoggerNS
 		{
 			//向标准输出输出信息
 			m_pStdoutLog = spdlog::stdout_color_mt(logName);
-			m_pStdoutLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] - [%@] >>> %v");
+			m_pStdoutLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
 		}
 		catch (std::exception e)
 		{
