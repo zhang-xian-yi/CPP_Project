@@ -1,6 +1,4 @@
 #include "GameEngineMdlControl.h"
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
 namespace AZGameEngineNS
 {
@@ -12,14 +10,14 @@ namespace AZGameEngineNS
 	{
 	}
 
-	bool GameEngineMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool GameEngineMdlControl::ConstructModule()
 	{
 
 
 		return true;
 	}
 
-	bool GameEngineMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool GameEngineMdlControl::DestoryModule()
 	{
 
 

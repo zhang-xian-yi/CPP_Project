@@ -1,6 +1,5 @@
 #include "LModuleControl.h"
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
+#include "LLogicService/LoggerManager.h"//日志管理工具
 
 using namespace MdlCommonNS; //使用公共库的命名空间
 
@@ -15,16 +14,16 @@ namespace LoggerNS
     {
     }
 
-    bool LModuleControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+    bool LModuleControl::ConstructModule()
     {
         m_bIsUse = true;
         // TODO: 在此处插入 return 语句
-
+        LoggerManager::GetInstance(); //初始化日志管理
 
 		return true;
     }
 
-    bool LModuleControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+    bool LModuleControl::DestoryModule()
     {
         m_bIsUse = false;
         // TODO: 在此处插入 return 语句

@@ -39,6 +39,9 @@
     <ClInclude Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\IFuncSchedule.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\FSLogicService\CmdScheduleCtlPrivate.cpp">

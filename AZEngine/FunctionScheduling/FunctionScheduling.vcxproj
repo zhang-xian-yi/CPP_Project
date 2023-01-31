@@ -104,6 +104,7 @@
     <ClInclude Include="Src\FSMControl\FuncMdlControl.h" />
     <ClInclude Include="Src\FSMControl\FuncScheduleControl.h" />
     <ClInclude Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.h" />
+    <ClInclude Include="Src\IFuncSchedule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\FSLogicService\IService.cpp" />

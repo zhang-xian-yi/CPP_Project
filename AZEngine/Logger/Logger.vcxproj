@@ -61,7 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>LOGGER_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;$(SolutionDir)Logger\DependentLib\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Logger\Src;$(SolutionDir)MdlCommon\Src;$(SolutionDir)Logger\DependentLib\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -304,8 +304,8 @@
     <ClInclude Include="DependentLib\spdlog\include\stopwatch.h" />
     <ClInclude Include="DependentLib\spdlog\include\tweakme.h" />
     <ClInclude Include="DependentLib\spdlog\include\version.h" />
+    <ClInclude Include="Src\ILogger.h" />
     <ClInclude Include="Src\LLogicService\LoggerManager.h" />
-    <ClInclude Include="Src\LCommon\LogBean.h" />
     <ClInclude Include="Src\LCommon\LExpMarcoDefine.h" />
     <ClInclude Include="Src\LMControl\LoggerControl.h" />
     <ClInclude Include="Src\LMControl\LModuleControl.h" />

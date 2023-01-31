@@ -1,6 +1,4 @@
 #include "FuncMdlControl.h"
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
 namespace FuncScheduleNS
 {
@@ -20,7 +18,7 @@ namespace FuncScheduleNS
 
 	}
 
-	bool FuncMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool FuncMdlControl::ConstructModule()
 	{
 		m_bIsUse = true;
 
@@ -29,7 +27,7 @@ namespace FuncScheduleNS
 		return true;
 	}
 
-	bool FuncMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool FuncMdlControl::DestoryModule()
 	{
 
 

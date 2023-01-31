@@ -27,9 +27,6 @@
     <ClInclude Include="Src\LCommon\LExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\LCommon\LogBean.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\LLogicService\LoggerManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -643,6 +640,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DependentLib\spdlog\include\spdlog\version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\ILogger.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,9 +5,4 @@ namespace FuncScheduleNS
 	{
 
 	}
-
-	IFuncService::~IFuncService()
-	{
-
-	}
 }

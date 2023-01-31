@@ -4,8 +4,9 @@
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 /*
 约定，所有针对模块的业务调度均由业务逻辑的容器单例执行
+约定：
+1 此下的头文件引入必须放在此头文件中， 各个模块的实际调度
 */
-
 
 namespace MdlCommonNS
 {

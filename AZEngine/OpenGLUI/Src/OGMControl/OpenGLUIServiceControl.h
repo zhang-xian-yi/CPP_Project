@@ -1,7 +1,5 @@
 #pragma once
 #include "CMNInterface/IMdlService.h"
-#include "CMNInterface/ISysRequest.h"
-#include "CMNInterface/ISysResponse.h"
 
 namespace OpenGLUINS
 {
@@ -10,8 +8,6 @@ namespace OpenGLUINS
 	public:
 		OpenGLUIServiceControl();
 		~OpenGLUIServiceControl();
-	public:
-		virtual MdlCommonNS::ISysResponse* DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
 	};
 
 }

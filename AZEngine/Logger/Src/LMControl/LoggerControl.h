@@ -1,17 +1,16 @@
 #pragma once
 #include "CMNInterface/IMdlService.h"
-#include "CMNInterface/ISysRequest.h"
-#include "CMNInterface/ISysResponse.h"
+#include "ILogger.h"
 namespace LoggerNS
 {
 	//日志打印控制工具
-	class LoggerControl:public MdlCommonNS::IMdlService
+	class LoggerControl:public MdlCommonNS::IMdlService,public LoggerNS::IRunLogger
 	{
 	public:
 		LoggerControl();
 		~LoggerControl();
 	public:
-		virtual MdlCommonNS::ISysResponse* DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
+		virtual void LogRunInfoMsg();
 	};
 }
 

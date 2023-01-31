@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -41,22 +35,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysRequest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNEntity\DefaultReqRep\DefSysResponse.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNInterface\IMdlService.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNInterface\ISysRequest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNInterface\ISysResponse.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h">
@@ -72,9 +54,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNServices\Container\ServiceContainerSingle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\CMNEntity\InformationBean.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMEnum\Command\ECommand.h">

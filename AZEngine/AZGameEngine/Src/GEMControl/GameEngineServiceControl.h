@@ -1,7 +1,5 @@
 #pragma once
 #include "CMNInterface/IMdlService.h"
-#include "CMNInterface/ISysRequest.h"
-#include "CMNInterface/ISysResponse.h"
 
 namespace AZGameEngineNS
 {
@@ -13,8 +11,6 @@ namespace AZGameEngineNS
 	public:
 		GameEngineServiceControl();
 		~GameEngineServiceControl();
-	public:
-		virtual MdlCommonNS::ISysResponse* DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para = nullptr) override;
 	};
 
 }

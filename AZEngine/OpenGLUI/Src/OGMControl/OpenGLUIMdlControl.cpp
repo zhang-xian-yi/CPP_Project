@@ -1,6 +1,4 @@
 #include "OpenGLUIMdlControl.h"
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 namespace OpenGLUINS
 {
 	OpenGLUIMdlControl::OpenGLUIMdlControl()
@@ -11,14 +9,14 @@ namespace OpenGLUINS
 	{
 	}
 
-	bool OpenGLUIMdlControl::ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool OpenGLUIMdlControl::ConstructModule()
 	{
 
 
 		return true;
 	}
 
-	bool OpenGLUIMdlControl::DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para)
+	bool OpenGLUIMdlControl::DestoryModule()
 	{
 
 

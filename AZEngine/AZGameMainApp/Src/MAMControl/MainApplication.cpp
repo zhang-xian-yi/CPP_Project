@@ -1,10 +1,9 @@
 #include "MainApplication.h"
 #include <memory>//内存
 #include "FuncScheduleFactory.h"//模块调度工厂
+#include "IFuncSchedule.h"
 #include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "CMNMEnum/ModuelType/EModuleType.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"//默认请求
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"//默认响应
 #include "CMNMEnum/Command/ECommand.h"//执行命令的参数
 namespace AZGameMainApp
 {
@@ -42,23 +41,18 @@ namespace AZGameMainApp
 		//初始化所有的功能模块-默认参数为空
 		auto mdlInitRep = pMdlScheduleCtl->ConstructModule();
 		auto pServiceScheduleCtl = factory->CreateServiceInstance();
-		//构造参数
-		std::any cmd = std::make_any<MdlCommonNS::ECommand>(MdlCommonNS::ECommand::E_InitAllFunction);
-		auto pRequest = new MdlCommonNS::DefSysRequest(cmd);
-		//执行E_InitAllFunction 命令
-		auto cmdReq = std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest);
-		auto mdlServiceRep = pServiceScheduleCtl->DoService(cmdReq);
-		std::any& repInfo = mdlServiceRep->GetData();
-		if (repInfo.has_value())
+
+		auto pService = pServiceScheduleCtl->ConvertType<FuncScheduleNS::IFuncSchedule*>();
+		std::any mdlServiceRep = pService->ExecuteCmd(MdlCommonNS::ECommand::E_InitAllFunction);
+		if (mdlServiceRep.has_value())
 		{
 			//返回初始化的响应并强制转换为bool 类型，确保初始化正常
-			bool flag = std::any_cast<bool>(repInfo);
+			//响应与初始化完成正常
+			std::tuple<bool, std::string> flag = std::any_cast<std::tuple<bool, std::string>>(mdlServiceRep);
 			//必须确定flag的值之后才能返回
-			return flag;
+			return std::get<0>(flag);
 		}
-
-		delete mdlServiceRep;//释放响应数据
-		return true;
+		return false;
 	}
 
 	bool MainApplication::StopAllFunction()
@@ -66,15 +60,14 @@ namespace AZGameMainApp
 		auto pServiceOptional = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type);
 		if (pServiceOptional.has_value())
 		{
+			auto pService = pServiceOptional.value()->ConvertType<FuncScheduleNS::IFuncSchedule*>();
 			//构造参数		
-			std::any cmd = std::make_any<MdlCommonNS::ECommand>(MdlCommonNS::ECommand::E_DestoryAllFunction);
-			auto pRequest = new MdlCommonNS::DefSysRequest(cmd);
-			//执行E_InitAllFunction 命令
-			auto cmdReq = std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest);
-			auto mdlServiceRep = pServiceOptional.value()->DoService(cmdReq);
-
-			delete mdlServiceRep;//释放响应
+			std::any stopRep = pService->ExecuteCmd(MdlCommonNS::ECommand::E_DestoryAllFunction);
+			//返回初始化的响应并强制转换为bool 类型，确保初始化正常
+			std::tuple<bool, std::string> flag = std::any_cast<std::tuple<bool, std::string>>(stopRep);
+			//必须确定flag的值之后才能返回
+			return std::get<0>(flag);
 		}
-		return true;
+		return false;
 	}
 }

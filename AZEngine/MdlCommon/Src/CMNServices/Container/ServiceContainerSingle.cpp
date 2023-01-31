@@ -102,7 +102,7 @@ namespace MdlCommonNS
 		for (auto& item : (*m_pMdlOperatMap))
 		{
 			//此处摧毁模块似乎是第二次摧毁
-			item.second->DestoryModule(nullptr);
+			item.second->DestoryModule();
 			//销毁
 			delete item.second;
 		}

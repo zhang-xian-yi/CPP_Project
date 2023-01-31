@@ -4,8 +4,6 @@
 #include "CMNInterface/IMdlOperat.h"//模块操作接口
 #include "CMNInterface/IMdlFactory.h"
 #include "CMNInterface/IMdlService.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"//默认请求和响应
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
 #include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "CMNMEnum/ModuelType/EModuleType.h"//模块类型
 #include "LoggerFactory.h"//日志工厂类
@@ -61,11 +59,11 @@ namespace FuncScheduleNS
 			MdlCommonNS::IMdlOperat* pMdl = factory->CreateModuleInstance();
 			MdlCommonNS::IMdlService* pService = factory->CreateServiceInstance();
 			//初始化模块
-			auto rep = pMdl->ConstructModule();
+			bool rep = pMdl->ConstructModule();
 		
 			//注册模块
 			ServiceContainerSingle::GetContainer().RegisterModuleInterface(type, pMdl, pService);
-			return true;
+			return rep;
 		}
 		catch (std::exception exp)
 		{
@@ -73,11 +71,7 @@ namespace FuncScheduleNS
 			if (iLogS.has_value())
 			{
 				//构造参数
-				auto pRequest = new MdlCommonNS::DefSysRequest();
-				std::any data = std::make_any<std::exception>(exp);
-				pRequest->SetData(data);
-				//打印日志
-				iLogS.value()->DoService(std::unique_ptr<MdlCommonNS::ISysRequest>(pRequest));
+
 			}
 			//无论日志是否打印，均需要返回false
 			return false;//初始化异常

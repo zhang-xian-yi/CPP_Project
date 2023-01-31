@@ -1,7 +1,5 @@
 #pragma once
 #include "CMNInterface/IMdlOperat.h"
-#include "CMNInterface/ISysRequest.h"
-#include "CMNInterface/ISysResponse.h"
 namespace OpenGLUINS
 {
 	class OpenGLUIMdlControl :public MdlCommonNS::IMdlOperat
@@ -11,9 +9,9 @@ namespace OpenGLUINS
 		~OpenGLUIMdlControl();
 	public:
 		//构造模块
-		virtual bool ConstructModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
+		virtual bool ConstructModule() override;
 		//销毁模块
-		virtual bool DestoryModule(const std::unique_ptr<MdlCommonNS::ISysRequest> para = nullptr) override;
+		virtual bool DestoryModule() override;
 		//获取模块状态
 		virtual bool IsUse()const override;
 	private:

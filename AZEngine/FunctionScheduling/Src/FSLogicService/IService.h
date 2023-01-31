@@ -1,7 +1,5 @@
 #pragma once
 #include <memory>//unique_ptr 引入
-#include "CMNInterface/ISysRequest.h"
-#include "CMNInterface/ISysResponse.h"
 
 namespace MdlCommonNS
 {
@@ -25,15 +23,6 @@ namespace FuncScheduleNS
 	public:
 		//执行业务逻辑入口函数
 		virtual void DoService() = 0;
-	};
-
-	class IFuncService
-	{
-	public:
-		virtual ~IFuncService() = 0;
-	public:
-		//执行业务逻辑入口函数
-		virtual std::unique_ptr<MdlCommonNS::ISysResponse> DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para) = 0;
 	};
 
 }

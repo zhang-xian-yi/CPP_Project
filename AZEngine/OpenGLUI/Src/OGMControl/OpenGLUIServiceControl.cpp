@@ -1,6 +1,4 @@
 #include "OpenGLUIServiceControl.h"
-#include "CMNEntity/DefaultReqRep/DefSysResponse.h"
-#include "CMNEntity/DefaultReqRep/DefSysRequest.h"
 
 namespace OpenGLUINS
 {
@@ -11,15 +9,6 @@ namespace OpenGLUINS
 	OpenGLUIServiceControl::~OpenGLUIServiceControl()
 	{
 	}
-	/// <summary>
-	/// 进行业务逻辑处理
-	/// </summary>
-	/// <param name="para"></param>
-	/// <returns></returns>
-	MdlCommonNS::ISysResponse* OpenGLUIServiceControl::DoService(const std::unique_ptr<MdlCommonNS::ISysRequest>& para)
-	{
-		auto pResult = new MdlCommonNS::DefSysResponse();
 
-		return pResult;
-	}
+
 }
