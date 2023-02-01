@@ -665,5 +665,6 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="DependentLib\spdlog\lib\spdlogd.lib" />
+    <Library Include="DependentLib\spdlog\lib\spdlog.lib" />
   </ItemGroup>
 </Project>
