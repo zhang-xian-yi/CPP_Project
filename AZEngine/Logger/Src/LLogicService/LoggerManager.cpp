@@ -1,101 +1,66 @@
 #include "LoggerManager.h"
-#include "spdlog/cfg/env.h"  // support for loading levels from the environment  variable
-#include "spdlog/fmt/ostr.h" // support for user defined types
-#include "spdlog/sinks/rotating_file_sink.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
+#include "LoggerImpl/FileLogger.h"
+#include "LoggerImpl/StdoutLogger.h"
+#include "CMNServices/Utils/PathUtil.h"//路径获取
 namespace LoggerNS
 {
 	LoggerManager::LoggerManager()
 	{
-		init();
+		Init();
 	}
 	LoggerManager::~LoggerManager()
 	{
+		Destory();
+		if (m_pFileLog)
+		{
+			delete m_pFileLog;
+			m_pFileLog = nullptr;
+		}
+		if (m_pStdoutLog)
+		{
+			delete m_pStdoutLog;
+			m_pStdoutLog = nullptr;
+		}
 	}
-	std::shared_ptr<spdlog::logger> LoggerManager::GetOperatLogger()
+	/// <summary>
+	/// 获取日志文件记录器
+	/// </summary>
+	/// <returns></returns>
+	std::shared_ptr<spdlog::logger> LoggerManager::GetFileLogger()
 	{
-		return m_pOptLog;
+		return m_pFileLog->GetLogger();
 	}
-	std::shared_ptr<spdlog::logger> LoggerManager::GetRunLogger()
+	/// <summary>
+	/// 获取日志标准输出记录器
+	/// </summary>
+	/// <returns></returns>
+	std::shared_ptr<spdlog::logger> LoggerManager::GetStdoutLogger()
 	{
-		return m_pRunLog;
+		return m_pStdoutLog->GetLogger();
 	}
-	std::shared_ptr<spdlog::logger> LoggerManager::GetConsoleLogger()
+	/// <summary>
+	/// 销毁日志
+	/// </summary>
+	void LoggerManager::Destory()
 	{
-		return m_pStdoutLog;
+		m_pFileLog->DestroyLogger();
+		m_pStdoutLog->DestroyLogger();
 	}
 	/// <summary>
 	/// 初始化日志
 	/// </summary>
-	void LoggerManager::init()
+	void LoggerManager::Init()
 	{
-		spdlog::set_level(spdlog::level::debug);
-
-		InitOptLogger("OptLogger","Logs/OptLog.txt",1024 * 1024 * 3,spdlog::level::debug);
-		InitRunLogger("RunLogger", "Logs/RunLog.txt", 1024 * 1024 * 3, spdlog::level::debug);
-		InitStdoutLogger("StdoutLog");
-	}
-
-	/// <summary>
-	/// 初始化 操作日志
-	/// </summary>
-	/// <param name="logName">日志名称</param>
-	/// <param name="logFile">日志文件路径</param>
-	/// <param name="max_file_size">文件最大大小</param>
-	/// <param name="level">日志等级</param>
-	void LoggerManager::InitOptLogger(const std::string& logName, const std::string& logFile, size_t max_file_size, spdlog::level::level_enum level)
-	{
-		try
-		{
-			//允许日志文件存在七个
-			m_pOptLog = spdlog::rotating_logger_mt(logName, logFile, max_file_size, 7);
-			m_pOptLog->set_level(level);
-			m_pOptLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
-		}
-		catch (std::exception e)
-		{
-
-		}
-	}
-	/// <summary>
-	/// 初始化 运行日志
-	/// </summary>
-	/// <param name="logName">日志名称</param>
-	/// <param name="logFile">日志文件路径</param>
-	/// <param name="max_file_size">文件最大大小</param>
-	/// <param name="level">日志等级</param>
-	void LoggerManager::InitRunLogger(const std::string& logName, const std::string& logFile, size_t max_file_size, spdlog::level::level_enum level)
-	{
-		try
-		{
-			//允许日志文件存在七个
-			m_pRunLog = spdlog::rotating_logger_mt(logName, logFile, max_file_size, 7);
-			m_pRunLog->set_level(level);
-			m_pRunLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
-		}
-		catch (std::exception e)
-		{
-
-		}
-	}
-	/// <summary>
-	/// 初始化 控制台日志
-	/// </summary>
-	/// <param name="logName">日志名称</param>
-	/// <param name="logFile">日志文件路径</param>
-	/// <param name="max_file_size">文件最大大小</param>
-	/// <param name="level">日志等级</param>
-	void LoggerManager::InitStdoutLogger(const std::string& logName)
-	{
-		try
-		{
-			//向标准输出输出信息
-			m_pStdoutLog = spdlog::stdout_color_mt(logName);
-			m_pStdoutLog->set_pattern("[%Y:%m:%d %H:%M:%S] [%l] [%n] >>> %v%$");
-		}
-		catch (std::exception e)
-		{
-
-		}
+		spdlog::set_level(LOG_LEVEL_DEBUG);
+		std::string path= MdlCommonNS::PathUtil::GetExecutePath() + "/Logs/";
+		//文件日志
+		m_pFileLog = new FileLogger(path);
+		m_pFileLog->AutoGenerateOutTarget();
+		m_pFileLog->CreateLogger();
+		m_pFileLog->SetPrintLevel(LOG_LEVEL_DEBUG);
+		//标准输出日志
+		m_pStdoutLog = new StdoutLogger();
+		m_pStdoutLog->CreateLogger();
+		m_pStdoutLog->SetPrintLevel(LOG_LEVEL_DEBUG);
 	}
 }

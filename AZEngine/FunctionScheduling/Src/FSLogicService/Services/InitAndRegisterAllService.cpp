@@ -65,8 +65,8 @@ namespace FuncScheduleNS
 			auto iLogS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
 			if (iLogS.has_value())
 			{
-				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IRunLogger*>();
-				prunlog->LogRunMsg(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type)+"×¢²á³É¹¦");
+				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
+				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type)+"×¢²á³É¹¦");
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
 				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "×¢²á³É¹¦");
 			}
@@ -77,9 +77,9 @@ namespace FuncScheduleNS
 			auto iLogS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
 			if (iLogS.has_value())
 			{
-				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IRunLogger*>();
-				prunlog->LogRunMsg(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "×¢²áÊ§°Ü");
-				prunlog->LogRunMsg(LoggerNS::ELogLevel::E_Error_LV, exp.what());
+				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
+				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "×¢²áÊ§°Ü");
+				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Error_LV, exp.what());
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
 				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "×¢²áÊ§°Ü");
 				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Error_LV, exp.what());

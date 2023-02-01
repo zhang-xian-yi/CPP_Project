@@ -15,19 +15,10 @@ namespace LoggerNS
 	/// <summary>
 	/// 运行日志接口
 	/// </summary>
-	class IRunLogger
+	class IFileLogger
 	{
 	public:
-		virtual void LogRunMsg(ELogLevel logLv,const std::string&& msg) = 0;
-	};
-
-	/// <summary>
-	/// 操作接口
-	/// </summary>
-	class IOptLogger
-	{
-	public:
-		virtual void LogOptMsg(ELogLevel logLv, const std::string&& msg) = 0;
+		virtual void LogFileMsg(ELogLevel logLv,const std::string&& msg) = 0;
 	};
 
 	/// <summary>

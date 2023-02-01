@@ -177,6 +177,8 @@
     <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
     <ClCompile Include="Src\CMNMEnum\StatusCode\AZMStatus.cpp" />
     <ClCompile Include="Src\CMNServices\Container\ServiceContainerSingle.cpp" />
+    <ClCompile Include="Src\CMNServices\Utils\DateTimeUtil.cpp" />
+    <ClCompile Include="Src\CMNServices\Utils\PathUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNInterface\IMdlFactory.h" />
@@ -189,6 +191,8 @@
     <ClInclude Include="Src\CMNMEnum\ModuelType\EModuleType.h" />
     <ClInclude Include="Src\CMNMEnum\StatusCode\AZMStatus.h" />
     <ClInclude Include="Src\CMNServices\Container\ServiceContainerSingle.h" />
+    <ClInclude Include="Src\CMNServices\Utils\DateTimeUtil.h" />
+    <ClInclude Include="Src\CMNServices\Utils\PathUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="模块说明.txt" />

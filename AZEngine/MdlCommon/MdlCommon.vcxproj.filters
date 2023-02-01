@@ -33,6 +33,12 @@
     <ClCompile Include="Src\CMNMEnum\Command\ECommand.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\CMNServices\Utils\PathUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CMNServices\Utils\DateTimeUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h">
@@ -63,6 +69,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNServices\Utils\DateTimeUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNServices\Utils\PathUtil.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

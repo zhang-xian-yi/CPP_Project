@@ -14,7 +14,7 @@ namespace LoggerNS
 	/// </summary>
 	/// <param name="logLv"></param>
 	/// <param name="msg"></param>
-	void LoggerControl::LogRunMsg(ELogLevel logLv, const std::string&& msg)
+	void LoggerControl::LogFileMsg(ELogLevel logLv, const std::string&& msg)
 	{
 		switch (logLv)
 		{
@@ -41,37 +41,7 @@ namespace LoggerNS
 		}
 
 	}
-	/// <summary>
-	/// 打印操作时期日志
-	/// </summary>
-	/// <param name="logLv"></param>
-	/// <param name="msg"></param>
-	void LoggerControl::LogOptMsg(ELogLevel logLv, const std::string&& msg)
-	{
-		switch (logLv)
-		{
-		case LoggerNS::ELogLevel::E_Trace_LV:
-			Opt_Log_Trace(msg);
-			break;
-		case LoggerNS::ELogLevel::E_Debug_LV:
-			Opt_Log_Debug(msg);
-			break;
-		case LoggerNS::ELogLevel::E_Info_LV:
-			Opt_Log_Info(msg);
-			break;
-		case LoggerNS::ELogLevel::E_Warn_LV:
-			Opt_Log_Warn(msg);
-			break;
-		case LoggerNS::ELogLevel::E_Error_LV:
-			Opt_Log_Error(msg);
-			break;
-		case LoggerNS::ELogLevel::E_Critical_LV:
-			break;
-			Opt_Log_Critical(msg);
-		default:
-			break;
-		}
-	}
+
 	/// <summary>
 	/// 打印标准输出日志
 	/// </summary>

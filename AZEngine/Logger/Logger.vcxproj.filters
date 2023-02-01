@@ -645,6 +645,15 @@
     <ClInclude Include="Src\ILogger.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\LLogicService\BaseSpdlog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LLogicService\LoggerImpl\StdoutLogger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LLogicService\LoggerImpl\FileLogger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\LoggerFactory.cpp">
@@ -659,12 +668,20 @@
     <ClCompile Include="Src\LLogicService\LoggerManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\LLogicService\BaseSpdlog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LLogicService\LoggerImpl\StdoutLogger.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\LLogicService\LoggerImpl\FileLogger.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="模块说明.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="DependentLib\spdlog\lib\spdlogd.lib" />
     <Library Include="DependentLib\spdlog\lib\spdlog.lib" />
   </ItemGroup>
 </Project>

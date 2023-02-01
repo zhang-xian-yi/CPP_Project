@@ -305,6 +305,9 @@
     <ClInclude Include="DependentLib\spdlog\include\tweakme.h" />
     <ClInclude Include="DependentLib\spdlog\include\version.h" />
     <ClInclude Include="Src\ILogger.h" />
+    <ClInclude Include="Src\LLogicService\BaseSpdlog.h" />
+    <ClInclude Include="Src\LLogicService\LoggerImpl\FileLogger.h" />
+    <ClInclude Include="Src\LLogicService\LoggerImpl\StdoutLogger.h" />
     <ClInclude Include="Src\LLogicService\LoggerManager.h" />
     <ClInclude Include="Src\LCommon\LExpMarcoDefine.h" />
     <ClInclude Include="Src\LMControl\LoggerControl.h" />
@@ -312,6 +315,9 @@
     <ClInclude Include="Src\LoggerFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\LLogicService\BaseSpdlog.cpp" />
+    <ClCompile Include="Src\LLogicService\LoggerImpl\FileLogger.cpp" />
+    <ClCompile Include="Src\LLogicService\LoggerImpl\StdoutLogger.cpp" />
     <ClCompile Include="Src\LLogicService\LoggerManager.cpp" />
     <ClCompile Include="Src\LMControl\LoggerControl.cpp" />
     <ClCompile Include="Src\LMControl\LModuleControl.cpp" />

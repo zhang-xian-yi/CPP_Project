@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <string>
-#include "spdlog/spdlog.h"
+#include "BaseSpdlog.h"
 
 namespace LoggerNS
 {
@@ -16,15 +16,13 @@ namespace LoggerNS
 			static LoggerManager instance;
 			return &instance;
 		}
-
-		std::shared_ptr<spdlog::logger> GetOperatLogger();
-		std::shared_ptr<spdlog::logger> GetRunLogger();
-		std::shared_ptr<spdlog::logger> GetConsoleLogger();
-	private:
-		void init();
-		void InitOptLogger(const std::string& logName, const std::string& logFile,size_t max_file_size,spdlog::level::level_enum level);
-		void InitRunLogger(const std::string& logName, const std::string& logFile, size_t max_file_size, spdlog::level::level_enum level);
-		void InitStdoutLogger(const std::string& logName);
+		//获取日志实例
+		std::shared_ptr<spdlog::logger> GetFileLogger();
+		std::shared_ptr<spdlog::logger> GetStdoutLogger();
+		//销毁
+		void Destory();
+		//初始化
+		void Init();
 	private:
 		//禁止反复定义工厂，禁止delelte 工厂对象
 		LoggerManager();
@@ -32,32 +30,24 @@ namespace LoggerNS
 		LoggerManager(LoggerManager& instance) = delete;
 		LoggerManager& operator=(const LoggerManager& instance) = delete;
 	private:
-		std::shared_ptr<spdlog::logger> m_pOptLog;
-		std::shared_ptr<spdlog::logger> m_pRunLog;
-		std::shared_ptr<spdlog::logger> m_pStdoutLog;
+		OptLogBase* m_pFileLog;
+		OptLogBase* m_pStdoutLog;
 	};
 
-#define Run_Log_Trace(...)			LoggerManager::GetInstance()->GetRunLogger()->trace(__VA_ARGS__)
-#define Run_Log_Debug(...)			LoggerManager::GetInstance()->GetRunLogger()->debug(__VA_ARGS__)
-#define Run_Log_Info(...)			LoggerManager::GetInstance()->GetRunLogger()->info(__VA_ARGS__)
-#define Run_Log_Warn(...)			LoggerManager::GetInstance()->GetRunLogger()->warn(__VA_ARGS__)
-#define Run_Log_Error(...)			LoggerManager::GetInstance()->GetRunLogger()->error(__VA_ARGS__)
-#define Run_Log_Critical(...)		LoggerManager::GetInstance()->GetRunLogger()->critical(__VA_ARGS__)
-
-#define Opt_Log_Trace(...)			LoggerManager::GetInstance()->GetOperatLogger()->trace(__VA_ARGS__)
-#define Opt_Log_Debug(...)			LoggerManager::GetInstance()->GetOperatLogger()->debug(__VA_ARGS__)
-#define Opt_Log_Info(...)			LoggerManager::GetInstance()->GetOperatLogger()->info(__VA_ARGS__)
-#define Opt_Log_Warn(...)			LoggerManager::GetInstance()->GetOperatLogger()->warn(__VA_ARGS__)
-#define Opt_Log_Error(...)			LoggerManager::GetInstance()->GetOperatLogger()->error(__VA_ARGS__)
-#define Opt_Log_Critical(...)		LoggerManager::GetInstance()->GetOperatLogger()->critical(__VA_ARGS__)
+#define Run_Log_Trace(...)			LoggerManager::GetInstance()->GetFileLogger()->trace(__VA_ARGS__)
+#define Run_Log_Debug(...)			LoggerManager::GetInstance()->GetFileLogger()->debug(__VA_ARGS__)
+#define Run_Log_Info(...)			LoggerManager::GetInstance()->GetFileLogger()->info(__VA_ARGS__)
+#define Run_Log_Warn(...)			LoggerManager::GetInstance()->GetFileLogger()->warn(__VA_ARGS__)
+#define Run_Log_Error(...)			LoggerManager::GetInstance()->GetFileLogger()->error(__VA_ARGS__)
+#define Run_Log_Critical(...)		LoggerManager::GetInstance()->GetFileLogger()->critical(__VA_ARGS__)
 
 #ifdef _DEBUG
-#define Stdout_Log_Trace(...)		LoggerManager::GetInstance()->GetConsoleLogger()->trace(__VA_ARGS__)
-#define Stdout_Log_Debug(...)		LoggerManager::GetInstance()->GetConsoleLogger()->debug(__VA_ARGS__)
-#define Stdout_Log_Info(...)		LoggerManager::GetInstance()->GetConsoleLogger()->info(__VA_ARGS__)
-#define Stdout_Log_Warn(...)		LoggerManager::GetInstance()->GetConsoleLogger()->warn(__VA_ARGS__)
-#define Stdout_Log_Error(...)		LoggerManager::GetInstance()->GetConsoleLogger()->error(__VA_ARGS__)
-#define Stdout_Log_Critical(...)	LoggerManager::GetInstance()->GetConsoleLogger()->critical(__VA_ARGS__)	
+#define Stdout_Log_Trace(...)		LoggerManager::GetInstance()->GetStdoutLogger()->trace(__VA_ARGS__)
+#define Stdout_Log_Debug(...)		LoggerManager::GetInstance()->GetStdoutLogger()->debug(__VA_ARGS__)
+#define Stdout_Log_Info(...)		LoggerManager::GetInstance()->GetStdoutLogger()->info(__VA_ARGS__)
+#define Stdout_Log_Warn(...)		LoggerManager::GetInstance()->GetStdoutLogger()->warn(__VA_ARGS__)
+#define Stdout_Log_Error(...)		LoggerManager::GetInstance()->GetStdoutLogger()->error(__VA_ARGS__)
+#define Stdout_Log_Critical(...)	LoggerManager::GetInstance()->GetStdoutLogger()->critical(__VA_ARGS__)	
 #else	
 #define Stdout_Log_Trace(...)    
 #define Stdout_Log_Debug(...)    
