@@ -13,14 +13,6 @@ Author			Version			Date
 
 namespace OpenGLUINS
 {
-	OpenGLUIFactory::OpenGLUIFactory()
-	{
-	}
-	
-	OpenGLUIFactory::~OpenGLUIFactory()
-	{
-	}	
-
 	MdlCommonNS::IMdlService* OpenGLUIFactory::CreateServiceInstance()
 	{
 		return new OpenGLUIServiceControl;
@@ -34,6 +26,4 @@ namespace OpenGLUINS
 	{
 		return new OpenGLUIMdlControl();
 	}
-
-
 }

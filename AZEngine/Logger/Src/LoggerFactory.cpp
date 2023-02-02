@@ -5,14 +5,6 @@
 #include "LMControl/LoggerControl.h"
 namespace LoggerNS
 {
-	LoggerFactory::LoggerFactory()
-	{
-	}
-
-	LoggerFactory::~LoggerFactory()
-	{
-
-	}
 	/// <summary>
 	/// 构件一个新业务控制实例
 	/// </summary>

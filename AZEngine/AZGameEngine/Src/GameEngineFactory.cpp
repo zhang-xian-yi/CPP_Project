@@ -3,13 +3,6 @@
 #include <GEMControl/GameEngineServiceControl.h>
 namespace AZGameEngineNS
 {
-	GameEngineFactory::GameEngineFactory()
-	{
-	}
-	GameEngineFactory::~GameEngineFactory()
-	{
-	}
-
 	/// <summary>
 	/// 创建一个新的业务控制实例
 	/// </summary>

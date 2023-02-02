@@ -7,20 +7,6 @@
 namespace FuncScheduleNS
 {
 	/// <summary>
-	/// 构造函数
-	/// </summary>
-	FuncScheduleFactory::FuncScheduleFactory()
-	{
-	}
-	/// <summary>
-	/// 析构函数
-	/// </summary>
-	FuncScheduleFactory::~FuncScheduleFactory()
-	{
-
-	}
-
-	/// <summary>
 	/// 创建一个新的业务控制实例
 	/// </summary>
 	/// <returns></returns>

@@ -3,6 +3,7 @@
 #include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
 #include <CMNInterface/IMdlOperat.h>
 #include <CMNInterface/IMdlService.h>
+
 namespace MdlCommonNS
 {
 	//模块业务逻辑接口
@@ -16,4 +17,16 @@ namespace MdlCommonNS
 		virtual MdlCommonNS::IMdlService* CreateServiceInstance() = 0;
 		virtual MdlCommonNS::IMdlOperat*  CreateModuleInstance() = 0;
 	};
+
+#define SingletonFactory(type)  	private:\
+									type() = default;\
+									~type()= default;\
+									type(type& instance) = delete;\
+									type& operator=(const type& instance) = delete;\
+									public:\
+									static MdlCommonNS::IMdlFactory* GetFactory()\
+									{\
+										static type instance;\
+										return &instance;\
+									}
 }

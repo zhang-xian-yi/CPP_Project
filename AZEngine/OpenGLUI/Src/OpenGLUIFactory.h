@@ -15,22 +15,12 @@ namespace OpenGLUINS
 	/// </summary>
 	class OpenGLUIAPI OpenGLUIFactory :public MdlCommonNS::IMdlFactory
 	{
-	public:
-		static IMdlFactory* GetFactory()
-		{
-			static OpenGLUIFactory instance;
-			return &instance;
-		}
+		//禁止反复定义工厂，禁止delelte 工厂对象
+		SingletonFactory(OpenGLUIFactory)
 	public:
 			
 		MdlCommonNS::IMdlService* CreateServiceInstance() override;
 		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
-	private:
-		//禁止反复定义工厂，禁止delelte 工厂对象
-		OpenGLUIFactory();
-		~OpenGLUIFactory();
-		OpenGLUIFactory(OpenGLUIFactory& instance) = delete;
-		OpenGLUIFactory& operator=(const OpenGLUIFactory& instance) = delete;
 	};
 }
 

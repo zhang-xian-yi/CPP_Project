@@ -15,21 +15,11 @@ namespace FuncScheduleNS
 	/// </summary>
 	class MdlScheduleDLLAPI FuncScheduleFactory:public MdlCommonNS::IMdlFactory
 	{
-	public:
-		static MdlCommonNS::IMdlFactory* GetFactory()
-		{
-			static FuncScheduleFactory instance;
-			return &instance;
-		}
+		//禁止反复定义工厂，禁止delelte 工厂对象
+		SingletonFactory(FuncScheduleFactory)
 	public:
 		MdlCommonNS::IMdlService* CreateServiceInstance() override;
 		MdlCommonNS::IMdlOperat* CreateModuleInstance() override;
-	private:
-		//禁止反复定义工厂，禁止delelte 工厂对象
-		FuncScheduleFactory();
-		~FuncScheduleFactory();
-		FuncScheduleFactory(FuncScheduleFactory& instance) = delete;
-		FuncScheduleFactory& operator=(const FuncScheduleFactory& instance) = delete;
 	};
 }
 
