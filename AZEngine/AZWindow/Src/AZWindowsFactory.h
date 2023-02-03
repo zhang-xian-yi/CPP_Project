@@ -1,5 +1,5 @@
 #pragma once
-#include <OGCommon/OGExpMarcoDefine.h>
+#include <WCommon/WExpMarcoDefine.h>
 #include "CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
@@ -8,15 +8,15 @@ namespace MdlCommonNS
 	class IMdlService;
 }
 
-namespace OpenGLUINS
+namespace AZWindowsNS
 {
 	/// <summary>
 	/// openGui 的模块工厂
 	/// </summary>
-	class OpenGLUIAPI OpenGLUIFactory :public MdlCommonNS::IMdlFactory
+	class WindowsNSDLLAPI AZWindowsFactory :public MdlCommonNS::IMdlFactory
 	{
 		//禁止反复定义工厂，禁止delelte 工厂对象
-		SingletonFactory(OpenGLUIFactory)
+		SingletonFactory(AZWindowsFactory)
 	public:
 			
 		MdlCommonNS::IMdlService* CreateServiceInstance() override;

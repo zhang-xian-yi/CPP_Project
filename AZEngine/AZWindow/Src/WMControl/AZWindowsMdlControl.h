@@ -1,14 +1,12 @@
 #pragma once
 #include "CMNInterface/IMdlOperat.h"
-
-namespace AZGameEngineNS
+namespace AZWindowsNS
 {
-	//游戏引擎的模块控制器
-	class GameEngineMdlControl :public MdlCommonNS::IMdlOperat
+	class AZWindowsMdlControl :public MdlCommonNS::IMdlOperat
 	{
 	public:
-		GameEngineMdlControl();
-		~GameEngineMdlControl();
+		AZWindowsMdlControl();
+		~AZWindowsMdlControl();
 	public:
 		//构造模块
 		virtual bool ConstructModule() override;
@@ -19,6 +17,6 @@ namespace AZGameEngineNS
 	private:
 		bool m_bIsUse;//模块是否可用
 	};
-}
 
+}
 

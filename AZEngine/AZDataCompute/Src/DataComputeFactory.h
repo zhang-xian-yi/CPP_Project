@@ -1,5 +1,5 @@
 #pragma once
-#include "GECommon/ExpMarcoDefine.h"
+#include "DCCommon/ExpMarcoDefine.h"
 #include "CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
@@ -8,12 +8,12 @@ namespace MdlCommonNS
 	class IMdlService;
 }
 
-namespace AZGameEngineNS
+namespace AZDataComputeNS
 {
-	class GameEngineDLLAPI GameEngineFactory :public MdlCommonNS::IMdlFactory
+	class DataComputeNSDLLAPI DataComputeFactory :public MdlCommonNS::IMdlFactory
 	{
 		//禁止反复定义工厂，禁止delelte 工厂对象
-		SingletonFactory(GameEngineFactory)
+		SingletonFactory(DataComputeFactory)
 	public:
 		virtual MdlCommonNS::IMdlService* CreateServiceInstance() override;
 		virtual MdlCommonNS::IMdlOperat* CreateModuleInstance() override;

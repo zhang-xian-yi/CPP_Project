@@ -116,17 +116,11 @@
     <ClCompile Include="Src\FSLogicService\Services\StopAndUnRegisterAllService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AZGameEngine\AZGameEngine.vcxproj">
-      <Project>{1dba3436-de62-444b-8873-e3b7c31b4094}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
       <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\OpenGLUI\OpenGLUI.vcxproj">
-      <Project>{e32515fd-8385-4546-95b7-77e5723f7f7d}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

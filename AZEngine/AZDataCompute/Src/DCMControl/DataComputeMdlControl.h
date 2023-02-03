@@ -1,12 +1,14 @@
 #pragma once
 #include "CMNInterface/IMdlOperat.h"
-namespace OpenGLUINS
+
+namespace AZDataComputeNS
 {
-	class OpenGLUIMdlControl :public MdlCommonNS::IMdlOperat
+	//游戏引擎的模块控制器
+	class DataComputeMdlControl :public MdlCommonNS::IMdlOperat
 	{
 	public:
-		OpenGLUIMdlControl();
-		~OpenGLUIMdlControl();
+		DataComputeMdlControl();
+		~DataComputeMdlControl();
 	public:
 		//构造模块
 		virtual bool ConstructModule() override;
@@ -17,6 +19,6 @@ namespace OpenGLUINS
 	private:
 		bool m_bIsUse;//模块是否可用
 	};
-
 }
+
 
