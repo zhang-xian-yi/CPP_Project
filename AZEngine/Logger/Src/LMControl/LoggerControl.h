@@ -13,8 +13,11 @@ namespace LoggerNS
 		LoggerControl();
 		~LoggerControl();
 	public:
-		virtual void LogFileMsg(ELogLevel logLv, const std::string&& msg)override;
-		virtual void LogStdoutMsg(ELogLevel logLv, const std::string&& msg)override;
+		virtual void LogFileMsgAsync(ELogLevel logLv, const std::string&& msg)override;
+		virtual void LogStdoutMsgAsync(ELogLevel logLv, const std::string&& msg)override;
+	private:
+		void LogFileMsg(ELogLevel logLv, const std::string&& msg);
+		void LogStdoutMsg(ELogLevel logLv, const std::string&& msg);
 	};
 }
 

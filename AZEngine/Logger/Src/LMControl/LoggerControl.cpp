@@ -1,6 +1,7 @@
 #include "LoggerControl.h"
 #include "LLogicService/LoggerManager.h"//日志管理
-
+#include <future>//异步执行头文件
+#include <thread>
 namespace LoggerNS
 {
 	LoggerControl::LoggerControl()
@@ -8,6 +9,14 @@ namespace LoggerNS
 	}
 	LoggerControl::~LoggerControl()
 	{
+	}
+	void LoggerControl::LogFileMsgAsync(ELogLevel logLv, const std::string&& msg)
+	{
+		auto result = std::async(&LoggerControl::LogFileMsg, this, logLv, msg); // (2) asyc
+	}
+	void LoggerControl::LogStdoutMsgAsync(ELogLevel logLv, const std::string&& msg)
+	{
+		auto result = std::async(&LoggerControl::LogStdoutMsg, this, logLv, msg); // (2) asyc
 	}
 	/// <summary>
 	/// 打印运行时期日志

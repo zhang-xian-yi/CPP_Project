@@ -66,9 +66,9 @@ namespace FuncScheduleNS
 			if (iLogS.has_value())
 			{
 				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type)+"注册成功");
+				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type)+"注册成功");
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册成功");
+				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册成功");
 			}
 			return rep;
 		}
@@ -78,11 +78,11 @@ namespace FuncScheduleNS
 			if (iLogS.has_value())
 			{
 				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
-				prunlog->LogFileMsg(LoggerNS::ELogLevel::E_Error_LV, exp.what());
+				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
+				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
-				pstdoutlog->LogStdoutMsg(LoggerNS::ELogLevel::E_Error_LV, exp.what());
+				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
+				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
 			}
 			//无论日志是否打印，均需要返回false
 			return false;//初始化异常

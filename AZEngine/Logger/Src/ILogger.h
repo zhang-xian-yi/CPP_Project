@@ -18,7 +18,7 @@ namespace LoggerNS
 	class IFileLogger
 	{
 	public:
-		virtual void LogFileMsg(ELogLevel logLv,const std::string&& msg) = 0;
+		virtual void LogFileMsgAsync(ELogLevel logLv,const std::string&& msg) = 0;
 	};
 
 	/// <summary>
@@ -27,6 +27,6 @@ namespace LoggerNS
 	class IStdoutLogger
 	{
 	public:
-		virtual void LogStdoutMsg(ELogLevel logLv, const std::string&& msg) = 0;
+		virtual void LogStdoutMsgAsync(ELogLevel logLv, const std::string&& msg) = 0;
 	};
 }
