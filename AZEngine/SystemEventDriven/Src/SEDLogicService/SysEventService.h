@@ -13,8 +13,13 @@ namespace SysEventDNS
 		SysEventService();
 		~SysEventService();
 
+	public:
+		//绑定事件ID 和事件处理函数的联系
+		bool BindEventHandlerList(ESysEventId eveId, EveHandlerFN handler);
+		//处理事件
+		bool HandleEvent(ESysEventId eveId, IEvent* pEve);
 	private:
-		std::unordered_map<ESysEventId, std::list<EventHandler>>* m_pEventHandlerMap;
+		std::unordered_map<ESysEventId, std::list<EveHandlerFN>*>* m_pEventHandlerMap;
 	};
 }
 

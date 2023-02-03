@@ -50,6 +50,9 @@
     <ClCompile Include="Src\AZWindowsFactory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\WLogicService\Platform\OpenGL\OpenGLUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="模块说明.txt" />

@@ -8,7 +8,14 @@
 #include "SEDLogicService/Events/WindowEvent.h"
 namespace SysEventDNS
 {
-	typedef bool (*EventHandler)(IEvent*);
+	typedef bool (*EveHandlerFN)(IEvent*);
+
+	struct EventHandler
+	{
+		EveHandlerFN func;
+	};
+
+
 
 	/// <summary>
 	/// 负责链接事件ID和事件处理函数
@@ -25,6 +32,6 @@ namespace SysEventDNS
 	class SysEventNSAPI IDispatch
 	{
 	public:
-		virtual void DispatchEvent(IEvent* eve) = 0;
+		virtual bool DispatchEvent(IEvent* eve) = 0;
 	};
 }

@@ -4,6 +4,8 @@
 
 namespace SysEventDNS
 {
+	class SysEventService;//前置声明
+
 	/// <summary>
 	/// 游戏引擎的业务逻辑控制器
 	/// </summary>
@@ -20,10 +22,10 @@ namespace SysEventDNS
 		//IConnect 接口实现
 		virtual bool Connect(ESysEventId eId, EventHandler handler);
 		//IDispatch 接口实现
-		virtual void DispatchEvent(IEvent* eve);
+		virtual bool DispatchEvent(IEvent* eve);
 
 	private:
-
+		SysEventService* m_pSysEveService;
 	};
 
 }
