@@ -2,10 +2,10 @@
 #include <memory> //unique_ptr
 #include <string>//字符串
 #include <tuple>//元组
-#include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
-#include "CMNInterface/IMdlService.h"
-#include "CMNMEnum/Command/ECommand.h"
-#include "CMNMEnum/ModuelType/EModuleType.h"
+#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+#include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"
+#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "Services/InitAndRegisterAllService.h"//初始化所有的业务
 #include "Services/StopAndUnRegisterAllService.h"//停止所有的业务
 namespace FuncScheduleNS

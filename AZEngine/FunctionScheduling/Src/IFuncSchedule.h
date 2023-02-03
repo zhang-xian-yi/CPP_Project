@@ -1,8 +1,11 @@
 #pragma once
 #include <any>
-#include "CMNMEnum/Command/ECommand.h"
+#include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"
 namespace FuncScheduleNS
 {
+	/// <summary>
+	/// 命令调度功能
+	/// </summary>
 	class IFuncSchedule
 	{
 	public:

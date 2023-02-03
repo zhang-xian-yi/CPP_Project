@@ -1,16 +1,17 @@
 #include "InitAndRegisterAllService.h"
 #include <future>//异步执行头文件
 #include <thread>
-#include "CMNInterface/IMdlOperat.h"//模块操作接口
-#include "CMNInterface/IMdlFactory.h"
-#include "CMNInterface/IMdlService.h"
-#include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
-#include "CMNMEnum/ModuelType/EModuleType.h"//模块类型
-#include "LoggerFactory.h"//日志工厂类
-#include "ILogger.h"
-#include "FuncScheduleFactory.h"//模块调度工厂类
-#include "OpenGLUIFactory.h"//OPenglUI的工厂类
-#include "GameEngineFactory.h"//游戏引擎工厂类
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"//模块重要接口
+#include "MdlCommon/Src/CMNInterface/IMdlFactory.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
+#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
+#include "Logger/Src/ILogger.h"
+#include "Logger/Src/LoggerFactory.h"//日志工厂类
+#include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂类
+#include "AZWindow/Src/AZWindowsFactory.h"//OPenglUI的工厂类
+#include "AZDataCompute/Src/DataComputeFactory.h"//数据计算中心类
+#include "SystemEventDriven/Src/SysEventDrivenFactory.h"//
 namespace FuncScheduleNS
 {
 	using namespace MdlCommonNS;
@@ -21,12 +22,15 @@ namespace FuncScheduleNS
 		//初始化/注册日志实例
 		pFactory = LoggerNS::LoggerFactory::GetFactory();
 		InitAndRegisterMdl(EModuleType::E_Logger_Type, pFactory);
-		//初始化/注册游戏引擎实例
-		pFactory = AZGameEngineNS::GameEngineFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_GameEngine_Type, pFactory);
-		//初始化/注册OpenglUI实例
-		pFactory = OpenGLUINS::OpenGLUIFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_OpengGLUI_Type, pFactory);
+		//初始化/注册窗口实例
+		pFactory = AZWindowsNS::AZWindowsFactory::GetFactory();
+		InitAndRegisterMdlAsync(EModuleType::E_AZWindows_Type, pFactory);
+		//初始化/注册数据计算实例
+		pFactory = AZDataComputeNS::DataComputeFactory::GetFactory();
+		InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
+		//初始化/注册系统事件驱动实例
+		pFactory = SysEventDNS::SysEventDrivenFactory::GetFactory();
+		InitAndRegisterMdlAsync(EModuleType::E_SysEventDriven_Type, pFactory);
 	}
 	/// <summary>
 	/// 异步执行任务

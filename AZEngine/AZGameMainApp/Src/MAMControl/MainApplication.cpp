@@ -1,11 +1,11 @@
 #include "MainApplication.h"
 #include <memory>//内存
-#include "FuncScheduleFactory.h"//模块调度工厂
-#include "IFuncSchedule.h"
+#include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂
+#include "FunctionScheduling/Src/IFuncSchedule.h"
 #include "Logger/Src/ILogger.h"
-#include "CMNServices/Container/ServiceContainerSingle.h"//业务容器
-#include "CMNMEnum/ModuelType/EModuleType.h"
-#include "CMNMEnum/Command/ECommand.h"//执行命令的参数
+#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
+#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
+#include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
 namespace AZGameMainApp
 {
 	MainApplication::MainApplication()

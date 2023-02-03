@@ -1,7 +1,7 @@
 #include "LoggerManager.h"
 #include "LoggerImpl/FileLogger.h"
 #include "LoggerImpl/StdoutLogger.h"
-#include "CMNServices/Utils/PathUtil.h"//路径获取
+#include "MdlCommon/Src/CMNServices/Utils/PathUtil.h"//路径获取
 namespace LoggerNS
 {
 	LoggerManager::LoggerManager()

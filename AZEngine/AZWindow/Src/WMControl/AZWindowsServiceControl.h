@@ -1,5 +1,5 @@
 #pragma once
-#include "CMNInterface/IMdlService.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
 
 namespace AZWindowsNS
 {

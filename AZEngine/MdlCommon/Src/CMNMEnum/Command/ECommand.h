@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
+#include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
 namespace MdlCommonNS
 {
 	//枚举模块类型

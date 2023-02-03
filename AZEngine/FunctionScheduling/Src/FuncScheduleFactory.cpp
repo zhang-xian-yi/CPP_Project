@@ -1,9 +1,11 @@
 #include "FuncScheduleFactory.h"
-#include "CMNInterface/IMdlService.h"
-#include "CMNInterface/IMdlOperat.h"
 //实现类
 #include <FSMControl/FuncMdlControl.h>
 #include <FSMControl/FuncScheduleControl.h>
+//外部头文件
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
+
 namespace FuncScheduleNS
 {
 	/// <summary>

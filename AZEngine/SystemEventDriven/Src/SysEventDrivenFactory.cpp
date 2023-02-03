@@ -1,4 +1,4 @@
-#include "EventDrivenSysFactory.h"
+#include "SysEventDrivenFactory.h"
 #include "SEDMControl/SysEventDrivenMdlControl.h"
 #include "SEDMControl/SysEventDrivenServiceControl.h"
 namespace SysEventDNS
@@ -7,7 +7,7 @@ namespace SysEventDNS
 	/// 业务实例
 	/// </summary>
 	/// <returns></returns>
-	MdlCommonNS::IMdlService* EventDrivenSysFactory::CreateServiceInstance()
+	MdlCommonNS::IMdlService* SysEventDrivenFactory::CreateServiceInstance()
 	{
 		return new SysEventDNS::SysEventDrivenServiceControl();
 	}
@@ -15,7 +15,7 @@ namespace SysEventDNS
 	/// 模块控制实例
 	/// </summary>
 	/// <returns></returns>
-	MdlCommonNS::IMdlOperat* EventDrivenSysFactory::CreateModuleInstance()
+	MdlCommonNS::IMdlOperat* SysEventDrivenFactory::CreateModuleInstance()
 	{
 		return new SysEventDNS::SysEventDrivenMdlControl();
 	}

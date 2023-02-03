@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <optional>
-#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
+#include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
 /*
 约定，所有针对模块的业务调度均由业务逻辑的容器单例执行
 约定：

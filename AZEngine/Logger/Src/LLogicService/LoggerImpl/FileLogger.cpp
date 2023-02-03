@@ -1,6 +1,6 @@
 #include "FileLogger.h"
 #include "spdlog/sinks/rotating_file_sink.h"
-#include "CMNServices/Utils/DateTimeUtil.h"
+#include "MdlCommon/Src/CMNServices/Utils/DateTimeUtil.h"
 namespace LoggerNS
 {
 	FileLogger::FileLogger(const std::string& str)
@@ -35,7 +35,7 @@ namespace LoggerNS
 			m_pLogger->set_pattern("[%Y:%m:%d %H:%M:%S] %^[%l]%$ >>> %v");
 			m_pLogger->set_level(spdlog::level::trace);
 		}
-		catch (const spdlog::spdlog_ex& ex)
+		catch (const spdlog::spdlog_ex&)
 		{
 			//std::cout << "Create file logger failed: " << ex.what() << std::endl;
 			exit(EXIT_FAILURE);

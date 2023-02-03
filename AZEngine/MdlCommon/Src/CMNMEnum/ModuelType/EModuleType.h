@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
+#include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
 
 namespace MdlCommonNS
 {
@@ -9,8 +9,9 @@ namespace MdlCommonNS
 	{
 		E_Logger_Type,
 		E_FuncSchedule_Type,
-		E_GameEngine_Type,
-		E_OpengGLUI_Type
+		E_DataCompute_Type,
+		E_AZWindows_Type,
+		E_SysEventDriven_Type,
 	};
 
 	//前置声明

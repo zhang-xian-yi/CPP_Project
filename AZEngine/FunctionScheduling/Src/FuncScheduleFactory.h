@@ -1,6 +1,6 @@
 #pragma once
-#include <FSCommon/MSExpMarcoDefine.h>
-#include "CMNInterface/IMdlFactory.h"
+#include "FSCommon/MSExpMarcoDefine.h"
+#include "MdlCommon/Src/CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
 	//Ç°ÖÃÉùÃ÷

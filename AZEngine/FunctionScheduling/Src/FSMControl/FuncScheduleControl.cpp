@@ -2,7 +2,7 @@
 #include <typeinfo>
 #include "FSLogicService/CmdScheduleCtlPrivate.h"
 
-#include "CMNMEnum/ModuelType/EModuleType.h"
+#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 namespace FuncScheduleNS
 {
 	/// <summary>

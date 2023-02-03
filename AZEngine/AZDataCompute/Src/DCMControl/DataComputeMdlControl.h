@@ -1,5 +1,5 @@
 #pragma once
-#include "CMNInterface/IMdlOperat.h"
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
 
 namespace AZDataComputeNS
 {

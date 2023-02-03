@@ -63,7 +63,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,7 +83,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)MdlCommon\Src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,7 +96,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\EventDrivenSysFactory.cpp" />
+    <ClCompile Include="Src\SysEventDrivenFactory.cpp" />
     <ClCompile Include="Src\SEDLogicService\Events\ApplicationEvent.cpp" />
     <ClCompile Include="Src\SEDLogicService\Events\KeyboardEvent.cpp" />
     <ClCompile Include="Src\SEDLogicService\Events\MouseEvent.cpp" />
@@ -106,7 +106,7 @@
     <ClCompile Include="Src\SEDLogicService\SysEventService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\EventDrivenSysFactory.h" />
+    <ClInclude Include="Src\SysEventDrivenFactory.h" />
     <ClInclude Include="Src\ISystemEvent.h" />
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h" />
     <ClInclude Include="Src\SEDCommon\SEDCore.h" />

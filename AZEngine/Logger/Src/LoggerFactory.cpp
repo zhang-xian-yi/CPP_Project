@@ -1,8 +1,9 @@
 #include "LoggerFactory.h"
-#include "CMNInterface/IMdlOperat.h"
-#include "CMNInterface/IMdlService.h"
 #include "LMControl/LModuleControl.h"
 #include "LMControl/LoggerControl.h"
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+
 namespace LoggerNS
 {
 	/// <summary>

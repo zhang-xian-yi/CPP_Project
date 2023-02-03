@@ -1,8 +1,8 @@
 #pragma once
 //定义所有功能模块的工厂类约束
-#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
-#include <CMNInterface/IMdlOperat.h>
-#include <CMNInterface/IMdlService.h>
+#include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
 
 namespace MdlCommonNS
 {

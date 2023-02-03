@@ -9,16 +9,13 @@
 #include "SEDLogicService/Events/WindowEvent.h"
 namespace SysEventDNS
 {
-	//定义函数指针
-	typedef bool (*EventHandler)(IEvent* eve);
-
 	/// <summary>
 	/// 负责链接事件ID和事件处理函数
 	/// </summary>
 	class SysEventNSAPI IConnect
 	{
 	public:
-		virtual bool Connect(ESysEventId eId,std::function<EventHandler> handler) = 0;
+		virtual bool Connect(ESysEventId eId,std::function<bool(IEvent*)> handler) = 0;
 	};
 
 	/// <summary>

@@ -87,8 +87,9 @@ namespace MdlCommonNS
 		//		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_Logger_Type, new EnumValueBean("", "", "")));
 
 		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_FuncSchedule_Type, new EnumValueBean("FS001", "FSMdl", "功能调度模块")));
-		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_GameEngine_Type, new EnumValueBean("GE002", "GEMdl", "游戏引擎模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_DataCompute_Type, new EnumValueBean("GE002", "DCMdl", "数据计算模块")));
 		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_Logger_Type, new EnumValueBean("L003", "LMdl", "日志模块")));
-		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_OpengGLUI_Type, new EnumValueBean("OG004", "OGMdl", "Opengl窗口模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_AZWindows_Type, new EnumValueBean("OG004", "WinMdl", "窗口模块")));
+		m_pMdlEnumValueMap->insert(std::make_pair(EModuleType::E_SysEventDriven_Type, new EnumValueBean("SED004", "SEDMdl", "系统事件驱动模块")));
 	}
 }

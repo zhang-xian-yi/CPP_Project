@@ -1,7 +1,7 @@
 #pragma once
 // 定义所有功能模块必须实现的模块启动和停止接口
 #include <any>
-#include <CMNMacro/CMNExpMarcoDefine.h> //导出宏
+#include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
 
 
 namespace MdlCommonNS
