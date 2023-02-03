@@ -92,7 +92,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\IWindow.h" />
     <ClInclude Include="Src\WCommon\WExpMarcoDefine.h" />
+    <ClInclude Include="Src\WLogicService\Platform\Linux\LinuxUI.h" />
+    <ClInclude Include="Src\WLogicService\Platform\OpenGL\OpenGLUI.h" />
+    <ClInclude Include="Src\WLogicService\Platform\Window\WindowsUI.h" />
     <ClInclude Include="Src\WMControl\AZWindowsMdlControl.h" />
     <ClInclude Include="Src\WMControl\AZWindowsServiceControl.h" />
     <ClInclude Include="Src\AZWindowsFactory.h" />
@@ -106,6 +110,9 @@
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,8 +10,10 @@ namespace SysEventDNS
 	{
 	}
 
-	bool SysEventDrivenServiceControl::Connect(ESysEventId eId, std::function<bool(IEvent*)> handler)
+	bool SysEventDrivenServiceControl::Connect(ESysEventId eId, EventHandler handler)
 	{
+
+
 		return false;
 	}
 

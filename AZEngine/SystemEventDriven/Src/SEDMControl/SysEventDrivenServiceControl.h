@@ -18,7 +18,7 @@ namespace SysEventDNS
 
 	public:
 		//IConnect 接口实现
-		virtual bool Connect(ESysEventId eId, std::function<bool(IEvent*)> handler);
+		virtual bool Connect(ESysEventId eId, EventHandler handler);
 		//IDispatch 接口实现
 		virtual void DispatchEvent(IEvent* eve);
 
