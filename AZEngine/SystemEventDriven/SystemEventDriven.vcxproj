@@ -97,15 +97,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\EventDrivenSysFactory.cpp" />
+    <ClCompile Include="Src\SEDLogicService\Events\ApplicationEvent.cpp" />
+    <ClCompile Include="Src\SEDLogicService\Events\KeyboardEvent.cpp" />
+    <ClCompile Include="Src\SEDLogicService\Events\MouseEvent.cpp" />
+    <ClCompile Include="Src\SEDLogicService\Events\WindowEvent.cpp" />
     <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp" />
     <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp" />
+    <ClCompile Include="Src\SEDLogicService\SysEventService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\EventDrivenSysFactory.h" />
     <ClInclude Include="Src\ISystemEvent.h" />
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h" />
+    <ClInclude Include="Src\SEDCommon\SEDCore.h" />
+    <ClInclude Include="Src\SEDLogicService\Events\ApplicationEvent.h" />
+    <ClInclude Include="Src\SEDLogicService\Events\IEvent.h" />
+    <ClInclude Include="Src\SEDLogicService\Events\KeyboardEvent.h" />
+    <ClInclude Include="Src\SEDLogicService\Events\MouseEvent.h" />
+    <ClInclude Include="Src\SEDLogicService\Events\WindowEvent.h" />
     <ClInclude Include="Src\SEDMControl\SysEventDrivenMdlControl.h" />
     <ClInclude Include="Src\SEDMControl\SysEventDrivenServiceControl.h" />
+    <ClInclude Include="Src\SEDLogicService\SysEventService.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="模块说明.txt" />

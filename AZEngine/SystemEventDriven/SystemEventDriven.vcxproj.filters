@@ -24,6 +24,21 @@
     <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDLogicService\Events\ApplicationEvent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDLogicService\Events\KeyboardEvent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDLogicService\Events\MouseEvent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDLogicService\Events\WindowEvent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\EventDrivenSysFactory.h">
@@ -39,6 +54,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SEDMControl\SysEventDrivenServiceControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDCommon\SEDCore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\SysEventService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\Events\IEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\Events\ApplicationEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\Events\WindowEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\Events\KeyboardEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\Events\MouseEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

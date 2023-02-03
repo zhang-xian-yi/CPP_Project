@@ -1,36 +1,32 @@
 #pragma once
-
+#include <functional>
+#include "SEDCommon/SEDExpMarcoDefine.h"
+//将所有事件全部开发给外部
+#include "SEDLogicService/Events/IEvent.h"
+#include "SEDLogicService/Events/ApplicationEvent.h"
+#include "SEDLogicService/Events/KeyboardEvent.h"
+#include "SEDLogicService/Events/MouseEvent.h"
+#include "SEDLogicService/Events/WindowEvent.h"
 namespace SysEventDNS
 {
-	//确保事件的唯一特性
-	enum class ESysEventId:unsigned int
-	{
-		None = 0,
-		KeyBoardPress= 100,
-		KeyBoardRelease,
-		MouseMove = 200, 
-		MousePress, MouseRelease, MouseScroll,WindowResize, WindowMove, WindowClose, 
-		ApplicationUpdate = 500, 
-		ApplicationRender
-	};
-
-	//所有事件都必须继承的父类
-	class IEvent
-	{
-
-	protected:
-		bool m_isHandle;//是否处理--决定事件是否继续传递
-		ESysEventId m_eId;//决定事件由谁处理
-	};
+	//定义函数指针
+	typedef bool (*EventHandler)(IEvent* eve);
 
 	/// <summary>
 	/// 负责链接事件ID和事件处理函数
 	/// </summary>
-	class IConnect
+	class SysEventNSAPI IConnect
 	{
 	public:
-		virtual bool Connect();
+		virtual bool Connect(ESysEventId eId,std::function<EventHandler> handler) = 0;
 	};
 
-
+	/// <summary>
+	/// 负责转发事件
+	/// </summary>
+	class SysEventNSAPI IDispatch
+	{
+	public:
+		virtual void DispatchEvent(IEvent* eve) = 0;
+	};
 }
