@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ff7a9004-0c69-46a1-bfe2-7074595b018e}</ProjectGuid>
+    <RootNamespace>OpenGLWindowUI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Bin\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)OutputDir\$(Configuration)_$(Platform)_Objs\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WINDOW_NS_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)OpenGLWindowUI\DependentLib\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)OpenGLWindowUI\DependentLib\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WINDOW_NS_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)OpenGLWindowUI\DependentLib\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)OpenGLWindowUI\DependentLib\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DependentLib\include\glew\eglew.h" />
+    <ClInclude Include="DependentLib\include\glew\glew.h" />
+    <ClInclude Include="DependentLib\include\glew\glxew.h" />
+    <ClInclude Include="DependentLib\include\glew\wglew.h" />
+    <ClInclude Include="DependentLib\include\glfw\glfw3.h" />
+    <ClInclude Include="DependentLib\include\glfw\glfw3native.h" />
+    <ClInclude Include="DependentLib\include\imgui\imconfig.h" />
+    <ClInclude Include="DependentLib\include\imgui\imgui.h" />
+    <ClInclude Include="DependentLib\include\imgui\imgui_internal.h" />
+    <ClInclude Include="DependentLib\include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="DependentLib\include\imgui\imstb_textedit.h" />
+    <ClInclude Include="DependentLib\include\imgui\imstb_truetype.h" />
+    <ClInclude Include="Src\IWindow.h" />
+    <ClInclude Include="Src\OpenGLWindowsFactory.h" />
+    <ClInclude Include="Src\WCommon\WExpMarcoDefine.h" />
+    <ClInclude Include="Src\WLogicService\OpenGLWindows.h" />
+    <ClInclude Include="Src\WMControl\WindowsMdlControl.h" />
+    <ClInclude Include="Src\WMControl\WindowsServiceControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\OpenGLWindowsFactory.cpp" />
+    <ClCompile Include="Src\WLogicService\OpenGLWindows.cpp" />
+    <ClCompile Include="Src\WMControl\WindowsMdlControl.cpp" />
+    <ClCompile Include="Src\WMControl\WindowsServiceControl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="DependentLib\lib\glew32.lib" />
+    <Library Include="DependentLib\lib\glfw3.lib" />
+    <Library Include="DependentLib\lib\imgui.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
+      <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
