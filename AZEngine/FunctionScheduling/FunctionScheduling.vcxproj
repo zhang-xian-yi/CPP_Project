@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -119,14 +119,14 @@
     <ProjectReference Include="..\AZDataCompute\AZDataCompute.vcxproj">
       <Project>{48321911-e983-4a6b-9027-4441549e6847}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\AZWindow\AZWindow.vcxproj">
-      <Project>{1855d786-a8eb-49fe-92f2-97cf764aa131}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
       <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenGLWindowUI\OpenGLWindowUI.vcxproj">
+      <Project>{ff7a9004-0c69-46a1-bfe2-7074595b018e}</Project>
     </ProjectReference>
     <ProjectReference Include="..\SystemEventDriven\SystemEventDriven.vcxproj">
       <Project>{e3bade24-26b1-42a2-9655-7b179f7b57cc}</Project>

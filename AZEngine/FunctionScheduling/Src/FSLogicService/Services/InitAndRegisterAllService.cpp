@@ -9,7 +9,7 @@
 #include "Logger/Src/ILogger.h"
 #include "Logger/Src/LoggerFactory.h"//日志工厂类
 #include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂类
-#include "AZWindow/Src/AZWindowsFactory.h"//OPenglUI的工厂类
+#include "OpenGLWindowUI/Src/OpenGLWindowsFactory.h"//OPenglUI的工厂类
 #include "AZDataCompute/Src/DataComputeFactory.h"//数据计算中心类
 #include "SystemEventDriven/Src/SysEventDrivenFactory.h"//
 namespace FuncScheduleNS
@@ -23,8 +23,8 @@ namespace FuncScheduleNS
 		pFactory = LoggerNS::LoggerFactory::GetFactory();
 		InitAndRegisterMdl(EModuleType::E_Logger_Type, pFactory);
 		//初始化/注册窗口实例
-		pFactory = AZWindowsNS::AZWindowsFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_AZWindows_Type, pFactory);
+		pFactory = WindowsNS::OpenGLWindowsFactory::GetFactory();
+		InitAndRegisterMdlAsync(EModuleType::E_OpenGLWindow_Type, pFactory);
 		//初始化/注册数据计算实例
 		pFactory = AZDataComputeNS::DataComputeFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
@@ -70,9 +70,9 @@ namespace FuncScheduleNS
 			if (iLogS.has_value())
 			{
 				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type)+"注册成功");
+				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type)+"注册成功");
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册成功");
+				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册成功");
 			}
 			return rep;
 		}
@@ -82,10 +82,10 @@ namespace FuncScheduleNS
 			if (iLogS.has_value())
 			{
 				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
+				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册失败");
 				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
 				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance()->GetMdlCnDesc(type) + "注册失败");
+				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册失败");
 				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
 			}
 			//无论日志是否打印，均需要返回false

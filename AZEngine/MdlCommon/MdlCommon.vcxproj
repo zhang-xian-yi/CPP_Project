@@ -185,6 +185,8 @@
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h" />
     <ClInclude Include="Src\CMNInterface\IMdlService.h" />
     <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h" />
+    <ClInclude Include="Src\CMNMacro\CoreMacroDef.h" />
+    <ClInclude Include="Src\CMNMacro\TypeMacroDef.h" />
     <ClInclude Include="Src\CMNMEnum\Command\ECommand.h" />
     <ClInclude Include="Src\CMNMEnum\EnumValueBean.h" />
     <ClInclude Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.h" />

@@ -1,6 +1,10 @@
 #include "SysEventService.h"
+#include "SystemEventDriven/Src/SEDCommon/SEDCore.h"
 namespace SysEventDNS
 {
+	//公共事件命名空间
+	using namespace EventCommonNS;
+
 	SysEventService::SysEventService()
 		:m_pEventHandlerMap(new std::unordered_map<ESysEventId, std::list<EveHandlerFN>*>())
 	{
@@ -39,7 +43,7 @@ namespace SysEventDNS
 		return true;
 	}
 
-	bool SysEventService::HandleEvent(ESysEventId eveId, IEvent* pEve)
+	bool SysEventService::HandleEvent(ESysEventId eveId, IEvent& pEve)
 	{
 		if (m_pEventHandlerMap->find(eveId) != m_pEventHandlerMap->end())
 		{
@@ -47,6 +51,9 @@ namespace SysEventDNS
 			auto list = m_pEventHandlerMap->at(eveId);
 			for (auto& handlerFN : *list)
 			{
+#ifdef _DEBUG
+				FormatLog("onevent id:{0}",eveId);
+#endif // _DEBUG
 				//处理事件
 				handlerFN(pEve);
 			}

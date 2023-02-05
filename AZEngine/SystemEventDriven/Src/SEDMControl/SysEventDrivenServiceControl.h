@@ -20,9 +20,9 @@ namespace SysEventDNS
 
 	public:
 		//IConnect 接口实现
-		virtual bool Connect(ESysEventId eId, EventHandler handler);
+		virtual bool Connect(EventCommonNS::ESysEventId eId, EventHandler handler);
 		//IDispatch 接口实现
-		virtual bool DispatchEvent(IEvent* eve);
+		virtual bool DispatchEvent(EventCommonNS::IEvent& eve);
 
 	private:
 		SysEventService* m_pSysEveService;

@@ -6,31 +6,51 @@
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
+#include "SystemEventDriven/Src/ISystemEvent.h"
+#include "OpenGLWindowUI/Src/IWindow.h"
 namespace AZGameMainApp
 {
-	MainApplication::MainApplication()
-	{
-		
-	}
-	MainApplication::~MainApplication()
-	{
-
-	}
-
 	/// <summary>
 	/// 初始化运行环境
 	/// </summary>
-	void MainApplication::InitRunEnvirment()
+	void MainApplication::InitApp()
 	{
+		m_bRunning = true;
 		bool ret = InitAllFunction();
+		InitOpenGLWindows();
+	}
+	void MainApplication::Run()
+	{
+		m_pWindow->Show();
+		while (m_bRunning)
+		{
+
+		}
+
 	}
 	/// <summary>
 	/// 释放允许环境中的资源
 	/// </summary>
-	void MainApplication::StopRunEnvirment()
+	void MainApplication::StopApp()
 	{
 		bool ret = StopAllFunction();
 
+	}
+
+	bool MainApplication::OnEvent(EventCommonNS::IEvent& e)
+	{
+		auto dispatchService = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_SysEventDriven_Type);
+		SysEventDNS::IDispatch* pDispathc = dispatchService.value()->ConvertType<SysEventDNS::IDispatch*>();
+		return pDispathc->DispatchEvent(e);//发送事件  
+	}
+	/// <summary>
+	/// 初始化窗口
+	/// </summary>
+	void MainApplication::InitOpenGLWindows()
+	{
+		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
+		m_pWindow = windowsService.value()->ConvertType<WindowsNS::IWindow*>();
+		m_pWindow->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));
 	}
 	/// <summary>
 	/// 初始化所有的功能模块

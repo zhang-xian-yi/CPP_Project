@@ -1,5 +1,15 @@
 #pragma once
+#include "MACommon/CoreMacroDef.h"
+#include "MdlCommon/Src/CMNMacro/CoreMacroDef.h"
+namespace WindowsNS
+{
+	class IWindow;//窗口接口
+}
 
+namespace EventCommonNS
+{
+	class IEvent; //事件接口
+}
 namespace AZGameMainApp
 {
 	/// <summary>
@@ -8,24 +18,21 @@ namespace AZGameMainApp
 	/// </summary>
 	class MainApplication
 	{
+		//执行单例
+		SingletonDefaultConstruct(MainApplication)
 	public:
-		static MainApplication& GetInstance()
-		{
-			static MainApplication instance;
-			return instance;
-		}
-	public:
-		void InitRunEnvirment();
-		void StopRunEnvirment();
+		void InitApp();//初始化程序
+		void Run();//程序运行
+		void StopApp();//停止程序
 	private:
+		bool OnEvent(EventCommonNS::IEvent& e);
+	private:
+		void InitOpenGLWindows();//初始化窗口
 		bool InitAllFunction();//初始化所有的功能模块并注册
 		bool StopAllFunction();//停止所有的功能模块并取消注册
 	private:
-		//禁止反复定义工厂，禁止delelte 工厂对象
-		MainApplication();
-		~MainApplication();
-		MainApplication(MainApplication& instance) = delete;
-		MainApplication& operator=(const MainApplication& instance) = delete;
+		WindowsNS::IWindow* m_pWindow; //窗口
+		bool m_bRunning;//程序是否运行
 	};
 
 }

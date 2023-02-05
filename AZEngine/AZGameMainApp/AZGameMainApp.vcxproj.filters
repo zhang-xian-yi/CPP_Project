@@ -18,6 +18,9 @@
     <ClInclude Include="Src\MAMControl\MainApplication.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\MACommon\CoreMacroDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\MAMControl\MainApplication.cpp">
@@ -27,6 +30,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MACommon\CoreMacroDef.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

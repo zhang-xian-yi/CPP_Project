@@ -2,6 +2,7 @@
 #include "SystemEventDriven/Src/SEDLogicService/SysEventService.h"
 namespace SysEventDNS
 {
+
 	SysEventDrivenServiceControl::SysEventDrivenServiceControl()
 		:m_pSysEveService(new SysEventService())
 	{
@@ -32,9 +33,9 @@ namespace SysEventDNS
 	/// </summary>
 	/// <param name="eve"></param>
 	/// <returns></returns>
-	bool SysEventDrivenServiceControl::DispatchEvent(IEvent* eve)
+	bool SysEventDrivenServiceControl::DispatchEvent(IEvent& eve)
 	{
-		ESysEventId id = eve->GetEventId();
+		ESysEventId id = eve.GetEventId();
 		//处理事件
 		return m_pSysEveService->HandleEvent(id, eve);
 	}

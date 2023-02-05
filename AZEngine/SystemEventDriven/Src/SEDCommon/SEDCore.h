@@ -4,10 +4,23 @@ namespace SysEventDNS
 //左移
 #define LBit1(x) (1 << x)
 
-///定义事件之子类的类型
-#define DEF_EVENT_TYPE(type)			static ESysEventId GetStaticId() { return ESysEventId::type; }\
-										virtual ESysEventId GetEventId() const override { return GetStaticId(); }
+		/// <summary>
+	/// 向日志标准输出和日志文件打印信息 
+	/// </summary>
+	/// <param name="msg"></param>
+	/// <returns></returns>
+	void LogMsgOSAsync(const char* msg);
 
-//定义事件子类的
-#define DEF_EVENT_CATEGORY(category)    virtual int GetCategoryFlags() const override { return category; }
+
+	template<class... T>
+	void FormatLog(const char* fmt, const T&...t)
+	{
+		const auto len = snprintf(nullptr, 0, fmt, t...);
+		std::string r;
+		r.resize(static_cast<size_t>(len) + 1);
+		snprintf(&r.front(), len + 1, fmt, t...);  // Bad boy
+		r.resize(static_cast<size_t>(len));
+		//日志输出
+		LogMsgOSAsync(r.c_str());
+	}
 }

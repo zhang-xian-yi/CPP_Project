@@ -122,9 +122,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MACommon\CoreMacroDef.h" />
     <ClInclude Include="Src\MAMControl\MainApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MACommon\CoreMacroDef.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\MAMControl\MainApplication.cpp" />
     <ClCompile Include="Src\test.cpp" />

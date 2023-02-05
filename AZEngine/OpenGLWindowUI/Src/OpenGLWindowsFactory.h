@@ -1,5 +1,5 @@
 #pragma once
-#include "WCommon/WExpMarcoDefine.h"
+#include "WCommon/WExpMarcoDef.h"
 #include "MdlCommon/Src/CMNInterface/IMdlFactory.h"
 namespace MdlCommonNS
 {
