@@ -19,7 +19,6 @@ namespace WindowsNS
         MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "GLFW Error :", std::to_string(error), "  ", std::string(description));
     }
 
-
     GLWindowService::GLWindowService()
         :_pWindow(nullptr)
     {
