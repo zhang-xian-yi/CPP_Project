@@ -33,18 +33,6 @@
     <ClInclude Include="Src\OpenGLWindowsFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DependentLib\include\GL\eglew.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DependentLib\include\GL\glew.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DependentLib\include\GL\glxew.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DependentLib\include\GL\wglew.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DependentLib\include\GLFW\glfw3.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -969,6 +957,15 @@
     <ClInclude Include="DependentLib\include\imgui\imgui_impl_opengl3_loader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DependentLib\include\Glad\glad.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentLib\include\Glad\khrplatform.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Service\SystemEventsService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\WLogicService\OpenGLWindows.cpp">
@@ -1032,6 +1029,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DependentLib\include\stb_image\stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Service\SystemEventsService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

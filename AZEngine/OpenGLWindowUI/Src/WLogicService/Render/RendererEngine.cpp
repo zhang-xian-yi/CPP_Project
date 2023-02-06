@@ -1,6 +1,6 @@
 #include "RendererEngine.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//´íÎó¼ì²é
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "OpenGLWindowUI/Src/WLogicService/Engine/Buffers/IndexBuffer.h"
 #include "OpenGLWindowUI/Src/WLogicService/Engine/DataSrc/VertexArray.h"

@@ -2,7 +2,7 @@
 #include <sstream>//×Ö·û´®Á÷
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 
 namespace WindowsNS

@@ -3,7 +3,7 @@
 #include "OpenGLWindowUI/Src/WLogicService/Engine/Layout/VLayoutElement.h"
 #include "OpenGLWindowUI/Src/WLogicService/Engine/Layout/VertexBufferLayout.h"//VertexBufferLayout
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//´íÎó¼ì²é
-#include "GL/glew.h"
+#include "Glad/glad.h"
 
 namespace WindowsNS
 {
