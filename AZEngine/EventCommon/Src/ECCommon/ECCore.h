@@ -6,7 +6,8 @@ namespace EventCommonNS
 
 ///定义事件之子类的类型
 #define DEF_EVENT_TYPE(type)			static ESysEventId GetStaticId() { return ESysEventId::type; }\
-										virtual ESysEventId GetEventId() const override { return GetStaticId(); }
+										virtual ESysEventId GetEventId() const override { return GetStaticId(); }\
+										virtual const char* GetName() const override { return #type; }
 
 //定义事件子类的
 #define DEF_EVENT_CATEGORY(category)    virtual int GetCategoryFlags() const override { return category; }

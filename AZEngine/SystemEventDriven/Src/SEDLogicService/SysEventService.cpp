@@ -1,5 +1,6 @@
 #include "SysEventService.h"
 #include "SystemEventDriven/Src/SEDCommon/SEDCore.h"
+#include "Logger/Src/ILogger.h"
 namespace SysEventDNS
 {
 	//公共事件命名空间
@@ -43,17 +44,19 @@ namespace SysEventDNS
 		return true;
 	}
 
-	bool SysEventService::HandleEvent(ESysEventId eveId, IEvent& pEve)
+	bool SysEventService::HandleEvent(IEvent& pEve)
 	{
+#ifdef _DEBUG
+		LogMsg(LoggerNS::ELogLevel::E_Info_LV,"on event id:", std::string(pEve.GetName()));
+#endif // _DEBUG
+
+		auto eveId = pEve.GetEventId();
 		if (m_pEventHandlerMap->find(eveId) != m_pEventHandlerMap->end())
 		{
 			//存在
 			auto list = m_pEventHandlerMap->at(eveId);
 			for (auto& handlerFN : *list)
 			{
-#ifdef _DEBUG
-				FormatLog("onevent id:{0}",eveId);
-#endif // _DEBUG
 				//处理事件
 				handlerFN(pEve);
 			}

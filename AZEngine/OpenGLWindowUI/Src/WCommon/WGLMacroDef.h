@@ -4,6 +4,11 @@
 这里的全局函数均是声明，多次声明，一次实现，就能解决反复定义的问题
 
 */
+//前置声明
+namespace LoggerNS
+{
+	enum class ELogLevel :unsigned char;
+}
 
 #include <string>
 namespace WindowsNS
@@ -27,19 +32,20 @@ namespace WindowsNS
 	/// </summary>
 	/// <param name="msg"></param>
 	/// <returns></returns>
-	void LogMsgOSAsync(const char* msg);
+	void LogMsgOSAsync(LoggerNS::ELogLevel logLv,const char* msg);
 
-
-	template<class... T>
-	void FormatLog(const char* fmt, const T&...t)
+	template<typename... Args>
+	std::string FormatMsg(Args &&... args)
 	{
-		const auto len = snprintf(nullptr, 0, fmt, t...);
-		std::string r;
-		r.resize(static_cast<size_t>(len) + 1);
-		snprintf(&r.front(), len + 1, fmt, t...);  // Bad boy
-		r.resize(static_cast<size_t>(len));
-		//日志输出
-		LogMsgOSAsync(r.c_str());
+		return (... + args);
+	}
+
+	template<typename... Args>
+	void LogMsg(LoggerNS::ELogLevel loglv,Args &&... args)
+	{
+		auto str = FormatMsg(std::forward<Args>(args)...);
+		//打印
+		LogMsgOSAsync(loglv,str.c_str());
 	}
 }
 

@@ -1,4 +1,5 @@
 #pragma once
+#include "OpenGLWindowUI/Src/IWindow.h"
 
 //前置声明 
 struct GLFWwindow;//from  glew第三方库， 不能将此声明放入命名空间中
@@ -15,7 +16,7 @@ namespace WindowsNS
 		~GLWindowService();
 
 		//初始化允许环境
-		int initWinEnvir(int width, int height);
+		int initWinEnvir(WindowProps& pros);
 		//刷新窗口交换区域
 		int FlushWindow();
 		//设置默认的窗口背景
@@ -25,7 +26,7 @@ namespace WindowsNS
 		//返回窗口句柄
 		GLFWwindow* GetGLFWindowsHandle()const;
 	private:
-		int initWindows(int width, int height);
+		int initWindows(WindowProps& pros);
 		//初始化其他的所有配置信息
 		int initWindowsConfig();
 	private:

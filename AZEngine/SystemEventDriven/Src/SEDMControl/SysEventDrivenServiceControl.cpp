@@ -35,9 +35,8 @@ namespace SysEventDNS
 	/// <returns></returns>
 	bool SysEventDrivenServiceControl::DispatchEvent(IEvent& eve)
 	{
-		ESysEventId id = eve.GetEventId();
 		//处理事件
-		return m_pSysEveService->HandleEvent(id, eve);
+		return m_pSysEveService->HandleEvent(eve);
 	}
 
 	

@@ -10,16 +10,10 @@ namespace AZGameMainApp
 	/// <returns></returns>
 	void LogMsgOSAsync(const char* msg);
 
-	template<class... T>
-	void FormatLog(const char* fmt, const T&...t)
+	template<typename... Args>
+	std::string& FormatMsg(Args &&... args)
 	{
-		const auto len = snprintf(nullptr, 0, fmt, t...);
-		std::string r;
-		r.resize(static_cast<size_t>(len) + 1);
-		snprintf(&r.front(), len + 1, fmt, t...);  // Bad boy
-		r.resize(static_cast<size_t>(len));
-		//ÈÕÖ¾Êä³ö
-		LogMsgOSAsync(r.c_str());
+		return (... + args);
 	}
 
 #define BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }

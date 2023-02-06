@@ -34,6 +34,7 @@ namespace EventCommonNS
 		virtual ~IEvent() = default;
 		virtual ESysEventId GetEventId() const = 0;
 		virtual int  GetCategoryFlags() const = 0;
+		virtual const char* GetName()const = 0;//获取事件名称
 		inline  bool IsInCategory(ESysEventCategory category){ return (GetCategoryFlags() & category); }
 	};
 }

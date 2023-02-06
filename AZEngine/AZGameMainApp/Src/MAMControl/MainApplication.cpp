@@ -24,9 +24,8 @@ namespace AZGameMainApp
 		m_pWindow->Show();
 		while (m_bRunning)
 		{
-
+			m_pWindow->OnUpdate();
 		}
-
 	}
 	/// <summary>
 	/// 释放允许环境中的资源

@@ -1,7 +1,6 @@
 #pragma once
 #include "OpenGLWindowUI/Src/IWindow.h"
-
-struct GLFWwindow;// 前置声明 来自glew
+#include "Service/GLWindowService.h"
 
 namespace WindowsNS
 {
@@ -16,28 +15,26 @@ namespace WindowsNS
 
 		void OnUpdate() override;
 
-		unsigned int GetWidth() const override { return m_Data.Width; }
-		unsigned int GetHeight() const override { return m_Data.Height; }
+		unsigned int GetWidth() const override { return m_Data.WinPros.Width; }
+		unsigned int GetHeight() const override { return m_Data.WinPros.Height; }
 
 		// Window attributes
 		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
-		virtual void* GetNativeWindow() const { return m_Window; }
+		virtual void* GetNativeWindow() const { return m_WinService->GetGLFWindowsHandle(); }
 	public:
 		virtual void Show()override;
 		virtual void Shutdown();
 	private:
-		GLFWwindow* m_Window;
+		GLWindowService* m_WinService;
 
 		//窗口数据
 		struct WindowData
 		{
-			std::string Title;
-			unsigned int Width, Height;
+			WindowProps WinPros;//窗口属性
 			bool VSync;
-
 			EventCallbackFn EventCallback;
 		};
 

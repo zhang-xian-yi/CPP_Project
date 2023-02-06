@@ -34,7 +34,7 @@ namespace WindowsNS
 			ss<< "[OpenGL Error]: (" << error << ")" << "\n文件名:" << file
 				<< "\n行数:" << line << "\n函数:" << func << "\n";
 			//打印
-			LogMsgOSAsync(ss.str().c_str());
+			LogMsgOSAsync(LoggerNS::ELogLevel::E_Error_LV,ss.str().c_str());
 			//错误分支 
 			return false;
 		}
@@ -45,15 +45,15 @@ namespace WindowsNS
 	/// 向日志中打印关键信息
 	/// </summary>
 	/// <param name="msg"></param>
-	void LogMsgOSAsync(const char* msg)
+	void LogMsgOSAsync(LoggerNS::ELogLevel logLv,const char* msg)
 	{
 		auto iLogS = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
 		if (iLogS.has_value())
 		{
 			auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-			prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, msg);
+			prunlog->LogFileMsgAsync(logLv, msg);
 			auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-			pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, msg);
+			pstdoutlog->LogStdoutMsgAsync(logLv, msg);
 		}
 	}
 }

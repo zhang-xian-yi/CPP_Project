@@ -1,13 +1,23 @@
 #include "GLWindowService.h"
-#include <iostream>
 #include <direct.h>//目录操作
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"
 #include "GL/glew.h"  //glew.h 必须放在最前面 否则报错 gl.g 必须include 在此之后的错误
 #include "GLFW/glfw3.h"
-
+#include "Logger/Src/ILogger.h"
 
 namespace WindowsNS
 {
+    /// <summary>
+    /// 错误日志的回调函数
+    /// </summary>
+    /// <param name="error"></param>
+    /// <param name="description"></param>
+    static void GLFWErrorCallback(int error, const char* description)
+    {
+        LogMsg(LoggerNS::ELogLevel::E_Error_LV, "GLFW Error :", std::to_string(error), "  ", std::string(description));
+    }
+
+
     GLWindowService::GLWindowService()
         :_pWindow(nullptr)
     {
@@ -49,22 +59,27 @@ namespace WindowsNS
         return 0;
     }
 
-    int GLWindowService::initWinEnvir(int width, int height)
+    int GLWindowService::initWinEnvir(WindowProps& pros)
     {
         //初始化窗口
-        this->initWindows(width, height);
+        if (-1 == this->initWindows(pros))
+        {
+            return -1;
+        }
         //初始化窗口配置
         this->initWindowsConfig();
         return 0;
     }
 
-    int GLWindowService::initWindows(int width, int height)
+    int GLWindowService::initWindows(WindowProps& pros)
     {
         /* Initialize the library */
         if (!glfwInit())
         {
             return -1;
         }
+        //设置错误日志回调函数
+        glfwSetErrorCallback(GLFWErrorCallback);
 
         // Decide GL+GLSL versions
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -90,7 +105,7 @@ namespace WindowsNS
 #endif
 
         /* Create a windowed mode window and its OpenGL context */
-        _pWindow = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+        _pWindow = glfwCreateWindow(pros.Width, pros.Height, pros.Title.c_str(), NULL, NULL);
         //初始化发生错误
         if (_pWindow == nullptr)
         {
@@ -104,7 +119,7 @@ namespace WindowsNS
         //必须获取opengl的上下文
         if (glewInit() != GLEW_OK)
         {
-            std::cout << "error" << std::endl;
+            LogMsg(LoggerNS::ELogLevel::E_Error_LV, "glewInit error");
             return -1;
         }
         //初始哈u窗口正常
