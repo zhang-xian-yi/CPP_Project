@@ -1,14 +1,16 @@
+#include "LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "MdlCommon/Src/CMNInterface/IMdlService.h"
-namespace SysEventDNS
+
+namespace MdlCommonNS
 {
 	/// <summary>
 	/// 向日志中打印关键信息
 	/// </summary>
 	/// <param name="msg"></param>
-	void LogMsgOSAsync(LoggerNS::ELogLevel logLv,const char* msg)
+	void LogMsgOSAsync(LoggerNS::ELogLevel logLv, const char* msg)
 	{
 		auto iLogS = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
 		if (iLogS.has_value())

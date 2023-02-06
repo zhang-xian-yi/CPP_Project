@@ -75,7 +75,7 @@
     <ClInclude Include="Src\WLogicService\Engine\DataLoadEnginePrivate.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\WLogicService\Engine\RectangleDataLoadEngine.h">
+    <ClInclude Include="Src\WLogicService\Engine\MatrixDataLoadEngine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\WLogicService\Engine\TextureDataLoadEngine.h">
@@ -989,7 +989,7 @@
     <ClCompile Include="Src\WLogicService\Engine\DataLoadEnginePrivate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\WLogicService\Engine\RectangleDataLoadEngine.cpp">
+    <ClCompile Include="Src\WLogicService\Engine\MatrixDataLoadEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\WLogicService\Engine\TextureDataLoadEngine.cpp">

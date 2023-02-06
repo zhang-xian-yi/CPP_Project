@@ -1,5 +1,5 @@
 #include "SysEventService.h"
-#include "SystemEventDriven/Src/SEDCommon/SEDCore.h"
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
 namespace SysEventDNS
 {
@@ -47,7 +47,7 @@ namespace SysEventDNS
 	bool SysEventService::HandleEvent(IEvent& pEve)
 	{
 #ifdef _DEBUG
-		LogMsg(LoggerNS::ELogLevel::E_Info_LV,"on event id:", std::string(pEve.GetName()));
+		MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"on event id:", std::string(pEve.GetName()));
 #endif // _DEBUG
 
 		auto eveId = pEve.GetEventId();

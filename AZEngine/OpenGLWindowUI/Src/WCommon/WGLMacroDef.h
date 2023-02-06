@@ -4,13 +4,6 @@
 这里的全局函数均是声明，多次声明，一次实现，就能解决反复定义的问题
 
 */
-//前置声明
-namespace LoggerNS
-{
-	enum class ELogLevel :unsigned char;
-}
-
-#include <string>
 namespace WindowsNS
 {
 	/// <summary>
@@ -26,31 +19,7 @@ namespace WindowsNS
 	/// <param name="func">字符串</param>
 	/// <returns></returns>
 	bool GLLogError(const char* file, int line, const char* func);
-
-	/// <summary>
-	/// 向日志标准输出和日志文件打印信息 
-	/// </summary>
-	/// <param name="msg"></param>
-	/// <returns></returns>
-	void LogMsgOSAsync(LoggerNS::ELogLevel logLv,const char* msg);
-
-	template<typename... Args>
-	std::string FormatMsg(Args &&... args)
-	{
-		return (... + args);
-	}
-
-	template<typename... Args>
-	void LogMsg(LoggerNS::ELogLevel loglv,Args &&... args)
-	{
-		auto str = FormatMsg(std::forward<Args>(args)...);
-		//打印
-		LogMsgOSAsync(loglv,str.c_str());
-	}
 }
-
-
-
 
 //注意debugbreak() 是一个调试中断的函数
 //该宏定义意味着一旦出现x为false 则启动调试中断

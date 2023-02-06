@@ -405,7 +405,7 @@
     <ClInclude Include="Src\WLogicService\Engine\DataSrc\VertexArray.h" />
     <ClInclude Include="Src\WLogicService\Engine\Layout\VertexBufferLayout.h" />
     <ClInclude Include="Src\WLogicService\Engine\Layout\VLayoutElement.h" />
-    <ClInclude Include="Src\WLogicService\Engine\RectangleDataLoadEngine.h" />
+    <ClInclude Include="Src\WLogicService\Engine\MatrixDataLoadEngine.h" />
     <ClInclude Include="Src\WLogicService\Engine\TextureDataLoadEngine.h" />
     <ClInclude Include="Src\WLogicService\OpenGLWindows.h" />
     <ClInclude Include="Src\WLogicService\Render\RendererEngine.h" />
@@ -428,7 +428,7 @@
     <ClCompile Include="Src\WLogicService\Engine\DataLoadEnginePrivate.cpp" />
     <ClCompile Include="Src\WLogicService\Engine\DataSrc\VertexArray.cpp" />
     <ClCompile Include="Src\WLogicService\Engine\Layout\VLayoutElement.cpp" />
-    <ClCompile Include="Src\WLogicService\Engine\RectangleDataLoadEngine.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\MatrixDataLoadEngine.cpp" />
     <ClCompile Include="Src\WLogicService\Engine\TextureDataLoadEngine.cpp" />
     <ClCompile Include="Src\WLogicService\OpenGLWindows.cpp" />
     <ClCompile Include="Src\WLogicService\Render\RendererEngine.cpp" />

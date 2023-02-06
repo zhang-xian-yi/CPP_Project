@@ -13,11 +13,11 @@ namespace WindowsNS
 	/// <summary>
 	/// 管理数据加载的引擎
 	/// </summary>
-	class RectangleDataLoadEngine
+	class MatrixDataLoadEngine
 	{
 	public:
-		RectangleDataLoadEngine();
-		~RectangleDataLoadEngine();
+		MatrixDataLoadEngine();
+		~MatrixDataLoadEngine();
 		//设置索引缓冲区地址以及元素个数，并指定索引为int
 		void SetIndexData(const unsigned int* pArray, unsigned int count);
 		//注意因为存在改变顶点空间的可能，所以传入的顶点数据空间内存不受此类管理

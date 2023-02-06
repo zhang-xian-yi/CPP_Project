@@ -96,7 +96,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\SEDCommon\SEDCore.cpp" />
     <ClCompile Include="Src\SysEventDrivenFactory.cpp" />
     <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp" />
     <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp" />

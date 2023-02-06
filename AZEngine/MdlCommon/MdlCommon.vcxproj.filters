@@ -39,6 +39,9 @@
     <ClCompile Include="Src\CMNServices\Utils\DateTimeUtil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Src\CMNMacro\LogMacroDef.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\CMNInterface\IMdlOperat.h">
@@ -81,6 +84,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\CMNMacro\CoreMacroDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\CMNMacro\LogMacroDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

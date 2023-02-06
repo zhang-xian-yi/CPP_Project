@@ -1,14 +1,16 @@
 #include "OpenGLWindows.h"
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
+#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"
 #include "MdlCommon/Src/CMNMacro/TypeMacroDef.h"
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "Logger/Src/ILogger.h"
-#include "MdlCommon/Src/CMNInterface/IMdlService.h"
-#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
-#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
 #include "EventCommon/Src/SysEvents.h"//系统事件
+#include "GL/glew.h"
+#include "GLFW/glfw3.h"
+
 namespace WindowsNS
 {
 	static uint8_t s_GLFWWindowCount = 0;
@@ -26,14 +28,14 @@ namespace WindowsNS
 
 	void OpenGLWindows::Show()
 	{
-		LogMsg(LoggerNS::ELogLevel::E_Info_LV, "Creating window ", m_Data.WinPros.Title, ", ", std::to_string(m_Data.WinPros.Width), ", ", std::to_string(m_Data.WinPros.Height));
+		MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV, "Creating window ", m_Data.WinPros.Title, ", ", std::to_string(m_Data.WinPros.Width), ", ", std::to_string(m_Data.WinPros.Height));
 
 		
 		if (s_GLFWWindowCount == 0)
 		{
-			LogMsg(LoggerNS::ELogLevel::E_Info_LV,"glfwInit");
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"glfwInit");
 			auto success = m_WinService->initWinEnvir(m_Data.WinPros);
-			LogMsg(LoggerNS::ELogLevel::E_Info_LV," initialize GLFW :", std::to_string(success) );
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV," initialize GLFW :", std::to_string(success) );
 			
 		}
 		auto GLWin = m_WinService->GetGLFWindowsHandle();

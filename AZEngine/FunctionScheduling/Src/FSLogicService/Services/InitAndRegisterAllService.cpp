@@ -6,6 +6,7 @@
 #include "MdlCommon/Src/CMNInterface/IMdlService.h"
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
 #include "Logger/Src/LoggerFactory.h"//日志工厂类
 #include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂类
@@ -66,28 +67,16 @@ namespace FuncScheduleNS
 			//注册模块
 			ServiceContainerSingle::GetContainer().RegisterModuleInterface(type, pMdl, pService);
 			//进行日志打印，注意日志模块必须最先注册且是同步
-			auto iLogS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
-			if (iLogS.has_value())
-			{
-				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type)+"注册成功");
-				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Info_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册成功");
-			}
+			std::string msg = MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册成功";
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV, msg);
 			return rep;
 		}
 		catch (std::exception exp)
 		{
-			auto iLogS = ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
-			if (iLogS.has_value())
-			{
-				auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册失败");
-				prunlog->LogFileMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
-				auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册失败");
-				pstdoutlog->LogStdoutMsgAsync(LoggerNS::ELogLevel::E_Error_LV, exp.what());
-			}
+			std::string userMsg = MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册失败";
+			std::string expMsg  =  exp.what();
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, userMsg);
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, expMsg);
 			//无论日志是否打印，均需要返回false
 			return false;//初始化异常
 		}

@@ -27,9 +27,6 @@
     <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\SEDCommon\SEDCore.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\SysEventDrivenFactory.h">

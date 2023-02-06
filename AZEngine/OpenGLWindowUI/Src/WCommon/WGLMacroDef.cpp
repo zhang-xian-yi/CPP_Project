@@ -1,11 +1,10 @@
 #include "WGLMacroDef.h"
 #include <sstream>//字符串流
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
+#include "Logger/Src/ILogger.h"
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
-#include "Logger/Src/ILogger.h"
-#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"
-#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
-#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+
 namespace WindowsNS
 {
 	/// <summary>
@@ -34,26 +33,11 @@ namespace WindowsNS
 			ss<< "[OpenGL Error]: (" << error << ")" << "\n文件名:" << file
 				<< "\n行数:" << line << "\n函数:" << func << "\n";
 			//打印
-			LogMsgOSAsync(LoggerNS::ELogLevel::E_Error_LV,ss.str().c_str());
+			MdlCommonNS::LogMsgOSAsync(LoggerNS::ELogLevel::E_Error_LV,ss.str().c_str());
 			//错误分支 
 			return false;
 		}
 		//正确
 		return true;
-	}
-	/// <summary>
-	/// 向日志中打印关键信息
-	/// </summary>
-	/// <param name="msg"></param>
-	void LogMsgOSAsync(LoggerNS::ELogLevel logLv,const char* msg)
-	{
-		auto iLogS = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
-		if (iLogS.has_value())
-		{
-			auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();
-			prunlog->LogFileMsgAsync(logLv, msg);
-			auto pstdoutlog = iLogS.value()->ConvertType<LoggerNS::IStdoutLogger*>();
-			pstdoutlog->LogStdoutMsgAsync(logLv, msg);
-		}
 	}
 }

@@ -1,9 +1,11 @@
 #include "GLWindowService.h"
 #include <direct.h>//目录操作
+#include "Logger/Src/ILogger.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "GL/glew.h"  //glew.h 必须放在最前面 否则报错 gl.g 必须include 在此之后的错误
 #include "GLFW/glfw3.h"
-#include "Logger/Src/ILogger.h"
+
 
 namespace WindowsNS
 {
@@ -14,7 +16,7 @@ namespace WindowsNS
     /// <param name="description"></param>
     static void GLFWErrorCallback(int error, const char* description)
     {
-        LogMsg(LoggerNS::ELogLevel::E_Error_LV, "GLFW Error :", std::to_string(error), "  ", std::string(description));
+        MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "GLFW Error :", std::to_string(error), "  ", std::string(description));
     }
 
 
@@ -119,7 +121,7 @@ namespace WindowsNS
         //必须获取opengl的上下文
         if (glewInit() != GLEW_OK)
         {
-            LogMsg(LoggerNS::ELogLevel::E_Error_LV, "glewInit error");
+            MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "glewInit error");
             return -1;
         }
         //初始哈u窗口正常

@@ -172,6 +172,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\CMNInterface\InterfaceDestructorImplement.cpp" />
+    <ClCompile Include="Src\CMNMacro\LogMacroDef.cpp" />
     <ClCompile Include="Src\CMNMEnum\Command\ECommand.cpp" />
     <ClCompile Include="Src\CMNMEnum\ModuelType\EMdlTypeExtendPrivate.cpp" />
     <ClCompile Include="Src\CMNMEnum\ModuelType\EModuleType.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Src\CMNInterface\IMdlService.h" />
     <ClInclude Include="Src\CMNMacro\CMNExpMarcoDefine.h" />
     <ClInclude Include="Src\CMNMacro\CoreMacroDef.h" />
+    <ClInclude Include="Src\CMNMacro\LogMacroDef.h" />
     <ClInclude Include="Src\CMNMacro\TypeMacroDef.h" />
     <ClInclude Include="Src\CMNMEnum\Command\ECommand.h" />
     <ClInclude Include="Src\CMNMEnum\EnumValueBean.h" />

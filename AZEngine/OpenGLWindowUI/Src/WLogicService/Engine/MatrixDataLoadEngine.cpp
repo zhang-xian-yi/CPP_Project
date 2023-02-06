@@ -1,4 +1,4 @@
-#include "RectangleDataLoadEngine.h"
+#include "MatrixDataLoadEngine.h"
 #include "DataLoadEnginePrivate.h"
 #include "Layout/VertexBufferLayout.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//错误检查
@@ -8,7 +8,7 @@ namespace WindowsNS
 	/// <summary>
 	/// 构造函数
 	/// </summary>
-	RectangleDataLoadEngine::RectangleDataLoadEngine()
+	MatrixDataLoadEngine::MatrixDataLoadEngine()
 	{
 		m_pDLEPrivate = new DataLoadEnginePrivate();
 	}
@@ -16,7 +16,7 @@ namespace WindowsNS
 	/// <summary>
 	/// 析构函数
 	/// </summary>
-	RectangleDataLoadEngine::~RectangleDataLoadEngine()
+	MatrixDataLoadEngine::~MatrixDataLoadEngine()
 	{
 		if (nullptr != m_pDLEPrivate)
 		{
@@ -31,7 +31,7 @@ namespace WindowsNS
 	/// </summary>
 	/// <param name="pArray"></param>
 	/// <param name="count"></param>
-	void RectangleDataLoadEngine::SetIndexData(const unsigned int* pArray, unsigned int count)
+	void MatrixDataLoadEngine::SetIndexData(const unsigned int* pArray, unsigned int count)
 	{
 		m_pDLEPrivate->SetIndexData(pArray, count);
 	}
@@ -41,13 +41,13 @@ namespace WindowsNS
 	/// </summary>
 	/// <param name="pArray"></param>
 	/// <param name="size"></param>
-	void RectangleDataLoadEngine::SetVertexData(const void* pArray, unsigned int size)
+	void MatrixDataLoadEngine::SetVertexData(const void* pArray, unsigned int size)
 	{
 		m_pDLEPrivate->SetVertexData(pArray, size);
 	}
 
 
-	DataLoadEnginePrivate* RectangleDataLoadEngine::GetDataLoadEnginePointer() const
+	DataLoadEnginePrivate* MatrixDataLoadEngine::GetDataLoadEnginePointer() const
 	{
 		return m_pDLEPrivate;
 	}
