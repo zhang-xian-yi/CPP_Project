@@ -3,7 +3,7 @@
 #include "EventCommon/Src/SysEvents/IEvent.h"
 #include "EventCommon/Src/SysEvents.h"
 
-namespace SysEventDNS
+namespace EventDrivenSysNS
 {
 	typedef bool (*EveHandlerFN)(EventCommonNS::IEvent&);
 

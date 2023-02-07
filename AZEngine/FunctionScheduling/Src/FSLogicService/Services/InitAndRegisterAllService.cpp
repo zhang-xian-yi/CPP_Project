@@ -12,7 +12,7 @@
 #include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂类
 #include "OpenGLWindowUI/Src/OpenGLWindowsFactory.h"//OPenglUI的工厂类
 #include "AZDataCompute/Src/DataComputeFactory.h"//数据计算中心类
-#include "EventDrivenSystem/Src/SysEventDrivenFactory.h"//
+#include "EventDrivenSystem/Src/EventDrivenSysFactory.h"//
 namespace FuncScheduleNS
 {
 	using namespace MdlCommonNS;
@@ -30,7 +30,7 @@ namespace FuncScheduleNS
 		pFactory = AZDataComputeNS::DataComputeFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
 		//初始化/注册系统事件驱动实例
-		pFactory = SysEventDNS::SysEventDrivenFactory::GetFactory();
+		pFactory = EventDrivenSysNS::EventDrivenSysFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_SysEventDriven_Type, pFactory);
 	}
 	/// <summary>

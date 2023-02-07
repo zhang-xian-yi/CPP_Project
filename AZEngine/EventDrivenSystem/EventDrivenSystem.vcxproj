@@ -100,15 +100,15 @@
     <ClInclude Include="Src\SEDCommon\SEDCore.h" />
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h" />
     <ClInclude Include="Src\SEDLogicService\SysEventService.h" />
-    <ClInclude Include="Src\SEDMControl\SysEventDrivenMdlControl.h" />
-    <ClInclude Include="Src\SEDMControl\SysEventDrivenServiceControl.h" />
-    <ClInclude Include="Src\SysEventDrivenFactory.h" />
+    <ClInclude Include="Src\SEDMControl\EventDrivenSysMdlControl.h" />
+    <ClInclude Include="Src\SEDMControl\EventDrivenSysServiceControl.h" />
+    <ClInclude Include="Src\EventDrivenSysFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\SEDLogicService\SysEventService.cpp" />
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp" />
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp" />
-    <ClCompile Include="Src\SysEventDrivenFactory.cpp" />
+    <ClCompile Include="Src\SEDMControl\EventDrivenSysMdlControl.cpp" />
+    <ClCompile Include="Src\SEDMControl\EventDrivenSysServiceControl.cpp" />
+    <ClCompile Include="Src\EventDrivenSysFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="C:\Users\23901\Desktop\EventDrivenSystem\模块说明.txt" />

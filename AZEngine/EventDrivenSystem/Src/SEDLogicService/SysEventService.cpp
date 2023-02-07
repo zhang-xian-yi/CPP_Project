@@ -1,7 +1,7 @@
 #include "SysEventService.h"
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
-namespace SysEventDNS
+namespace EventDrivenSysNS
 {
 	//公共事件命名空间
 	using namespace EventCommonNS;

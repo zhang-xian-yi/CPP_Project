@@ -24,16 +24,16 @@
     <ClInclude Include="Src\SEDLogicService\SysEventService.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\SEDMControl\SysEventDrivenMdlControl.h">
+    <ClInclude Include="Src\SEDMControl\EventDrivenSysMdlControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\SEDMControl\SysEventDrivenServiceControl.h">
+    <ClInclude Include="Src\SEDMControl\EventDrivenSysServiceControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\ISystemEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\SysEventDrivenFactory.h">
+    <ClInclude Include="Src\EventDrivenSysFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,13 +41,13 @@
     <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp">
+    <ClCompile Include="Src\SEDMControl\EventDrivenSysMdlControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp">
+    <ClCompile Include="Src\SEDMControl\EventDrivenSysServiceControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\SysEventDrivenFactory.cpp">
+    <ClCompile Include="Src\EventDrivenSysFactory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

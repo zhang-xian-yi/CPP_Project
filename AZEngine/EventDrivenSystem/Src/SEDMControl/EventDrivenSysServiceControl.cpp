@@ -1,14 +1,14 @@
-#include "SysEventDrivenServiceControl.h"
+#include "EventDrivenSysServiceControl.h"
 #include "EventDrivenSystem/Src/SEDLogicService/SysEventService.h"
-namespace SysEventDNS
+namespace EventDrivenSysNS
 {
 
-	SysEventDrivenServiceControl::SysEventDrivenServiceControl()
+	EventDrivenSysServiceControl::EventDrivenSysServiceControl()
 		:m_pSysEveService(new SysEventService())
 	{
 	}
 
-	SysEventDrivenServiceControl::~SysEventDrivenServiceControl()
+	EventDrivenSysServiceControl::~EventDrivenSysServiceControl()
 	{
 		if (m_pSysEveService)
 		{
@@ -23,7 +23,7 @@ namespace SysEventDNS
 	/// <param name="eId">事件id</param>
 	/// <param name="handler">事件处理器</param>
 	/// <returns></returns>
-	bool SysEventDrivenServiceControl::Connect(ESysEventId eId, EventHandler handler)
+	bool EventDrivenSysServiceControl::Connect(ESysEventId eId, EventHandler handler)
 	{
 		return m_pSysEveService->BindEventHandlerList(eId, handler.func);
 	}
@@ -33,7 +33,7 @@ namespace SysEventDNS
 	/// </summary>
 	/// <param name="eve"></param>
 	/// <returns></returns>
-	bool SysEventDrivenServiceControl::DispatchEvent(IEvent& eve)
+	bool EventDrivenSysServiceControl::DispatchEvent(IEvent& eve)
 	{
 		//处理事件
 		return m_pSysEveService->HandleEvent(eve);

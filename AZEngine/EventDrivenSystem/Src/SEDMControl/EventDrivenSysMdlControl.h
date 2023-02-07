@@ -1,14 +1,14 @@
 #pragma once
 #include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
 
-namespace SysEventDNS
+namespace EventDrivenSysNS
 {
 	//游戏引擎的模块控制器
-	class SysEventDrivenMdlControl :public MdlCommonNS::IMdlOperat
+	class EventDrivenSysMdlControl :public MdlCommonNS::IMdlOperat
 	{
 	public:
-		SysEventDrivenMdlControl();
-		~SysEventDrivenMdlControl();
+		EventDrivenSysMdlControl();
+		~EventDrivenSysMdlControl();
 	public:
 		//构造模块
 		virtual bool ConstructModule() override;

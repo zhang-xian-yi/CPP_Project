@@ -39,7 +39,7 @@ namespace AZGameMainApp
 	bool MainApplication::OnEvent(EventCommonNS::IEvent& e)
 	{
 		auto dispatchService = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_SysEventDriven_Type);
-		SysEventDNS::IDispatch* pDispathc = dispatchService.value()->ConvertType<SysEventDNS::IDispatch*>();
+		EventDrivenSysNS::IDispatch* pDispathc = dispatchService.value()->ConvertType<EventDrivenSysNS::IDispatch*>();
 		return pDispathc->DispatchEvent(e);//·¢ËÍÊÂ¼ş  
 	}
 	/// <summary>

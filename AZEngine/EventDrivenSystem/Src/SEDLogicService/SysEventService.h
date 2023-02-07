@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include <list>
 #include "EventDrivenSystem/Src/ISystemEvent.h"
-namespace SysEventDNS
+namespace EventDrivenSysNS
 {
 	using namespace EventCommonNS;
 
