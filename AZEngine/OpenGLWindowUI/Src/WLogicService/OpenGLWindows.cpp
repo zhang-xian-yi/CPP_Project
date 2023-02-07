@@ -1,10 +1,11 @@
 #include "OpenGLWindows.h"
-#include "MdlCommon/Src/CMNInterface/IMdlService.h"
-#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
-#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
-#include "MdlCommon/Src/CMNMacro/TypeMacroDef.h"
-#include "OpenGLWindowUI/Src/IWindow.h"
 #include "Logger/Src/ILogger.h"
+#include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
+#include "EventCommon/Src/SysEvents/ISysEvent.h"//系统事件id
+#include "EventDrivenSystem/Src/ISystemEvent.h"
+
+#include "OpenGLWindowUI/Src/IWindow.h"
+
 #include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 
@@ -17,6 +18,10 @@ namespace WindowsNS
 		 m_pSysEventS(new SystemEventsService())
 	{
 		m_Data.WinPros = props;
+
+		//EventDrivenSysNS::EventHandler handle_t;
+		//注册窗口处理事件
+		//m_pSysEventS->BindEventResponse(EventCommonNS::ESysEventId::WindowClose,handle_t);
 	}
 
 	OpenGLWindows::~OpenGLWindows()

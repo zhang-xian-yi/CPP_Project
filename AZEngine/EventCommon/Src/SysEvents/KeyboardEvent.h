@@ -1,7 +1,7 @@
 #pragma once
 #include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
 #include "EventCommon/Src/ECCommon/ECCore.h"
-#include "EventCommon/Src/SysEvents/IEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
+#include "EventCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
 namespace EventCommonNS
 {
 	using KeyCode = unsigned short;
@@ -145,7 +145,7 @@ namespace EventCommonNS
 	}
 
 	//键盘按钮事件的抽象类
-	class EventCMNNSAPI KeyEvent : public IEvent
+	class EventCMNNSAPI KeyEvent : public ISysEvent
 	{
 	public:
 		KeyCode GetKeyCode() const;

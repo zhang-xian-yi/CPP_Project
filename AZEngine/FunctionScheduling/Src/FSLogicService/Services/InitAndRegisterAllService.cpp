@@ -31,7 +31,7 @@ namespace FuncScheduleNS
 		InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
 		//初始化/注册系统事件驱动实例
 		pFactory = EventDrivenSysNS::EventDrivenSysFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_SysEventDriven_Type, pFactory);
+		InitAndRegisterMdlAsync(EModuleType::E_EventDrivenSys_Type, pFactory);
 	}
 	/// <summary>
 	/// 异步执行任务
@@ -65,7 +65,7 @@ namespace FuncScheduleNS
 			bool rep = pMdl->ConstructModule();
 		
 			//注册模块
-			ServiceContainerSingle::GetContainer().RegisterModuleInterface(type, pMdl, pService);
+			ServiceContainerSingle::GetInstance().RegisterModuleInterface(type, pMdl, pService);
 			//进行日志打印，注意日志模块必须最先注册且是同步
 			std::string msg = MdlCommonNS::EnumModuleTypeExtend::GetInstance().GetMdlCnDesc(type) + "注册成功";
 			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV, msg);

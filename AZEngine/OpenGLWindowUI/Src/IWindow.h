@@ -6,7 +6,7 @@
 //前置声明
 namespace EventCommonNS
 {
-	class IEvent;
+	class ISysEvent;
 }
 
 namespace WindowsNS
@@ -29,7 +29,7 @@ namespace WindowsNS
 	};
 
 	//事件回调函数
-	using EventCallbackFn = std::function<bool(EventCommonNS::IEvent&)>;
+	using EventCallbackFn = std::function<bool(EventCommonNS::ISysEvent&)>;
 
 	// Interface representing a desktop system based Window
 	/// <summary>

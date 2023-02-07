@@ -3,6 +3,11 @@
 #include "Service/GLWindowService.h"
 #include "Service/SystemEventsService.h"
 #include "WindowsData.h"
+//前置声明
+namespace EventCommonNS
+{
+	class ISysEvent;
+}
 namespace WindowsNS
 {
 	/// <summary>
@@ -10,6 +15,7 @@ namespace WindowsNS
 	/// </summary>
 	class OpenGLWindows :public IWindow
 	{
+		//IWindows接口实现
 	public:
 		OpenGLWindows(const WindowProps& props);
 		virtual ~OpenGLWindows();
@@ -28,6 +34,10 @@ namespace WindowsNS
 	public:
 		virtual void Show()override;
 		virtual void Shutdown();
+		//事件响应
+	public:
+		bool OnWindowClose(EventCommonNS::ISysEvent& e);
+		bool OnWindowResize(EventCommonNS::ISysEvent& e);
 	private:
 		GLWindowService* m_pWinS; //GL窗口服务
 		SystemEventsService* m_pSysEventS;

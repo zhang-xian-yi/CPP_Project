@@ -8,6 +8,6 @@ namespace FuncScheduleNS
 	/// </summary>
 	void StopAndUnRegisterAllService::DoService()
 	{
-		MdlCommonNS::ServiceContainerSingle::GetContainer().DestoryContaineer();
+		MdlCommonNS::ServiceContainerSingle::GetInstance().DestoryContaineer();
 	}
 }

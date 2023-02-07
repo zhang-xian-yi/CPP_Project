@@ -8,7 +8,7 @@ namespace WindowsNS
 
 namespace EventCommonNS
 {
-	class IEvent; //事件接口
+	class ISysEvent; //事件接口
 }
 namespace AZGameMainApp
 {
@@ -25,7 +25,7 @@ namespace AZGameMainApp
 		void Run();//程序运行
 		void StopApp();//停止程序
 	private:
-		bool OnEvent(EventCommonNS::IEvent& e);
+		bool OnEvent(EventCommonNS::ISysEvent& e);
 	private:
 		void InitOpenGLWindows();//初始化窗口
 		bool InitAllFunction();//初始化所有的功能模块并注册

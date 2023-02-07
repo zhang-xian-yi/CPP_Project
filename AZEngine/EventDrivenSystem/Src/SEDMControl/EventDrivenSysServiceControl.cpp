@@ -33,7 +33,7 @@ namespace EventDrivenSysNS
 	/// </summary>
 	/// <param name="eve"></param>
 	/// <returns></returns>
-	bool EventDrivenSysServiceControl::DispatchEvent(IEvent& eve)
+	bool EventDrivenSysServiceControl::DispatchEvent(ISysEvent& eve)
 	{
 		//处理事件
 		return m_pSysEveService->HandleEvent(eve);

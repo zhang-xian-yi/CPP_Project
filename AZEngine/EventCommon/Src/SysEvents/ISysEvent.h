@@ -26,12 +26,12 @@ namespace EventCommonNS
 	};
 
 	//所有事件都必须继承的父类
-	class EventCMNNSAPI IEvent
+	class EventCMNNSAPI ISysEvent
 	{
 	public:
 		bool IsHandle;// 是否被处理
 	public:
-		virtual ~IEvent() = default;
+		virtual ~ISysEvent() = default;
 		virtual ESysEventId GetEventId() const = 0;
 		virtual int  GetCategoryFlags() const = 0;
 		virtual const char* GetName()const = 0;//获取事件名称

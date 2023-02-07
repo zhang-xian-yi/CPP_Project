@@ -19,7 +19,7 @@ namespace EventDrivenSysNS
 		//绑定事件ID 和事件处理函数的联系
 		bool BindEventHandlerList(ESysEventId eveId, EveHandlerFN handler);
 		//处理事件
-		bool HandleEvent(IEvent& pEve);
+		bool HandleEvent(ISysEvent& pEve);
 	private:
 		std::unordered_map<ESysEventId, std::list<EveHandlerFN>*>* m_pEventHandlerMap;
 	};

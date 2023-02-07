@@ -11,8 +11,7 @@ namespace MdlCommonNS
 		E_Logger_Type,
 		E_FuncSchedule_Type,
 		E_DataCompute_Type,
-		E_AZWindows_Type,
-		E_SysEventDriven_Type,
+		E_EventDrivenSys_Type,
 		E_OpenGLWindow_Type,
 	};
 

@@ -36,9 +36,9 @@ namespace AZGameMainApp
 
 	}
 
-	bool MainApplication::OnEvent(EventCommonNS::IEvent& e)
+	bool MainApplication::OnEvent(EventCommonNS::ISysEvent& e)
 	{
-		auto dispatchService = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_SysEventDriven_Type);
+		auto dispatchService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_EventDrivenSys_Type);
 		EventDrivenSysNS::IDispatch* pDispathc = dispatchService.value()->ConvertType<EventDrivenSysNS::IDispatch*>();
 		return pDispathc->DispatchEvent(e);//发送事件  
 	}
@@ -47,7 +47,7 @@ namespace AZGameMainApp
 	/// </summary>
 	void MainApplication::InitOpenGLWindows()
 	{
-		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
+		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
 		m_pWindow = windowsService.value()->ConvertType<WindowsNS::IWindow*>();
 		m_pWindow->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));
 	}
@@ -62,7 +62,7 @@ namespace AZGameMainApp
 		bool mdlInitRep = pMdlScheduleCtl->ConstructModule();
 		auto pServiceScheduleCtl = factory->CreateServiceInstance();
 		//注册模块
-		MdlCommonNS::ServiceContainerSingle::GetContainer().RegisterModuleInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type, pMdlScheduleCtl, pServiceScheduleCtl);
+		MdlCommonNS::ServiceContainerSingle::GetInstance().RegisterModuleInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type, pMdlScheduleCtl, pServiceScheduleCtl);
 
 		auto pService = pServiceScheduleCtl->ConvertType<FuncScheduleNS::IFuncSchedule*>();
 		std::any mdlServiceRep = pService->ExecuteCmd(MdlCommonNS::ECommand::E_InitAllFunction);
@@ -79,7 +79,7 @@ namespace AZGameMainApp
 
 	bool MainApplication::StopAllFunction()
 	{
-		auto pServiceOptional = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type);
+		auto pServiceOptional = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_FuncSchedule_Type);
 		if (pServiceOptional.has_value())
 		{
 			auto pService = pServiceOptional.value()->ConvertType<FuncScheduleNS::IFuncSchedule*>();

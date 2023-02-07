@@ -12,7 +12,7 @@ namespace MdlCommonNS
 	/// <param name="msg"></param>
 	void LogMsgOSAsync(LoggerNS::ELogLevel logLv, const char* msg)
 	{
-		auto iLogS = MdlCommonNS::ServiceContainerSingle::GetContainer().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
+		auto iLogS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_Logger_Type);
 		if (iLogS.has_value())
 		{
 			auto prunlog = iLogS.value()->ConvertType<LoggerNS::IFileLogger*>();

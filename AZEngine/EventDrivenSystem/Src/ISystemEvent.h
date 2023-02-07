@@ -1,11 +1,12 @@
 #pragma once
+#include <functional>
 #include "SEDCommon/SEDExpMarcoDefine.h"
-#include "EventCommon/Src/SysEvents/IEvent.h"
+#include "EventCommon/Src/SysEvents/ISysEvent.h"
 #include "EventCommon/Src/SysEvents.h"
 
 namespace EventDrivenSysNS
 {
-	typedef bool (*EveHandlerFN)(EventCommonNS::IEvent&);
+	typedef bool (*EveHandlerFN)(EventCommonNS::ISysEvent&);
 
 	struct EventHandler
 	{
@@ -27,6 +28,6 @@ namespace EventDrivenSysNS
 	class EventDrivenSysNSAPI IDispatch
 	{
 	public:
-		virtual bool DispatchEvent(EventCommonNS::IEvent& eve) = 0;
+		virtual bool DispatchEvent(EventCommonNS::ISysEvent& eve) = 0;
 	};
 }

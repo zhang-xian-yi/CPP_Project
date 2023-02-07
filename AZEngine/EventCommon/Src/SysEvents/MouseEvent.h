@@ -1,7 +1,7 @@
 #pragma once
 #include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
 #include "EventCommon/Src/ECCommon/ECCore.h"
-#include "EventCommon/Src/SysEvents/IEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
+#include "EventCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
 namespace EventCommonNS
 {
 	//定义鼠标
@@ -28,7 +28,7 @@ namespace EventCommonNS
 	}
 
 	//鼠标移动事件
-	class EventCMNNSAPI MouseMovedEvent : public IEvent
+	class EventCMNNSAPI MouseMovedEvent : public ISysEvent
 	{
 	public:
 		MouseMovedEvent(const float x, const float y);
@@ -44,7 +44,7 @@ namespace EventCommonNS
 		float m_mouseY;
 	};
 	//鼠标滚动事件
-	class EventCMNNSAPI MouseScrolledEvent : public IEvent
+	class EventCMNNSAPI MouseScrolledEvent : public ISysEvent
 	{
 	public:
 		MouseScrolledEvent(const float xOffset, const float yOffset);		
@@ -59,7 +59,7 @@ namespace EventCommonNS
 	};
 
 	//鼠标按钮
-	class EventCMNNSAPI MouseBtnEvent : public IEvent
+	class EventCMNNSAPI MouseBtnEvent : public ISysEvent
 	{
 	public:
 		MouseCode GetMouseButton() const;

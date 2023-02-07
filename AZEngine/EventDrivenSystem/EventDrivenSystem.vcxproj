@@ -97,7 +97,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Src\ISystemEvent.h" />
-    <ClInclude Include="Src\SEDCommon\SEDCore.h" />
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h" />
     <ClInclude Include="Src\SEDLogicService\SysEventService.h" />
     <ClInclude Include="Src\SEDMControl\EventDrivenSysMdlControl.h" />

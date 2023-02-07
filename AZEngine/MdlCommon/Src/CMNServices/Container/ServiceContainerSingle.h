@@ -2,6 +2,7 @@
 #include <memory>
 #include <optional>
 #include "MdlCommon/Src/CMNMacro/CMNExpMarcoDefine.h" //导出宏
+#include "MdlCommon/Src/CMNMacro/CoreMacroDef.h"
 /*
 约定，所有针对模块的业务调度均由业务逻辑的容器单例执行
 约定：
@@ -25,12 +26,7 @@ namespace MdlCommonNS
 	//保存项目生命周期中的全局服务实例
 	class MdlCommonDLLAPI ServiceContainerSingle
 	{
-	public:
-		static ServiceContainerSingle& GetContainer()
-		{
-			static ServiceContainerSingle instance;
-			return instance;
-		}
+		SingletonSelfConstruct(ServiceContainerSingle)
 	public:
 		//注册模块操作接口
 		void RegisterModuleInterface(MdlCommonNS::EModuleType mdlType, MdlCommonNS::IMdlOperat* imdlOperat, MdlCommonNS::IMdlService* imdlService);
@@ -41,12 +37,7 @@ namespace MdlCommonNS
 		//获取模块操作接口
 		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(MdlCommonNS::EModuleType mdlType);
 		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(MdlCommonNS::EModuleType mdlType);
-	private:
-		//禁止反复定义单例，禁止delelte 单例对象
-		ServiceContainerSingle();
-		~ServiceContainerSingle();
-		ServiceContainerSingle(ServiceContainerSingle& instance) = delete;
-		ServiceContainerSingle& operator=(const ServiceContainerSingle& instance) = delete;
+
 	private:
 		ServiceContainerSinglePrivate* m_pService;
 	};

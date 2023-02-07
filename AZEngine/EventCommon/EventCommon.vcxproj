@@ -96,7 +96,7 @@
   <ItemGroup>
     <ClInclude Include="Src\ECCommon\ECExpMarcoDefine.h" />
     <ClInclude Include="Src\ECCommon\ECCore.h" />
-    <ClInclude Include="Src\SysEvents\IEvent.h" />
+    <ClInclude Include="Src\SysEvents\ISysEvent.h" />
     <ClInclude Include="Src\SysEvents.h" />
     <ClInclude Include="Src\SysEvents\ApplicationEvent.h" />
     <ClInclude Include="Src\SysEvents\KeyboardEvent.h" />

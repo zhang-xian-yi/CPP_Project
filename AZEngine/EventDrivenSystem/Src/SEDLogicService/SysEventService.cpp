@@ -44,7 +44,7 @@ namespace EventDrivenSysNS
 		return true;
 	}
 
-	bool SysEventService::HandleEvent(IEvent& pEve)
+	bool SysEventService::HandleEvent(ISysEvent& pEve)
 	{
 #ifdef _DEBUG
 		MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"on event id:", std::string(pEve.GetName()));

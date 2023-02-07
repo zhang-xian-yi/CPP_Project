@@ -1,12 +1,12 @@
 #pragma once
 #include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
 #include "EventCommon/Src/ECCommon/ECCore.h"
-#include "EventCommon/Src/SysEvents/IEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
+#include "EventCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
 
 namespace EventCommonNS
 {
 	//窗口调整大小
-	class EventCMNNSAPI WindowResizeEvent : public IEvent
+	class EventCMNNSAPI WindowResizeEvent : public ISysEvent
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height);
@@ -22,7 +22,7 @@ namespace EventCommonNS
 	};
 
 	//窗口关闭
-	class EventCMNNSAPI WindowCloseEvent : public IEvent
+	class EventCMNNSAPI WindowCloseEvent : public ISysEvent
 	{
 	public:
 		WindowCloseEvent() = default;

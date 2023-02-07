@@ -11,4 +11,7 @@ namespace EventCommonNS
 
 //定义事件子类的
 #define DEF_EVENT_CATEGORY(category)    virtual int GetCategoryFlags() const override { return category; }
+
+//绑定事件的宏定义
+#define BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 }

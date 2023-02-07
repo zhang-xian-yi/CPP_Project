@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\SysEvents\IEvent.h">
+    <ClInclude Include="Src\SysEvents\ISysEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SysEvents\ApplicationEvent.h">

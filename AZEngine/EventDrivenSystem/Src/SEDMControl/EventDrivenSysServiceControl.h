@@ -20,9 +20,9 @@ namespace EventDrivenSysNS
 
 	public:
 		//IConnect 接口实现
-		virtual bool Connect(EventCommonNS::ESysEventId eId, EventHandler handler);
+		virtual bool Connect(EventCommonNS::ESysEventId eId, EventHandler handler) override;
 		//IDispatch 接口实现
-		virtual bool DispatchEvent(EventCommonNS::IEvent& eve);
+		virtual bool DispatchEvent(EventCommonNS::ISysEvent& eve) override;
 
 	private:
 		SysEventService* m_pSysEveService;

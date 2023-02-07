@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\SEDCommon\SEDCore.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
