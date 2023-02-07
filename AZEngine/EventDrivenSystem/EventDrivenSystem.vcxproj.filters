@@ -52,6 +52,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="C:\Users\23901\Desktop\EventDrivenSystem\模块说明.txt" />
+    <Text Include="模块说明.txt" />
   </ItemGroup>
 </Project>

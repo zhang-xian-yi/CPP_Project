@@ -9,6 +9,9 @@ namespace WindowsNS
 namespace EventCommonNS
 {
 	class ISysEvent; //事件接口
+	class WindowCloseEvent;
+	class WindowResizeEvent;
+
 }
 
 namespace AZGameMainApp
@@ -37,6 +40,10 @@ namespace AZGameMainApp
 		void InitMember();//初始化陈远
 		bool InitAllFunction();//初始化所有的功能模块并注册
 		bool StopAllFunction();//停止所有的功能模块并取消注册
+	//事件响应
+	private:
+		bool OnWindowCloseEvent(EventCommonNS::WindowCloseEvent& eve);
+		bool OnWindowResizeEvent(EventCommonNS::WindowResizeEvent& eve);
 	private:
 		AZGameMainApp::EventService* m_pEveS;
 		WindowsNS::IWindow* m_pWindow; //窗口

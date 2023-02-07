@@ -111,15 +111,15 @@
     <ClCompile Include="Src\EventDrivenSysFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="C:\Users\23901\Desktop\EventDrivenSystem\模块说明.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EventCommon\EventCommon.vcxproj">
       <Project>{d5a45ff7-b0d3-4bb4-9db2-e65114601b8c}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="模块说明.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

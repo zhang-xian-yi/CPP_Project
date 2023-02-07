@@ -22,17 +22,10 @@ namespace AZGameMainApp
 		InitMember();//成员必须放在功能之后，窗口初始化之前，
 
 		//注册窗口处理事件
-		auto close = [this](EventCommonNS::WindowCloseEvent& eve)->bool
-		{
-			m_bRunning = false;
-			return true;
-		};
-
-		EventDrivenSysNS::EventResponseFunc<bool, EventCommonNS::WindowCloseEvent&> winCloseEvent(close);
+		EventDrivenSysNS::EventResponseFunc<bool, EventCommonNS::WindowCloseEvent&> winCloseEvent(BIND_EVENT_FN(MainApplication::OnWindowCloseEvent));
 		m_pEveS->BindEventResponse(EventCommonNS::ESysEventId::WindowClose, winCloseEvent);
 
 		InitOpenGLWindows();
-
 	}
 	void MainApplication::Run()
 	{
@@ -118,4 +111,25 @@ namespace AZGameMainApp
 		}
 		return false;
 	}
+#pragma region 事件响应
+	bool MainApplication::OnWindowCloseEvent(EventCommonNS::WindowCloseEvent& eve)
+	{
+		m_bRunning = false;
+		return false;
+	}
+	bool MainApplication::OnWindowResizeEvent(EventCommonNS::WindowResizeEvent& eve)
+	{
+		/*
+		if (eve.GetWidth() == 0 || eve.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+
+		m_Minimized = false;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		*/
+		return true;
+	}
+#pragma endregion
 }
