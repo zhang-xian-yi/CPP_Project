@@ -411,6 +411,7 @@
     <ClInclude Include="Src\WLogicService\Render\RendererEngine.h" />
     <ClInclude Include="Src\WLogicService\Render\TextureService.h" />
     <ClInclude Include="Src\WLogicService\Service\GLWindowService.h" />
+    <ClInclude Include="Src\WLogicService\Service\SystemEventsService.h" />
     <ClInclude Include="Src\WLogicService\Shader\ShaderManageGLPrivate.h" />
     <ClInclude Include="Src\WLogicService\Shader\ShaderManager.h" />
     <ClInclude Include="Src\WMControl\WindowsMdlControl.h" />
@@ -434,6 +435,7 @@
     <ClCompile Include="Src\WLogicService\Render\RendererEngine.cpp" />
     <ClCompile Include="Src\WLogicService\Render\TextureService.cpp" />
     <ClCompile Include="Src\WLogicService\Service\GLWindowService.cpp" />
+    <ClCompile Include="Src\WLogicService\Service\SystemEventsService.cpp" />
     <ClCompile Include="Src\WLogicService\Shader\ShaderManageGLPrivate.cpp" />
     <ClCompile Include="Src\WLogicService\Shader\ShaderManager.cpp" />
     <ClCompile Include="Src\WMControl\WindowsMdlControl.cpp" />
