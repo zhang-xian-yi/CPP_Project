@@ -23,15 +23,15 @@ namespace FuncScheduleNS
 		//初始化/注册日志实例
 		pFactory = LoggerNS::LoggerFactory::GetFactory();
 		InitAndRegisterMdl(EModuleType::E_Logger_Type, pFactory);
-		//初始化/注册窗口实例
-		pFactory = WindowsNS::OpenGLWindowsFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_OpenGLWindow_Type, pFactory);
+		//同步 初始化/注册系统事件驱动实例
+		pFactory = EventDrivenSysNS::EventDrivenSysFactory::GetFactory();
+		InitAndRegisterMdl(EModuleType::E_EventDrivenSys_Type, pFactory);
 		//初始化/注册数据计算实例
 		pFactory = AZDataComputeNS::DataComputeFactory::GetFactory();
 		InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
-		//初始化/注册系统事件驱动实例
-		pFactory = EventDrivenSysNS::EventDrivenSysFactory::GetFactory();
-		InitAndRegisterMdlAsync(EModuleType::E_EventDrivenSys_Type, pFactory);
+		//初始化/注册窗口实例
+		pFactory = WindowsNS::OpenGLWindowsFactory::GetFactory();
+		InitAndRegisterMdlAsync(EModuleType::E_OpenGLWindow_Type, pFactory);
 	}
 	/// <summary>
 	/// 异步执行任务

@@ -10,6 +10,12 @@ namespace EventCommonNS
 {
 	class ISysEvent; //事件接口
 }
+
+namespace AZGameMainApp
+{
+	class EventService; //事件接口
+}
+
 namespace AZGameMainApp
 {
 	/// <summary>
@@ -28,9 +34,11 @@ namespace AZGameMainApp
 		bool OnEvent(EventCommonNS::ISysEvent& e);
 	private:
 		void InitOpenGLWindows();//初始化窗口
+		void InitMember();//初始化陈远
 		bool InitAllFunction();//初始化所有的功能模块并注册
 		bool StopAllFunction();//停止所有的功能模块并取消注册
 	private:
+		AZGameMainApp::EventService* m_pEveS;
 		WindowsNS::IWindow* m_pWindow; //窗口
 		bool m_bRunning;//程序是否运行
 	};

@@ -111,6 +111,9 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EventCommon\EventCommon.vcxproj">
+      <Project>{d5a45ff7-b0d3-4bb4-9db2-e65114601b8c}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\FunctionScheduling\FunctionScheduling.vcxproj">
       <Project>{04bc39e6-f429-4f22-9ec8-85f7628507b9}</Project>
     </ProjectReference>
@@ -122,12 +125,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MALogicService\Events\EventService.h" />
     <ClInclude Include="Src\MALogicService\Layers\LayersStack.h" />
     <ClInclude Include="Src\MACommon\CoreMacroDef.h" />
     <ClInclude Include="Src\MALogicService\Layers\ILayer.h" />
     <ClInclude Include="Src\MAMControl\MainApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MALogicService\Events\EventService.cpp" />
     <ClCompile Include="Src\MALogicService\Layers\LayersStack.cpp" />
     <ClCompile Include="Src\MACommon\CoreMacroDef.cpp" />
     <ClCompile Include="Src\main.cpp" />

@@ -23,9 +23,9 @@ namespace EventDrivenSysNS
 	/// <param name="eId">事件id</param>
 	/// <param name="handler">事件处理器</param>
 	/// <returns></returns>
-	bool EventDrivenSysServiceControl::Connect(ESysEventId eId, EventHandler handler)
+	bool EventDrivenSysServiceControl::RegisterPrivate(EventCommonNS::ESysEventId eid, BEventFunc* eFunc)
 	{
-		return m_pSysEveService->BindEventHandlerList(eId, handler.func);
+		return m_pSysEveService->BindEventHandlerList(eid, eFunc);
 	}
 
 	/// <summary>
@@ -33,10 +33,10 @@ namespace EventDrivenSysNS
 	/// </summary>
 	/// <param name="eve"></param>
 	/// <returns></returns>
-	bool EventDrivenSysServiceControl::DispatchEvent(ISysEvent& eve)
+	BEventFunc* EventDrivenSysServiceControl::GetEventFunc(EventCommonNS::ESysEventId eid)
 	{
 		//处理事件
-		return m_pSysEveService->HandleEvent(eve);
+		return m_pSysEveService->GetEventFunc(eid);
 	}
 
 	

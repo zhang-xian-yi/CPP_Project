@@ -1,13 +1,14 @@
 #include "SysEventService.h"
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
+#include "EventResponseFunc.h"
 namespace EventDrivenSysNS
 {
 	//公共事件命名空间
 	using namespace EventCommonNS;
 
 	SysEventService::SysEventService()
-		:m_pEventHandlerMap(new std::unordered_map<ESysEventId, std::list<EveHandlerFN>*>())
+		:m_pEventHandlerMap(new std::unordered_map<ESysEventId, BEventFunc*>())
 	{
 	}
 
@@ -26,43 +27,43 @@ namespace EventDrivenSysNS
 		}
 	}
 
-	bool SysEventService::BindEventHandlerList(ESysEventId eveId, EveHandlerFN handler)
+	/// <summary>
+	/// 保存事件与处理id的关系
+	/// </summary>
+	/// <param name="eveId"></param>
+	/// <param name="eFunc"></param>
+	/// <returns></returns>
+	bool SysEventService::BindEventHandlerList(EventCommonNS::ESysEventId eveId, BEventFunc* eFunc)
 	{
-		if (m_pEventHandlerMap->find(eveId) != m_pEventHandlerMap->end())
+		if (!m_pEventHandlerMap->count(eveId))
 		{
-			//存在
-			auto list = m_pEventHandlerMap->at(eveId);
-			list->emplace_back(handler);//向后添加处理器
+			//不存在-添加
+			m_pEventHandlerMap->insert(std::make_pair(eveId, eFunc));
 		}
 		else
 		{
-			auto list = new std::list<EveHandlerFN>();
-			list->emplace_back(handler);//向后添加处理器
-			//保存在数据记录中
-			m_pEventHandlerMap->insert(std::make_pair(eveId, list));
+			//存在覆盖
+			(*m_pEventHandlerMap)[eveId] = eFunc;
 		}
 		return true;
 	}
 
-	bool SysEventService::HandleEvent(ISysEvent& pEve)
-	{
-#ifdef _DEBUG
-		MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"on event id:", std::string(pEve.GetName()));
-#endif // _DEBUG
+	//声明函数指针
+	typedef bool (*EveHandlerFN)(EventCommonNS::ISysEvent&);
 
-		auto eveId = pEve.GetEventId();
-		if (m_pEventHandlerMap->find(eveId) != m_pEventHandlerMap->end())
+	/// <summary>
+	/// 获取时间处理函数
+	/// </summary>
+	/// <param name="eveId"></param>
+	/// <returns></returns>
+	BEventFunc* SysEventService::GetEventFunc(EventCommonNS::ESysEventId eveId)
+	{
+		if (m_pEventHandlerMap->count(eveId)) //count 返回eveid存在的个数，如果为1就表示存在，就为true，
 		{
 			//存在
-			auto list = m_pEventHandlerMap->at(eveId);
-			for (auto& handlerFN : *list)
-			{
-				//处理事件
-				handlerFN(pEve);
-			}
-			return true;
+			return m_pEventHandlerMap->at(eveId);
 		}
-		return false;
+		return nullptr;
 	}
 
 

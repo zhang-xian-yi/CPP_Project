@@ -27,6 +27,9 @@
     <ClInclude Include="Src\MALogicService\Layers\LayersStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\MALogicService\Events\EventService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\MAMControl\MainApplication.cpp">
@@ -42,6 +45,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\MALogicService\Layers\LayersStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MALogicService\Events\EventService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

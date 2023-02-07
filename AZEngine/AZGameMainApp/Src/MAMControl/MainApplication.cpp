@@ -7,6 +7,8 @@
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
 #include "EventDrivenSystem/Src/ISystemEvent.h"
+#include "AZGameMainApp/Src/MALogicService/Events/EventService.h"
+#include "EventCommon/Src/SysEvents.h"
 #include "OpenGLWindowUI/Src/IWindow.h"
 namespace AZGameMainApp
 {
@@ -17,7 +19,20 @@ namespace AZGameMainApp
 	{
 		m_bRunning = true;
 		bool ret = InitAllFunction();
+		InitMember();//成员必须放在功能之后，窗口初始化之前，
+
+		//注册窗口处理事件
+		auto close = [this](EventCommonNS::WindowCloseEvent& eve)->bool
+		{
+			m_bRunning = false;
+			return true;
+		};
+
+		EventDrivenSysNS::EventResponseFunc<bool, EventCommonNS::WindowCloseEvent&> winCloseEvent(close);
+		m_pEveS->BindEventResponse(EventCommonNS::ESysEventId::WindowClose, winCloseEvent);
+
 		InitOpenGLWindows();
+
 	}
 	void MainApplication::Run()
 	{
@@ -38,9 +53,12 @@ namespace AZGameMainApp
 
 	bool MainApplication::OnEvent(EventCommonNS::ISysEvent& e)
 	{
-		auto dispatchService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_EventDrivenSys_Type);
-		EventDrivenSysNS::IDispatch* pDispathc = dispatchService.value()->ConvertType<EventDrivenSysNS::IDispatch*>();
-		return pDispathc->DispatchEvent(e);//发送事件  
+		bool ret = m_pEveS->HandleEvent(e);
+		
+		//TODO 分层的事件触发
+
+		//返回时间分发结果
+		return ret;
 	}
 	/// <summary>
 	/// 初始化窗口
@@ -50,6 +68,14 @@ namespace AZGameMainApp
 		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
 		m_pWindow = windowsService.value()->ConvertType<WindowsNS::IWindow*>();
 		m_pWindow->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));
+	}
+	/// <summary>
+	/// 初始化陈远
+	/// </summary>
+	void MainApplication::InitMember()
+	{
+		//初始化时间服务
+		m_pEveS = new EventService();
 	}
 	/// <summary>
 	/// 初始化所有的功能模块

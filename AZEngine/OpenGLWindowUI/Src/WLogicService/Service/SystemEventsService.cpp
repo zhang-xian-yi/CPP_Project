@@ -3,21 +3,10 @@
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "OpenGLWindowUI/Src/WLogicService/WindowsData.h"
 #include "EventCommon/Src/SysEvents.h"//系统事件
-#include "EventDrivenSystem/Src/ISystemEvent.h"
-#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h" //功能模块容器
-#include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
-#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+
 #include "GLFW/glfw3.h"
 namespace WindowsNS
 {
-	void SystemEventsService::BindEventResponse(EventCommonNS::ESysEventId eid, EventDrivenSysNS::EventHandler& handle_t)
-	{
-		auto pEDS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_EventDrivenSys_Type);
-		EventDrivenSysNS::IConnect* pConnect = pEDS.value()->ConvertType<EventDrivenSysNS::IConnect*>();
-		//绑定与注册
-		pConnect->Connect(eid, handle_t);
-	}
-
 	/// <summary>
 	/// 初始化系统事件的注册
 	/// </summary>

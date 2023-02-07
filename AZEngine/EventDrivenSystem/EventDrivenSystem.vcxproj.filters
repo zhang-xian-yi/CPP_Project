@@ -33,6 +33,9 @@
     <ClInclude Include="Src\EventDrivenSysFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\EventResponseFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
