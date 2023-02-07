@@ -15,7 +15,7 @@ namespace SysEventDNS
 	/// <summary>
 	/// 负责链接事件ID和事件处理函数
 	/// </summary>
-	class SysEventNSAPI IConnect
+	class EventDrivenSysNSAPI IConnect
 	{
 	public:
 		virtual bool Connect(EventCommonNS::ESysEventId eId, EventHandler handler) = 0;
@@ -24,7 +24,7 @@ namespace SysEventDNS
 	/// <summary>
 	/// 负责转发事件
 	/// </summary>
-	class SysEventNSAPI IDispatch
+	class EventDrivenSysNSAPI IDispatch
 	{
 	public:
 		virtual bool DispatchEvent(EventCommonNS::IEvent& eve) = 0;

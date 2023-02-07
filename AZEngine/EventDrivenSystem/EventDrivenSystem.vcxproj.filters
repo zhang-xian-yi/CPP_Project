@@ -15,27 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\SysEventDrivenFactory.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Src\SysEventDrivenFactory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\ISystemEvent.h">
+    <ClInclude Include="Src\SEDCommon\SEDCore.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SEDCommon\SEDExpMarcoDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SEDLogicService\SysEventService.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SEDMControl\SysEventDrivenMdlControl.h">
@@ -44,14 +30,28 @@
     <ClInclude Include="Src\SEDMControl\SysEventDrivenServiceControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\SEDCommon\SEDCore.h">
+    <ClInclude Include="Src\ISystemEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\SEDLogicService\SysEventService.h">
+    <ClInclude Include="Src\SysEventDrivenFactory.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="模块说明.txt" />
+    <ClCompile Include="Src\SEDLogicService\SysEventService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDMControl\SysEventDrivenMdlControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SEDMControl\SysEventDrivenServiceControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SysEventDrivenFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\23901\Desktop\EventDrivenSystem\模块说明.txt" />
   </ItemGroup>
 </Project>

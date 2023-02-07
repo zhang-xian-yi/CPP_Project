@@ -10,7 +10,7 @@ namespace MdlCommonNS
 namespace SysEventDNS
 {
 	//日志模块的工厂
-	class SysEventNSAPI SysEventDrivenFactory :public MdlCommonNS::IMdlFactory
+	class EventDrivenSysNSAPI SysEventDrivenFactory :public MdlCommonNS::IMdlFactory
 	{
 		//禁止反复定义工厂，禁止delelte 工厂对象
 		SingletonFactory(SysEventDrivenFactory)
