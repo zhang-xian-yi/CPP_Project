@@ -5,7 +5,7 @@
 #include <sstream>//字符串流
 #include <direct.h>
 #include "ShaderManageGLPrivate.h"//ShaderManageGLPrivate 引入
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//错误检查
 namespace WindowsNS
 {

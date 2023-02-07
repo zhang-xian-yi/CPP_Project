@@ -1,5 +1,5 @@
 #include "VertexBuffer.h"
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//´íÎó¼ì²é
 
 namespace WindowsNS

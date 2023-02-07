@@ -3,7 +3,7 @@
 #include "Logger/Src/ILogger.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
-#include "GL/glew.h"  //glew.h 必须放在最前面 否则报错 gl.g 必须include 在此之后的错误
+#include "Glad/glad.h"  //glew.h 必须放在最前面 否则报错 gl.g 必须include 在此之后的错误
 #include "GLFW/glfw3.h"
 
 
@@ -116,11 +116,11 @@ namespace WindowsNS
 
         /* Make the window's context current */
         glfwMakeContextCurrent(_pWindow);
-
+        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
         //必须获取opengl的上下文
-        if (glewInit() != GLEW_OK)
+        if (status == 0)
         {
-            MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "glewInit error");
+            MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "gladInit error");
             return -1;
         }
         //初始哈u窗口正常

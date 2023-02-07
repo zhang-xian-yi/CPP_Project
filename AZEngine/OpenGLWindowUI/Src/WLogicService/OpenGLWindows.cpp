@@ -8,7 +8,7 @@
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "Logger/Src/ILogger.h"
 #include "EventCommon/Src/SysEvents.h"//系统事件
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 
 namespace WindowsNS

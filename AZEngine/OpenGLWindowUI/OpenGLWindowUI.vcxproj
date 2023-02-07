@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -67,7 +67,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)OpenGLWindowUI\DependentLib\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -91,17 +91,15 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)OpenGLWindowUI\DependentLib\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DependentLib\include\GL\eglew.h" />
-    <ClInclude Include="DependentLib\include\GL\glew.h" />
-    <ClInclude Include="DependentLib\include\GL\glxew.h" />
-    <ClInclude Include="DependentLib\include\GL\wglew.h" />
+    <ClInclude Include="DependentLib\include\Glad\glad.h" />
+    <ClInclude Include="DependentLib\include\Glad\khrplatform.h" />
     <ClInclude Include="DependentLib\include\GLFW\glfw3.h" />
     <ClInclude Include="DependentLib\include\GLFW\glfw3native.h" />
     <ClInclude Include="DependentLib\include\glm\common.hpp" />
@@ -443,7 +441,6 @@
     <ClCompile Include="Src\WCommon\WGLMacroDef.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="DependentLib\lib\glew32s.lib" />
     <Library Include="DependentLib\lib\glfw3.lib" />
     <Library Include="DependentLib\lib\imgui.lib" />
     <Library Include="DependentLib\lib\OpenGL32.Lib" />

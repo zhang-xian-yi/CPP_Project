@@ -122,10 +122,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MALogicService\Layers\LayersStack.h" />
     <ClInclude Include="Src\MACommon\CoreMacroDef.h" />
+    <ClInclude Include="Src\MALogicService\Layers\ILayer.h" />
     <ClInclude Include="Src\MAMControl\MainApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\MALogicService\Layers\LayersStack.cpp" />
     <ClCompile Include="Src\MACommon\CoreMacroDef.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\MAMControl\MainApplication.cpp" />

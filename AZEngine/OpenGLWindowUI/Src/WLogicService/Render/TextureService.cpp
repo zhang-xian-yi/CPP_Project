@@ -1,7 +1,7 @@
 #include "TextureService.h"
 #include "RendererEngine.h"
 #include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"//错误检查
-#include "GL/glew.h"
+#include "Glad/glad.h"
 #include "stb_image/stb_image.h"//已经包含AThirdPartSrc 在搜索库目录中
 
 namespace WindowsNS
