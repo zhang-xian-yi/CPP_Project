@@ -12,7 +12,7 @@
 #include "FunctionScheduling/Src/FuncScheduleFactory.h"//模块调度工厂类
 #include "OpenGLWindowUI/Src/OpenGLWindowsFactory.h"//OPenglUI的工厂类
 #include "AZDataCompute/Src/DataComputeFactory.h"//数据计算中心类
-#include "SystemEventDriven/Src/SysEventDrivenFactory.h"//
+#include "EventDrivenSystem/Src/SysEventDrivenFactory.h"//
 namespace FuncScheduleNS
 {
 	using namespace MdlCommonNS;

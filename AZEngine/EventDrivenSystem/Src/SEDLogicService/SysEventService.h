@@ -1,7 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include <list>
-#include "SystemEventDriven/Src/ISystemEvent.h"
+#include "EventDrivenSystem/Src/ISystemEvent.h"
 namespace SysEventDNS
 {
 	using namespace EventCommonNS;

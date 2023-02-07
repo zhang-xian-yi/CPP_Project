@@ -1,13 +1,10 @@
 #include "OpenGLWindows.h"
 #include "MdlCommon/Src/CMNInterface/IMdlService.h"
-#include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"//模块类型
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
-#include "OpenGLWindowUI/Src/WCommon/WGLMacroDef.h"
 #include "MdlCommon/Src/CMNMacro/TypeMacroDef.h"
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "Logger/Src/ILogger.h"
-#include "EventCommon/Src/SysEvents.h"//系统事件
 #include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 
@@ -16,7 +13,8 @@ namespace WindowsNS
 	static uint8_t s_GLFWWindowCount = 0;
 
 	OpenGLWindows::OpenGLWindows(const WindowProps& props)
-		:m_WinService(new GLWindowService())
+		:m_pWinS(new GLWindowService()),
+		 m_pSysEventS(new SystemEventsService())
 	{
 		m_Data.WinPros = props;
 	}
@@ -34,121 +32,35 @@ namespace WindowsNS
 		if (s_GLFWWindowCount == 0)
 		{
 			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"glfwInit");
-			auto success = m_WinService->initWinEnvir(m_Data.WinPros);
+			auto success = m_pWinS->initWinEnvir(m_Data.WinPros);
 			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV," initialize GLFW :", std::to_string(success) );
 			
 		}
-		auto GLWin = m_WinService->GetGLFWindowsHandle();
-
+		auto GLWin = m_pWinS->GetGLFWindowsHandle();
+		//设置窗口的用户自定义数据
 		glfwSetWindowUserPointer(GLWin, &m_Data);
 		SetVSync(true);
-
-		// Set GLFW callbacks
-		glfwSetWindowSizeCallback(GLWin, [](GLFWwindow* window, int width, int height)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				data.WinPros.Width = width;
-				data.WinPros.Height = height;
-
-				EventCommonNS::WindowResizeEvent eve(width, height);
-				data.EventCallback(eve);
-			});
-
-		glfwSetWindowCloseCallback(GLWin, [](GLFWwindow* window)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				EventCommonNS::WindowCloseEvent event;
-				data.EventCallback(event);
-			});
-
-		glfwSetKeyCallback(GLWin, [](GLFWwindow* window, int key, int scancode, int action, int mods)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
-				switch (action)
-				{
-				case GLFW_PRESS:
-				{
-					EventCommonNS::KeyPressedEvent event(key, 0);
-					data.EventCallback(event);
-					break;
-				}
-				case GLFW_RELEASE:
-				{
-					EventCommonNS::KeyReleasedEvent event(key);
-					data.EventCallback(event);
-					break;
-				}
-				case GLFW_REPEAT:
-				{
-					EventCommonNS::KeyPressedEvent event(key, true);
-					data.EventCallback(event);
-					break;
-				}
-				}
-			});
-
-		glfwSetCharCallback(GLWin, [](GLFWwindow* window, unsigned int keycode)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
-				EventCommonNS::KeyTypedEvent event(keycode);
-				data.EventCallback(event);
-			});
-
-		glfwSetMouseButtonCallback(GLWin, [](GLFWwindow* window, int button, int action, int mods)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
-				switch (action)
-				{
-				case GLFW_PRESS:
-				{
-					EventCommonNS::MouseBtnPressedEvent event(button);
-					data.EventCallback(event);
-					break;
-				}
-				case GLFW_RELEASE:
-				{
-					EventCommonNS::MouseBtnReleasedEvent event(button);
-					data.EventCallback(event);
-					break;
-				}
-				}
-			});
-
-		glfwSetScrollCallback(GLWin, [](GLFWwindow* window, double xOffset, double yOffset)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
-				EventCommonNS::MouseScrolledEvent event((float)xOffset, (float)yOffset);
-				data.EventCallback(event);
-			});
-
-		glfwSetCursorPosCallback(GLWin, [](GLFWwindow* window, double xPos, double yPos)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
-				EventCommonNS::MouseMovedEvent event((float)xPos, (float)yPos);
-				data.EventCallback(event);
-			});
+		//初始化事件相应
+		m_pSysEventS->InitSysEventRegister(GLWin);
 	}
 
 	void OpenGLWindows::Shutdown()
 	{
-		glfwDestroyWindow(m_WinService->GetGLFWindowsHandle());
+		glfwDestroyWindow(m_pWinS->GetGLFWindowsHandle());
 		--s_GLFWWindowCount;
 
 		//删除窗口
-		if (s_GLFWWindowCount == 0 && m_WinService)
+		if (s_GLFWWindowCount == 0 && m_pWinS)
 		{
-			delete m_WinService;
+			delete m_pWinS;
+			delete m_pSysEventS;
 		}
 	}
 
+	//刷新窗口
 	void OpenGLWindows::OnUpdate()
 	{
-		m_WinService->FlushWindow();
+		m_pWinS->FlushWindow();
 	}
 
 	void OpenGLWindows::SetVSync(bool enabled)

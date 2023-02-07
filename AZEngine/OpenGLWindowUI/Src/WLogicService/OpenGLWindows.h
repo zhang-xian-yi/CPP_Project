@@ -1,7 +1,8 @@
 #pragma once
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "Service/GLWindowService.h"
-
+#include "Service/SystemEventsService.h"
+#include "WindowsData.h"
 namespace WindowsNS
 {
 	/// <summary>
@@ -23,21 +24,13 @@ namespace WindowsNS
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
-		virtual void* GetNativeWindow() const { return m_WinService->GetGLFWindowsHandle(); }
+		virtual void* GetNativeWindow() const { return m_pWinS->GetGLFWindowsHandle(); }
 	public:
 		virtual void Show()override;
 		virtual void Shutdown();
 	private:
-		GLWindowService* m_WinService;
-
-		//窗口数据
-		struct WindowData
-		{
-			WindowProps WinPros;//窗口属性
-			bool VSync;
-			EventCallbackFn EventCallback;
-		};
-
-		WindowData m_Data;
+		GLWindowService* m_pWinS; //GL窗口服务
+		SystemEventsService* m_pSysEventS;
+		WindowData m_Data;//窗口数据
 	};
 }

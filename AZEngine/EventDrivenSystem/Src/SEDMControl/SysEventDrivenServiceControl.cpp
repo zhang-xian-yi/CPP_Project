@@ -1,5 +1,5 @@
 #include "SysEventDrivenServiceControl.h"
-#include "SystemEventDriven/Src/SEDLogicService/SysEventService.h"
+#include "EventDrivenSystem/Src/SEDLogicService/SysEventService.h"
 namespace SysEventDNS
 {
 

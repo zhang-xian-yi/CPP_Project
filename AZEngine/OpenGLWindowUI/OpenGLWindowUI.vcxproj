@@ -412,6 +412,7 @@
     <ClInclude Include="Src\WLogicService\Service\SystemEventsService.h" />
     <ClInclude Include="Src\WLogicService\Shader\ShaderManageGLPrivate.h" />
     <ClInclude Include="Src\WLogicService\Shader\ShaderManager.h" />
+    <ClInclude Include="Src\WLogicService\WindowsData.h" />
     <ClInclude Include="Src\WMControl\WindowsMdlControl.h" />
     <ClInclude Include="Src\WMControl\WindowsServiceControl.h" />
     <ClInclude Include="Src\WCommon\WGLMacroDef.h" />
@@ -441,6 +442,7 @@
     <ClCompile Include="Src\WCommon\WGLMacroDef.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="DependentLib\lib\Glad.lib" />
     <Library Include="DependentLib\lib\glfw3.lib" />
     <Library Include="DependentLib\lib\imgui.lib" />
     <Library Include="DependentLib\lib\OpenGL32.Lib" />

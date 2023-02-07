@@ -119,6 +119,9 @@
     <ProjectReference Include="..\AZDataCompute\AZDataCompute.vcxproj">
       <Project>{48321911-e983-4a6b-9027-4441549e6847}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\EventDrivenSystem\EventDrivenSystem.vcxproj">
+      <Project>{e3bade24-26b1-42a2-9655-7b179f7b57cc}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
       <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
     </ProjectReference>
@@ -127,9 +130,6 @@
     </ProjectReference>
     <ProjectReference Include="..\OpenGLWindowUI\OpenGLWindowUI.vcxproj">
       <Project>{ff7a9004-0c69-46a1-bfe2-7074595b018e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SystemEventDriven\SystemEventDriven.vcxproj">
-      <Project>{e3bade24-26b1-42a2-9655-7b179f7b57cc}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

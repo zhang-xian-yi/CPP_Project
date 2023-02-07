@@ -6,7 +6,7 @@
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
-#include "SystemEventDriven/Src/ISystemEvent.h"
+#include "EventDrivenSystem/Src/ISystemEvent.h"
 #include "OpenGLWindowUI/Src/IWindow.h"
 namespace AZGameMainApp
 {

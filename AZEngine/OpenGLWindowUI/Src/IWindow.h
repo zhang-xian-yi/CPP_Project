@@ -28,6 +28,9 @@ namespace WindowsNS
 		}
 	};
 
+	//事件回调函数
+	using EventCallbackFn = std::function<bool(EventCommonNS::IEvent&)>;
+
 	// Interface representing a desktop system based Window
 	/// <summary>
 	/// 约定窗口类的必要操作
@@ -35,8 +38,6 @@ namespace WindowsNS
 	class IWindow
 	{
 	public:
-		//事件回调函数
-		using EventCallbackFn = std::function<bool(EventCommonNS::IEvent&)>;
 		//析构函数
 		virtual ~IWindow() = default;
 		//窗口更新函数
