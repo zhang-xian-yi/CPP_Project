@@ -69,7 +69,7 @@ namespace WindowsNS
         }
         //初始化窗口配置
         this->initWindowsConfig();
-        return 0;
+        return 1;
     }
 
     int GLWindowService::initWindows(WindowProps& pros)
@@ -113,6 +113,7 @@ namespace WindowsNS
             glfwTerminate();
             return -1;
         }
+        //初始哈u窗口正常
 
         /* Make the window's context current */
         glfwMakeContextCurrent(_pWindow);
@@ -123,7 +124,6 @@ namespace WindowsNS
             MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Error_LV, "gladInit error");
             return -1;
         }
-        //初始哈u窗口正常
         return 0;
     }
 

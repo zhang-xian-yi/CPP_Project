@@ -1,5 +1,4 @@
 #include "MAMControl/MainApplication.h"
-#include <iostream>
 
 int main(int argc, char* argv[])
 {
@@ -10,7 +9,7 @@ int main(int argc, char* argv[])
 	app.Run();
 
 	app.StopApp();//สอทลืสิด
-	std::cin.get();
+	system("pause");
 	return 0;
 }
 

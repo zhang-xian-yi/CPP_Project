@@ -8,9 +8,7 @@ Author			Version			Date
 张贤忆			1.0				2023/01/30    
 ********************************************************************************************/
 #include "ServiceContainerSingle.h"
-#include <map>
 #include <unordered_map>
-#include <memory>
 #include "semaphore.h"//信号量
 #include "CMNMEnum/ModuelType/EModuleType.h"
 #include "CMNInterface/IMdlOperat.h"
@@ -36,8 +34,8 @@ namespace MdlCommonNS
 		std::optional<MdlCommonNS::IMdlOperat*> GetModuleOperatInterface(EModuleType mdlType);
 		std::optional<MdlCommonNS::IMdlService*> GetModuleServiceInterface(EModuleType mdlType);
 	private:
-		std::unordered_map<EModuleType, IMdlOperat*>* m_pMdlOperatMap;
-		std::unordered_map<EModuleType, IMdlService*>* m_pMdlServiceMap;
+		std::unordered_map<EModuleType, IMdlOperat*>* m_pMdlOperatMap;//模块操作容器
+		std::unordered_map<EModuleType, IMdlService*>* m_pMdlServiceMap;//模块业务容器
 	};
 
 	/// <summary>
@@ -143,7 +141,8 @@ namespace MdlCommonNS
 {
 	//多个线程同时注册业务时的线程同步信号量
 	static sem_t _RegisteSemSig;
-
+	//多个线程同时注册业务时的线程同步信号量
+	static sem_t _UnRegisteSemSig;
 	/// <summary>
 	/// 构造函数
 	/// </summary>
@@ -151,6 +150,7 @@ namespace MdlCommonNS
 		:m_pService(new ServiceContainerSinglePrivate())
 	{
 		sem_init(&_RegisteSemSig,0,1);//初始值1 表示最多允许1一个线程使用
+		sem_init(&_UnRegisteSemSig, 0, 1);//初始值1 表示最多允许1一个线程使用
 	}
 	//析构函数
 	ServiceContainerSingle::~ServiceContainerSingle()
@@ -170,11 +170,16 @@ namespace MdlCommonNS
 		//信号量+1 唤醒等待的线程
 		sem_post(&_RegisteSemSig);
 	}
+	//注销模块
 	void ServiceContainerSingle::UnRegisterModuleInterface(EModuleType mdlType)
 	{
+		//信号量 -1 进入此函数的其余线程等待
+		sem_wait(&_UnRegisteSemSig);
 		m_pService->UnRegisterModuleInterface(mdlType);
+		//信号量+1 唤醒等待的线程
+		sem_post(&_UnRegisteSemSig);
 	}
-
+	//销毁模块容器
 	void ServiceContainerSingle::DestoryContaineer()
 	{
 		m_pService->DestoryContaineer();

@@ -1,5 +1,5 @@
 #pragma once
-//
+#include <future>//异步执行头文件
 #include "FSLogicService/IService.h"
 
 namespace MdlCommonNS
@@ -24,7 +24,7 @@ namespace FuncScheduleNS
 		virtual void DoService();
 	private:
 		//根据工厂对象创建与注册指定实例
-		void InitAndRegisterMdlAsync(MdlCommonNS::EModuleType type, MdlCommonNS::IMdlFactory* factory);
+		std::future<bool> InitAndRegisterMdlAsync(MdlCommonNS::EModuleType type, MdlCommonNS::IMdlFactory* factory);
 		bool InitAndRegisterMdl(MdlCommonNS::EModuleType type, MdlCommonNS::IMdlFactory* factory);
 	};
 }
