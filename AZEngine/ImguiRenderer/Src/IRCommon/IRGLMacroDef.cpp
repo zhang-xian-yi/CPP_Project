@@ -1,10 +1,10 @@
-#include "WGLMacroDef.h"
+#include "IRGLMacroDef.h"
 #include <sstream>//×Ö·û´®Á÷
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "Logger/Src/ILogger.h"
 #include "Glad/glad.h"
 
-namespace WindowsNS
+namespace ImguiRendererNS
 {
 	/// <summary>
 	/// ¼ì²â

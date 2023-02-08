@@ -9,7 +9,7 @@ Author			Version			Date
 ********************************************************************************************/
 #include "ServiceContainerSingle.h"
 #include <unordered_map>
-#include "semaphore.h"//信号量
+#include "pthreads/semaphore.h"//信号量
 #include "CMNMEnum/ModuelType/EModuleType.h"
 #include "CMNInterface/IMdlOperat.h"
 #include "CMNInterface/IMdlService.h"

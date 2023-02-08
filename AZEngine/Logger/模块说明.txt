@@ -4,3 +4,6 @@
 3 不同信息记录等级，debug，info，warning，error，fatal
 4 记录信息格式化，所在模块，所在文件，所在函数，所在行数，标准过程信息记录
 
+
+本模块使用了第三方库spdlog
+目录在（解决方法目录）SolutionResource\ThirdPartLib\include\spdlog\

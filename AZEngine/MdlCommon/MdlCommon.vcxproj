@@ -126,19 +126,19 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\pthreads\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>pthreadVC2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\pthreads</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\lib\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
       <Message>拷贝第三方库</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -152,7 +152,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\pthreads\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,13 +160,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>pthreadVC2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\pthreads</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\pthreads\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
+      <Command>copy $(SolutionDir)SolutionResource\ThirdPartLib\lib\pthreadVC2.dll  $(SolutionDir)OutputDir\ExecuteBin\pthreadVC2.dll</Command>
       <Message>拷贝第三方库</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
