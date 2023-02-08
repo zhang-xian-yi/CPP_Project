@@ -8,6 +8,8 @@
 #include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
 #include "EventDrivenSystem/Src/ISystemEvent.h"
 #include "AZGameMainApp/Src/MALogicService/Events/EventService.h"
+#include "AZGameMainApp/Src/MALogicService/Layers/LayersStack.h"//层栈
+#include "LayerCommon/Src/LCInterface/ILayer.h"//层栈指针
 #include "LayerCommon/Src/SysEvents.h"
 #include "OpenGLWindowUI/Src/IWindow.h" 
 namespace AZGameMainApp
@@ -33,6 +35,11 @@ namespace AZGameMainApp
 		while (m_bRunning)
 		{
 			m_pWindow->OnUpdate();
+			for (auto it = m_pLayersStack->begin(); it != m_pLayersStack->end(); ++it)
+			{
+				//从底层向顶层渲染
+				(*it)->OnUpdate();
+			}
 		}
 	}
 	/// <summary>
@@ -48,8 +55,16 @@ namespace AZGameMainApp
 	{
 		bool ret = m_pEveS->HandleEvent(e);
 		
-		//TODO 分层的事件触发
-
+		//TODO 分层的事件触发 从顶层到底层遍历响应事件
+		for (auto it = m_pLayersStack->rbegin(); it != m_pLayersStack->rend(); ++it)
+		{
+			if (e.IsHandle)
+			{
+				break;//事件已被处理，不做其他请求
+			}
+			//逐层响应事件
+			(*it)->OnEvent(e);
+		}
 		//返回时间分发结果
 		return ret;
 	}
@@ -69,6 +84,7 @@ namespace AZGameMainApp
 	{
 		//初始化时间服务
 		m_pEveS = new EventService();
+		m_pLayersStack = new LayersStack();
 	}
 	/// <summary>
 	/// 初始化所有的功能模块

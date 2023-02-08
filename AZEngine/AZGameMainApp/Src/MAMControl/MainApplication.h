@@ -17,6 +17,7 @@ namespace LayerCommonNS
 namespace AZGameMainApp
 {
 	class EventService; //事件接口
+	class LayersStack;
 }
 
 namespace AZGameMainApp
@@ -47,6 +48,7 @@ namespace AZGameMainApp
 	private:
 		AZGameMainApp::EventService* m_pEveS;
 		WindowsNS::IWindow* m_pWindow; //窗口
+		LayersStack* m_pLayersStack;
 		bool m_bRunning;//程序是否运行
 	};
 
