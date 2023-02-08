@@ -8,8 +8,8 @@
 #include "MdlCommon/Src/CMNMEnum/Command/ECommand.h"//执行命令的参数
 #include "EventDrivenSystem/Src/ISystemEvent.h"
 #include "AZGameMainApp/Src/MALogicService/Events/EventService.h"
-#include "EventCommon/Src/SysEvents.h"
-#include "OpenGLWindowUI/Src/IWindow.h"
+#include "LayerCommon/Src/SysEvents.h"
+#include "OpenGLWindowUI/Src/IWindow.h" 
 namespace AZGameMainApp
 {
 	/// <summary>
@@ -22,8 +22,8 @@ namespace AZGameMainApp
 		InitMember();//成员必须放在功能之后，窗口初始化之前，
 
 		//注册窗口处理事件
-		EventDrivenSysNS::EventResponseFunc<bool, EventCommonNS::WindowCloseEvent&> winCloseEvent(BIND_EVENT_FN(MainApplication::OnWindowCloseEvent));
-		m_pEveS->BindEventResponse(EventCommonNS::ESysEventId::WindowClose, winCloseEvent);
+		EventDrivenSysNS::EventResponseFunc<bool, LayerCommonNS::WindowCloseEvent&> winCloseEvent(BIND_EVENT_FN(MainApplication::OnWindowCloseEvent));
+		m_pEveS->BindEventResponse(LayerCommonNS::ESysEventId::WindowClose, winCloseEvent);
 
 		InitOpenGLWindows();
 	}
@@ -44,7 +44,7 @@ namespace AZGameMainApp
 
 	}
 
-	bool MainApplication::OnEvent(EventCommonNS::ISysEvent& e)
+	bool MainApplication::OnEvent(LayerCommonNS::ISysEvent& e)
 	{
 		bool ret = m_pEveS->HandleEvent(e);
 		
@@ -112,12 +112,12 @@ namespace AZGameMainApp
 		return false;
 	}
 #pragma region 事件响应
-	bool MainApplication::OnWindowCloseEvent(EventCommonNS::WindowCloseEvent& eve)
+	bool MainApplication::OnWindowCloseEvent(LayerCommonNS::WindowCloseEvent& eve)
 	{
 		m_bRunning = false;
 		return false;
 	}
-	bool MainApplication::OnWindowResizeEvent(EventCommonNS::WindowResizeEvent& eve)
+	bool MainApplication::OnWindowResizeEvent(LayerCommonNS::WindowResizeEvent& eve)
 	{
 		/*
 		if (eve.GetWidth() == 0 || eve.GetHeight() == 0)

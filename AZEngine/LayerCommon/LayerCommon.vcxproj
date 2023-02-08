@@ -10,11 +10,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\LCCommon\LCCore.h" />
+    <ClInclude Include="Src\LCCommon\LCExpMarcoDefine.h" />
+    <ClInclude Include="Src\LCInterface\ILayer.h" />
+    <ClInclude Include="Src\SysEvents.h" />
+    <ClInclude Include="Src\SysEvents\ApplicationEvent.h" />
+    <ClInclude Include="Src\SysEvents\ISysEvent.h" />
+    <ClInclude Include="Src\SysEvents\KeyboardEvent.h" />
+    <ClInclude Include="Src\SysEvents\MouseEvent.h" />
+    <ClInclude Include="Src\SysEvents\WindowEvent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\SysEvents\ApplicationEvent.cpp" />
+    <ClCompile Include="Src\SysEvents\KeyboardEvent.cpp" />
+    <ClCompile Include="Src\SysEvents\MouseEvent.cpp" />
+    <ClCompile Include="Src\SysEvents\WindowEvent.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d5a45ff7-b0d3-4bb4-9db2-e65114601b8c}</ProjectGuid>
-    <RootNamespace>EventCommon</RootNamespace>
+    <ProjectGuid>{cf507d3c-9ce1-4bab-ba61-1ca2a1370409}</ProjectGuid>
+    <RootNamespace>LayerCommon</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -57,15 +74,18 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>EVENT_COMMON_NSExport;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LAYER_COMMON_NSExport;_DEBUG;LAYERCOMMON_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -77,38 +97,25 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>EVENT_COMMON_NSExport;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LAYER_COMMON_NSExport;NDEBUG;LAYERCOMMON_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Src\ECCommon\ECExpMarcoDefine.h" />
-    <ClInclude Include="Src\ECCommon\ECCore.h" />
-    <ClInclude Include="Src\SysEvents\ISysEvent.h" />
-    <ClInclude Include="Src\SysEvents.h" />
-    <ClInclude Include="Src\SysEvents\ApplicationEvent.h" />
-    <ClInclude Include="Src\SysEvents\KeyboardEvent.h" />
-    <ClInclude Include="Src\SysEvents\MouseEvent.h" />
-    <ClInclude Include="Src\SysEvents\WindowEvent.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Src\SysEvents\ApplicationEvent.cpp" />
-    <ClCompile Include="Src\SysEvents\KeyboardEvent.cpp" />
-    <ClCompile Include="Src\SysEvents\MouseEvent.cpp" />
-    <ClCompile Include="Src\SysEvents\WindowEvent.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

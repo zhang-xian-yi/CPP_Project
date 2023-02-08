@@ -1,8 +1,8 @@
 #pragma once
-#include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
-#include "EventCommon/Src/ECCommon/ECCore.h"
-#include "EventCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
-namespace EventCommonNS
+#include "LayerCommon/Src/LCCommon/LCExpMarcoDefine.h"
+#include "LayerCommon/Src/LCCommon/LCCore.h"
+#include "LayerCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
+namespace LayerCommonNS
 {
 	//定义鼠标
 	using MouseCode = unsigned short;
@@ -28,7 +28,7 @@ namespace EventCommonNS
 	}
 
 	//鼠标移动事件
-	class EventCMNNSAPI MouseMovedEvent : public ISysEvent
+	class LayerCommonNSAPI MouseMovedEvent : public ISysEvent
 	{
 	public:
 		MouseMovedEvent(const float x, const float y);
@@ -44,7 +44,7 @@ namespace EventCommonNS
 		float m_mouseY;
 	};
 	//鼠标滚动事件
-	class EventCMNNSAPI MouseScrolledEvent : public ISysEvent
+	class LayerCommonNSAPI MouseScrolledEvent : public ISysEvent
 	{
 	public:
 		MouseScrolledEvent(const float xOffset, const float yOffset);		
@@ -59,7 +59,7 @@ namespace EventCommonNS
 	};
 
 	//鼠标按钮
-	class EventCMNNSAPI MouseBtnEvent : public ISysEvent
+	class LayerCommonNSAPI MouseBtnEvent : public ISysEvent
 	{
 	public:
 		MouseCode GetMouseButton() const;
@@ -73,7 +73,7 @@ namespace EventCommonNS
 	};
 
 	//鼠标按钮按下
-	class EventCMNNSAPI MouseBtnPressedEvent : public MouseBtnEvent
+	class LayerCommonNSAPI MouseBtnPressedEvent : public MouseBtnEvent
 	{
 	public:
 		MouseBtnPressedEvent(const MouseCode button);
@@ -83,7 +83,7 @@ namespace EventCommonNS
 	};
 
 	//鼠标按钮释放
-	class EventCMNNSAPI MouseBtnReleasedEvent : public MouseBtnEvent
+	class LayerCommonNSAPI MouseBtnReleasedEvent : public MouseBtnEvent
 	{
 	public:
 		MouseBtnReleasedEvent(const MouseCode button);

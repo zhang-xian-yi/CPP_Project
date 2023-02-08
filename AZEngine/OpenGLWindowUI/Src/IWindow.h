@@ -4,7 +4,7 @@
 #include "MdlCommon/Src/CMNMacro/TypeMacroDef.h"
 
 //前置声明
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	class ISysEvent;
 }
@@ -29,7 +29,7 @@ namespace WindowsNS
 	};
 
 	//事件回调函数
-	using EventCallbackFn = std::function<bool(EventCommonNS::ISysEvent&)>;
+	using EventCallbackFn = std::function<bool(LayerCommonNS::ISysEvent&)>;
 
 	// Interface representing a desktop system based Window
 	/// <summary>

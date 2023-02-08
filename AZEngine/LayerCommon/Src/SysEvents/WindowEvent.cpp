@@ -1,6 +1,6 @@
 #include "WindowEvent.h"
 
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	/*------------------------------------------------------------------------------------*/
 	WindowResizeEvent::WindowResizeEvent(unsigned int width, unsigned int height)

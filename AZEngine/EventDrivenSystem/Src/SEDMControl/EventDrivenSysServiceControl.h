@@ -21,9 +21,9 @@ namespace EventDrivenSysNS
 
 	public:
 		//IConnect 接口实现
-		virtual bool RegisterPrivate(EventCommonNS::ESysEventId eid, BEventFunc* eFunc) override;
+		virtual bool RegisterPrivate(LayerCommonNS::ESysEventId eid, BEventFunc* eFunc) override;
 		//IDispatch 接口实现
-		virtual BEventFunc* GetEventFunc(EventCommonNS::ESysEventId eid) override;
+		virtual BEventFunc* GetEventFunc(LayerCommonNS::ESysEventId eid) override;
 	private:
 		SysEventService* m_pSysEveService;
 	};

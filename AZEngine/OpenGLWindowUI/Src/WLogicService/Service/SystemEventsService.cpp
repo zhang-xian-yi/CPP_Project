@@ -2,7 +2,7 @@
 
 #include "OpenGLWindowUI/Src/IWindow.h"
 #include "OpenGLWindowUI/Src/WLogicService/WindowsData.h"
-#include "EventCommon/Src/SysEvents.h"//系统事件
+#include "LayerCommon/Src/SysEvents.h"//系统事件
 
 #include "GLFW/glfw3.h"
 namespace WindowsNS
@@ -20,7 +20,7 @@ namespace WindowsNS
 				data.WinPros.Width = width;
 				data.WinPros.Height = height;
 
-				EventCommonNS::WindowResizeEvent eve(width, height);
+				LayerCommonNS::WindowResizeEvent eve(width, height);
 				data.EventCallback(eve);
 			});
 
@@ -28,7 +28,7 @@ namespace WindowsNS
 		glfwSetWindowCloseCallback(pGLWin, [](GLFWwindow* window)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				EventCommonNS::WindowCloseEvent event;
+				LayerCommonNS::WindowCloseEvent event;
 				data.EventCallback(event);
 			});
 
@@ -41,19 +41,19 @@ namespace WindowsNS
 				{
 				case GLFW_PRESS:
 				{
-					EventCommonNS::KeyPressedEvent event(key, 0);
+					LayerCommonNS::KeyPressedEvent event(key, 0);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					EventCommonNS::KeyReleasedEvent event(key);
+					LayerCommonNS::KeyReleasedEvent event(key);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					EventCommonNS::KeyPressedEvent event(key, true);
+					LayerCommonNS::KeyPressedEvent event(key, true);
 					data.EventCallback(event);
 					break;
 				}
@@ -65,7 +65,7 @@ namespace WindowsNS
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				EventCommonNS::KeyTypedEvent event(keycode);
+				LayerCommonNS::KeyTypedEvent event(keycode);
 				data.EventCallback(event);
 			});
 
@@ -78,13 +78,13 @@ namespace WindowsNS
 				{
 				case GLFW_PRESS:
 				{
-					EventCommonNS::MouseBtnPressedEvent event(button);
+					LayerCommonNS::MouseBtnPressedEvent event(button);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					EventCommonNS::MouseBtnReleasedEvent event(button);
+					LayerCommonNS::MouseBtnReleasedEvent event(button);
 					data.EventCallback(event);
 					break;
 				}
@@ -96,7 +96,7 @@ namespace WindowsNS
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				EventCommonNS::MouseScrolledEvent event((float)xOffset, (float)yOffset);
+				LayerCommonNS::MouseScrolledEvent event((float)xOffset, (float)yOffset);
 				data.EventCallback(event);
 			});
 
@@ -105,7 +105,7 @@ namespace WindowsNS
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				EventCommonNS::MouseMovedEvent event((float)xPos, (float)yPos);
+				LayerCommonNS::MouseMovedEvent event((float)xPos, (float)yPos);
 				data.EventCallback(event);
 			});
 

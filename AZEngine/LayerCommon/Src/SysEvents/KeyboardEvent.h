@@ -1,8 +1,8 @@
 #pragma once
-#include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
-#include "EventCommon/Src/ECCommon/ECCore.h"
-#include "EventCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
-namespace EventCommonNS
+#include "LayerCommon/Src/LCCommon/LCExpMarcoDefine.h"
+#include "LayerCommon/Src/LCCommon/LCCore.h"
+#include "LayerCommon/Src/SysEvents/ISysEvent.h" //外部模块会引用此文件，不能使用模块内部相对路径
+namespace LayerCommonNS
 {
 	using KeyCode = unsigned short;
 
@@ -145,7 +145,7 @@ namespace EventCommonNS
 	}
 
 	//键盘按钮事件的抽象类
-	class EventCMNNSAPI KeyEvent : public ISysEvent
+	class LayerCommonNSAPI KeyEvent : public ISysEvent
 	{
 	public:
 		KeyCode GetKeyCode() const;
@@ -157,7 +157,7 @@ namespace EventCommonNS
 	};
 
 	//按钮按下
-	class EventCMNNSAPI KeyPressedEvent : public KeyEvent
+	class LayerCommonNSAPI KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(const KeyCode keycode, bool isRepeat = false);
@@ -168,14 +168,14 @@ namespace EventCommonNS
 	};
 
 	//按钮释放
-	class EventCMNNSAPI KeyReleasedEvent : public KeyEvent
+	class LayerCommonNSAPI KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(const KeyCode keycode);
 		DEF_EVENT_TYPE(KeyRelease)
 	};
 	//按钮类型
-	class EventCMNNSAPI KeyTypedEvent : public KeyEvent
+	class LayerCommonNSAPI KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(const KeyCode keycode);		

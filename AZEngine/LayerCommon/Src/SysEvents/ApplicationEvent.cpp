@@ -1,5 +1,5 @@
 #include "ApplicationEvent.h"
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	AppTickEvent::AppTickEvent()
 	{

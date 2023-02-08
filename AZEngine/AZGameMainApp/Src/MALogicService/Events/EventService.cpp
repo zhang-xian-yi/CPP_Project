@@ -2,8 +2,8 @@
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//业务容器
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
 #include "MdlCommon/Src/CMNInterface/IMdlService.h"
-#include "EventCommon/Src/SysEvents/ISysEvent.h"//系统id
-#include "EventCommon/Src/SysEvents.h"//所有事件
+#include "LayerCommon/Src/SysEvents/ISysEvent.h"//系统id
+#include "LayerCommon/Src/SysEvents.h"//所有事件
 namespace AZGameMainApp
 {
 	EventService::EventService()
@@ -27,26 +27,26 @@ namespace AZGameMainApp
 	/// </summary>
 	/// <param name="eve"></param>
 	/// <returns></returns>
-	bool EventService::HandleEvent(EventCommonNS::ISysEvent& eve)
+	bool EventService::HandleEvent(LayerCommonNS::ISysEvent& eve)
 	{
 		bool ret = SwitchEventIDHandle(eve);
 
 		return true;
 	}
-	bool EventService::SwitchEventIDHandle(EventCommonNS::ISysEvent& eve)
+	bool EventService::SwitchEventIDHandle(LayerCommonNS::ISysEvent& eve)
 	{
 		auto id = eve.GetEventId();
 
 		switch (id)
 		{
-		case EventCommonNS::ESysEventId::WindowClose:
+		case LayerCommonNS::ESysEventId::WindowClose:
 		{
-			auto newEve = static_cast<EventCommonNS::WindowCloseEvent&>(eve);
+			auto newEve = static_cast<LayerCommonNS::WindowCloseEvent&>(eve);
 			return m_pDispatch->DispatchEvent<bool>(id, newEve);
 		}
-		case EventCommonNS::ESysEventId::WindowResize:
+		case LayerCommonNS::ESysEventId::WindowResize:
 		{
-			auto newEve = static_cast<EventCommonNS::WindowResizeEvent&>(eve);
+			auto newEve = static_cast<LayerCommonNS::WindowResizeEvent&>(eve);
 			return m_pDispatch->DispatchEvent<bool>(id, newEve);
 		}
 		default:

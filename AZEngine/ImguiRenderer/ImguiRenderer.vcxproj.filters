@@ -63,6 +63,18 @@
     <ClInclude Include="Src\IRCommon\IRGLMacroDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\IRLogiccService\ImGuiLayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_glfw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3_loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.cpp">
@@ -102,6 +114,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\IRCommon\IRGLMacroDef.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\IRLogiccService\ImGuiLayer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\IRLogiccService\OpenGL\imgui_impl_glfw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,7 +5,7 @@
 namespace EventDrivenSysNS
 {
 	//公共事件命名空间
-	using namespace EventCommonNS;
+	using namespace LayerCommonNS;
 
 	SysEventService::SysEventService()
 		:m_pEventHandlerMap(new std::unordered_map<ESysEventId, BEventFunc*>())
@@ -33,7 +33,7 @@ namespace EventDrivenSysNS
 	/// <param name="eveId"></param>
 	/// <param name="eFunc"></param>
 	/// <returns></returns>
-	bool SysEventService::BindEventHandlerList(EventCommonNS::ESysEventId eveId, BEventFunc* eFunc)
+	bool SysEventService::BindEventHandlerList(LayerCommonNS::ESysEventId eveId, BEventFunc* eFunc)
 	{
 		if (!m_pEventHandlerMap->count(eveId))
 		{
@@ -49,14 +49,14 @@ namespace EventDrivenSysNS
 	}
 
 	//声明函数指针
-	typedef bool (*EveHandlerFN)(EventCommonNS::ISysEvent&);
+	typedef bool (*EveHandlerFN)(LayerCommonNS::ISysEvent&);
 
 	/// <summary>
 	/// 获取时间处理函数
 	/// </summary>
 	/// <param name="eveId"></param>
 	/// <returns></returns>
-	BEventFunc* SysEventService::GetEventFunc(EventCommonNS::ESysEventId eveId)
+	BEventFunc* SysEventService::GetEventFunc(LayerCommonNS::ESysEventId eveId)
 	{
 		if (m_pEventHandlerMap->count(eveId)) //count 返回eveid存在的个数，如果为1就表示存在，就为true，
 		{

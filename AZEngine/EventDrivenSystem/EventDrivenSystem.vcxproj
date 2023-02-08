@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -111,9 +111,6 @@
     <ClCompile Include="Src\EventDrivenSysFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventCommon\EventCommon.vcxproj">
-      <Project>{d5a45ff7-b0d3-4bb4-9db2-e65114601b8c}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
     </ProjectReference>

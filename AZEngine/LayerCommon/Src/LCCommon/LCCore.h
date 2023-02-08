@@ -1,5 +1,5 @@
 #pragma once
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 //×óÒÆ
 #define LBit1(x)						(1 << x)

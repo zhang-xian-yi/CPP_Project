@@ -1,11 +1,11 @@
 #pragma once
 
-namespace EventCommonNS
+namespace LayerCommonNS
 {
-	class IEvent;
+	class ISysEvent;
 }
 
-namespace AZGameMainApp
+namespace LayerCommonNS
 {
 	//层数的接口
 	class ILayer
@@ -17,7 +17,7 @@ namespace AZGameMainApp
 		virtual void OnAttach() = 0;
 		virtual void OnDetach() = 0;
 		virtual void OnImGuiRender() = 0;
-		virtual bool OnEvent(const EventCommonNS::IEvent& eve) = 0;
+		virtual bool OnEvent(LayerCommonNS::ISysEvent& eve) = 0;
 		virtual void OnUpdate() = 0;
 	};
 }

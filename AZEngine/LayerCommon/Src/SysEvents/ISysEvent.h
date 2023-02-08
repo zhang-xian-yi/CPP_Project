@@ -1,7 +1,7 @@
 #pragma once
-#include "EventCommon/Src/ECCommon/ECExpMarcoDefine.h"
-#include "EventCommon/Src/ECCommon/ECCore.h"
-namespace EventCommonNS
+#include "LayerCommon/Src/LCCommon/LCExpMarcoDefine.h"
+#include "LayerCommon/Src/LCCommon/LCCore.h"
+namespace LayerCommonNS
 {
 	//确保事件的唯一特性
 	enum class ESysEventId :unsigned short
@@ -26,7 +26,7 @@ namespace EventCommonNS
 	};
 
 	//所有事件都必须继承的父类
-	class EventCMNNSAPI ISysEvent
+	class LayerCommonNSAPI ISysEvent
 	{
 	public:
 		bool IsHandle;// 是否被处理

@@ -21,9 +21,6 @@
     <ClInclude Include="Src\MACommon\CoreMacroDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\MALogicService\Layers\ILayer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\MALogicService\Layers\LayersStack.h">
       <Filter>头文件</Filter>
     </ClInclude>

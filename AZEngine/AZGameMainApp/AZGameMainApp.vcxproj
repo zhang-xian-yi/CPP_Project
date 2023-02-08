@@ -111,11 +111,11 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventCommon\EventCommon.vcxproj">
-      <Project>{d5a45ff7-b0d3-4bb4-9db2-e65114601b8c}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\FunctionScheduling\FunctionScheduling.vcxproj">
       <Project>{04bc39e6-f429-4f22-9ec8-85f7628507b9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LayerCommon\LayerCommon.vcxproj">
+      <Project>{cf507d3c-9ce1-4bab-ba61-1ca2a1370409}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MdlCommon\MdlCommon.vcxproj">
       <Project>{74a5c9f1-7f20-4911-a98e-c51d7a677b51}</Project>
@@ -128,7 +128,6 @@
     <ClInclude Include="Src\MALogicService\Events\EventService.h" />
     <ClInclude Include="Src\MALogicService\Layers\LayersStack.h" />
     <ClInclude Include="Src\MACommon\CoreMacroDef.h" />
-    <ClInclude Include="Src\MALogicService\Layers\ILayer.h" />
     <ClInclude Include="Src\MAMControl\MainApplication.h" />
   </ItemGroup>
   <ItemGroup>

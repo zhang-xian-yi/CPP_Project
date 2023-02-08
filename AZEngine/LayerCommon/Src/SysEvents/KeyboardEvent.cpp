@@ -1,6 +1,6 @@
 #include "KeyboardEvent.h"
 
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	/*------------------------------------------------------------------------------------*/
 	KeyPressedEvent::KeyPressedEvent(const KeyCode keycode, bool isRepeat)

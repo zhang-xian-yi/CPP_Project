@@ -6,7 +6,7 @@ namespace WindowsNS
 	class IWindow;//窗口接口
 }
 
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	class ISysEvent; //事件接口
 	class WindowCloseEvent;
@@ -34,7 +34,7 @@ namespace AZGameMainApp
 		void Run();//程序运行
 		void StopApp();//停止程序
 	private:
-		bool OnEvent(EventCommonNS::ISysEvent& e);
+		bool OnEvent(LayerCommonNS::ISysEvent& e);
 	private:
 		void InitOpenGLWindows();//初始化窗口
 		void InitMember();//初始化陈远
@@ -42,8 +42,8 @@ namespace AZGameMainApp
 		bool StopAllFunction();//停止所有的功能模块并取消注册
 	//事件响应
 	private:
-		bool OnWindowCloseEvent(EventCommonNS::WindowCloseEvent& eve);
-		bool OnWindowResizeEvent(EventCommonNS::WindowResizeEvent& eve);
+		bool OnWindowCloseEvent(LayerCommonNS::WindowCloseEvent& eve);
+		bool OnWindowResizeEvent(LayerCommonNS::WindowResizeEvent& eve);
 	private:
 		AZGameMainApp::EventService* m_pEveS;
 		WindowsNS::IWindow* m_pWindow; //窗口

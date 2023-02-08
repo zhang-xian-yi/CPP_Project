@@ -1,5 +1,5 @@
 #include "MouseEvent.h"
-namespace EventCommonNS
+namespace LayerCommonNS
 {
 	/*------------------------------------------------------------------------------------*/
 	MouseMovedEvent::MouseMovedEvent(const float x, const float y)

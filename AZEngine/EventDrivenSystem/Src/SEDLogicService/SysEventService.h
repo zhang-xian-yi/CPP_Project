@@ -17,11 +17,11 @@ namespace EventDrivenSysNS
 
 	public:
 		//绑定事件ID 和事件处理函数的联系
-		bool BindEventHandlerList(EventCommonNS::ESysEventId eveId, BEventFunc* eFunc);
+		bool BindEventHandlerList(LayerCommonNS::ESysEventId eveId, BEventFunc* eFunc);
 		//处理事件
-		BEventFunc* GetEventFunc(EventCommonNS::ESysEventId eveId);
+		BEventFunc* GetEventFunc(LayerCommonNS::ESysEventId eveId);
 	private:
-		std::unordered_map<EventCommonNS::ESysEventId, BEventFunc*>* m_pEventHandlerMap;
+		std::unordered_map<LayerCommonNS::ESysEventId, BEventFunc*>* m_pEventHandlerMap;
 	};
 }
 

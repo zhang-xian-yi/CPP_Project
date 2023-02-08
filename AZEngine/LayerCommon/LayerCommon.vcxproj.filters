@@ -15,10 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\SysEvents\ISysEvent.h">
+    <ClInclude Include="Src\LCCommon\LCCore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LCCommon\LCExpMarcoDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SysEvents\ApplicationEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\SysEvents\ISysEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\SysEvents\KeyboardEvent.h">
@@ -30,13 +36,10 @@
     <ClInclude Include="Src\SysEvents\WindowEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\ECCommon\ECExpMarcoDefine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\ECCommon\ECCore.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\SysEvents.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\LCInterface\ILayer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

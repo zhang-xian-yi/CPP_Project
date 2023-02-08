@@ -1,7 +1,7 @@
 #pragma once
 #include "SEDCommon/SEDExpMarcoDefine.h"
-#include "EventCommon/Src/SysEvents/ISysEvent.h"
-#include "EventCommon/Src/SysEvents.h"
+#include "LayerCommon/Src/SysEvents/ISysEvent.h"
+#include "LayerCommon/Src/SysEvents.h"
 #include "SEDLogicService/EventResponseFunc.h"//BEventFunc
 
 //绑定本类中事件响应函数
@@ -16,13 +16,13 @@ namespace EventDrivenSysNS
 	{
 	public:
 		template<typename Func>
-		bool Register(EventCommonNS::ESysEventId eId,const Func& func)
+		bool Register(LayerCommonNS::ESysEventId eId,const Func& func)
 		{
 			//重新注册
 			return RegisterPrivate(eId, new Func(func));
 		}
 	private:
-		virtual bool RegisterPrivate(EventCommonNS::ESysEventId eid, BEventFunc* eFunc) = 0;
+		virtual bool RegisterPrivate(LayerCommonNS::ESysEventId eid, BEventFunc* eFunc) = 0;
 	};
 
 	/// <summary>
@@ -32,7 +32,7 @@ namespace EventDrivenSysNS
 	{
 	public:
 		template<typename RetType, typename... ArgTypes>
-		RetType DispatchEvent(EventCommonNS::ESysEventId eid, ArgTypes... args )
+		RetType DispatchEvent(LayerCommonNS::ESysEventId eid, ArgTypes... args )
 		{
 			auto tmp = GetEventFunc(eid);
 			EventResponseFunc<RetType, ArgTypes...>* pFunc = static_cast<EventResponseFunc<RetType, ArgTypes...>*>(tmp);
@@ -45,6 +45,6 @@ namespace EventDrivenSysNS
 			return RetType();
 		}
 	private:
-		virtual BEventFunc* GetEventFunc(EventCommonNS::ESysEventId eid) = 0;
+		virtual BEventFunc* GetEventFunc(LayerCommonNS::ESysEventId eid) = 0;
 	};
 }
