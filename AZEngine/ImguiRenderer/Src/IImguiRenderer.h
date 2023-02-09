@@ -1,5 +1,8 @@
 #pragma once
-//模块接口，抽象渲染器的外部操作
+namespace LayerCommonNS
+{
+	class ILayer;
+}
 
 namespace ImguiRendererNS
 {
@@ -7,5 +10,9 @@ namespace ImguiRendererNS
 	{
 	public:
 		virtual ~IImguiRenderer() = 0;//虚析构函数
+
+	public:
+		//获取ImguiRenderer的层指针
+		LayerCommonNS::ILayer* GetImguiRenderLayer() = 0;
 	};
 }

@@ -98,6 +98,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\IRMControl\RendererMdlControl.h" />
+    <ClInclude Include="Src\IRMControl\RendererServiceControl.h" />
     <ClInclude Include="Src\ImguiRendererFactory.h" />
     <ClInclude Include="Src\IImguiRenderer.h" />
     <ClInclude Include="Src\IRCommon\IRExpMarcoDefine.h" />
@@ -120,6 +122,8 @@
     <ClInclude Include="Src\IRLogiccService\Shader\ShaderManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\IRMControl\RendererMdlControl.cpp" />
+    <ClCompile Include="Src\IRMControl\RendererServiceControl.cpp" />
     <ClCompile Include="Src\ImguiRendererFactory.cpp" />
     <ClCompile Include="Src\IRCommon\IRGLMacroDef.cpp" />
     <ClCompile Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.cpp" />
