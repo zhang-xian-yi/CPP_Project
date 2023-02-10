@@ -84,7 +84,7 @@ namespace ImguiRendererNS {
 			e.IsHandle |= e.IsInCategory(LayerCommonNS::ESysEventCategory::EventCategoryMouse) & io.WantCaptureMouse;
 			e.IsHandle |= e.IsInCategory(LayerCommonNS::ESysEventCategory::EventCategoryKeyboard) & io.WantCaptureKeyboard;
 		}
-		return true;
+		return e.IsHandle;
 	}
 	
 	void ImGuiLayer::Begin()
