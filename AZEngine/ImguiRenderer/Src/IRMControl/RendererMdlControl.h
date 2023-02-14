@@ -5,8 +5,8 @@ namespace ImguiRendererNS
 	class RendererMdlControl:MdlCommonNS::IMdlOperat
 	{
 	public:
-		RendererMdlControl();
-		~RendererMdlControl();
+		RendererMdlControl()=default;
+		~RendererMdlControl() = default;
 	public:
 		//¹¹ÔìÄ£¿é
 		virtual bool ConstructModule() override;

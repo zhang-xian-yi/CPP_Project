@@ -9,10 +9,10 @@ namespace ImguiRendererNS
 	class IImguiRenderer
 	{
 	public:
-		virtual ~IImguiRenderer() = 0;//虚析构函数
+		virtual ~IImguiRenderer() {};//虚析构函数
 
 	public:
 		//获取ImguiRenderer的层指针
-		LayerCommonNS::ILayer* GetImguiRenderLayer() = 0;
+		virtual LayerCommonNS::ILayer* GetImguiRenderLayer() = 0;
 	};
 }

@@ -1,15 +1,13 @@
-
 #include "ImGuiLayer.h"
-
 #include "Imgui/imgui.h"
 #include "Imgui/imgui_internal.h"
 #include "Imgui/imconfig.h"
 #include "Imgui/imstb_rectpack.h"
 #include "Imgui/imstb_textedit.h"
 #include "Imgui/imstb_truetype.h"
+#include "Imgui/imgui_impl_glfw.h"
+#include "Imgui/imgui_impl_opengl3.h"
 
-#include "ImguiRenderer/Src/IRLogiccService/OpenGL/imgui_impl_glfw.h"
-#include "ImguiRenderer/Src/IRLogiccService/OpenGL/imgui_impl_opengl3.h"
 #include "MdlCommon/Src/CMNServices/Utils/PathUtil.h"//Â·¾¶
 #include "MdlCommon/Src/CMNServices/Container/ServiceContainerSingle.h"//·þÎñÈÝÆ÷
 #include "MdlCommon/Src/CMNMEnum/ModuelType/EModuleType.h"
@@ -34,11 +32,9 @@ namespace ImguiRendererNS {
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-		//io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
-		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
-		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 
 		float fontSize = 18.0f;// *2.0f;
 		std::string fontPath = MdlCommonNS::PathUtil::GetExecutePath() + "Resource\fonts\OpenSans-Bold.ttf";
@@ -85,6 +81,14 @@ namespace ImguiRendererNS {
 			e.IsHandle |= e.IsInCategory(LayerCommonNS::ESysEventCategory::EventCategoryKeyboard) & io.WantCaptureKeyboard;
 		}
 		return e.IsHandle;
+	}
+
+	void ImGuiLayer::OnImGuiRender()
+	{
+	}
+
+	void ImGuiLayer::OnUpdate()
+	{
 	}
 	
 	void ImGuiLayer::Begin()

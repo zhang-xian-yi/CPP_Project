@@ -4,14 +4,14 @@ namespace ImguiRendererNS
 {
 	bool RendererMdlControl::ConstructModule()
 	{
-		return false;
+		return true;
 	}
 	bool RendererMdlControl::DestoryModule()
 	{
-		return false;
+		return true;
 	}
 	bool RendererMdlControl::IsUse() const
 	{
-		return false;
+		return true;
 	}
 }

@@ -13,6 +13,8 @@ namespace ImguiRendererNS {
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
 		virtual bool OnEvent(LayerCommonNS::ISysEvent& e) override;
+		virtual void OnImGuiRender() override;
+		virtual void OnUpdate() override;
 
 		void Begin();
 		void End();

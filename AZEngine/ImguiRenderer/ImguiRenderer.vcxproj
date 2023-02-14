@@ -67,7 +67,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;imgui.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;glfwGl3ImguiS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -91,7 +91,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;imgui.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;glfwGl3ImguiS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -113,9 +113,6 @@
     <ClInclude Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.h" />
     <ClInclude Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.h" />
     <ClInclude Include="Src\IRLogiccService\ImGuiLayer.h" />
-    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_glfw.h" />
-    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3.h" />
-    <ClInclude Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="Src\IRLogiccService\Render\RendererEngine.h" />
     <ClInclude Include="Src\IRLogiccService\Render\TextureService.h" />
     <ClInclude Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.h" />
@@ -134,8 +131,6 @@
     <ClCompile Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.cpp" />
     <ClCompile Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.cpp" />
     <ClCompile Include="Src\IRLogiccService\ImGuiLayer.cpp" />
-    <ClCompile Include="Src\IRLogiccService\OpenGL\imgui_impl_glfw.cpp" />
-    <ClCompile Include="Src\IRLogiccService\OpenGL\imgui_impl_opengl3.cpp" />
     <ClCompile Include="Src\IRLogiccService\Render\RendererEngine.cpp" />
     <ClCompile Include="Src\IRLogiccService\Render\TextureService.cpp" />
     <ClCompile Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.cpp" />
