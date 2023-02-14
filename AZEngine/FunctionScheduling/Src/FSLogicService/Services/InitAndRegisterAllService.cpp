@@ -12,6 +12,7 @@
 #include "OpenGLWindowUI/Src/OpenGLWindowsFactory.h"//OPenglUI的工厂类
 #include "AZDataCompute/Src/DataComputeFactory.h"//数据计算中心类
 #include "EventDrivenSystem/Src/EventDrivenSysFactory.h"//
+#include "ImguiRenderer/Src/ImguiRendererFactory.h"//Imgui Renderer 工厂类
 namespace FuncScheduleNS
 {
 	using namespace MdlCommonNS;
@@ -81,12 +82,18 @@ namespace FuncScheduleNS
 		//初始化/注册数据计算实例
 		pFactory = AZDataComputeNS::DataComputeFactory::GetFactory();
 		std::future<bool> DCResult = InitAndRegisterMdlAsync(EModuleType::E_DataCompute_Type, pFactory);
+		//初始化 imguiRenderLayer
+		pFactory = ImguiRendererNS::ImguiRendererFactory::GetFactory();
+		std::future<bool> IRResult = InitAndRegisterMdlAsync(EModuleType::E_ImguiRenderer_Type, pFactory);
 
-		//打印日志
+
+
+		//打印日志 ImguiRendererNS
 		LogInitMsg(EModuleType::E_Logger_Type, logResult);
 		LogInitMsg(EModuleType::E_EventDrivenSys_Type, EDSResult);
 		LogInitMsg(EModuleType::E_DataCompute_Type, DCResult);
 		LogInitMsg(EModuleType::E_OpenGLWindow_Type, OWResult);
+		LogInitMsg(EModuleType::E_ImguiRenderer_Type, IRResult);
 	}
 	/// <summary>
 	/// 异步执行任务

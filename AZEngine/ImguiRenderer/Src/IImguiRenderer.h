@@ -1,4 +1,5 @@
 #pragma once
+#include "IRCommon/IRExpMarcoDefine.h"
 namespace LayerCommonNS
 {
 	class ILayer;
@@ -6,7 +7,7 @@ namespace LayerCommonNS
 
 namespace ImguiRendererNS
 {
-	class IImguiRenderer
+	class ImguiRendererNSAPI IImguiRenderer
 	{
 	public:
 		virtual ~IImguiRenderer() {};//ÐéÎö¹¹º¯Êý

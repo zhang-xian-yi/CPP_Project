@@ -1,14 +1,17 @@
 #include "ImguiRendererFactory.h"
-
+#include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
+#include "MdlCommon/Src/CMNInterface/IMdlService.h"
+#include "IRMControl/RendererMdlControl.h"
+#include "IRMControl/RendererServiceControl.h"
 namespace ImguiRendererNS
 {
 	MdlCommonNS::IMdlService* ImguiRendererFactory::CreateServiceInstance()
 	{
-		return nullptr;
+		return new RendererServiceControl();
 	}
 
 	MdlCommonNS::IMdlOperat* ImguiRendererFactory::CreateModuleInstance()
 	{
-		return nullptr;
+		return new RendererMdlControl();
 	}
 }

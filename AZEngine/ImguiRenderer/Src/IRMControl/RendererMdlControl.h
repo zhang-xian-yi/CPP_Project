@@ -2,7 +2,7 @@
 #include "MdlCommon/Src/CMNInterface/IMdlOperat.h"
 namespace ImguiRendererNS
 {
-	class RendererMdlControl:MdlCommonNS::IMdlOperat
+	class RendererMdlControl:public MdlCommonNS::IMdlOperat
 	{
 	public:
 		RendererMdlControl()=default;

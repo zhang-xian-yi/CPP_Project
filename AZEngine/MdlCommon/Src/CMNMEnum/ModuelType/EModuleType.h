@@ -13,6 +13,7 @@ namespace MdlCommonNS
 		E_DataCompute_Type,
 		E_EventDrivenSys_Type,
 		E_OpenGLWindow_Type,
+		E_ImguiRenderer_Type,
 	};
 
 	//Ç°ÖÃÉùÃ÷

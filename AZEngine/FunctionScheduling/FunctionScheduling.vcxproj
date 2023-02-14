@@ -122,6 +122,9 @@
     <ProjectReference Include="..\EventDrivenSystem\EventDrivenSystem.vcxproj">
       <Project>{e3bade24-26b1-42a2-9655-7b179f7b57cc}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\ImguiRenderer\ImguiRenderer.vcxproj">
+      <Project>{0f8a1ecd-34d6-4f58-a6c7-4466ea4b8792}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.vcxproj">
       <Project>{f4e5d4f0-a143-40c2-a58f-a8a70e70ccfe}</Project>
     </ProjectReference>

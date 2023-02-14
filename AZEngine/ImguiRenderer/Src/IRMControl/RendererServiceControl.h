@@ -4,7 +4,7 @@
 namespace ImguiRendererNS
 {
 	//
-	class RendererServiceControl:MdlCommonNS::IMdlService, ImguiRendererNS::IImguiRenderer
+	class RendererServiceControl:public MdlCommonNS::IMdlService,public ImguiRendererNS::IImguiRenderer
 	{
 	public:
 		RendererServiceControl();
