@@ -31,8 +31,7 @@ namespace WindowsNS
 		{
 			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV,"glfwInit");
 			auto success = m_pWinS->initWinEnvir(m_Data.WinPros);
-			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV," initialize GLFW :", std::to_string(success) );
-			
+			MdlCommonNS::LogMsg(LoggerNS::ELogLevel::E_Info_LV," initialize GLFW :", std::to_string(success) );			
 		}
 		auto GLWin = m_pWinS->GetGLFWindowsHandle();
 		//设置窗口的用户自定义数据

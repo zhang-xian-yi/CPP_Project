@@ -3,6 +3,7 @@
 namespace ImguiRendererNS
 {
 	RendererServiceControl::RendererServiceControl()
+		:m_pImgui(nullptr)
 	{
 	}
 	RendererServiceControl::~RendererServiceControl()
@@ -10,6 +11,18 @@ namespace ImguiRendererNS
 	}
 	LayerCommonNS::ILayer* RendererServiceControl::GetImguiRenderLayer()
 	{
-		return new ImGuiLayer();
+		if (m_pImgui == nullptr)
+		{
+			m_pImgui = new ImGuiLayer();
+		}
+		return m_pImgui;
+	}
+	void RendererServiceControl::Begin()
+	{
+		m_pImgui->Begin();
+	}
+	void RendererServiceControl::End()
+	{
+		m_pImgui->End();
 	}
 }

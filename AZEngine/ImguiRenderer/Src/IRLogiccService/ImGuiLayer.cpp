@@ -27,46 +27,32 @@ namespace ImguiRendererNS {
 
 	void ImGuiLayer::OnAttach()
 	{
+		auto pWinS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
+		WindowsNS::IWindow* pwin = pWinS.value()->ConvertType<WindowsNS::IWindow*>();
+		GLFWwindow* window = (GLFWwindow*)((pwin)->GetNativeWindow());
+		const char* glsl_version = "#version 130";
+
+		glfwMakeContextCurrent(window);
+		glfwSwapInterval(1); // Enable vsync
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
-
-		float fontSize = 18.0f;// *2.0f;
-		std::string fontPath = MdlCommonNS::PathUtil::GetExecutePath() + "Resource\fonts\OpenSans-Bold.ttf";
-		io.Fonts->AddFontFromFileTTF(fontPath.c_str(), fontSize);
-		std::string fontDefault = MdlCommonNS::PathUtil::GetExecutePath() + "Resource\fonts\OpenSans-Regular.ttf";
-		io.FontDefault = io.Fonts->AddFontFromFileTTF(fontDefault.c_str(), fontSize);
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsClassic();
 
-		// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-		ImGuiStyle& style = ImGui::GetStyle();
-		//if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-		{
-			style.WindowRounding = 0.0f;
-			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-		}
-
-		SetDarkThemeColors();
-
-		auto pWinS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
-		GLFWwindow* window =(GLFWwindow*) (pWinS.value()->ConvertType<WindowsNS::IWindow*>())->GetNativeWindow();
-
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
-		ImGui_ImplOpenGL3_Init("#version 410");
+		ImGui_ImplOpenGL3_Init("#version 130");//not init openGL loader! error
 	}
 
 	void ImGuiLayer::OnDetach()
 	{
-
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
@@ -85,39 +71,27 @@ namespace ImguiRendererNS {
 
 	void ImGuiLayer::OnImGuiRender()
 	{
+
 	}
 
 	void ImGuiLayer::OnUpdate()
 	{
+		
 	}
 	
 	void ImGuiLayer::Begin()
 	{
+		// Start the Dear ImGui frame
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
-		//ImGuizmo::BeginFrame();
 	}
 
 	void ImGuiLayer::End()
 	{
-		ImGuiIO& io = ImGui::GetIO();
-		auto pWinS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
-		WindowsNS::IWindow* pwin= pWinS.value()->ConvertType<WindowsNS::IWindow*>();
-
-		io.DisplaySize = ImVec2((float)pwin->GetWidth(), (float)pwin->GetHeight());
-
 		// Rendering
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-		//if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-		{
-			GLFWwindow* backup_current_context = glfwGetCurrentContext();
-			//ImGui::UpdatePlatformWindows();
-			//ImGui::RenderPlatformWindowsDefault();
-			glfwMakeContextCurrent(backup_current_context);
-		}
 	}
 
 	void ImGuiLayer::SetDarkThemeColors()
@@ -151,11 +125,6 @@ namespace ImguiRendererNS {
 		colors[ImGuiCol_TitleBg] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
 		colors[ImGuiCol_TitleBgActive] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
 		colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
-	}
-
-	unsigned int ImGuiLayer::GetActiveWidgetID() const
-	{
-		return GImGui->ActiveId;
 	}
 
 }

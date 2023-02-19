@@ -12,6 +12,7 @@
 #include "LayerCommon/Src/LCInterface/ILayer.h"//层栈指针
 #include "LayerCommon/Src/SysEvents.h"
 #include "OpenGLWindowUI/Src/IWindow.h" 
+#include "ImguiRenderer/Src/IImguiRenderer.h"
 namespace AZGameMainApp
 {
 	/// <summary>
@@ -21,25 +22,36 @@ namespace AZGameMainApp
 	{
 		m_bRunning = true;
 		bool ret = InitAllFunction();
-		InitMember();//成员必须放在功能之后，窗口初始化之前，
-
+		InitOpenGLWindows();
+		InitMember();
 		//注册窗口处理事件
 		EventDrivenSysNS::EventResponseFunc<bool, LayerCommonNS::WindowCloseEvent&> winCloseEvent(BIND_EVENT_FN(MainApplication::OnWindowCloseEvent));
 		m_pEveS->BindEventResponse(LayerCommonNS::ESysEventId::WindowClose, winCloseEvent);
 
-		InitOpenGLWindows();
 	}
 	void MainApplication::Run()
 	{
-		m_pWindow->Show();
+		auto iIRS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_ImguiRenderer_Type);
+		auto ImguiR = iIRS.value()->ConvertType<ImguiRendererNS::IImguiRenderer*>();
+
 		while (m_bRunning)
 		{
-			m_pWindow->OnUpdate();
-			for (auto it = m_pLayersStack->begin(); it != m_pLayersStack->end(); ++it)
+			//更新
+			for (LayerCommonNS::ILayer* layer : *m_pLayersStack)
 			{
-				//从底层向顶层渲染
-				(*it)->OnUpdate();
+				layer->OnUpdate();
 			}
+
+			//imgui渲染
+			ImguiR->Begin();
+			for (LayerCommonNS::ILayer* layer : *m_pLayersStack)
+			{
+				layer->OnImGuiRender();
+			}
+			ImguiR->End();
+
+			//窗口更新
+			m_pWindow->OnUpdate();
 		}
 	}
 	/// <summary>
@@ -76,6 +88,7 @@ namespace AZGameMainApp
 		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
 		m_pWindow = windowsService.value()->ConvertType<WindowsNS::IWindow*>();
 		m_pWindow->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));
+		m_pWindow->Show();
 	}
 	/// <summary>
 	/// 初始化陈远
@@ -85,6 +98,10 @@ namespace AZGameMainApp
 		//初始化时间服务
 		m_pEveS = new EventService();
 		m_pLayersStack = new LayersStack();
+		auto iIRS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_ImguiRenderer_Type);
+		auto IR = iIRS.value()->ConvertType<ImguiRendererNS::IImguiRenderer*>();
+		m_pLayersStack->PushLayer(IR->GetImguiRenderLayer());
+		IR->GetImguiRenderLayer()->OnAttach();
 	}
 	/// <summary>
 	/// 初始化所有的功能模块

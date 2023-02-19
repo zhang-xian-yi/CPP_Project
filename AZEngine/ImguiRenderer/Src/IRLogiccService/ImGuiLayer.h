@@ -1,7 +1,6 @@
 #pragma once
 
 #include "LayerCommon/Src/LCInterface/ILayer.h"
-
 namespace ImguiRendererNS {
 
 	class ImGuiLayer : public LayerCommonNS::ILayer
@@ -20,7 +19,6 @@ namespace ImguiRendererNS {
 		void End();
 		void BlockEvents(bool block) { m_BlockEvents = block; }	
 		void SetDarkThemeColors();
-		unsigned int GetActiveWidgetID()const;
 	private:
 		bool m_BlockEvents = true;
 	};
