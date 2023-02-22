@@ -17,12 +17,4 @@ namespace ImguiRendererNS
 		}
 		return m_pImgui;
 	}
-	void RendererServiceControl::Begin()
-	{
-		m_pImgui->Begin();
-	}
-	void RendererServiceControl::End()
-	{
-		m_pImgui->End();
-	}
 }

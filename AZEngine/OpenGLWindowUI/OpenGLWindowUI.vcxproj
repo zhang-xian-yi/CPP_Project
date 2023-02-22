@@ -61,13 +61,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)OpenGLWindowUI/Src;$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -83,7 +83,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)OpenGLWindowUI/Src;$(SolutionDir)SolutionResource\ThirdPartLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,7 +91,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -101,22 +101,47 @@
     <ClInclude Include="Src\IWindow.h" />
     <ClInclude Include="Src\OpenGLWindowsFactory.h" />
     <ClInclude Include="Src\WCommon\WExpMarcoDef.h" />
+    <ClInclude Include="Src\WLogicService\Engine\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Src\WLogicService\Engine\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Src\WLogicService\Engine\DataLoadEnginePrivate.h" />
+    <ClInclude Include="Src\WLogicService\Engine\DataSrc\VertexArray.h" />
+    <ClInclude Include="Src\WLogicService\Engine\Layout\VertexBufferLayout.h" />
+    <ClInclude Include="Src\WLogicService\Engine\Layout\VLayoutElement.h" />
+    <ClInclude Include="Src\WLogicService\Engine\MatrixDataLoadEngine.h" />
+    <ClInclude Include="Src\WLogicService\Engine\TextureDataLoadEngine.h" />
     <ClInclude Include="Src\WLogicService\OpenGLWindows.h" />
+    <ClInclude Include="Src\WLogicService\Render\RendererEngine.h" />
+    <ClInclude Include="Src\WLogicService\Render\TextureService.h" />
     <ClInclude Include="Src\WLogicService\Service\GLWindowService.h" />
     <ClInclude Include="Src\WLogicService\Service\SystemEventsService.h" />
+    <ClInclude Include="Src\WLogicService\Shader\ShaderManageGLPrivate.h" />
+    <ClInclude Include="Src\WLogicService\Shader\ShaderManager.h" />
     <ClInclude Include="Src\WLogicService\WindowsData.h" />
     <ClInclude Include="Src\WMControl\WindowsMdlControl.h" />
     <ClInclude Include="Src\WMControl\WindowsServiceControl.h" />
     <ClInclude Include="Src\WCommon\WGLMacroDef.h" />
+    <ClInclude Include="Src\WLogicService\WindowLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\OpenGLWindowsFactory.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\DataLoadEnginePrivate.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\DataSrc\VertexArray.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\Layout\VLayoutElement.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\MatrixDataLoadEngine.cpp" />
+    <ClCompile Include="Src\WLogicService\Engine\TextureDataLoadEngine.cpp" />
     <ClCompile Include="Src\WLogicService\OpenGLWindows.cpp" />
+    <ClCompile Include="Src\WLogicService\Render\RendererEngine.cpp" />
+    <ClCompile Include="Src\WLogicService\Render\TextureService.cpp" />
     <ClCompile Include="Src\WLogicService\Service\GLWindowService.cpp" />
     <ClCompile Include="Src\WLogicService\Service\SystemEventsService.cpp" />
+    <ClCompile Include="Src\WLogicService\Shader\ShaderManageGLPrivate.cpp" />
+    <ClCompile Include="Src\WLogicService\Shader\ShaderManager.cpp" />
     <ClCompile Include="Src\WMControl\WindowsMdlControl.cpp" />
     <ClCompile Include="Src\WMControl\WindowsServiceControl.cpp" />
     <ClCompile Include="Src\WCommon\WGLMacroDef.cpp" />
+    <ClCompile Include="Src\WLogicService\WindowLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="模块说明.txt" />

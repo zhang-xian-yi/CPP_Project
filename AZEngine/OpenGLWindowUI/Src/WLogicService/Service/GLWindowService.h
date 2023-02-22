@@ -1,5 +1,5 @@
 #pragma once
-#include "OpenGLWindowUI/Src/IWindow.h"
+#include "IWindow.h"
 
 //前置声明 
 struct GLFWwindow;//from  glew第三方库， 不能将此声明放入命名空间中

@@ -37,8 +37,7 @@ namespace AZGameMainApp
 	private:
 		bool OnEvent(LayerCommonNS::ISysEvent& e);
 	private:
-		void InitOpenGLWindows();//初始化窗口
-		void InitMember();//初始化陈远
+		void InitMember();//初始化
 		bool InitAllFunction();//初始化所有的功能模块并注册
 		bool StopAllFunction();//停止所有的功能模块并取消注册
 	//事件响应

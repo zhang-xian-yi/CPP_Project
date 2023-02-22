@@ -1,6 +1,6 @@
 #pragma once
 #include "MdlCommon/Src/CMNInterface/IMdlService.h"
-#include "OpenGLWindowUI/Src/IWindow.h"
+#include "IWindow.h"
 namespace WindowsNS
 {
 	//前置声明
@@ -12,7 +12,7 @@ namespace WindowsNS
 		WindowsServiceControl();
 		~WindowsServiceControl();
 	public://IWindow 重载接口
-		void OnUpdate() override;
+		LayerCommonNS::ILayer* GetOpenGLWindowLayer() override;
 
 		unsigned int GetWidth() const override;
 		unsigned int GetHeight() const override;
@@ -20,12 +20,11 @@ namespace WindowsNS
 		virtual void Show()override;
 		// Window attributes
 		void SetEventCallback(const EventCallbackFn& callback) override;
-		void SetVSync(bool enabled) override;
-		bool IsVSync() const override;
 
 		virtual void* GetNativeWindow() const;
 	private:
-		MdlCommonNS::Scope<IWindow> m_pWin;
+		OpenGLWindows* m_pWin;
+		LayerCommonNS::ILayer* m_pLayer;
 	};
 
 }

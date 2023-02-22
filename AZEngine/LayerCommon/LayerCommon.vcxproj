@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="Src\LCCommon\LCCore.h" />
     <ClInclude Include="Src\LCCommon\LCExpMarcoDefine.h" />
+    <ClInclude Include="Src\LCInterface\AbstractEvent.h" />
     <ClInclude Include="Src\LCInterface\ILayer.h" />
     <ClInclude Include="Src\SysEvents.h" />
     <ClInclude Include="Src\SysEvents\ApplicationEvent.h" />

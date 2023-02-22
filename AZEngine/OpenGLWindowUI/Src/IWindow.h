@@ -7,6 +7,7 @@
 namespace LayerCommonNS
 {
 	class ISysEvent;
+	class ILayer;
 }
 
 namespace WindowsNS
@@ -40,8 +41,8 @@ namespace WindowsNS
 	public:
 		//析构函数
 		virtual ~IWindow() = default;
-		//窗口更新函数
-		virtual void OnUpdate() = 0;
+		//获取窗口层的操作指针
+		virtual LayerCommonNS::ILayer* GetOpenGLWindowLayer() = 0;
 		//窗口
 		virtual uint32_t GetWidth() const = 0;
 		virtual uint32_t GetHeight() const = 0;
@@ -49,11 +50,7 @@ namespace WindowsNS
 		virtual void Show() = 0;
 		// Window attributes
 		virtual void SetEventCallback(const EventCallbackFn & callback) = 0;
-		virtual void SetVSync(bool enabled) = 0;
-		virtual bool IsVSync() const = 0;
 		//这里返回GFWindows 的窗口指针
 		virtual void* GetNativeWindow() const = 0;
-		//默认创建一个1000 X 900 且名称为AZ Engine 的窗口
-		static MdlCommonNS::Scope<IWindow> Create(const WindowProps & props = WindowProps());
 	};
 }

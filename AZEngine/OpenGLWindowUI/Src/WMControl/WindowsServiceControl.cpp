@@ -1,27 +1,37 @@
 #include "WindowsServiceControl.h"
-#include "OpenGLWindowUI/Src/WLogicService/OpenGLWindows.h"
+#include "WLogicService/OpenGLWindows.h"
+#include "WLogicService/WindowLayer.h"
 namespace WindowsNS
 {
-	MdlCommonNS::Scope<IWindow> IWindow::Create(const WindowProps& props)
-	{
-		return MdlCommonNS::CreateScope<OpenGLWindows>(props);
-	}
-
 
 	WindowsServiceControl::WindowsServiceControl()
-		:m_pWin(IWindow::Create(WindowProps("AZ Engine")))
+		:m_pWin(new OpenGLWindows(WindowProps("AZ Engine"))),
+		 m_pLayer(nullptr)
 	{
 
 	}
 
 	WindowsServiceControl::~WindowsServiceControl()
 	{
-		
+		if (m_pWin)
+		{
+			delete m_pWin;
+			m_pWin = nullptr;
+		}
+		if (m_pLayer)
+		{
+			delete m_pLayer;
+			m_pLayer = nullptr;
+		}
 	}
 
-	void WindowsServiceControl::OnUpdate()
+	LayerCommonNS::ILayer* WindowsServiceControl::GetOpenGLWindowLayer()
 	{
-		m_pWin->OnUpdate();
+		if (m_pLayer == nullptr)
+		{
+			m_pLayer = new WindowLayer(m_pWin);
+		}
+		return m_pLayer;
 	}
 
 	unsigned int WindowsServiceControl::GetWidth() const
@@ -42,16 +52,6 @@ namespace WindowsNS
 	void WindowsServiceControl::SetEventCallback(const EventCallbackFn& callback)
 	{
 		m_pWin->SetEventCallback(callback);
-	}
-
-	void WindowsServiceControl::SetVSync(bool enabled)
-	{
-		m_pWin->SetVSync(enabled);
-	}
-
-	bool WindowsServiceControl::IsVSync() const
-	{
-		return	m_pWin->IsVSync();
 	}
 
 	void* WindowsServiceControl::GetNativeWindow() const

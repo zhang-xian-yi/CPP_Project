@@ -1,7 +1,7 @@
 #include "SystemEventsService.h"
 
-#include "OpenGLWindowUI/Src/IWindow.h"
-#include "OpenGLWindowUI/Src/WLogicService/WindowsData.h"
+#include "IWindow.h"
+#include "WLogicService/WindowsData.h"
 #include "LayerCommon/Src/SysEvents.h"//系统事件
 
 #include "GLFW/glfw3.h"

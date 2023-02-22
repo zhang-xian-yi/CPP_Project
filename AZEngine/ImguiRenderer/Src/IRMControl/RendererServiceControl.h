@@ -13,9 +13,6 @@ namespace ImguiRendererNS
 		~RendererServiceControl();
 	public:
 		virtual LayerCommonNS::ILayer* GetImguiRenderLayer()override;
-		//渲染开始和结束
-		virtual void Begin() override;
-		virtual void End() override;
 	private:
 		ImGuiLayer* m_pImgui;
 	};

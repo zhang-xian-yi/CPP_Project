@@ -2,7 +2,7 @@
 #include "Logger/Src/ILogger.h"
 #include "MdlCommon/Src/CMNMacro/LogMacroDef.h"
 #include "MdlCommon/Src/CMNMacro/CoreMacroDef.h"
-#include "OpenGLWindowUI/Src/IWindow.h"
+#include "IWindow.h"
 #include "Glad/glad.h"
 #include "GLFW/glfw3.h"
 

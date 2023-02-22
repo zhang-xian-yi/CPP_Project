@@ -45,6 +45,45 @@
     <ClInclude Include="Src\WLogicService\WindowsData.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\WLogicService\Render\RendererEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Render\TextureService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Shader\ShaderManageGLPrivate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Shader\ShaderManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\Buffers\IndexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\Buffers\VertexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\DataSrc\VertexArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\Layout\VertexBufferLayout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\Layout\VLayoutElement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\DataLoadEnginePrivate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\MatrixDataLoadEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\Engine\TextureDataLoadEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\WLogicService\WindowLayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\WLogicService\OpenGLWindows.cpp">
@@ -66,6 +105,42 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\WLogicService\Service\SystemEventsService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Render\RendererEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Render\TextureService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Shader\ShaderManageGLPrivate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Shader\ShaderManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\Buffers\IndexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\Buffers\VertexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\DataSrc\VertexArray.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\Layout\VLayoutElement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\DataLoadEnginePrivate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\MatrixDataLoadEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\Engine\TextureDataLoadEngine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WLogicService\WindowLayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

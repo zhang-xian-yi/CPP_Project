@@ -15,42 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\Buffers\VertexBuffer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\DataSrc\VertexArray.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\Layout\VertexBufferLayout.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\Layout\VLayoutElement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\DataLoadEnginePrivate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Render\RendererEngine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Render\TextureService.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRLogiccService\Shader\ShaderManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Src\IImguiRenderer.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -58,9 +22,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\IRCommon\IRExpMarcoDefine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\IRCommon\IRGLMacroDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\IRLogiccService\ImGuiLayer.h">
@@ -104,43 +65,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\Buffers\VertexBuffer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\DataSrc\VertexArray.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\Layout\VLayoutElement.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\DataLoadEnginePrivate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Render\RendererEngine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Render\TextureService.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\Shader\ShaderManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Src\ImguiRendererFactory.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRCommon\IRGLMacroDef.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\IRLogiccService\ImGuiLayer.cpp">
@@ -171,9 +96,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="VendorLib\Imgui\imgui_demo.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\IRLogiccService\ImguiBGColorEditTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

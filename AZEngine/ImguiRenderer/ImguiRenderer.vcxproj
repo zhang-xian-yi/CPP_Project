@@ -67,7 +67,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -91,7 +91,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SolutionResource\ThirdPartLib\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Glad.lib;glfw3.lib;stb_image.lib;OpenGL32.Lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Glad.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath)  $(SolutionDir)OutputDir\ExecuteBin\$(TargetFileName)</Command>
@@ -104,20 +104,7 @@
     <ClInclude Include="Src\ImguiRendererFactory.h" />
     <ClInclude Include="Src\IImguiRenderer.h" />
     <ClInclude Include="Src\IRCommon\IRExpMarcoDefine.h" />
-    <ClInclude Include="Src\IRCommon\IRGLMacroDef.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\Buffers\VertexBuffer.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\DataLoadEnginePrivate.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\DataSrc\VertexArray.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\Layout\VertexBufferLayout.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\Layout\VLayoutElement.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.h" />
-    <ClInclude Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.h" />
     <ClInclude Include="Src\IRLogiccService\ImGuiLayer.h" />
-    <ClInclude Include="Src\IRLogiccService\Render\RendererEngine.h" />
-    <ClInclude Include="Src\IRLogiccService\Render\TextureService.h" />
-    <ClInclude Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.h" />
-    <ClInclude Include="Src\IRLogiccService\Shader\ShaderManager.h" />
     <ClInclude Include="VendorLib\Imgui\imconfig.h" />
     <ClInclude Include="VendorLib\Imgui\imgui.h" />
     <ClInclude Include="VendorLib\Imgui\imgui_impl_glfw.h" />
@@ -129,23 +116,10 @@
     <ClInclude Include="VendorLib\Imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\IRLogiccService\ImguiBGColorEditTest.cpp" />
     <ClCompile Include="Src\IRMControl\RendererMdlControl.cpp" />
     <ClCompile Include="Src\IRMControl\RendererServiceControl.cpp" />
     <ClCompile Include="Src\ImguiRendererFactory.cpp" />
-    <ClCompile Include="Src\IRCommon\IRGLMacroDef.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\Buffers\IndexBuffer.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\Buffers\VertexBuffer.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\DataLoadEnginePrivate.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\DataSrc\VertexArray.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\Layout\VLayoutElement.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\MatrixDataLoadEngine.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Engine\TextureDataLoadEngine.cpp" />
     <ClCompile Include="Src\IRLogiccService\ImGuiLayer.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Render\RendererEngine.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Render\TextureService.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Shader\ShaderManageGLPrivate.cpp" />
-    <ClCompile Include="Src\IRLogiccService\Shader\ShaderManager.cpp" />
     <ClCompile Include="VendorLib\Imgui\imgui.cpp" />
     <ClCompile Include="VendorLib\Imgui\imgui_demo.cpp" />
     <ClCompile Include="VendorLib\Imgui\imgui_draw.cpp" />

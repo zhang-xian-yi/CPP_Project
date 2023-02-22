@@ -13,6 +13,7 @@
 #include "LayerCommon/Src/SysEvents.h"
 #include "OpenGLWindowUI/Src/IWindow.h" 
 #include "ImguiRenderer/Src/IImguiRenderer.h"
+#include "OpenGLWindowUI/Src/IWindow.h"
 namespace AZGameMainApp
 {
 	/// <summary>
@@ -21,8 +22,7 @@ namespace AZGameMainApp
 	void MainApplication::InitApp()
 	{
 		m_bRunning = true;
-		bool ret = InitAllFunction();
-		InitOpenGLWindows();
+		InitAllFunction();
 		InitMember();
 		//注册窗口处理事件
 		EventDrivenSysNS::EventResponseFunc<bool, LayerCommonNS::WindowCloseEvent&> winCloseEvent(BIND_EVENT_FN(MainApplication::OnWindowCloseEvent));
@@ -31,27 +31,18 @@ namespace AZGameMainApp
 	}
 	void MainApplication::Run()
 	{
-		auto iIRS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_ImguiRenderer_Type);
-		auto ImguiR = iIRS.value()->ConvertType<ImguiRendererNS::IImguiRenderer*>();
-
 		while (m_bRunning)
 		{
-			//更新
+			//从底向顶开始更新
 			for (LayerCommonNS::ILayer* layer : *m_pLayersStack)
 			{
 				layer->OnUpdate();
 			}
-
-			//imgui渲染
-			ImguiR->Begin();
+			//从底向顶开始渲染
 			for (LayerCommonNS::ILayer* layer : *m_pLayersStack)
 			{
-				layer->OnImGuiRender();
+				layer->OnRender();
 			}
-			ImguiR->End();
-
-			//窗口更新
-			m_pWindow->OnUpdate();
 		}
 	}
 	/// <summary>
@@ -81,16 +72,6 @@ namespace AZGameMainApp
 		return ret;
 	}
 	/// <summary>
-	/// 初始化窗口
-	/// </summary>
-	void MainApplication::InitOpenGLWindows()
-	{
-		auto windowsService = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
-		m_pWindow = windowsService.value()->ConvertType<WindowsNS::IWindow*>();
-		m_pWindow->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));
-		m_pWindow->Show();
-	}
-	/// <summary>
 	/// 初始化陈远
 	/// </summary>
 	void MainApplication::InitMember()
@@ -98,11 +79,20 @@ namespace AZGameMainApp
 		//初始化时间服务
 		m_pEveS = new EventService();
 		m_pLayersStack = new LayersStack();
+
+		//初始化OPenGL窗口层
+		auto iOWS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
+		auto OW = iOWS.value()->ConvertType<WindowsNS::IWindow*>();
+		OW->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));//设置事件处理回调函数
+		m_pLayersStack->PushLayer(OW->GetOpenGLWindowLayer());//添加层栈
+		OW->GetOpenGLWindowLayer()->OnAttach();
+		//初始化Imgui 层
 		auto iIRS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_ImguiRenderer_Type);
 		auto IR = iIRS.value()->ConvertType<ImguiRendererNS::IImguiRenderer*>();
-		m_pLayersStack->PushLayer(IR->GetImguiRenderLayer());
+		m_pLayersStack->PushLayer(IR->GetImguiRenderLayer());//添加层栈
 		IR->GetImguiRenderLayer()->OnAttach();
 	}
+
 	/// <summary>
 	/// 初始化所有的功能模块
 	/// </summary>

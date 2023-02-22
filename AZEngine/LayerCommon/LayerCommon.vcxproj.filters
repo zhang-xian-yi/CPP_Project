@@ -42,6 +42,9 @@
     <ClInclude Include="Src\LCInterface\ILayer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Src\LCInterface\AbstractEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\SysEvents\ApplicationEvent.cpp">
