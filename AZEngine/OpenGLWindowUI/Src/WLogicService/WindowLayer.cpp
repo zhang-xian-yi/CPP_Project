@@ -23,7 +23,7 @@ namespace WindowsNS
 
 	bool WindowLayer::OnEvent(LayerCommonNS::ISysEvent& e)
 	{
-		return false;
+		return true;
 	}
 
 	void WindowLayer::OnRender()

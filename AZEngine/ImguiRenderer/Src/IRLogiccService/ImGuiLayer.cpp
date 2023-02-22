@@ -60,6 +60,7 @@ namespace ImguiRendererNS {
 
 	void ImGuiLayer::OnDetach()
 	{
+		// Cleanup
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
@@ -79,12 +80,10 @@ namespace ImguiRendererNS {
 	void ImGuiLayer::OnRender()
 	{
 		Begin();
-
-		//ImGui::Begin("NewFrame");
+		ImGui::Begin("NewFrame");
 		ImGui::Button("NewFrame");
-
-
-		//ImGui::End();
+		ImGui::Text("----------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		ImGui::End();
 		End();
 	}
 
@@ -99,7 +98,6 @@ namespace ImguiRendererNS {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
-
 	}
 
 	void ImGuiLayer::End()

@@ -29,7 +29,7 @@ namespace LayerCommonNS
 	class LayerCommonNSAPI ISysEvent
 	{
 	public:
-		bool IsHandle;// 是否被处理
+		bool IsHandle = false;// 是否被处理
 	public:
 		virtual ~ISysEvent() = default;
 		virtual ESysEventId GetEventId() const = 0;

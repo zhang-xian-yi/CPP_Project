@@ -61,12 +61,12 @@ namespace AZGameMainApp
 		//TODO 分层的事件触发 从顶层到底层遍历响应事件
 		for (auto it = m_pLayersStack->rbegin(); it != m_pLayersStack->rend(); ++it)
 		{
-			if (e.IsHandle)
+			ret = (*it)->OnEvent(e);
+			//逐层响应事件
+			if (ret)
 			{
 				break;//事件已被处理，不做其他请求
 			}
-			//逐层响应事件
-			(*it)->OnEvent(e);
 		}
 		//返回时间分发结果
 		return ret;
@@ -83,14 +83,16 @@ namespace AZGameMainApp
 		//初始化OPenGL窗口层
 		auto iOWS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_OpenGLWindow_Type);
 		auto OW = iOWS.value()->ConvertType<WindowsNS::IWindow*>();
-		OW->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));//设置事件处理回调函数
-		m_pLayersStack->PushLayer(OW->GetOpenGLWindowLayer());//添加层栈
 		OW->GetOpenGLWindowLayer()->OnAttach();
+		OW->SetEventCallback(BIND_EVENT_FN(MainApplication::OnEvent));//设置事件处理回调函数
 		//初始化Imgui 层
 		auto iIRS = MdlCommonNS::ServiceContainerSingle::GetInstance().GetModuleServiceInterface(MdlCommonNS::EModuleType::E_ImguiRenderer_Type);
 		auto IR = iIRS.value()->ConvertType<ImguiRendererNS::IImguiRenderer*>();
-		m_pLayersStack->PushLayer(IR->GetImguiRenderLayer());//添加层栈
 		IR->GetImguiRenderLayer()->OnAttach();
+
+		//确定先进后出
+		m_pLayersStack->PushLayer(OW->GetOpenGLWindowLayer());//窗口层栈底
+		m_pLayersStack->PushLayer(IR->GetImguiRenderLayer());//imgui在窗口层之上
 	}
 
 	/// <summary>
